@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write           # so the bot can commit generated content
+  issues: write             # so failures can auto-open an issue
 
 concurrency:
   group: ig-bot
