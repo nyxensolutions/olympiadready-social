@@ -1,0 +1,48 @@
+name: Refresh IG access token (weekly)
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"    # every Sunday 03:00 UTC = 08:30 IST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Refresh token
+        id: refresh
+        env:
+          IG_APP_ID:       ${{ secrets.IG_APP_ID }}
+          IG_APP_SECRET:   ${{ secrets.IG_APP_SECRET }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node poster/refresh-token.js
+      - name: Update IG_ACCESS_TOKEN secret
+        env:
+          GH_TOKEN: ${{ secrets.SECRETS_WRITE_PAT }}
+          NEW_TOKEN: ${{ steps.refresh.outputs.new_token }}
+        # SECRETS_WRITE_PAT is an optional Personal Access Token (fine-grained,
+        # repo: Secrets read+write). If you don't add it, this step is skipped
+        # and you can update the secret manually every ~50 days.
+        if: env.GH_TOKEN != '' && env.NEW_TOKEN != ''
+        run: |
+          gh secret set IG_ACCESS_TOKEN --body "$NEW_TOKEN" --repo "$GITHUB_REPOSITORY"
+          echo "IG_ACCESS_TOKEN secret rotated."
+      - name: Open issue if PAT missing
+        if: steps.refresh.outcome == 'success' && env.GH_TOKEN == ''
+        env:
+          GH_TOKEN: ${{ secrets.SECRETS_WRITE_PAT }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: "Action needed: paste refreshed IG_ACCESS_TOKEN",
+              labels: ["maintenance"],
+              body: "Token was refreshed but SECRETS_WRITE_PAT is not configured, so the new token wasn't written back automatically. Check the most recent refresh-token run logs for instructions, or add a PAT with `secrets: write` to automate this."
+            });

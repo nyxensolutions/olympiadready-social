@@ -1,0 +1,21 @@
+{
+  "name": "olympiadready-social",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Daily Instagram posting bot for @olympiad.ready — feed + Reels via Graph API",
+  "type": "commonjs",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "post:morning": "node poster/post-instagram.js morning",
+    "post:evening": "node poster/post-instagram.js evening",
+    "post:reel": "node poster/post-instagram.js reel",
+    "post:answers": "node poster/post-instagram.js noon-answers",
+    "refresh-token": "node poster/refresh-token.js",
+    "gen:quiz": "node generators/generate-quiz-image.js",
+    "gen:reel": "node generators/generate-reel.js",
+    "dry-run": "DRY_RUN=1 node poster/post-instagram.js"
+  },
+  "dependencies": {
+    "playwright": "1.49.0"
+  }
+}
