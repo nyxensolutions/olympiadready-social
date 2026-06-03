@@ -94,6 +94,22 @@ The bot **commits content back to this repo** on every run so:
 
 Commits are made by `ig-bot <bot@olympiadready.com>`.
 
+## Music in auto-generated Reels
+
+The Reel generator mixes in royalty-free background music from `assets/music/`
+(rotated by day-of-month). See `assets/music/README.md` for the four
+recommended tracks and a 5-min one-time setup.
+
+If `assets/music/` is empty, Reels are built silent — the bot keeps
+working.
+
+For your own dropped Reels, bake music in yourself before pushing — the bot
+posts those files unmodified.
+
+**Why not Instagram's music library?** Meta's Graph API doesn't expose it.
+There is no way to attach IG-licensed tracks to API-posted Reels. Post
+manually via the IG app on occasions where you want their music.
+
 ## Local development
 
 ```bash

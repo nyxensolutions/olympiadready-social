@@ -122,22 +122,53 @@ const SCENES = [
   }
   await browser.close();
 
-  // Build the MP4 via ffmpeg. Same filter graph as marketing/Videos.
+  // ── Pick a music track (if available) ────────────────────────────
+  // Looks in assets/music/ for *.mp3 / *.m4a / *.wav. Rotates by
+  // day-of-month so the same date always yields the same track (idempotent)
+  // and consecutive days vary. If the folder is empty, the Reel is built
+  // silent (matches the previous behaviour).
+  const musicDir = path.join(ROOT, "assets", "music");
+  let musicFile = null;
+  if (fs.existsSync(musicDir)) {
+    const tracks = fs.readdirSync(musicDir)
+      .filter(f => /\.(mp3|m4a|wav)$/i.test(f))
+      .sort();
+    if (tracks.length) {
+      const day = parseInt(dateStr.slice(-2), 10);
+      musicFile = path.join(musicDir, tracks[day % tracks.length]);
+      console.log(`using music: ${path.basename(musicFile)}`);
+    }
+  }
+  if (!musicFile) console.log("no music file found in assets/music/ — building silent reel");
+
+  // ── Build the MP4 via ffmpeg ─────────────────────────────────────
   const z = "z='min(zoom+0.0009\\,1.25)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'";
   const pre = `select=eq(n\\,0),scale=${W*2}:${H*2},zoompan=${z}:d=72:s=${W}x${H}:fps=30,setpts=PTS-STARTPTS`;
-  const filter = [
+
+  const videoFilter = [
     `[0:v]${pre}[v0];`,`[1:v]${pre}[v1];`,`[2:v]${pre}[v2];`,`[3:v]${pre}[v3];`,`[4:v]${pre}[v4];`,
     `[v0][v1]xfade=transition=fade:duration=0.5:offset=1.9[x1];`,
     `[x1][v2]xfade=transition=slideleft:duration=0.5:offset=3.8[x2];`,
     `[x2][v3]xfade=transition=fade:duration=0.5:offset=5.7[x3];`,
     `[x3][v4]xfade=transition=smoothup:duration=0.5:offset=7.6[v]`,
   ].join("");
+
+  // If music: input #5, trim to 10s, fade in/out 0.5s, drop to -8dB so any
+  // future voiceovers/captions remain dominant; mix down to stereo @44.1k AAC.
+  // afade duration 0.5s at start; afade out starts at 9.5s.
+  const audioFilter = musicFile
+    ? `;[5:a]atrim=0:10,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.5,afade=t=out:st=9.5:d=0.5,volume=0.40,aformat=channel_layouts=stereo:sample_rates=44100[a]`
+    : "";
+
   const filterFile = path.join(sceneDir, "filter.txt");
-  fs.writeFileSync(filterFile, filter, "utf8");
+  fs.writeFileSync(filterFile, videoFilter + audioFilter, "utf8");
 
   const out = path.join(outDir, `${dateStr}.mp4`);
-  const inputs = [1,2,3,4,5].map(i => `-loop 1 -t 2.4 -i "${path.join(sceneDir, `scene-${i}.png`)}"`).join(" ");
-  const cmd = `ffmpeg -y ${inputs} -filter_complex_script "${filterFile}" -map "[v]" -c:v libx264 -pix_fmt yuv420p -r 30 -movflags +faststart "${out}"`;
+  const sceneInputs = [1,2,3,4,5].map(i => `-loop 1 -t 2.4 -i "${path.join(sceneDir, `scene-${i}.png`)}"`).join(" ");
+  const musicInput  = musicFile ? `-i "${musicFile}"` : "";
+  const audioMap    = musicFile ? `-map "[a]" -c:a aac -b:a 128k -ar 44100` : "";
+
+  const cmd = `ffmpeg -y ${sceneInputs} ${musicInput} -filter_complex_script "${filterFile}" -map "[v]" ${audioMap} -c:v libx264 -pix_fmt yuv420p -r 30 -shortest -movflags +faststart "${out}"`;
   execSync(cmd, { stdio: "inherit" });
 
   // Cleanup intermediates
