@@ -155,12 +155,61 @@ async function runReel() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
+async function ensureDyk(dateStr, slot) {
+  const file = path.join(ROOT, "content", "dyk", `${dateStr}-${slot}.png`);
+  if (fs.existsSync(file)) { log(`using existing ${path.relative(ROOT, file)}`); return file; }
+  log(`generating ${path.relative(ROOT, file)} …`);
+  execSync(`node generators/generate-dyk-image.js ${dateStr} ${slot}`, { cwd: ROOT, stdio: "inherit" });
+  if (!fs.existsSync(file)) fail(`generator did not produce ${file}`);
+  return file;
+}
+
+async function runDykMorning() {
+  const date = istDateString();
+  const slotKey = `${date}-dyk-morning`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const img = await ensureDyk(date, "morning");
+  await commitContent(`content: DYK morning for ${date}`);
+
+  const caption = captions.buildDyk(date, "morning");
+  const url = rawUrlFor(img);
+  log(`image URL: ${url}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+  const mediaId = await postImage({ imageUrl: url, caption });
+  record({ slotKey, type: "image", igMediaId: mediaId, file: path.relative(ROOT, img) });
+  log(`✅ posted ig media ${mediaId}`);
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
+async function runDykEvening() {
+  const date = istDateString();
+  const slotKey = `${date}-dyk-evening`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const img = await ensureDyk(date, "evening");
+  await commitContent(`content: DYK evening for ${date}`);
+
+  const caption = captions.buildDyk(date, "evening");
+  const url = rawUrlFor(img);
+  log(`image URL: ${url}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+  const mediaId = await postImage({ imageUrl: url, caption });
+  record({ slotKey, type: "image", igMediaId: mediaId, file: path.relative(ROOT, img) });
+  log(`✅ posted ig media ${mediaId}`);
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
 // ── main ───────────────────────────────────────────────────────────
 const HANDLERS = {
   morning: runMorning,
   evening: runEvening,
   "noon-answers": runNoonAnswers,
   reel: runReel,
+  "dyk-morning": runDykMorning,
+  "dyk-evening": runDykEvening,
 };
 
 (async () => {

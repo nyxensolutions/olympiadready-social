@@ -12,6 +12,9 @@
     "post:answers": "node poster/post-instagram.js noon-answers",
     "refresh-token": "node poster/refresh-token.js",
     "gen:quiz": "node generators/generate-quiz-image.js",
+    "post:dyk-morning": "node poster/post-instagram.js dyk-morning",
+    "post:dyk-evening": "node poster/post-instagram.js dyk-evening",
+    "gen:dyk": "node generators/generate-dyk-image.js",
     "gen:reel": "node generators/generate-reel.js",
     "dry-run": "DRY_RUN=1 node poster/post-instagram.js"
   },

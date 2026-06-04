@@ -16,6 +16,7 @@ const ROOT = path.resolve(__dirname, "..", "..");
 const TAGS_FEED  = "#OlympiadReady #Olympiad #DailyQuiz #LearningIsFun #BrainTeaser #OnlineLearning #EdTech #QuizTime";
 const TAGS_REEL  = "#OlympiadReady #Olympiad #Reels #LearningPlatform #AILearning #UnlimitedLearning #EdTech #Shorts";
 const TAGS_ANSW  = "#OlympiadReady #Olympiad #AnswersRevealed #DailyQuiz #LearningIsFun #EdTech";
+const TAGS_DYK   = "#OlympiadReady #DidYouKnow #FunFacts #DidYouKnowFacts #AmazingFacts #LearnSomethingNew #EdTech #CuriousMind #InterestingFacts";
 
 function readJsonOrNull(p) {
   try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; }
@@ -90,4 +91,20 @@ function buildReel(dateStr) {
   return pool[day % pool.length] + "\n\n" + TAGS_REEL;
 }
 
-module.exports = { buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel, buildReel };
+function buildDyk(dateStr, slot) {
+  // slot: "morning" | "evening"
+  const override = readJsonOrNull(path.join(ROOT, "content", "dyk", `${dateStr}-${slot}.json`));
+  if (override?.caption) {
+    return override.caption + "\n\n" + (override.hashtags || TAGS_DYK);
+  }
+  const pool = [
+    "Did you know this? 🤯\n\nEvery day we share a mind-blowing fact — science, history, maths, and more.\n\nFollow so you never miss one 👆\n\nolympiadready.com — where curiosity meets practice.",
+    "Something surprising to brighten your day 💡\n\nDrop a 🤯 in the comments if this blew your mind!\n\nMore daily facts + free Olympiad practice → olympiadready.com",
+    "The world is full of amazing things 🌍\n\nShare this with a friend who'd love it 👇\n\nFree daily quizzes & mock exams → olympiadready.com",
+    "Facts that make you go WOW 😲\n\nLearning doesn't have to be boring — follow for a new fact every morning & evening!\n\nolympiadready.com",
+  ];
+  const day = parseInt(dateStr.slice(-2), 10);
+  return pool[day % pool.length] + "\n\n" + TAGS_DYK;
+}
+
+module.exports = { buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel, buildReel, buildDyk };
