@@ -19,5 +19,15 @@
     "igMediaId": "18101118377469234",
     "file": "content/quizzes/2026-06-04/evening-question.png",
     "at": "2026-06-04T14:24:35.703Z"
+  },
+  {
+    "slotKey": "2026-06-03-answers",
+    "type": "carousel",
+    "igMediaId": "18114065311883537",
+    "files": [
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-03/morning-answer.png",
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-03/evening-answer.png"
+    ],
+    "at": "2026-06-04T18:00:10.306Z"
   }
 ]
