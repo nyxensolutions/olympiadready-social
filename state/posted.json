@@ -5,5 +5,12 @@
     "igMediaId": "18092760368213847",
     "file": "content/reels/2026-06-04.mp4",
     "at": "2026-06-03T18:31:01.350Z"
+  },
+  {
+    "slotKey": "2026-06-04-morning",
+    "type": "image",
+    "igMediaId": "18027428000648527",
+    "file": "content/quizzes/2026-06-04/morning-question.png",
+    "at": "2026-06-04T05:22:16.207Z"
   }
 ]
