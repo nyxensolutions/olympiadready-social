@@ -34,7 +34,7 @@ jobs:
         env:
           IG_USER_ID:     ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          DRY_RUN:        ${{ inputs.dry_run == true && '1' || '' }}
+          DRY_RUN:        ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '' }}
         run: npm run post:morning
       - name: Open issue on failure
         if: failure()
