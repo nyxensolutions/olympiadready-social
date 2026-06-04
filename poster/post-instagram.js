@@ -121,6 +121,15 @@ async function runNoonAnswers() {
   const slotKey = `${yesterday}-answers`;
   if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
 
+  // Safety guard: only post answers if at least one of yesterday's questions
+  // was actually posted on Instagram. Prevents answering questions nobody saw.
+  const morningPosted = alreadyPosted(`${yesterday}-morning`);
+  const eveningPosted = alreadyPosted(`${yesterday}-evening`);
+  if (!morningPosted && !eveningPosted) {
+    log(`SKIPPED — neither ${yesterday}-morning nor ${yesterday}-evening was posted. No answers to reveal.`);
+    return;
+  }
+
   const a1 = await ensureQuizImage(yesterday, "morning", "answer");
   const a2 = await ensureQuizImage(yesterday, "evening", "answer");
   await commitContent(`content: answers for ${yesterday}`);

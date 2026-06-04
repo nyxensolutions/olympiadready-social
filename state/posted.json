@@ -29,5 +29,12 @@
       "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-03/evening-answer.png"
     ],
     "at": "2026-06-04T18:00:10.306Z"
+  },
+  {
+    "slotKey": "2026-06-04-answers",
+    "type": "carousel",
+    "igMediaId": "SKIPPED",
+    "note": "Skipped — Jun 4 morning question was bot-generated before import; answer image would mismatch. Jun 3 answers were incorrectly posted instead.",
+    "at": "2026-06-05T00:00:00.000Z"
   }
 ]
