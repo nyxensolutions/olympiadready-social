@@ -50,5 +50,12 @@
     "igMediaId": "18136404691500323",
     "file": "content/dyk/2026-06-05-morning.png",
     "at": "2026-06-05T09:54:23.186Z"
+  },
+  {
+    "slotKey": "2026-06-05-reel",
+    "type": "reel",
+    "igMediaId": "18102467777013124",
+    "file": "content/reels/2026-06-05.mp4",
+    "at": "2026-06-05T10:01:05.154Z"
   }
 ]
