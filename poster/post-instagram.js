@@ -62,6 +62,7 @@ function commitContent(message) {
     const changed = execSync(`git diff --cached --name-only`, { cwd: ROOT }).toString().trim();
     if (!changed) { log("no content changes to commit"); return; }
     execSync(`git -c user.name="ig-bot" -c user.email="bot@olympiadready.com" commit -m "${message}"`, { cwd: ROOT, stdio: "inherit" });
+    execSync(`git pull --rebase origin ${BRANCH}`, { cwd: ROOT, stdio: "inherit" });
     execSync(`git push origin HEAD:${BRANCH}`, { cwd: ROOT, stdio: "inherit" });
     log("pushed content to GitHub — waiting 15s for raw URLs to propagate");
     return new Promise(r => setTimeout(r, 15_000));
