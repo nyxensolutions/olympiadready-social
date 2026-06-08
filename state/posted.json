@@ -148,5 +148,15 @@
     "igMediaId": "18104712968045374",
     "file": "content/dyk/2026-06-08-morning.png",
     "at": "2026-06-08T03:26:03.767Z"
+  },
+  {
+    "slotKey": "2026-06-07-answers",
+    "type": "carousel",
+    "igMediaId": "17892093594512448",
+    "files": [
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-07/morning-answer.png",
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-07/evening-answer.png"
+    ],
+    "at": "2026-06-08T08:26:24.753Z"
   }
 ]
