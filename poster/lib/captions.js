@@ -107,4 +107,47 @@ function buildDyk(dateStr, slot) {
   return pool[day % pool.length] + "\n\n" + TAGS_DYK;
 }
 
-module.exports = { buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel, buildReel, buildDyk };
+// YouTube Shorts metadata — title + description + tags, rotates with reel script.
+// Matches the 6 reel scripts in generate-reel.js (day % 6).
+function buildYouTubeShort(dateStr) {
+  const TAGS = [
+    "OlympiadReady", "Olympiad", "Shorts", "AILearning", "EdTech",
+    "OlympiadPrep", "IMO", "NSO", "IEO", "MathOlympiad", "IndiaOlympiad",
+    "SchoolOlympiad", "FreePractice", "MockExam", "AITutor",
+  ];
+
+  const day = parseInt(dateStr.slice(-2), 10);
+  const DESC_FOOTER = `\n\n✅ Free practice tests & mock exams\n📄 Free PDF question paper downloads\n🧠 AI explanations after every answer\n🤖 AI Tutor — doubt clearing 24/7\n🏆 Badges, certificates & physical medals\n👑 Unlimited access from ₹129/mo\n\n🌐 Start free → olympiadready.com\n\n#OlympiadReady #Shorts #Olympiad #AILearning #EdTech #OlympiadPrep #FreePractice`;
+
+  const scripts = [
+    {
+      title: "Still Using Old Question Banks? Try This Instead 🚀 | OlympiadReady #Shorts",
+      description: "India's #1 AI-powered Olympiad coach. Unlimited practice questions, full mock exams, instant AI explanations, and real badges — all free to start!" + DESC_FOOTER,
+    },
+    {
+      title: "Everything Your Child Needs — Completely FREE ✅ | OlympiadReady #Shorts",
+      description: "Free practice tests, free PDF downloads, free mock exams — and unlimited everything from just ₹129/mo. No credit card needed to start!" + DESC_FOOTER,
+    },
+    {
+      title: "Is Your Child Ready for Their Olympiad? 🎯 | OlympiadReady #Shorts",
+      description: "OlympiadReady prepares students for IMO, NSO, IEO, NCO & more. AI-generated questions, printable PDFs, progress tracking and real rewards." + DESC_FOOTER,
+    },
+    {
+      title: "Meet Your AI Olympiad Tutor 🤖 — Doubts Cleared 24/7 | OlympiadReady #Shorts",
+      description: "Stuck on a problem at 11 PM? Your OlympiadReady AI Tutor explains every concept instantly — any topic, any time, step by step." + DESC_FOOTER,
+    },
+    {
+      title: "Olympiad Prep in 4 Simple Steps 🏅 | OlympiadReady #Shorts",
+      description: "Pick your Olympiad → Take a timed AI mock exam → Review with AI explanations → Track progress & earn badges. Start free today!" + DESC_FOOTER,
+    },
+    {
+      title: "From Boring PDFs to Brilliant Results ✨ | OlympiadReady #Shorts",
+      description: "Stop studying from static PDFs. OlympiadReady generates fresh, AI-powered Olympiad papers every time — no repeats, no guessing." + DESC_FOOTER,
+    },
+  ];
+
+  const s = scripts[day % scripts.length];
+  return { title: s.title, description: s.description, tags: TAGS, categoryId: "27" };
+}
+
+module.exports = { buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel, buildReel, buildDyk, buildYouTubeShort };

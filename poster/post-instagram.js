@@ -19,6 +19,7 @@ const fs   = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 const { postImage, postCarousel, postReel } = require("./lib/graph");
+const { uploadVideo } = require("./lib/youtube");
 const { istDateString, istYesterdayString } = require("./lib/dateist");
 const { alreadyPosted, record } = require("./lib/state");
 const captions = require("./lib/captions");
@@ -159,9 +160,27 @@ async function runReel() {
   log(`video URL: ${url}`);
 
   if (DRY) return log("DRY_RUN — skipping Graph API call");
+
+  // ── Instagram ──────────────────────────────────────────────────
   const mediaId = await postReel({ videoUrl: url, caption });
-  record({ slotKey, type: "reel", igMediaId: mediaId, file: path.relative(ROOT, mp4) });
   log(`✅ posted ig media ${mediaId}`);
+
+  // ── YouTube Shorts ─────────────────────────────────────────────
+  let ytVideoId = null;
+  if (process.env.YT_CLIENT_ID && process.env.YT_CLIENT_SECRET && process.env.YT_REFRESH_TOKEN) {
+    try {
+      const ytMeta = captions.buildYouTubeShort(date);
+      log(`uploading to YouTube: "${ytMeta.title}"`);
+      ytVideoId = await uploadVideo(mp4, ytMeta);
+      log(`✅ uploaded to YouTube: https://youtube.com/shorts/${ytVideoId}`);
+    } catch (e) {
+      log(`⚠️  YouTube upload failed (Instagram post succeeded): ${e.message}`);
+    }
+  } else {
+    log("YouTube secrets not set — skipping YouTube upload");
+  }
+
+  record({ slotKey, type: "reel", igMediaId: mediaId, ytVideoId, file: path.relative(ROOT, mp4) });
   await commitContent(`state: recorded ${slotKey}`);
 }
 

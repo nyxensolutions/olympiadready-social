@@ -34,9 +34,12 @@ jobs:
         run: ffmpeg -version | head -1
       - name: Post daily reel
         env:
-          IG_USER_ID:     ${{ secrets.IG_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          DRY_RUN:        ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '' }}
+          IG_USER_ID:       ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN:  ${{ secrets.IG_ACCESS_TOKEN }}
+          YT_CLIENT_ID:     ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          DRY_RUN:          ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '' }}
         run: npm run post:reel
       - name: Open issue on failure
         if: failure()
