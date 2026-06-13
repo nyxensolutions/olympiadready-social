@@ -378,5 +378,15 @@
     "ytVideoId": "28RvfukRXes",
     "file": "content/reels/2026-06-13.mp4",
     "at": "2026-06-13T05:27:31.849Z"
+  },
+  {
+    "slotKey": "2026-06-12-answers",
+    "type": "carousel",
+    "igMediaId": "17943666360216458",
+    "files": [
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-12/morning-answer.png",
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-12/evening-answer.png"
+    ],
+    "at": "2026-06-13T08:26:21.528Z"
   }
 ]
