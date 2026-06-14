@@ -424,5 +424,15 @@
     "ytVideoId": "gwEWIdlH_6I",
     "file": "content/reels/2026-06-14.mp4",
     "at": "2026-06-14T05:27:25.871Z"
+  },
+  {
+    "slotKey": "2026-06-13-answers",
+    "type": "carousel",
+    "igMediaId": "17943538059213204",
+    "files": [
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-13/morning-answer.png",
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-06-13/evening-answer.png"
+    ],
+    "at": "2026-06-14T08:26:31.249Z"
   }
 ]
