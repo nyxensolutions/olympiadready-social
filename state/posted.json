@@ -540,5 +540,12 @@
     "igMediaId": "17989986984004415",
     "file": "content/quizzes/2026-06-16/evening-question.png",
     "at": "2026-06-16T13:26:28.237Z"
+  },
+  {
+    "slotKey": "2026-06-17-dyk-evening",
+    "type": "image",
+    "igMediaId": "18118076794691191",
+    "file": "content/dyk/2026-06-17-evening.png",
+    "at": "2026-06-16T19:03:33.744Z"
   }
 ]
