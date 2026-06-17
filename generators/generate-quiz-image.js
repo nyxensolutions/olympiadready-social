@@ -22,18 +22,28 @@ if (!dateStr || !["morning","evening"].includes(slot) || !["question","answer"].
 const LETTERS = ["A","B","C","D"];
 
 const THEMES = {
-  Mathematics: { c1:"#2563EB", c2:"#1e3fae", tag:"Maths" },
-  English:     { c1:"#0EA5A4", c2:"#0b6f6e", tag:"English" },
+  Mathematics:        { c1:"#2563EB", c2:"#1e3fae", tag:"Maths" },
+  English:            { c1:"#0EA5A4", c2:"#0b6f6e", tag:"English" },
+  Science:            { c1:"#10b981", c2:"#065f46", tag:"Science" },
+  History:            { c1:"#8b5cf6", c2:"#5b21b6", tag:"History" },
+  Geography:          { c1:"#ef4444", c2:"#991b1b", tag:"Geography" },
+  "Computer Science": { c1:"#f59e0b", c2:"#92400e", tag:"CS" },
 };
 function themeOf(q) { return THEMES[q.subject] || THEMES.Mathematics; }
+
+// Morning rotates through Maths (3 days) + Science (2 days) per 5-day cycle.
+// Evening rotates through English (3 days) + History + Geography per 5-day cycle.
+const MORNING_ROTATION = ["Mathematics","Mathematics","Mathematics","Science","Science"];
+const EVENING_ROTATION = ["English","English","English","History","Geography"];
 
 // Deterministic pick: hash (date, slot) → index. Different morning/evening on the same day.
 function pickQuiz() {
   const seed = dateStr + "::" + slot;
   let h = 0;
   for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
-  // Force morning=Maths, evening=English to mirror the social plan.
-  const subjectFilter = slot === "morning" ? "Mathematics" : "English";
+  const day = parseInt(dateStr.slice(-2), 10);
+  const rotation = slot === "morning" ? MORNING_ROTATION : EVENING_ROTATION;
+  const subjectFilter = rotation[day % rotation.length];
   const pool = QUIZZES.filter(q => q.subject === subjectFilter);
   return pool[h % pool.length];
 }

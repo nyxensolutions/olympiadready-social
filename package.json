@@ -16,6 +16,8 @@
     "post:dyk-evening": "node poster/post-instagram.js dyk-evening",
     "gen:dyk": "node generators/generate-dyk-image.js",
     "gen:reel": "node generators/generate-reel.js",
+    "post:learn": "node poster/post-instagram.js learn",
+    "gen:learn": "node generators/generate-learn-image.js",
     "dry-run": "DRY_RUN=1 node poster/post-instagram.js"
   },
   "dependencies": {

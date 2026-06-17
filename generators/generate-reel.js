@@ -2,13 +2,15 @@
 // Builds a ~12s, 1080×1920 vertical MP4 Reel for a given date.
 // Usage: node generate-reel.js <YYYY-MM-DD>
 //
-// 6 rotating reel scripts, picked by day-of-month % 6:
+// 8 rotating reel scripts, picked by day-of-month % 8:
 //   0 — Platform overview      "Still using old question banks?"
 //   1 — Free vs Pro            "Start completely FREE"
 //   2 — For parents            "Is your child ready?"
 //   3 — AI Tutor               "Stuck on a problem at 11 PM?"
 //   4 — How it works           "Olympiad gold in 4 steps"
 //   5 — Problem → solution     "From boring to brilliant"
+//   6 — Score story            "Watch your score climb"
+//   7 — Subjects covered       "Every Olympiad subject in one place"
 //
 // Requires: ffmpeg on PATH, Playwright chromium installed.
 
@@ -470,8 +472,110 @@ function script5() { return [
   </div>${FOOT}`,
 ];}
 
+// Script 6 — Score story (watch your score climb)
+function script6() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">📈 Real Score Improvement</div>
+    <h1 style="font-size:90px;">Watch your<br>score <span class="g">climb</span><br>week on week.</h1>
+    <p class="sub" style="margin-top:36px;">OlympiadReady students improve<br>an average of 23% in 4 weeks.</p>
+  </div>${FOOT}`,
+  // 2 Practice
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📝 Step 1 — Practice Daily</div>
+    <h1 style="font-size:86px;margin-bottom:10px;"><span class="g">10 questions.</span><br>10 minutes.<br>Every day.</h1>
+    <p class="sub" style="font-size:25px;margin-bottom:28px;">Fresh AI-generated questions at<br>exactly your level — no repeats ever.</p>
+    ${card(SS.practice, "practice", 490)}
+  </div>${FOOT}`,
+  // 3 Mock exam + score
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📊 Step 2 — Take Mock Exams</div>
+    <h1 style="font-size:84px;margin-bottom:10px;"><span class="g">See your score</span><br>on a real<br>timed paper.</h1>
+    <p class="sub" style="font-size:25px;margin-bottom:28px;">Full 50-question papers with a countdown<br>timer — exactly like the actual Olympiad.</p>
+    ${card(SS.mock, "mock-exams", 480)}
+  </div>${FOOT}`,
+  // 4 AI Explanation
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🧠 Step 3 — Understand Every Error</div>
+    <h1 style="font-size:82px;margin-bottom:10px;">Every wrong<br>answer has<br><span class="g">a lesson.</span></h1>
+    <p class="sub" style="font-size:25px;margin-bottom:28px;">AI explains exactly WHY you got it wrong<br>— step by step, every time.</p>
+    ${card(SS.explanation, "results", 480)}
+  </div>${FOOT}`,
+  // 5 Badges / Progress
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🏆 Step 4 — Track & Earn</div>
+    <h1 style="font-size:84px;margin-bottom:10px;"><span class="g">Badges. Ranks.</span><br>Physical<br>medals.</h1>
+    <p class="sub" style="font-size:25px;margin-bottom:28px;">Earn all 18 badges → get a real Olympiad<br>medal delivered to your door 📦</p>
+    ${card(SS.badges, "dashboard", 480)}
+  </div>${FOOT}`,
+  // 6 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🚀 Start your improvement today</div>
+    <h1 style="font-size:92px;margin-bottom:32px;">Higher score.<br><span class="g">Starts here.</span></h1>
+    <div class="url-box" style="margin-bottom:28px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:26px;">Free to start · AI-powered · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 7 — Every Olympiad subject in one place
+function script7() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">📚 All Subjects. One Platform.</div>
+    <h1 style="font-size:88px;">Every Olympiad<br>subject in<br><span class="g">one place.</span></h1>
+    <p class="sub" style="margin-top:36px;">IMO. NSO. IEO. NCO. ISSO.<br>All covered. All AI-powered.</p>
+  </div>${FOOT}`,
+  // 2 Maths
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">➕ Mathematics</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Arithmetic.<br>Algebra.<br><span class="g">Geometry.</span></h1>
+    <div class="feats">
+      <div class="feat"><span class="ic">♾️</span><span>Unlimited AI-generated maths questions</span></div>
+      <div class="feat"><span class="ic">📝</span><span>Full IMO & SOF Maths mock papers</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>Step-by-step AI solutions</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Science
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">🔬 Science</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Physics.<br>Chemistry.<br><span class="g">Biology.</span></h1>
+    <div class="feats">
+      <div class="feat"><span class="ic">🧬</span><span>NSO-style Science papers for every class</span></div>
+      <div class="feat"><span class="ic">🌍</span><span>Conceptual + application questions</span></div>
+      <div class="feat"><span class="ic">💡</span><span>Instant AI explanations after every answer</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 English
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">📖 English</div>
+    <h1 style="font-size:80px;margin-bottom:28px;">Grammar.<br>Vocabulary.<br><span class="g">Comprehension.</span></h1>
+    <div class="feats">
+      <div class="feat"><span class="ic">✍️</span><span>IEO-style English papers — Class 1 to 12</span></div>
+      <div class="feat"><span class="ic">📚</span><span>Vocabulary, idioms, grammar & more</span></div>
+      <div class="feat"><span class="ic">🤖</span><span>AI explains every grammar rule</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 5 GK + CS
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">🌐 GK & Computer Science</div>
+    <h1 style="font-size:82px;margin-bottom:28px;"><span class="g">General</span><br>Knowledge<br>& Coding.</h1>
+    <div class="feats">
+      <div class="feat"><span class="ic">🌏</span><span>History, Geography, Current Affairs, GK</span></div>
+      <div class="feat"><span class="ic">💻</span><span>NCO/ISSO Computer Science papers</span></div>
+      <div class="feat"><span class="ic">🏆</span><span>All-in-one subscription — ₹129/month</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 6 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🎯 Every subject. Every class.</div>
+    <h1 style="font-size:88px;margin-bottom:32px;">One platform<br>for <span class="g">all</span> your<br>Olympiads.</h1>
+    <div class="url-box" style="margin-bottom:28px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:26px;">Free to start · No download needed</p>
+  </div>${FOOT}`,
+];}
+
 // ── Pick script by day ───────────────────────────────────────────────
-const SCRIPTS = [script0, script1, script2, script3, script4, script5];
+const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7];
 const day     = parseInt(dateStr.slice(-2), 10);
 const SCENES  = SCRIPTS[day % SCRIPTS.length]();
 console.log(`using script ${day % SCRIPTS.length} (day=${day})`);

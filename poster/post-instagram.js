@@ -231,6 +231,34 @@ async function runDykEvening() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
+async function ensureLearn(dateStr) {
+  const file = path.join(ROOT, "content", "learn", `${dateStr}.png`);
+  if (fs.existsSync(file)) { log(`using existing ${path.relative(ROOT, file)}`); return file; }
+  log(`generating ${path.relative(ROOT, file)} …`);
+  execSync(`node generators/generate-learn-image.js ${dateStr}`, { cwd: ROOT, stdio: "inherit" });
+  if (!fs.existsSync(file)) fail(`generator did not produce ${file}`);
+  return file;
+}
+
+async function runLearn() {
+  const date = istDateString();
+  const slotKey = `${date}-learn`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const img = await ensureLearn(date);
+  await commitContent(`content: learn card for ${date}`);
+
+  const caption = captions.buildLearn(date);
+  const url = rawUrlFor(img);
+  log(`image URL: ${url}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+  const mediaId = await postImage({ imageUrl: url, caption });
+  record({ slotKey, type: "image", igMediaId: mediaId, file: path.relative(ROOT, img) });
+  log(`✅ posted ig media ${mediaId}`);
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
 // ── main ───────────────────────────────────────────────────────────
 const HANDLERS = {
   morning: runMorning,
@@ -239,6 +267,7 @@ const HANDLERS = {
   reel: runReel,
   "dyk-morning": runDykMorning,
   "dyk-evening": runDykEvening,
+  learn: runLearn,
 };
 
 (async () => {

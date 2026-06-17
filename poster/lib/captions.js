@@ -17,6 +17,7 @@ const TAGS_FEED  = "#OlympiadReady #Olympiad #DailyQuiz #LearningIsFun #BrainTea
 const TAGS_REEL  = "#OlympiadReady #Olympiad #Reels #LearningPlatform #AILearning #UnlimitedLearning #EdTech #Shorts";
 const TAGS_ANSW  = "#OlympiadReady #Olympiad #AnswersRevealed #DailyQuiz #LearningIsFun #EdTech";
 const TAGS_DYK   = "#OlympiadReady #DidYouKnow #FunFacts #DidYouKnowFacts #AmazingFacts #LearnSomethingNew #EdTech #CuriousMind #InterestingFacts";
+const TAGS_LEARN = "#OlympiadReady #LearnWithOlympiadReady #DailyLearning #StudyTips #Olympiad #EdTech #KidsEducation #LearningIsFun #SchoolStudents #OlympiadPrep";
 
 function readJsonOrNull(p) {
   try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; }
@@ -150,4 +151,19 @@ function buildYouTubeShort(dateStr) {
   return { title: s.title, description: s.description, tags: TAGS, categoryId: "27" };
 }
 
-module.exports = { buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel, buildReel, buildDyk, buildYouTubeShort };
+function buildLearn(dateStr) {
+  const override = readJsonOrNull(path.join(ROOT, "content", "learn", `${dateStr}.json`));
+  if (override?.caption) {
+    return override.caption + "\n\n" + (override.hashtags || TAGS_LEARN);
+  }
+  const pool = [
+    "Level up your knowledge! 📚\n\nEvery day we share a learn card — formulas, vocabulary, science facts, history, geography & GK — everything you need for Olympiad revision.\n\nSave this card and practise more at olympiadready.com 🎯",
+    "Something to learn today 🧠\n\nOlympiadReady daily learn cards cover Maths, English, Science, History, Geography & GK — one card at a time.\n\nInfinite AI practice & mock exams → olympiadready.com",
+    "Smart revision in one card ✨\n\nSave this, share it with a classmate, and test yourself before your next exam!\n\nUnlimited Olympiad practice, free to start → olympiadready.com",
+    "Your daily brain boost 💡\n\nFollow us for a new learn card every day at 1:30 PM IST — bite-sized knowledge across all Olympiad subjects.\n\nAI-powered Olympiad prep → olympiadready.com",
+  ];
+  const day = parseInt(dateStr.slice(-2), 10);
+  return pool[day % pool.length] + "\n\n" + TAGS_LEARN;
+}
+
+module.exports = { buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel, buildReel, buildDyk, buildYouTubeShort, buildLearn };
