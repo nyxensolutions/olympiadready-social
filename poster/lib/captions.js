@@ -166,4 +166,55 @@ function buildLearn(dateStr) {
   return pool[day % pool.length] + "\n\n" + TAGS_LEARN;
 }
 
-module.exports = { buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel, buildReel, buildDyk, buildYouTubeShort, buildLearn };
+// ── Reel captions — extended pool matching 11 scripts ───────────────────────
+// Used in buildReel() pool (overrides the 4-item pool above when script >= 4).
+const REEL_POOL_EXTRA = [
+  // script 8 — free tier hook
+  "15 free Olympiad papers. No credit card. No catch. 🎁\n\nSOF-aligned practice for IMO, NSO, IEO & IGKO — Class 1–12.\nAI explains every wrong answer.\n\nSign up free → olympiadready.in",
+  // script 9 — school pilot
+  "Schools: your students deserve better than YouTube videos and old books. 🏫\n\nOlympiadReady gives your school a free pilot — unique invite code, student dashboard, school branding.\n\n9 subjects · Class 1–12 · 50,000+ questions · AI-powered.\n\nEmail us: nyxencloud@gmail.com",
+  // script 10 — comparison
+  "Private tutor: ₹6,400/month. OlympiadReady: ₹129/month. 💸\n\nUnlimited papers. 24/7 AI explanations. 50,000+ questions. 9 subjects.\n\nFirst 15 papers completely free → olympiadready.in",
+];
+
+// ── WhatsApp / parent group messages ────────────────────────────────────────
+const WHATSAPP_POSTS = {
+  // Version A — casual parent-to-parent
+  casual: `Found this app for Olympiad prep — OlympiadReady (olympiadready.in). Gives 15 free practice papers to start, no card needed. SOF-aligned for IMO/NSO/IEO, Class 1–12. AI explains every wrong answer. After the free papers it's only ₹129/subject/month. Worth trying!`,
+
+  // Version B — includes pricing comparison
+  detailed: `Sharing this for anyone whose kids are doing SOF Olympiads 👇\n\nOlympiadReady (olympiadready.in) — 15 free practice papers to start, then ₹129/subject/month. Compare that to a private tutor at ₹800/hour × 2 sessions = ₹6,400/month for just one subject.\n\nApp has 50,000+ questions, AI explanations, Class 1–12, all 9 Olympiad subjects. No credit card to start.`,
+
+  // Version C — school pilot focus
+  schoolPilot: `For school parents/coordinators — OlympiadReady is offering a free pilot for schools.\n\nSchool gets a unique invite code → students sign up free → coordinator can see who practiced & their scores.\n\n9 subjects, Class 1–12, SOF-aligned. Email nyxencloud@gmail.com to request your school's code before Olympiad season (August).`,
+};
+
+// ── Instagram captions — 5 angles ───────────────────────────────────────────
+const TAGS_FREE   = "#OlympiadReady #SOFOlympiad #IMO #NSO #IEO #FreePractice #OlympiadPrep #IndianStudents #Class1to12 #EdTech";
+const TAGS_PRICE  = "#OlympiadReady #OlympiadPrep #IndianParents #AffordableEducation #SOFOlympiad #MathOlympiad #EdTech #SmartLearning";
+const TAGS_AI     = "#OlympiadReady #AILearning #OlympiadPrep #SOFOlympiad #IndianStudents #EdTech #MathOlympiad #SmartPrep";
+const TAGS_SCHOOL = "#OlympiadReady #SchoolOlympiad #SOFOlympiad #IndianSchools #OlympiadPrep #TeacherLife #EdTech #AcademicExcellence";
+const TAGS_AUG    = "#OlympiadReady #OlympiadSeason #SOFOlympiad #IMO #NSO #IEO #OlympiadPrep #IndianStudents #MathOlympiad #AugustOlympiad";
+
+const CAPTION_ANGLES = [
+  // Angle 1 — 15 free papers
+  `15 free Olympiad practice papers. No credit card. No catch. 🎁\n\nWe believe every child deserves a shot at the gold — so we made it free to start.\n50,000+ SOF-aligned questions · AI explanations · Class 1–12.\n\nLink in bio → olympiadready.in\n\n${TAGS_FREE}`,
+
+  // Angle 2 — price comparison
+  `₹800/hour tutor × 8 sessions = ₹6,400/month for one subject. 💸\n\nOlympiadReady: ₹129/subject/month.\nUnlimited papers. 24/7 AI explanations. No fixed schedule.\n\nThe maths is simple. Try it free first → olympiadready.in\n\n${TAGS_PRICE}`,
+
+  // Angle 3 — 50,000 questions + AI
+  `50,000+ questions. AI that explains every single wrong answer. 🧠\n\nNo more guessing why you got it wrong.\nNo more staring at an answer key with no explanation.\nJust clear, step-by-step AI guidance — every time.\n\nFree to start → olympiadready.in\n\n${TAGS_AI}`,
+
+  // Angle 4 — school pilot
+  `Schools: your students can get free access to OlympiadReady. 🏫\n\nWe're partnering with schools before Olympiad season.\nYour school gets a unique invite code → students sign up free → you see their progress.\n\nEmail us: nyxencloud@gmail.com\n\n${TAGS_SCHOOL}`,
+
+  // Angle 5 — August season
+  `Olympiad registrations open in August. ⏰\n\nIs your child already practising?\nSOF Olympiads (IMO, NSO, IEO, IGKO) need consistent preparation — not last-minute cramming.\n\n15 free papers to start. No excuses. → olympiadready.in\n\n${TAGS_AUG}`,
+];
+
+module.exports = {
+  buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel,
+  buildReel, buildDyk, buildYouTubeShort, buildLearn,
+  WHATSAPP_POSTS, CAPTION_ANGLES, REEL_POOL_EXTRA,
+};

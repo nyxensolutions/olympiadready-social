@@ -2,7 +2,7 @@
 // Builds a ~12s, 1080×1920 vertical MP4 Reel for a given date.
 // Usage: node generate-reel.js <YYYY-MM-DD>
 //
-// 8 rotating reel scripts, picked by day-of-month % 8:
+// 11 rotating reel scripts, picked by day-of-month % 11:
 //   0 — Platform overview      "Still using old question banks?"
 //   1 — Free vs Pro            "Start completely FREE"
 //   2 — For parents            "Is your child ready?"
@@ -11,6 +11,9 @@
 //   5 — Problem → solution     "From boring to brilliant"
 //   6 — Score story            "Watch your score climb"
 //   7 — Subjects covered       "Every Olympiad subject in one place"
+//   8 — Free tier hook         "15 free papers. No card."
+//   9 — School pilot pitch     "Your school gets a free invite code"
+//  10 — Comparison hook        "₹6,400 vs ₹129 — the maths every parent should see"
 //
 // Requires: ffmpeg on PATH, Playwright chromium installed.
 
@@ -574,8 +577,148 @@ function script7() { return [
   </div>${FOOT}`,
 ];}
 
+// Script 8 — Free tier hook (parent audience) "15 free papers. No card."
+function script8() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🎁 100% Free to Start</div>
+    <h1 style="font-size:88px;">Your child gets<br><span class="g">15 free</span><br>Olympiad papers.</h1>
+    <p class="sub" style="margin-top:36px;">No credit card. No catch.<br>Just pure Olympiad practice.</p>
+  </div>${FOOT}`,
+  // 2 What's included
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">📚 What You Get Free</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📄</span><span>15 practice papers — any subject, any class</span></div>
+      <div class="feat"><span class="ic">🏅</span><span>SOF-aligned: IMO · NSO · IEO · IGKO</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI explains every wrong answer</span></div>
+      <div class="feat"><span class="ic">❓</span><span>50,000+ questions in the bank</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Pricing reveal
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">💰 After Your Free Papers</div>
+    <h1 style="font-size:80px;margin-bottom:16px;">Just <span class="g">₹129</span><br>per subject<br>per month.</h1>
+    <p class="sub" style="font-size:26px;">Less than <span style="text-decoration:line-through;color:#f87171;">one tutor hour</span>.<br>Unlimited papers. 24/7 AI help.</p>
+  </div>${FOOT}`,
+  // 4 SOF aligned proof
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">✅ SOF Aligned Content</div>
+    <h1 style="font-size:84px;margin-bottom:10px;">Prep that <span class="g">actually<br>matches</span><br>the exam.</h1>
+    <p class="sub" style="font-size:25px;margin-bottom:28px;">Every question mapped to SOF syllabus.<br>Class 1 to 12. All 9 subjects.</p>
+    ${card(SS.practice, "practice", 460)}
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🚀 Start Free Today</div>
+    <h1 style="font-size:90px;margin-bottom:32px;">15 free papers.<br><span class="g">Sign up now.</span></h1>
+    <div class="url-box" style="margin-bottom:28px;"><span class="globe">🌐</span> olympiadready.in</div>
+    <p class="sub" style="font-size:24px;">No credit card · Class 1–12 · All Olympiads</p>
+  </div>${FOOT}`,
+];}
+
+// Script 9 — School pilot pitch (coordinator / principal audience)
+function script9() { return [
+  // 1 Hook — the problem
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">🏫 For Schools & Coordinators</div>
+    <h1 style="font-size:84px;">Students prepping<br>with <span style="color:#f87171;">YouTube videos</span><br>&amp; old books?</h1>
+    <p class="sub" style="margin-top:32px;">There's a structured, SOF-aligned<br>solution — and it's free for your school.</p>
+  </div>${FOOT}`,
+  // 2 Solution — invite code
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:32px;">🎓 Free School Pilot</div>
+    <h1 style="font-size:82px;margin-bottom:20px;">Your school gets<br>a unique<br><span class="g">invite code.</span></h1>
+    <p class="sub" style="font-size:26px;">Students sign up, enter the code —<br>and get <span style="color:#4ade80;">free access</span> during the pilot.</p>
+  </div>${FOOT}`,
+  // 3 What students get
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📖 9 Subjects · Class 1–12</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">❓</span><span>50,000+ SOF-aligned questions</span></div>
+      <div class="feat"><span class="ic">🤖</span><span>AI-generated practice papers</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI explanations for every error</span></div>
+      <div class="feat"><span class="ic">🏆</span><span>IMO · NSO · IEO · IGKO · Spell Bee</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 Dashboard for coordinators
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📊 Coordinator Dashboard</div>
+    <h1 style="font-size:82px;margin-bottom:16px;">See who practiced.<br>See their <span class="g">scores.</span></h1>
+    <p class="sub" style="font-size:26px;margin-bottom:28px;">Your school logo appears on<br>every student's dashboard.</p>
+    ${card(SS.mock, "dashboard", 440)}
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">📧 Partner With Us</div>
+    <h1 style="font-size:80px;margin-bottom:28px;">Get your school's<br><span class="g">pilot code</span><br>before August.</h1>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num">1</div><div><div class="step-text">Email us for your code</div><div class="step-sub">nyxencloud@gmail.com</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-text">Share with your students</div><div class="step-sub">They sign up free</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-text">30-day free pilot</div><div class="step-sub">No payment needed</div></div></div>
+    </div>
+  </div>${FOOT}`,
+];}
+
+// Script 10 — Comparison hook "₹6,400 vs ₹129" (viral parent audience)
+function script10() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">💸 The Maths Every Parent Should See</div>
+    <h1 style="font-size:92px;">₹<span style="color:#f87171;text-decoration:line-through;">6,400</span><br>vs<br>₹<span class="g">129</span></h1>
+    <p class="sub" style="margin-top:28px;">Same goal: Olympiad gold medal.<br>Very different price tags.</p>
+  </div>${FOOT}`,
+  // 2 Before — tutor math
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">❌ The Old Way</div>
+    <h1 style="font-size:76px;margin-bottom:20px;">Private tutor<br>₹<span style="color:#f87171;">800/hour</span><br>× 2 sessions/week</h1>
+    <div class="feats" style="width:86%;">
+      <div class="feat"><span class="ic">📅</span><span>8 sessions/month = <span style="color:#f87171;font-weight:800;">₹6,400</span></span></div>
+      <div class="feat"><span class="ic">😴</span><span>Fixed schedule. Miss a class, pay anyway.</span></div>
+      <div class="feat"><span class="ic">📚</span><span>Limited to one subject, one tutor's style.</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 After — OlympiadReady
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">✅ The Smarter Way</div>
+    <h1 style="font-size:76px;margin-bottom:20px;">OlympiadReady<br><span class="g">₹129</span>/subject<br>per month</h1>
+    <div class="feats" style="width:86%;">
+      <div class="feat"><span class="ic">⏰</span><span>Practice anytime. 24/7. No schedule.</span></div>
+      <div class="feat"><span class="ic">❓</span><span>Unlimited papers from 50,000+ questions.</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI explains every wrong answer instantly.</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 Split reveal
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="compare">
+      <div class="col col-free">
+        <div class="col-title" style="color:#f87171;">Tutor</div>
+        <div class="col-item">₹6,400/month</div>
+        <div class="col-item">Fixed schedule</div>
+        <div class="col-item">1 subject</div>
+        <div class="col-item">No AI help</div>
+      </div>
+      <div class="col col-pro">
+        <div class="col-title" style="color:#FBB024;">OlympiadReady</div>
+        <div class="col-item"><span class="ck">✓</span>₹129/month</div>
+        <div class="col-item"><span class="ck">✓</span>Study anytime</div>
+        <div class="col-item"><span class="ck">✓</span>9 subjects</div>
+        <div class="col-item"><span class="ck">✓</span>24/7 AI tutor</div>
+        <div class="price">₹129 <span>/month</span></div>
+      </div>
+    </div>
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🎁 First 15 Papers Free</div>
+    <h1 style="font-size:86px;margin-bottom:32px;">Try it free.<br><span class="g">No card needed.</span></h1>
+    <div class="url-box" style="margin-bottom:28px;"><span class="globe">🌐</span> olympiadready.in</div>
+    <p class="sub" style="font-size:24px;">Class 1–12 · All SOF Olympiads · AI-powered</p>
+  </div>${FOOT}`,
+];}
+
 // ── Pick script by day ───────────────────────────────────────────────
-const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7];
+const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10];
 const day     = parseInt(dateStr.slice(-2), 10);
 const SCENES  = SCRIPTS[day % SCRIPTS.length]();
 console.log(`using script ${day % SCRIPTS.length} (day=${day})`);
