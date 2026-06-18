@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Renders 1080×1080 "Learn" carousel slides for Instagram.
+// Visual design matches the quiz card system (same topbar, Poppins, gradient bg).
 // Usage: node generators/generate-learn-image.js <YYYY-MM-DD>
 // Output: content/learn/<YYYY-MM-DD>-slide-1.png … -slide-N.png
 //         content/learn/<YYYY-MM-DD>-meta.json  (subject, slideCount)
@@ -23,7 +24,7 @@ function pickPack() {
   return BANK[h % BANK.length];
 }
 
-const LOGO = "data:image/png;base64," +
+const LOGO_DARK  = "data:image/png;base64," +
   fs.readFileSync(path.join(ROOT, "public", "logo.png")).toString("base64");
 
 const esc = (s) => String(s)
@@ -31,155 +32,199 @@ const esc = (s) => String(s)
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;");
 
-const ITEM_COLORS = ["#2563EB","#7c3aed","#10b981","#ef4444","#f59e0b","#06b6d4","#ec4899"];
+// Per-subject second color (dark shade of the main color)
+const SHADE = {
+  "#0EA5A4": "#0b6f6e",
+  "#2563EB": "#1e3fae",
+  "#10b981": "#065f46",
+  "#8b5cf6": "#5b21b6",
+  "#ef4444": "#991b1b",
+  "#f59e0b": "#92400e",
+};
+function shade(color) { return SHADE[color] || "#1a2a5e"; }
 
-// ── CSS shared across all slides ─────────────────────────────────────────────
-function htmlHead(color) {
+// ── Shared HTML head — quiz-card DNA ─────────────────────────────────────────
+function head(color) {
+  const c2 = shade(color);
   return `<!DOCTYPE html><html><head><meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body{background:#222;}
+
+    /* ── card shell ── */
     .card{
       width:1080px;height:1080px;position:relative;overflow:hidden;
-      display:flex;flex-direction:column;padding:62px 80px 56px;
-      font-family:'Poppins',sans-serif;color:#0B1430;
-      background:#FAFBFF;
+      display:flex;flex-direction:column;padding:68px 80px 60px;
+      background:linear-gradient(170deg,#ffffff 0%,#f3f6ff 100%);
+      color:#0B1430;
     }
-    .wm{position:absolute;bottom:-80px;right:-80px;width:560px;height:560px;opacity:.06;pointer-events:none;}
-    .topbar{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;margin-bottom:28px;}
-    .logo{height:80px;width:auto;display:block;}
-    .topright{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
-    .badge{display:inline-flex;align-items:center;padding:8px 26px;border-radius:100px;
-           font-weight:700;font-size:24px;color:#fff;letter-spacing:.3px;}
-    .slide-ctr{font-size:21px;font-weight:600;color:#9ca3af;text-align:right;}
-    .title-section{flex-shrink:0;margin-bottom:26px;}
-    .title{
-      font-family:'Poppins',sans-serif;font-weight:900;font-size:58px;
-      text-transform:uppercase;color:#0B1430;
-      white-space:nowrap;letter-spacing:-1.5px;line-height:1;
+    .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.15;
+          width:560px;height:560px;background:${color};top:-190px;right:-160px;}
+
+    /* ── topbar (quiz style) ── */
+    .topbar{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+    .wordmark{display:flex;align-items:center;gap:12px;font-weight:900;font-size:32px;letter-spacing:-1px;}
+    .wordmark img{height:52px;width:auto;display:block;}
+    .wordmark .o{color:#0B1E5B;}
+    .wordmark .r{color:#2563EB;}
+    .topright{display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+    .badge{display:inline-flex;align-items:center;padding:10px 26px;border-radius:100px;
+           font-weight:700;font-size:23px;color:#fff;background:${color};}
+    .slide-ctr{font-size:20px;font-weight:600;color:#9ca3af;}
+
+    /* ── title block ── */
+    .eyebrow{font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:3px;
+             color:${color};margin-top:32px;}
+    .title{font-size:clamp(38px,5.2vw,56px);line-height:1.08;font-weight:900;letter-spacing:-1.5px;
+           color:#0B1430;margin-top:10px;text-transform:uppercase;}
+    .divider{height:5px;border-radius:3px;width:100%;background:${color};margin-top:16px;}
+
+    /* ── content area ── */
+    .content{flex:1;display:flex;flex-direction:column;gap:0;justify-content:center;
+             padding-top:22px;}
+
+    /* ── FACTS layout ── */
+    .fact-list{display:flex;flex-direction:column;gap:16px;}
+    .fact-row{
+      display:flex;align-items:flex-start;gap:20px;
+      background:#fff;border:2px solid #e8ecf8;border-radius:20px;
+      padding:18px 26px;
     }
-    .title-bar{height:6px;border-radius:3px;margin-top:12px;width:100%;background:${color};}
-    .content{flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center;overflow:hidden;}
-    .footer{flex-shrink:0;padding-top:12px;display:flex;align-items:center;justify-content:space-between;}
-    .url{font-size:24px;font-weight:600;color:#9ca3af;}
-    .swipe{font-size:22px;font-weight:700;color:${color};}
+    .fact-icon{font-size:34px;flex:none;line-height:1.2;margin-top:2px;}
+    .fact-text{font-size:27px;font-weight:500;color:#0B1430;line-height:1.38;}
 
-    /* ── Formula rows ── */
-    .frow{display:flex;align-items:center;gap:18px;
-          background:#fff;border:2px solid #e6eaf6;border-radius:16px;padding:14px 22px;}
-    .fnum{flex:none;width:48px;height:48px;border-radius:11px;
-          display:flex;align-items:center;justify-content:center;
-          font-size:24px;font-weight:800;color:#fff;}
-    .flbl{font-size:26px;font-weight:600;color:#0B1430;flex:1;}
-    .fbox{background:#EFF4FF;border-radius:10px;
-          padding:7px 16px;font-size:23px;font-weight:700;color:#2563EB;
-          white-space:nowrap;font-family:'Courier New',monospace;}
+    /* ── VOCAB layout ── */
+    .vocab-headers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;}
+    .vh{padding:10px 16px;border-radius:14px;font-size:24px;font-weight:800;text-align:center;}
+    .vh-no{background:#fee2e2;color:#991b1b;}
+    .vh-yes{background:#dcfce7;color:#14532d;}
+    .vocab-rows{display:flex;flex-direction:column;gap:11px;}
+    .vocab-pair{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+    .vc{font-size:27px;padding:14px 20px;background:#fff;border:2px solid #e8ecf8;border-radius:14px;
+        font-weight:500;line-height:1.2;}
+    .vc-no{color:#6b7280;border-left:6px solid #fca5a5;}
+    .vc-yes{color:#065f46;font-weight:700;border-left:6px solid #4ade80;}
 
-    /* ── Vocab grid ── */
-    .vhead-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px;flex-shrink:0;}
-    .vh{padding:9px 14px;border-radius:11px;font-size:24px;font-weight:800;text-align:center;}
-    .vno-h{background:#fee2e2;color:#991b1b;}
-    .vyes-h{background:#dcfce7;color:#14532d;}
-    .vgrid{display:flex;flex-direction:column;gap:9px;}
-    .vrow{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
-    .vcell{font-size:25px;padding:11px 16px;background:#fff;border:2px solid #e6eaf6;border-radius:11px;
-           font-weight:500;line-height:1.25;}
-    .vcell-no{color:#6b7280;border-left:5px solid #fca5a5;}
-    .vcell-yes{color:#065f46;font-weight:700;border-left:5px solid #4ade80;}
+    /* ── FORMULA layout ── */
+    .formula-list{display:flex;flex-direction:column;gap:13px;}
+    .fml-row{
+      display:flex;align-items:center;gap:20px;
+      background:#fff;border:2px solid #e8ecf8;border-radius:20px;
+      padding:16px 24px;
+    }
+    .fml-num{
+      flex:none;width:50px;height:50px;border-radius:13px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:24px;font-weight:800;color:#fff;background:${color};
+    }
+    .fml-label{font-size:27px;font-weight:600;color:#0B1430;flex:1;}
+    .fml-box{
+      background:#EFF4FF;border-radius:12px;
+      padding:8px 20px;font-size:24px;font-weight:700;color:${color};
+      white-space:nowrap;font-family:'Courier New',monospace;flex:none;
+    }
 
-    /* ── Facts rows ── */
-    .fact{display:flex;align-items:flex-start;gap:16px;
-          background:#fff;border:2px solid #e6eaf6;border-radius:16px;padding:13px 20px;}
-    .ficon{font-size:30px;flex:none;line-height:1.25;}
-    .ftext{font-size:24px;font-weight:500;color:#0B1430;line-height:1.35;}
+    /* ── footer ── */
+    .footer{flex-shrink:0;padding-top:14px;display:flex;align-items:center;justify-content:space-between;}
+    .footer-url{font-size:23px;font-weight:600;color:#9ca3af;}
+    .footer-swipe{font-size:22px;font-weight:800;color:${color};}
   </style></head><body>`;
 }
 
-// ── Slide builder helpers ─────────────────────────────────────────────────────
-
-function topbar(pack, slideNum, totalSlides) {
+// ── Topbar helper ─────────────────────────────────────────────────────────────
+function topbarHtml(pack, slideNum, totalSlides) {
   return `
     <div class="topbar">
-      <img class="logo" src="${LOGO}" alt="OlympiadReady">
+      <div class="wordmark">
+        <img src="${LOGO_DARK}" alt="">
+        <span class="o">Olympiad</span><span class="r">Ready</span>
+      </div>
       <div class="topright">
-        <div class="badge" style="background:${pack.color}">${esc(pack.subject)}</div>
+        <div class="badge">${esc(pack.subject)}</div>
         <div class="slide-ctr">${slideNum} / ${totalSlides}</div>
       </div>
     </div>`;
 }
 
-function footer(pack, isLast) {
-  const right = isLast
-    ? `<div class="url">olympiadready.com</div>`
-    : `<div class="swipe">Swipe for more →</div>`;
-  return `<div class="footer"><div class="url">olympiadready.com</div>${right}</div>`;
+function titleHtml(slide, pack) {
+  const heading = esc(slide.heading).replace(/\n/g, " ");
+  return `
+    <div class="eyebrow">📖 Learn with OlympiadReady</div>
+    <div class="title">${heading}</div>
+    <div class="divider"></div>`;
 }
 
-function formulaSlide(pack, slide, slideNum, totalSlides) {
-  const title = esc(slide.heading).replace(/\n/g, " ");
-  const rows = slide.items.map((r, i) => `
-    <div class="frow">
-      <div class="fnum" style="background:${ITEM_COLORS[i % ITEM_COLORS.length]}">${r.n}</div>
-      <div class="flbl">${esc(r.label)}</div>
-      <div class="fbox">${esc(r.formula)}</div>
+function footerHtml(pack, slideNum, totalSlides) {
+  const isLast = slideNum === totalSlides;
+  if (isLast) {
+    return `<div class="footer"><div class="footer-url">olympiadready.com</div><div class="footer-url" style="color:#0B1430;font-weight:700;">Follow for daily lessons 📚</div></div>`;
+  }
+  return `<div class="footer"><div class="footer-url">olympiadready.com</div><div class="footer-swipe">Swipe for more →</div></div>`;
+}
+
+// ── Slide HTML builders ───────────────────────────────────────────────────────
+
+function factsSlide(pack, slide, slideNum, totalSlides) {
+  const items = slide.items.map(r => `
+    <div class="fact-row">
+      <span class="fact-icon">${r.icon}</span>
+      <span class="fact-text">${esc(r.text)}</span>
     </div>`).join("");
-  return `${htmlHead(pack.color)}
+
+  return `${head(pack.color)}
   <div class="card">
-    <img class="wm" src="${LOGO}" alt="">
-    ${topbar(pack, slideNum, totalSlides)}
-    <div class="title-section">
-      <div class="title">${title}</div>
-      <div class="title-bar"></div>
+    <div class="blob"></div>
+    ${topbarHtml(pack, slideNum, totalSlides)}
+    ${titleHtml(slide, pack)}
+    <div class="content">
+      <div class="fact-list">${items}</div>
     </div>
-    <div class="content">${rows}</div>
-    ${footer(pack, slideNum === totalSlides)}
+    ${footerHtml(pack, slideNum, totalSlides)}
   </div></body></html>`;
 }
 
 function vocabSlide(pack, slide, slideNum, totalSlides) {
-  const title = esc(slide.heading).replace(/\n/g, " ");
-  const rows = slide.items.map(r => `
-    <div class="vrow">
-      <div class="vcell vcell-no">${esc(r.wrong)}</div>
-      <div class="vcell vcell-yes">${esc(r.right)}</div>
+  const pairs = slide.items.map(r => `
+    <div class="vocab-pair">
+      <div class="vc vc-no">${esc(r.wrong)}</div>
+      <div class="vc vc-yes">${esc(r.right)}</div>
     </div>`).join("");
-  return `${htmlHead(pack.color)}
+
+  return `${head(pack.color)}
   <div class="card">
-    <img class="wm" src="${LOGO}" alt="">
-    ${topbar(pack, slideNum, totalSlides)}
-    <div class="title-section">
-      <div class="title">${title}</div>
-      <div class="title-bar"></div>
-    </div>
+    <div class="blob"></div>
+    ${topbarHtml(pack, slideNum, totalSlides)}
+    ${titleHtml(slide, pack)}
     <div class="content">
-      <div class="vhead-row">
-        <div class="vh vno-h">❌ Don't Say</div>
-        <div class="vh vyes-h">✓ Say This</div>
+      <div class="vocab-headers">
+        <div class="vh vh-no">❌ Don't Say</div>
+        <div class="vh vh-yes">✓ Say This</div>
       </div>
-      <div class="vgrid">${rows}</div>
+      <div class="vocab-rows">${pairs}</div>
     </div>
-    ${footer(pack, slideNum === totalSlides)}
+    ${footerHtml(pack, slideNum, totalSlides)}
   </div></body></html>`;
 }
 
-function factsSlide(pack, slide, slideNum, totalSlides) {
-  const title = esc(slide.heading).replace(/\n/g, " ");
-  const rows = slide.items.map(r => `
-    <div class="fact">
-      <span class="ficon">${r.icon}</span>
-      <span class="ftext">${esc(r.text)}</span>
+function formulaSlide(pack, slide, slideNum, totalSlides) {
+  const NUM_COLORS = ["#2563EB","#7c3aed","#10b981","#ef4444","#f59e0b","#06b6d4","#ec4899"];
+  const rows = slide.items.map((r, i) => `
+    <div class="fml-row">
+      <div class="fml-num" style="background:${NUM_COLORS[i % NUM_COLORS.length]}">${r.n}</div>
+      <div class="fml-label">${esc(r.label)}</div>
+      <div class="fml-box">${esc(r.formula)}</div>
     </div>`).join("");
-  return `${htmlHead(pack.color)}
+
+  return `${head(pack.color)}
   <div class="card">
-    <img class="wm" src="${LOGO}" alt="">
-    ${topbar(pack, slideNum, totalSlides)}
-    <div class="title-section">
-      <div class="title">${title}</div>
-      <div class="title-bar"></div>
+    <div class="blob"></div>
+    ${topbarHtml(pack, slideNum, totalSlides)}
+    ${titleHtml(slide, pack)}
+    <div class="content">
+      <div class="formula-list">${rows}</div>
     </div>
-    <div class="content">${rows}</div>
-    ${footer(pack, slideNum === totalSlides)}
+    ${footerHtml(pack, slideNum, totalSlides)}
   </div></body></html>`;
 }
 
@@ -191,7 +236,7 @@ function buildSlideHtml(pack, slide, slideNum, totalSlides) {
 
 // ── Main ─────────────────────────────────────────────────────────────────────
 (async () => {
-  const pack = pickPack();
+  const pack  = pickPack();
   const total = pack.slides.length;
   console.log(`[learn] ${pack.id}: ${pack.subject} — ${total} slides`);
 
@@ -199,12 +244,11 @@ function buildSlideHtml(pack, slide, slideNum, totalSlides) {
   fs.mkdirSync(outDir, { recursive: true });
 
   const browser = await chromium.launch();
-  const outPaths = [];
 
   for (let i = 0; i < total; i++) {
     const slideNum = i + 1;
-    const slide = pack.slides[i];
-    const html  = buildSlideHtml(pack, slide, slideNum, total);
+    const slide    = pack.slides[i];
+    const html     = buildSlideHtml(pack, slide, slideNum, total);
 
     const page = await browser.newPage({
       viewport: { width: 1080, height: 1080 },
@@ -216,14 +260,11 @@ function buildSlideHtml(pack, slide, slideNum, totalSlides) {
     const outFile = path.join(outDir, `${dateStr}-slide-${slideNum}.png`);
     await page.screenshot({ path: outFile, clip: { x:0, y:0, width:1080, height:1080 } });
     await page.close();
-
-    outPaths.push(outFile);
-    console.log(`  wrote slide ${slideNum}/${total}: ${path.relative(ROOT, outFile)}`);
+    console.log(`  slide ${slideNum}/${total}: ${path.relative(ROOT, outFile)}`);
   }
 
   await browser.close();
 
-  // Write meta so the poster knows subject and slide count without re-parsing the bank
   const meta = { subject: pack.subject, color: pack.color, slideCount: total };
   fs.writeFileSync(path.join(outDir, `${dateStr}-meta.json`), JSON.stringify(meta, null, 2));
   console.log(`[learn] done — ${total} slides for ${pack.subject}`);
