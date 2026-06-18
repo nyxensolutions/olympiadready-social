@@ -151,16 +151,17 @@ function buildYouTubeShort(dateStr) {
   return { title: s.title, description: s.description, tags: TAGS, categoryId: "27" };
 }
 
-function buildLearn(dateStr) {
+function buildLearn(dateStr, subject) {
   const override = readJsonOrNull(path.join(ROOT, "content", "learn", `${dateStr}.json`));
   if (override?.caption) {
     return override.caption + "\n\n" + (override.hashtags || TAGS_LEARN);
   }
+  const subjectLine = subject ? `Today's subject: ${subject} 📖\n\n` : "";
   const pool = [
-    "Level up your knowledge! 📚\n\nEvery day we share a learn card — formulas, vocabulary, science facts, history, geography & GK — everything you need for Olympiad revision.\n\nSave this card and practise more at olympiadready.com 🎯",
-    "Something to learn today 🧠\n\nOlympiadReady daily learn cards cover Maths, English, Science, History, Geography & GK — one card at a time.\n\nInfinite AI practice & mock exams → olympiadready.com",
-    "Smart revision in one card ✨\n\nSave this, share it with a classmate, and test yourself before your next exam!\n\nUnlimited Olympiad practice, free to start → olympiadready.com",
-    "Your daily brain boost 💡\n\nFollow us for a new learn card every day at 1:30 PM IST — bite-sized knowledge across all Olympiad subjects.\n\nAI-powered Olympiad prep → olympiadready.com",
+    `${subjectLine}Swipe through today's carousel and level up your Olympiad knowledge! 🧠\n\nSave this for quick revision before your next exam.\n\nUnlimited AI practice → olympiadready.com 🎯`,
+    `${subjectLine}Your daily bite-sized learning carousel is here! 📚\n\nSwipe through all the slides — great for last-minute revision.\n\nFree practice, all subjects → olympiadready.com`,
+    `${subjectLine}Smart revision in a carousel ✨\n\nSwipe → to see all the slides. Share it with a classmate who needs this!\n\nUnlimited Olympiad practice, free to start → olympiadready.com`,
+    `${subjectLine}Follow us for a new learn carousel every afternoon at 1:30 PM IST 💡\n\nBite-sized knowledge across all Olympiad subjects — swipe and learn!\n\nAI-powered Olympiad prep → olympiadready.com`,
   ];
   const day = parseInt(dateStr.slice(-2), 10);
   return pool[day % pool.length] + "\n\n" + TAGS_LEARN;

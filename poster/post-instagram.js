@@ -231,13 +231,24 @@ async function runDykEvening() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
-async function ensureLearn(dateStr) {
-  const file = path.join(ROOT, "content", "learn", `${dateStr}.png`);
-  if (fs.existsSync(file)) { log(`using existing ${path.relative(ROOT, file)}`); return file; }
-  log(`generating ${path.relative(ROOT, file)} …`);
-  execSync(`node generators/generate-learn-image.js ${dateStr}`, { cwd: ROOT, stdio: "inherit" });
-  if (!fs.existsSync(file)) fail(`generator did not produce ${file}`);
-  return file;
+async function ensureLearnSlides(dateStr) {
+  const metaFile = path.join(ROOT, "content", "learn", `${dateStr}-meta.json`);
+  const slide1   = path.join(ROOT, "content", "learn", `${dateStr}-slide-1.png`);
+  if (fs.existsSync(metaFile) && fs.existsSync(slide1)) {
+    log(`using existing learn slides for ${dateStr}`);
+  } else {
+    log(`generating learn carousel for ${dateStr} …`);
+    execSync(`node generators/generate-learn-image.js ${dateStr}`, { cwd: ROOT, stdio: "inherit" });
+    if (!fs.existsSync(metaFile)) fail(`generator did not produce meta file ${metaFile}`);
+  }
+  const meta = JSON.parse(fs.readFileSync(metaFile, "utf8"));
+  const slidePaths = [];
+  for (let i = 1; i <= meta.slideCount; i++) {
+    const f = path.join(ROOT, "content", "learn", `${dateStr}-slide-${i}.png`);
+    if (!fs.existsSync(f)) fail(`missing slide ${i}: ${f}`);
+    slidePaths.push(f);
+  }
+  return { slidePaths, meta };
 }
 
 async function runLearn() {
@@ -245,16 +256,17 @@ async function runLearn() {
   const slotKey = `${date}-learn`;
   if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
 
-  const img = await ensureLearn(date);
-  await commitContent(`content: learn card for ${date}`);
+  const { slidePaths, meta } = await ensureLearnSlides(date);
+  await commitContent(`content: learn carousel (${meta.subject}, ${meta.slideCount} slides) for ${date}`);
 
-  const caption = captions.buildLearn(date);
-  const url = rawUrlFor(img);
-  log(`image URL: ${url}`);
+  const caption = captions.buildLearn(date, meta.subject);
+  const urls = slidePaths.map(rawUrlFor);
+  log(`carousel URLs (${urls.length} slides):\n  ${urls.join("\n  ")}`);
 
   if (DRY) return log("DRY_RUN — skipping Graph API call");
-  const mediaId = await postImage({ imageUrl: url, caption });
-  record({ slotKey, type: "image", igMediaId: mediaId, file: path.relative(ROOT, img) });
+  const mediaId = await postCarousel({ imageUrls: urls, caption });
+  record({ slotKey, type: "carousel", igMediaId: mediaId, subject: meta.subject,
+           files: slidePaths.map(f => path.relative(ROOT, f)) });
   log(`✅ posted ig media ${mediaId}`);
   await commitContent(`state: recorded ${slotKey}`);
 }

@@ -1,771 +1,991 @@
 /**
- * Content bank for daily "Learn" Instagram cards.
- * Each entry is one 1080×1080 card posted once per day.
+ * Learn Carousel Bank — each entry is one daily carousel (3–5 slides).
+ * Picked deterministically by date → same date always shows same carousel.
  *
- * Types:
- *   "formula" – numbered rows: { n, label, formula }
- *   "vocab"   – 2-column comparison: { wrong, right }
- *   "facts"   – emoji bullet list: { icon, text }
+ * Pack structure:
+ *   { id, subject, color, slides: [ { type, heading, items[] }, … ] }
  *
- * Subjects: Mathematics | English | Science | GK | History | Geography
+ * Slide types:
+ *   "facts"   — items: { icon, text }
+ *   "vocab"   — items: { wrong, right }
+ *   "formula" — items: { n, label, formula }
  */
+
 module.exports = [
 
-  // ── Mathematics ─────────────────────────────────────────────────────────
-  { id:"ml-m-001", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"PERCENTAGE\nFORMULAS",
-    items:[
-      { n:1, label:"% of a number", formula:"(x ÷ 100) × n" },
-      { n:2, label:"% increase", formula:"(diff ÷ orig) × 100" },
-      { n:3, label:"After x% increase", formula:"n × (1 + x/100)" },
-      { n:4, label:"After x% decrease", formula:"n × (1 − x/100)" },
-      { n:5, label:"x is what % of y?", formula:"(x ÷ y) × 100" },
-      { n:6, label:"Find original value", formula:"val ÷ (1 ± x/100)" },
-    ]},
-
-  { id:"ml-m-002", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"AREA\nFORMULAS",
-    items:[
-      { n:1, label:"Square", formula:"side²" },
-      { n:2, label:"Rectangle", formula:"length × width" },
-      { n:3, label:"Triangle", formula:"(base × height) ÷ 2" },
-      { n:4, label:"Circle", formula:"π × radius²" },
-      { n:5, label:"Parallelogram", formula:"base × height" },
-      { n:6, label:"Trapezium", formula:"½ × (a + b) × h" },
-    ]},
-
-  { id:"ml-m-003", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"PERIMETER\nFORMULAS",
-    items:[
-      { n:1, label:"Square", formula:"4 × side" },
-      { n:2, label:"Rectangle", formula:"2 × (l + w)" },
-      { n:3, label:"Triangle", formula:"a + b + c" },
-      { n:4, label:"Circle (Circumference)", formula:"2 × π × r" },
-      { n:5, label:"Parallelogram", formula:"2 × (a + b)" },
-      { n:6, label:"Rhombus", formula:"4 × side" },
-    ]},
-
-  { id:"ml-m-004", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"PROFIT & LOSS\nFORMULAS",
-    items:[
-      { n:1, label:"Profit", formula:"SP − CP" },
-      { n:2, label:"Loss", formula:"CP − SP" },
-      { n:3, label:"Profit %", formula:"(Profit ÷ CP) × 100" },
-      { n:4, label:"Loss %", formula:"(Loss ÷ CP) × 100" },
-      { n:5, label:"SP (with profit)", formula:"CP × (1 + P/100)" },
-      { n:6, label:"SP (with loss)", formula:"CP × (1 − L/100)" },
-    ]},
-
-  { id:"ml-m-005", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"SIMPLE &\nCOMPOUND INTEREST",
-    items:[
-      { n:1, label:"Simple Interest", formula:"(P × R × T) ÷ 100" },
-      { n:2, label:"Amount (SI)", formula:"P + SI" },
-      { n:3, label:"Compound Interest", formula:"P(1 + R/100)ⁿ − P" },
-      { n:4, label:"Amount (CI)", formula:"P × (1 + R/100)ⁿ" },
-      { n:5, label:"Rate (SI)", formula:"(SI × 100) ÷ (P × T)" },
-      { n:6, label:"Time (SI)", formula:"(SI × 100) ÷ (P × R)" },
-    ]},
-
-  { id:"ml-m-006", subject:"Mathematics", type:"facts", color:"#2563EB",
-    heading:"DIVISIBILITY\nRULES",
-    items:[
-      { icon:"⚡", text:"÷ 2: last digit is even (0,2,4,6,8)" },
-      { icon:"⚡", text:"÷ 3: sum of all digits divisible by 3 (e.g. 123 → 6 ✓)" },
-      { icon:"⚡", text:"÷ 4: last two digits divisible by 4 (e.g. 132 → 32 ÷ 4 ✓)" },
-      { icon:"⚡", text:"÷ 5: last digit is 0 or 5" },
-      { icon:"⚡", text:"÷ 6: divisible by both 2 AND 3" },
-      { icon:"⚡", text:"÷ 9: sum of all digits divisible by 9 (e.g. 729 → 18 ✓)" },
-      { icon:"⚡", text:"÷ 11: alternate digit difference = 0 or 11" },
-    ]},
-
-  { id:"ml-m-007", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"VOLUME\nFORMULAS",
-    items:[
-      { n:1, label:"Cube", formula:"side³" },
-      { n:2, label:"Cuboid", formula:"l × w × h" },
-      { n:3, label:"Cylinder", formula:"π × r² × h" },
-      { n:4, label:"Cone", formula:"(1/3) × π × r² × h" },
-      { n:5, label:"Sphere", formula:"(4/3) × π × r³" },
-      { n:6, label:"Hemisphere", formula:"(2/3) × π × r³" },
-    ]},
-
-  { id:"ml-m-008", subject:"Mathematics", type:"facts", color:"#2563EB",
-    heading:"SQUARE ROOTS\nTO MEMORISE",
-    items:[
-      { icon:"√", text:"√4 = 2    √9 = 3    √16 = 4    √25 = 5" },
-      { icon:"√", text:"√36 = 6    √49 = 7    √64 = 8    √81 = 9" },
-      { icon:"√", text:"√100 = 10    √121 = 11    √144 = 12" },
-      { icon:"√", text:"√169 = 13    √196 = 14    √225 = 15" },
-      { icon:"√", text:"√256 = 16    √289 = 17    √324 = 18" },
-      { icon:"√", text:"√361 = 19    √400 = 20    √625 = 25" },
-    ]},
-
-  { id:"ml-m-009", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"SPEED, DISTANCE\n& TIME",
-    items:[
-      { n:1, label:"Speed", formula:"Distance ÷ Time" },
-      { n:2, label:"Distance", formula:"Speed × Time" },
-      { n:3, label:"Time", formula:"Distance ÷ Speed" },
-      { n:4, label:"Average Speed", formula:"Total Dist ÷ Total Time" },
-      { n:5, label:"km/h → m/s", formula:"× 5/18" },
-      { n:6, label:"m/s → km/h", formula:"× 18/5" },
-    ]},
-
-  { id:"ml-m-010", subject:"Mathematics", type:"facts", color:"#2563EB",
-    heading:"ANGLES &\nTRIANGLES",
-    items:[
-      { icon:"📐", text:"Sum of angles in a triangle = 180°" },
-      { icon:"📐", text:"Sum of angles in a quadrilateral = 360°" },
-      { icon:"📐", text:"Sum of interior angles of n-gon = (n−2) × 180°" },
-      { icon:"📐", text:"Exterior angle = sum of two non-adjacent interior angles" },
-      { icon:"📐", text:"Equilateral triangle: all sides equal, all angles = 60°" },
-      { icon:"📐", text:"Pythagorean triples to know: 3-4-5, 5-12-13, 8-15-17" },
-    ]},
-
-  { id:"ml-m-011", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"ALGEBRAIC\nIDENTITIES",
-    items:[
-      { n:1, label:"(a+b)²", formula:"a² + 2ab + b²" },
-      { n:2, label:"(a−b)²", formula:"a² − 2ab + b²" },
-      { n:3, label:"(a+b)(a−b)", formula:"a² − b²" },
-      { n:4, label:"(a+b)³", formula:"a³ + 3a²b + 3ab² + b³" },
-      { n:5, label:"a³ + b³", formula:"(a+b)(a² − ab + b²)" },
-      { n:6, label:"a³ − b³", formula:"(a−b)(a² + ab + b²)" },
-    ]},
-
-  { id:"ml-m-012", subject:"Mathematics", type:"facts", color:"#2563EB",
-    heading:"MULTIPLICATION\nTRICKS",
-    items:[
-      { icon:"⚡", text:"× 9: multiply by 10, subtract the number (46×9 = 460−46 = 414)" },
-      { icon:"⚡", text:"× 11: sum adjacent digits, place between (27×11 = 2, 9, 7 = 297)" },
-      { icon:"⚡", text:"× 25: divide by 4, then × 100 (48×25 = 12×100 = 1200)" },
-      { icon:"⚡", text:"× 5: multiply by 10, then halve (46×5 = 460÷2 = 230)" },
-      { icon:"⚡", text:"× 12: × 10 + double the number (8×12 = 80+16 = 96)" },
-      { icon:"⚡", text:"Squaring 5s: 35² = 3×4 then 25 → 1225 (always ends in 25)" },
-    ]},
-
-  { id:"ml-m-013", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"HCF & LCM\nQUICK RULES",
-    items:[
-      { n:1, label:"HCF", formula:"Highest Common Factor" },
-      { n:2, label:"LCM", formula:"Lowest Common Multiple" },
-      { n:3, label:"Key relation", formula:"HCF × LCM = a × b" },
-      { n:4, label:"HCF method", formula:"Prime factors — lowest powers" },
-      { n:5, label:"LCM method", formula:"Prime factors — highest powers" },
-      { n:6, label:"Co-prime numbers", formula:"Two numbers with HCF = 1" },
-    ]},
-
-  { id:"ml-m-014", subject:"Mathematics", type:"formula", color:"#2563EB",
-    heading:"RATIO &\nPROPORTION",
-    items:[
-      { n:1, label:"Ratio a : b", formula:"a ÷ b (simplify by HCF)" },
-      { n:2, label:"Equivalent ratio", formula:"a:b = ka:kb" },
-      { n:3, label:"Proportion (cross-mult)", formula:"a×d = b×c" },
-      { n:4, label:"Mean proportion", formula:"b² = a × c → b = √(ac)" },
-      { n:5, label:"Direct proportion", formula:"y ∝ x → y = kx" },
-      { n:6, label:"Inverse proportion", formula:"y ∝ 1/x → xy = k" },
-    ]},
-
-  { id:"ml-m-015", subject:"Mathematics", type:"facts", color:"#2563EB",
-    heading:"PRIME NUMBER\nFACTS",
-    items:[
-      { icon:"🔢", text:"2 is the ONLY even prime number" },
-      { icon:"🔢", text:"1 is NOT prime — primes need exactly 2 factors" },
-      { icon:"🔢", text:"Primes up to 30: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29" },
-      { icon:"🔢", text:"To test if n is prime: check divisors only up to √n" },
-      { icon:"🔢", text:"Twin primes: pairs differing by 2 (11 & 13, 17 & 19, 29 & 31)" },
-      { icon:"🔢", text:"Every even number > 2 = sum of two primes (Goldbach's conjecture)" },
-    ]},
-
-  // ── English ─────────────────────────────────────────────────────────────
-  { id:"ml-e-001", subject:"English", type:"vocab", color:"#0EA5A4",
-    heading:"UPGRADE YOUR\nVOCABULARY",
-    items:[
-      { wrong:"Very tired", right:"Exhausted" },
-      { wrong:"Very happy", right:"Elated" },
-      { wrong:"Very sad", right:"Devastated" },
-      { wrong:"Very angry", right:"Furious" },
-      { wrong:"Very scared", right:"Terrified" },
-      { wrong:"Very hungry", right:"Famished" },
-      { wrong:"Very smart", right:"Brilliant" },
-    ]},
-
-  { id:"ml-e-002", subject:"English", type:"vocab", color:"#0EA5A4",
-    heading:"POWER WORDS\nVOCABULARY",
-    items:[
-      { wrong:"Very big", right:"Enormous" },
-      { wrong:"Very small", right:"Minute/Tiny" },
-      { wrong:"Very fast", right:"Rapid/Swift" },
-      { wrong:"Very slow", right:"Sluggish" },
-      { wrong:"Very cold", right:"Freezing" },
-      { wrong:"Very hot", right:"Scorching" },
-      { wrong:"Very good", right:"Exceptional" },
-    ]},
-
-  { id:"ml-e-003", subject:"English", type:"vocab", color:"#0EA5A4",
-    heading:"PRECISE WORDS\nVOCABULARY",
-    items:[
-      { wrong:"Very bad", right:"Terrible/Awful" },
-      { wrong:"Very beautiful", right:"Stunning" },
-      { wrong:"Very dirty", right:"Filthy" },
-      { wrong:"Very clean", right:"Spotless/Pristine" },
-      { wrong:"Very loud", right:"Deafening" },
-      { wrong:"Very quiet", right:"Silent/Hushed" },
-      { wrong:"Very old", right:"Ancient/Antique" },
-    ]},
-
-  { id:"ml-e-004", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"ITS vs IT'S\n& THEIR TRAPS",
-    items:[
-      { icon:"✓", text:"it's = it is / it has → It's raining outside." },
-      { icon:"✓", text:"its = belonging to it → The cat licked its paw." },
-      { icon:"✓", text:"your = belonging to you → Is that your book?" },
-      { icon:"✓", text:"you're = you are → You're doing great!" },
-      { icon:"✓", text:"their = belonging to them → Their house is big." },
-      { icon:"✓", text:"there = a place → Put it over there." },
-      { icon:"✓", text:"they're = they are → They're coming soon." },
-    ]},
-
-  { id:"ml-e-005", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"PREFIXES\nTO KNOW",
-    items:[
-      { icon:"📚", text:"UN- = not → unhappy, unkind, unusual" },
-      { icon:"📚", text:"MIS- = wrongly → misuse, misread, misunderstand" },
-      { icon:"📚", text:"PRE- = before → preview, predict, prehistoric" },
-      { icon:"📚", text:"RE- = again → rewrite, redo, revisit" },
-      { icon:"📚", text:"DIS- = not/opposite → disagree, dishonest, dislike" },
-      { icon:"📚", text:"INTER- = between → international, interrupt" },
-      { icon:"📚", text:"OVER- = too much → overflow, overdo, overload" },
-    ]},
-
-  { id:"ml-e-006", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"SUFFIXES\nTO KNOW",
-    items:[
-      { icon:"📚", text:"-FUL = full of → hopeful, beautiful, peaceful" },
-      { icon:"📚", text:"-LESS = without → helpless, careless, homeless" },
-      { icon:"📚", text:"-TION = the act of → education, creation, solution" },
-      { icon:"📚", text:"-ER / -OR = one who does → teacher, actor" },
-      { icon:"📚", text:"-MENT = state of → enjoyment, improvement" },
-      { icon:"📚", text:"-ABLE = capable of → readable, lovable, flexible" },
-      { icon:"📚", text:"-LY = in a way → quickly, gently, honestly" },
-    ]},
-
-  { id:"ml-e-007", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"SIMILE vs\nMETAPHOR",
-    items:[
-      { icon:"🔍", text:"SIMILE: comparison using 'like' or 'as'" },
-      { icon:"🔍", text:"She runs like the wind. (simile)" },
-      { icon:"🔍", text:"His voice was as smooth as velvet. (simile)" },
-      { icon:"🔍", text:"METAPHOR: direct comparison — no like/as" },
-      { icon:"🔍", text:"He is a lion on the field. (metaphor)" },
-      { icon:"🔍", text:"Life is a rollercoaster. (metaphor)" },
-      { icon:"🔍", text:"RULE → simile uses 'like/as'; metaphor says 'IS'" },
-    ]},
-
-  { id:"ml-e-008", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"ACTIVE vs\nPASSIVE VOICE",
-    items:[
-      { icon:"✏️", text:"ACTIVE: subject performs the action" },
-      { icon:"✏️", text:"She baked the cake. (active)" },
-      { icon:"✏️", text:"PASSIVE: subject receives the action" },
-      { icon:"✏️", text:"The cake was baked by her. (passive)" },
-      { icon:"✏️", text:"Formula: Object + was/were + past participle + by + subject" },
-      { icon:"✏️", text:"The letter was written by Rahul. (passive)" },
-      { icon:"✏️", text:"TIP: look for 'was/were + past participle' → passive voice" },
-    ]},
-
-  { id:"ml-e-009", subject:"English", type:"vocab", color:"#0EA5A4",
-    heading:"EMOTIONS\nVOCABULARY",
-    items:[
-      { wrong:"Very worried", right:"Anxious" },
-      { wrong:"Very pleased", right:"Delighted" },
-      { wrong:"Very surprised", right:"Astonished" },
-      { wrong:"Very shy", right:"Timid/Bashful" },
-      { wrong:"Very brave", right:"Courageous" },
-      { wrong:"Very sorry", right:"Remorseful" },
-      { wrong:"Very confused", right:"Bewildered" },
-    ]},
-
-  { id:"ml-e-010", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"TENSES\nAT A GLANCE",
-    items:[
-      { icon:"⏰", text:"SIMPLE PRESENT: I eat / She eats (habit/truth)" },
-      { icon:"⏰", text:"PRESENT CONTINUOUS: I am eating (happening now)" },
-      { icon:"⏰", text:"SIMPLE PAST: I ate / She ate (completed action)" },
-      { icon:"⏰", text:"PAST CONTINUOUS: I was eating (ongoing in past)" },
-      { icon:"⏰", text:"SIMPLE FUTURE: I will eat (will happen)" },
-      { icon:"⏰", text:"PRESENT PERFECT: I have eaten (recently completed)" },
-      { icon:"⏰", text:"PAST PERFECT: I had eaten (before another past event)" },
-    ]},
-
-  { id:"ml-e-011", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"IDIOMS\nYOU MUST KNOW",
-    items:[
-      { icon:"💬", text:"Once in a blue moon = very rarely" },
-      { icon:"💬", text:"Break a leg = good luck" },
-      { icon:"💬", text:"Hit the nail on the head = exactly right" },
-      { icon:"💬", text:"Bite off more than you can chew = attempt too much" },
-      { icon:"💬", text:"Let the cat out of the bag = reveal a secret" },
-      { icon:"💬", text:"Under the weather = feeling unwell" },
-      { icon:"💬", text:"A blessing in disguise = a good thing that seemed bad" },
-    ]},
-
-  { id:"ml-e-012", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"FIGURES OF\nSPEECH",
-    items:[
-      { icon:"📖", text:"ALLITERATION: repeated consonant sounds → Peter Piper picked peppers" },
-      { icon:"📖", text:"PERSONIFICATION: giving human traits to non-humans → The stars danced" },
-      { icon:"📖", text:"ONOMATOPOEIA: words that sound like what they describe → buzz, crash" },
-      { icon:"📖", text:"HYPERBOLE: extreme exaggeration → I've told you a million times!" },
-      { icon:"📖", text:"OXYMORON: contradictory words together → bittersweet" },
-      { icon:"📖", text:"IRONY: saying the opposite of what you mean" },
-    ]},
-
-  { id:"ml-e-013", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"PARTS OF\nSPEECH",
-    items:[
-      { icon:"🗂️", text:"NOUN: naming word → Riya, school, happiness" },
-      { icon:"🗂️", text:"PRONOUN: replaces noun → he, she, they, it, we" },
-      { icon:"🗂️", text:"VERB: action/being word → run, think, is, was" },
-      { icon:"🗂️", text:"ADJECTIVE: describes a noun → tall, red, clever" },
-      { icon:"🗂️", text:"ADVERB: modifies a verb/adjective → quickly, very" },
-      { icon:"🗂️", text:"CONJUNCTION: joins clauses → and, but, because" },
-      { icon:"🗂️", text:"PREPOSITION: shows relation → in, on, under, beside" },
-    ]},
-
-  { id:"ml-e-014", subject:"English", type:"vocab", color:"#0EA5A4",
-    heading:"COMMONLY CONFUSED\nWORDS",
-    items:[
-      { wrong:"Accept (to receive)", right:"Except (excluding)" },
-      { wrong:"Affect (verb: influence)", right:"Effect (noun: result)" },
-      { wrong:"Fewer (countable)", right:"Less (uncountable)" },
-      { wrong:"Principal (main/head)", right:"Principle (a rule)" },
-      { wrong:"Stationary (not moving)", right:"Stationery (paper/pens)" },
-      { wrong:"Complement (complete)", right:"Compliment (praise)" },
-    ]},
-
-  { id:"ml-e-015", subject:"English", type:"facts", color:"#0EA5A4",
-    heading:"DEGREES OF\nCOMPARISION",
-    items:[
-      { icon:"🔤", text:"POSITIVE: base form → tall (comparing no one)" },
-      { icon:"🔤", text:"COMPARATIVE: comparing two → taller (add -er or 'more')" },
-      { icon:"🔤", text:"SUPERLATIVE: comparing 3+ → tallest (add -est or 'most')" },
-      { icon:"🔤", text:"Irregular: good → better → best" },
-      { icon:"🔤", text:"Irregular: bad → worse → worst" },
-      { icon:"🔤", text:"Irregular: many/much → more → most" },
-      { icon:"🔤", text:"RULE: 1-syllable → -er/-est; 3+ syllables → more/most" },
-    ]},
-
-  // ── Science ─────────────────────────────────────────────────────────────
-  { id:"ml-s-001", subject:"Science", type:"facts", color:"#10b981",
-    heading:"AMAZING HUMAN\nBODY FACTS",
-    items:[
-      { icon:"🫀", text:"Heart beats ~100,000 times per day, pumping 7,500 L of blood" },
-      { icon:"🧠", text:"Brain has ~86 billion neurons and generates ~20 watts of power" },
-      { icon:"🦴", text:"Adults have 206 bones; babies are born with ~270 (fuse over time)" },
-      { icon:"💪", text:"Body has 600+ muscles — the hardest working is the heart" },
-      { icon:"👁️", text:"The human eye can distinguish ~10 million different colours" },
-      { icon:"🫁", text:"Lungs breathe ~20,000 times per day, taking in ~8 L of air per min" },
-    ]},
-
-  { id:"ml-s-002", subject:"Science", type:"facts", color:"#10b981",
-    heading:"PLANETS OF THE\nSOLAR SYSTEM",
-    items:[
-      { icon:"🪐", text:"Mercury: smallest, closest to Sun, no moons, extreme temperatures" },
-      { icon:"🪐", text:"Venus: hottest planet (462°C), rotates backwards, no moons" },
-      { icon:"🌍", text:"Earth: only known planet with life; 1 moon, 71% water surface" },
-      { icon:"🔴", text:"Mars: Red Planet; two small moons (Phobos & Deimos)" },
-      { icon:"🪐", text:"Jupiter: largest planet; Great Red Spot is a storm older than 350 years" },
-      { icon:"🪐", text:"Saturn: 146 moons; rings made of ice and rock; least dense planet" },
-    ]},
-
-  { id:"ml-s-003", subject:"Science", type:"facts", color:"#10b981",
-    heading:"PHOTOSYNTHESIS\nEXPLAINED",
-    items:[
-      { icon:"🌱", text:"Plants make food from sunlight, water (H₂O) and carbon dioxide (CO₂)" },
-      { icon:"☀️", text:"Equation: 6CO₂ + 6H₂O + Light → C₆H₁₂O₆ (glucose) + 6O₂" },
-      { icon:"🌿", text:"Chlorophyll in chloroplasts captures sunlight energy" },
-      { icon:"🍃", text:"Stomata (tiny leaf pores) allow CO₂ in and release O₂ out" },
-      { icon:"🌳", text:"Oxygen released is why forests are called 'lungs of the Earth'" },
-      { icon:"🔬", text:"Photosynthesis only happens during daytime when light is available" },
-    ]},
-
-  { id:"ml-s-004", subject:"Science", type:"facts", color:"#10b981",
-    heading:"STATES OF\nMATTER",
-    items:[
-      { icon:"🧊", text:"SOLID: fixed shape & volume; particles packed tightly (e.g. ice)" },
-      { icon:"💧", text:"LIQUID: fixed volume, no fixed shape; particles mobile (e.g. water)" },
-      { icon:"💨", text:"GAS: no fixed shape/volume; particles spread far apart (e.g. steam)" },
-      { icon:"🔥", text:"PLASMA: 4th state; ionised gas found in stars & lightning" },
-      { icon:"🌡️", text:"Melting: solid→liquid. Freezing: liquid→solid. Boiling: liquid→gas" },
-      { icon:"❄️", text:"Sublimation: solid → gas directly (e.g. dry ice, naphthalene balls)" },
-    ]},
-
-  { id:"ml-s-005", subject:"Science", type:"facts", color:"#10b981",
-    heading:"NEWTON'S LAWS\nOF MOTION",
-    items:[
-      { icon:"⚡", text:"1st Law (Inertia): object at rest stays at rest; in motion stays in motion — unless a net force acts" },
-      { icon:"⚡", text:"2nd Law: Force = Mass × Acceleration (F = ma)" },
-      { icon:"⚡", text:"3rd Law: For every action there is an equal & opposite reaction" },
-      { icon:"🚗", text:"Example 1st Law: you lurch forward when a car stops suddenly" },
-      { icon:"🚀", text:"Example 3rd Law: rocket pushes gas down → gas pushes rocket up" },
-      { icon:"⚽", text:"Example 2nd Law: same force moves a light ball faster than a heavy one" },
-    ]},
-
-  { id:"ml-s-006", subject:"Science", type:"facts", color:"#10b981",
-    heading:"FOOD CHAIN\n& NUTRITION",
-    items:[
-      { icon:"🌿", text:"Producers: plants make their own food via photosynthesis" },
-      { icon:"🐛", text:"Primary Consumers (Herbivores): eat only plants (e.g. rabbits, deer)" },
-      { icon:"🦊", text:"Secondary Consumers: eat primary consumers (e.g. fox, frog)" },
-      { icon:"🦅", text:"Tertiary Consumers: eat secondary consumers (e.g. eagle, shark)" },
-      { icon:"🍄", text:"Decomposers: break down dead matter → fungi and bacteria" },
-      { icon:"☀️", text:"Energy flow: Sun → Producer → Herbivore → Carnivore → Decomposer" },
-    ]},
-
-  { id:"ml-s-007", subject:"Science", type:"facts", color:"#10b981",
-    heading:"SOUND & LIGHT\nFAST FACTS",
-    items:[
-      { icon:"🔊", text:"Sound travels at ~340 m/s in air; CANNOT travel through vacuum" },
-      { icon:"💡", text:"Light travels at 3 × 10⁸ m/s — the fastest speed in the universe" },
-      { icon:"🌈", text:"White light splits into 7 colours through a prism: VIBGYOR" },
-      { icon:"🔊", text:"Ultrasound: frequency > 20,000 Hz (used in medical scans & sonars)" },
-      { icon:"💡", text:"Reflection: angle of incidence = angle of reflection" },
-      { icon:"🔊", text:"Sound travels faster in water (1,484 m/s) than in air (340 m/s)" },
-    ]},
-
-  { id:"ml-s-008", subject:"Science", type:"facts", color:"#10b981",
-    heading:"ELEMENTS YOU\nMUST KNOW",
-    items:[
-      { icon:"⚗️", text:"O (Oxygen) — atomic no. 8; most abundant in Earth's crust" },
-      { icon:"⚗️", text:"H (Hydrogen) — atomic no. 1; lightest element in the universe" },
-      { icon:"⚗️", text:"C (Carbon) — basis of all life; carbon-12 is reference for atomic mass" },
-      { icon:"⚗️", text:"Fe (Iron) — symbol from Latin 'Ferrum'; Earth's core is molten iron" },
-      { icon:"⚗️", text:"Au (Gold) — symbol from Latin 'Aurum'; doesn't corrode or rust" },
-      { icon:"⚗️", text:"Na (Sodium) — symbol from 'Natrium'; used in table salt (NaCl)" },
-    ]},
-
-  { id:"ml-s-009", subject:"Science", type:"facts", color:"#10b981",
-    heading:"THE WATER CYCLE\nEXPLAINED",
-    items:[
-      { icon:"☀️", text:"Evaporation: sun heats water bodies → becomes water vapour" },
-      { icon:"🌿", text:"Transpiration: plants release water vapour through leaf stomata" },
-      { icon:"☁️", text:"Condensation: water vapour cools → forms clouds and fog" },
-      { icon:"🌧️", text:"Precipitation: water falls as rain, snow, sleet or hail" },
-      { icon:"🌊", text:"Collection: water gathers in oceans, rivers, lakes, groundwater" },
-      { icon:"🔄", text:"Earth's total water never changes — it just keeps cycling!" },
-    ]},
-
-  { id:"ml-s-010", subject:"Science", type:"facts", color:"#10b981",
-    heading:"THE CELL: BASIC\nUNIT OF LIFE",
-    items:[
-      { icon:"🔬", text:"Cell Membrane: controls what enters and leaves the cell" },
-      { icon:"🔬", text:"Nucleus: contains DNA — the 'control centre' of the cell" },
-      { icon:"🔬", text:"Mitochondria: 'powerhouse' — produces energy (ATP) for the cell" },
-      { icon:"🔬", text:"Chloroplast: found ONLY in plant cells; site of photosynthesis" },
-      { icon:"🔬", text:"Cell Wall: found ONLY in plant cells; provides shape and strength" },
-      { icon:"🔬", text:"Vacuole: larger in plant cells; stores water, nutrients, waste" },
-    ]},
-
-  { id:"ml-s-011", subject:"Science", type:"facts", color:"#10b981",
-    heading:"ENERGY TYPES\n& EXAMPLES",
-    items:[
-      { icon:"⚡", text:"Kinetic: energy of motion (moving ball, flowing water, wind)" },
-      { icon:"⚡", text:"Potential: stored energy (stretched spring, raised weight, a dam)" },
-      { icon:"⚡", text:"Thermal: heat energy (boiling water, fire, the sun's warmth)" },
-      { icon:"⚡", text:"Chemical: stored in bonds (food, fuels, batteries)" },
-      { icon:"⚡", text:"Light: electromagnetic radiation (sunlight, laser, LED)" },
-      { icon:"⚡", text:"Nuclear: from splitting (fission) or fusing (fusion) atoms" },
-    ]},
-
-  { id:"ml-s-012", subject:"Science", type:"facts", color:"#10b981",
-    heading:"ANIMAL\nADAPTATIONS",
-    items:[
-      { icon:"🐪", text:"Camel: fat-storing humps; wide feet for sand; long eyelashes for dust" },
-      { icon:"🐻‍❄️", text:"Polar Bear: thick fur & fat layer; white for camouflage on snow" },
-      { icon:"🦅", text:"Eagle: eyesight 8× sharper than humans; hollow bones for flight" },
-      { icon:"🦋", text:"Stick Insect: looks like a stick — camouflage from predators" },
-      { icon:"🦈", text:"Shark: streamlined body; lateral line senses vibrations in water" },
-      { icon:"🐸", text:"Frog: moist permeable skin to breathe through; webbed feet for swimming" },
-    ]},
-
-  // ── GK ───────────────────────────────────────────────────────────────────
-  { id:"ml-gk-001", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"INDIA FACTS\nEVERY STUDENT KNOWS",
-    items:[
-      { icon:"🇮🇳", text:"Capital: New Delhi  |  Currency: Indian Rupee (₹)" },
-      { icon:"🇮🇳", text:"National Animal: Bengal Tiger  |  National Bird: Indian Peacock" },
-      { icon:"🇮🇳", text:"National Flower: Lotus  |  National Fruit: Mango" },
-      { icon:"🇮🇳", text:"National Tree: Banyan  |  National Aquatic Animal: River Dolphin" },
-      { icon:"🇮🇳", text:"National Anthem: Jana Gana Mana (by Rabindranath Tagore)" },
-      { icon:"🇮🇳", text:"National Song: Vande Mataram  |  National Sport: Field Hockey" },
-    ]},
-
-  { id:"ml-gk-002", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"WORLD RECORD\nFAST FACTS",
-    items:[
-      { icon:"🌍", text:"Largest country by area: Russia (17.1 million km²)" },
-      { icon:"🌍", text:"Most populous country: India (2023, surpassed China)" },
-      { icon:"🌍", text:"Smallest country: Vatican City (0.44 km²)" },
-      { icon:"🌊", text:"Largest ocean: Pacific (covers 30% of Earth's total surface)" },
-      { icon:"🏙️", text:"Tallest building: Burj Khalifa, Dubai (828 m)" },
-      { icon:"🌊", text:"Longest river: Nile, Africa (~6,650 km)" },
-    ]},
-
-  { id:"ml-gk-003", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"IMPORTANT\nINVENTIONS",
-    items:[
-      { icon:"💡", text:"Electric Bulb: Thomas Edison (USA, 1879)" },
-      { icon:"📞", text:"Telephone: Alexander Graham Bell (Scotland/USA, 1876)" },
-      { icon:"✈️", text:"Aeroplane: Wright Brothers — Wilbur & Orville (USA, 1903)" },
-      { icon:"📻", text:"Radio waves: Guglielmo Marconi (Italy, 1895)" },
-      { icon:"💻", text:"World Wide Web: Tim Berners-Lee (UK/CERN, 1989)" },
-      { icon:"🚂", text:"Steam Engine (improved): James Watt (Scotland, 1769)" },
-    ]},
-
-  { id:"ml-gk-004", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"SI UNITS YOU\nMUST KNOW",
-    items:[
-      { icon:"📏", text:"Distance/Length: metre (m)" },
-      { icon:"⚖️", text:"Mass: kilogram (kg); 1 kg = 1,000 g" },
-      { icon:"⏱️", text:"Time: second (s); 1 hr = 3,600 s" },
-      { icon:"🌡️", text:"Temperature: Kelvin (K); 0°C = 273 K" },
-      { icon:"⚡", text:"Electric current: Ampere (A)" },
-      { icon:"💡", text:"Force: Newton (N)  |  Energy: Joule (J)  |  Power: Watt (W)" },
-    ]},
-
-  { id:"ml-gk-005", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"SPACE MISSION\nFAST FACTS",
-    items:[
-      { icon:"🚀", text:"First person in space: Yuri Gagarin (USSR, 12 April 1961)" },
-      { icon:"🌙", text:"First person on the Moon: Neil Armstrong (Apollo 11, 20 July 1969)" },
-      { icon:"🛰️", text:"First Indian in space: Rakesh Sharma (Soviet mission, 1984)" },
-      { icon:"🛸", text:"Chandrayaan-1: India's first lunar mission (ISRO, 2008)" },
-      { icon:"🛸", text:"Chandrayaan-3: first soft landing near Moon's south pole (2023)" },
-      { icon:"🚀", text:"Mangalyaan: India reached Mars orbit in its FIRST attempt (2014)" },
-    ]},
-
-  { id:"ml-gk-006", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"IMPORTANT\nINDIAN DAYS",
-    items:[
-      { icon:"🇮🇳", text:"26 January: Republic Day (Constitution came into effect, 1950)" },
-      { icon:"🇮🇳", text:"15 August: Independence Day (India gained freedom, 1947)" },
-      { icon:"🇮🇳", text:"2 October: Gandhi Jayanti (Birth of Mahatma Gandhi, 1869)" },
-      { icon:"🌍", text:"5 June: World Environment Day" },
-      { icon:"📚", text:"5 September: Teacher's Day (Birth of Dr. S. Radhakrishnan)" },
-      { icon:"🔬", text:"28 February: National Science Day (Raman Effect discovered, 1928)" },
-    ]},
-
-  { id:"ml-gk-007", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"CURRENCIES OF\nTHE WORLD",
-    items:[
-      { icon:"💰", text:"USA: Dollar ($)  |  UK: Pound (£)  |  Europe: Euro (€)" },
-      { icon:"💰", text:"Japan: Yen (¥)  |  China: Yuan (¥)  |  South Korea: Won" },
-      { icon:"💰", text:"India: Rupee (₹)  |  Pakistan: PKR  |  Bangladesh: Taka" },
-      { icon:"💰", text:"Australia: AUD  |  Canada: CAD  |  Singapore: SGD" },
-      { icon:"💰", text:"Russia: Ruble  |  UAE: Dirham  |  Saudi Arabia: Riyal" },
-      { icon:"💰", text:"Brazil: Real  |  South Africa: Rand  |  Nigeria: Naira" },
-    ]},
-
-  { id:"ml-gk-008", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"FAMOUS INDIAN\nSCIENTISTS",
-    items:[
-      { icon:"🔬", text:"C.V. Raman: Raman Effect; Nobel Prize in Physics (1930)" },
-      { icon:"🔬", text:"Homi J. Bhabha: father of India's nuclear programme" },
-      { icon:"🔬", text:"Vikram Sarabhai: father of Indian Space Programme (ISRO)" },
-      { icon:"🔬", text:"APJ Abdul Kalam: missile scientist; 11th President of India" },
-      { icon:"🔬", text:"Srinivasa Ramanujan: self-taught maths genius; infinite series" },
-      { icon:"🔬", text:"Jagadish Chandra Bose: proved plants have life; radio antenna" },
-    ]},
-
-  { id:"ml-gk-009", subject:"GK", type:"facts", color:"#f59e0b",
-    heading:"SPORTS &\nOLYMPICS FACTS",
-    items:[
-      { icon:"🏅", text:"Olympics held every 4 years; first modern Olympics: Athens 1896" },
-      { icon:"🏅", text:"India's first individual Olympic gold: Abhinav Bindra (shooting, 2008)" },
-      { icon:"🏏", text:"Cricket was an Olympic sport — at 1900 Paris Games!" },
-      { icon:"⚽", text:"FIFA World Cup held every 4 years; Brazil has won the most (5 times)" },
-      { icon:"🏸", text:"P.V. Sindhu is India's most decorated female Olympian" },
-      { icon:"🏋️", text:"India won 7 medals at Paris Olympics 2024 — best modern tally" },
-    ]},
-
-  // ── History ─────────────────────────────────────────────────────────────
-  { id:"ml-h-001", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"KEY DATES IN\nINDIAN HISTORY",
-    items:[
-      { icon:"📅", text:"1526: Battle of Panipat — Babur defeated Ibrahim Lodi, founded Mughal Empire" },
-      { icon:"📅", text:"1600: British East India Company established" },
-      { icon:"📅", text:"1857: First War of Independence (Sepoy Mutiny)" },
-      { icon:"📅", text:"1919: Jallianwala Bagh Massacre (13 April) by General Dyer" },
-      { icon:"📅", text:"1942: Quit India Movement (8 August)" },
-      { icon:"📅", text:"1947: India's Independence (15 August)" },
-    ]},
-
-  { id:"ml-h-002", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"THE MUGHAL\nEMPERORS",
-    items:[
-      { icon:"👑", text:"Babur (1526–30): founder; won 1st Battle of Panipat (1526)" },
-      { icon:"👑", text:"Humayun (1530–56): lost & regained throne; died on stairs" },
-      { icon:"👑", text:"Akbar the Great (1556–1605): Navratnas, Din-i-Ilahi, religious tolerance" },
-      { icon:"👑", text:"Jahangir (1605–27): patron of arts; married Nur Jahan" },
-      { icon:"👑", text:"Shah Jahan (1628–58): built Taj Mahal, Red Fort, Jama Masjid" },
-      { icon:"👑", text:"Aurangzeb (1658–1707): expanded empire; reimposed Jizya tax" },
-    ]},
-
-  { id:"ml-h-003", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"ANCIENT\nCIVILISATIONS",
-    items:[
-      { icon:"🏛️", text:"Indus Valley Civilisation: 3300–1300 BCE; Harappa & Mohenjo-daro" },
-      { icon:"🏛️", text:"Ancient Egypt: ~3100 BCE; pyramids, pharaohs, hieroglyphics" },
-      { icon:"🏛️", text:"Mesopotamia (Iraq): cuneiform writing; Babylon; Code of Hammurabi" },
-      { icon:"🏛️", text:"Ancient Greece: democracy, philosophy, Olympic Games (776 BCE)" },
-      { icon:"🏛️", text:"Roman Empire: law, roads, calendar; fell 476 CE (Western Rome)" },
-      { icon:"🏛️", text:"Maurya Empire (India): 322–185 BCE; Chandragupta, Emperor Ashoka" },
-    ]},
-
-  { id:"ml-h-004", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"FREEDOM FIGHTERS\nOF INDIA",
-    items:[
-      { icon:"🇮🇳", text:"Mahatma Gandhi: non-violent resistance; Dandi March (1930)" },
-      { icon:"🇮🇳", text:"Subhas Chandra Bose: founded Indian National Army (INA)" },
-      { icon:"🇮🇳", text:"Bhagat Singh: revolutionary; hanged age 23 on 23 March 1931" },
-      { icon:"🇮🇳", text:"Jawaharlal Nehru: first PM; 'Tryst with Destiny' speech (1947)" },
-      { icon:"🇮🇳", text:"Rani Lakshmibai: queen of Jhansi; fought in 1857 rebellion" },
-      { icon:"🇮🇳", text:"B.R. Ambedkar: drafted India's Constitution; championed equality" },
-    ]},
-
-  { id:"ml-h-005", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"WORLD WAR II\nKEY FACTS",
-    items:[
-      { icon:"⚔️", text:"Duration: 1939–1945 (6 years)" },
-      { icon:"⚔️", text:"Trigger: Germany invaded Poland on 1 September 1939" },
-      { icon:"⚔️", text:"Allies: UK, USA, USSR, France vs. Axis: Germany, Japan, Italy" },
-      { icon:"⚔️", text:"D-Day: 6 June 1944 — Allied landings in Normandy, France" },
-      { icon:"⚔️", text:"Atomic bombs on Hiroshima (6 Aug) & Nagasaki (9 Aug 1945)" },
-      { icon:"⚔️", text:"UN formed 24 October 1945 to prevent future global conflicts" },
-    ]},
-
-  { id:"ml-h-006", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"GREAT RULERS\nOF HISTORY",
-    items:[
-      { icon:"👑", text:"Alexander the Great: conquered from Greece to India by age 32" },
-      { icon:"👑", text:"Genghis Khan: founded Mongol Empire — largest contiguous land empire" },
-      { icon:"👑", text:"Ashoka the Great: promoted Buddhism; built pillars across India" },
-      { icon:"👑", text:"Cleopatra VII: last ruler of Ptolemaic Egypt; brilliant diplomat" },
-      { icon:"👑", text:"Napoleon Bonaparte: reformed law, education, banking across Europe" },
-      { icon:"👑", text:"Chandragupta Maurya: first ruler to unite the Indian subcontinent" },
-    ]},
-
-  { id:"ml-h-007", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"INVENTIONS THAT\nCHANGED HISTORY",
-    items:[
-      { icon:"🔧", text:"Wheel: ~3500 BCE (Mesopotamia) — changed transport forever" },
-      { icon:"🔧", text:"Printing Press: 1440 (Gutenberg) — spread knowledge & literacy" },
-      { icon:"🔧", text:"Compass: ~11th century China — enabled global exploration" },
-      { icon:"🔧", text:"Gunpowder: ~9th century China — transformed warfare" },
-      { icon:"🔧", text:"Steam Engine (improved): 1769 (James Watt) — Industrial Revolution" },
-      { icon:"🔧", text:"Vaccines: 1796 (Edward Jenner, smallpox) — saved billions of lives" },
-    ]},
-
-  { id:"ml-h-008", subject:"History", type:"facts", color:"#8b5cf6",
-    heading:"FREEDOM MOVEMENT\nEVENTS",
-    items:[
-      { icon:"📅", text:"1905: Partition of Bengal by Curzon → mass protests (reversed 1911)" },
-      { icon:"📅", text:"1920: Non-Cooperation Movement launched by Gandhi" },
-      { icon:"📅", text:"1929: Lahore Session — Purna Swaraj (complete independence) declared" },
-      { icon:"📅", text:"1930: Dandi March / Salt Satyagraha (12 March – 6 April)" },
-      { icon:"📅", text:"1942: Quit India Movement (8 August) — 'Do or Die'" },
-      { icon:"📅", text:"1947: Indian Independence; Constitution adopted 26 January 1950" },
-    ]},
-
-  // ── Geography ────────────────────────────────────────────────────────────
-  { id:"ml-g-001", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"CONTINENTS\n& OCEANS",
-    items:[
-      { icon:"🌍", text:"7 Continents: Asia, Africa, North America, South America, Antarctica, Europe, Australia" },
-      { icon:"🌊", text:"5 Oceans: Pacific (largest), Atlantic, Indian, Southern, Arctic (smallest)" },
-      { icon:"🌍", text:"Asia: largest continent (44 million km²); 60% of world's population" },
-      { icon:"🌍", text:"Australia is both a continent AND a country" },
-      { icon:"🌊", text:"Pacific Ocean is larger than all of Earth's landmasses combined!" },
-      { icon:"🌍", text:"Antarctica: no permanent residents; not owned by any country" },
-    ]},
-
-  { id:"ml-g-002", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"RIVERS OF\nINDIA",
-    items:[
-      { icon:"🏞️", text:"Ganga: India's national river; 2,525 km; originates at Gangotri glacier" },
-      { icon:"🏞️", text:"Brahmaputra: originates in Tibet; one of world's widest rivers" },
-      { icon:"🏞️", text:"Yamuna: major Ganga tributary; flows through Delhi and Agra" },
-      { icon:"🏞️", text:"Godavari: 'Dakshina Ganga'; longest peninsular river (1,465 km)" },
-      { icon:"🏞️", text:"Indus: originates in Tibet; gives India its name; flows via Pakistan" },
-      { icon:"🏞️", text:"Kaveri: sacred South Indian river; flows through Karnataka & Tamil Nadu" },
-    ]},
-
-  { id:"ml-g-003", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"MOUNTAINS\nOF THE WORLD",
-    items:[
-      { icon:"🏔️", text:"Mt. Everest (8,849 m): world's highest peak; Nepal/Tibet border" },
-      { icon:"🏔️", text:"K2 (8,611 m): 2nd highest; Pakistan/China; called 'Savage Mountain'" },
-      { icon:"🏔️", text:"Kangchenjunga (8,586 m): 3rd highest; India/Nepal border" },
-      { icon:"🏔️", text:"Andes: longest mountain range (7,000 km); South America" },
-      { icon:"🏔️", text:"Alps: Europe's highest range; Mont Blanc = 4,808 m (France)" },
-      { icon:"🏔️", text:"Himalayas: 'abode of snow'; stretches across India, Nepal, Bhutan, China" },
-    ]},
-
-  { id:"ml-g-004", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"CAPITALS OF\nASIAN COUNTRIES",
-    items:[
-      { icon:"🗺️", text:"India: New Delhi  |  China: Beijing  |  Japan: Tokyo" },
-      { icon:"🗺️", text:"Pakistan: Islamabad  |  Bangladesh: Dhaka  |  Nepal: Kathmandu" },
-      { icon:"🗺️", text:"Sri Lanka: Sri Jayawardenepura Kotte  |  Bhutan: Thimphu" },
-      { icon:"🗺️", text:"Singapore: Singapore City  |  Malaysia: Kuala Lumpur  |  Thailand: Bangkok" },
-      { icon:"🗺️", text:"UAE: Abu Dhabi  |  Saudi Arabia: Riyadh  |  Turkey: Ankara" },
-      { icon:"🗺️", text:"South Korea: Seoul  |  North Korea: Pyongyang  |  Vietnam: Hanoi" },
-    ]},
-
-  { id:"ml-g-005", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"DESERTS\nOF THE WORLD",
-    items:[
-      { icon:"🌵", text:"Sahara: world's largest HOT desert (9.2 million km²); N. Africa" },
-      { icon:"🌵", text:"Antarctic Desert: world's LARGEST desert overall (14 million km²)" },
-      { icon:"🌵", text:"Arabian Desert: 2nd largest hot desert (2.3 million km²)" },
-      { icon:"🌵", text:"Gobi Desert: China & Mongolia; a cold desert with extreme temperature swings" },
-      { icon:"🌵", text:"Thar Desert (Great Indian Desert): Rajasthan; ~200,000 km²" },
-      { icon:"🌵", text:"Atacama (Chile): driest non-polar desert on Earth; almost no rainfall" },
-    ]},
-
-  { id:"ml-g-006", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"CLIMATE ZONES\nOF EARTH",
-    items:[
-      { icon:"☀️", text:"Tropical (0°–23.5°): hot & wet all year; rainforests & savannas" },
-      { icon:"🏜️", text:"Subtropical (23.5°–35°): hot summers, mild winters; deserts form here" },
-      { icon:"🌿", text:"Temperate (35°–60°): 4 distinct seasons; most densely populated zone" },
-      { icon:"❄️", text:"Subarctic (60°–75°): very cold winters; coniferous forests (taiga)" },
-      { icon:"🧊", text:"Polar (75°–90°): extreme cold; tundra; minimal plant life" },
-      { icon:"🌊", text:"Mediterranean: hot dry summers, mild wet winters (S. Europe)" },
-    ]},
-
-  { id:"ml-g-007", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"INDIAN STATES\n& CAPITALS",
-    items:[
-      { icon:"🗺️", text:"Maharashtra → Mumbai / Nagpur  |  Gujarat → Gandhinagar" },
-      { icon:"🗺️", text:"UP → Lucknow  |  Rajasthan → Jaipur  |  MP → Bhopal" },
-      { icon:"🗺️", text:"Tamil Nadu → Chennai  |  Karnataka → Bengaluru" },
-      { icon:"🗺️", text:"Kerala → Thiruvananthapuram  |  West Bengal → Kolkata" },
-      { icon:"🗺️", text:"Punjab & Haryana → Chandigarh  |  Assam → Dispur" },
-      { icon:"🗺️", text:"J&K: Srinagar (summer) / Jammu (winter)  |  HP → Shimla" },
-    ]},
-
-  { id:"ml-g-008", subject:"Geography", type:"facts", color:"#ef4444",
-    heading:"NATURAL WONDERS\nOF THE WORLD",
-    items:[
-      { icon:"🌿", text:"Amazon Rainforest: largest tropical forest; 10% of all species on Earth" },
-      { icon:"🐠", text:"Great Barrier Reef: world's largest coral reef; off Queensland, Australia" },
-      { icon:"🏔️", text:"Grand Canyon: carved by the Colorado River over 5–6 million years; USA" },
-      { icon:"🌊", text:"Victoria Falls: world's largest waterfall by width; Zambia/Zimbabwe border" },
-      { icon:"🌋", text:"Paricutin: a volcano that grew from a cornfield in Mexico (1943)" },
-      { icon:"🏔️", text:"Mount Everest: highest point on Earth (8,849 m); Nepal/Tibet border" },
-    ]},
+  // ══════════════════════════════════════════════════════════════
+  //  ENGLISH  (8 packs)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-e-001", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"NOUNS",
+        items:[
+          { icon:"🏙️", text:"A noun names a person, place, thing or idea — e.g. teacher, Delhi, happiness" },
+          { icon:"👥", text:"Common noun = general (city, river). Proper noun = specific (Mumbai, Ganga)" },
+          { icon:"📦", text:"Collective noun = group (herd of cattle, flock of birds, team of players)" },
+          { icon:"💭", text:"Abstract noun = something you cannot touch (love, courage, freedom, wisdom)" },
+        ]},
+      { type:"facts", heading:"VERBS",
+        items:[
+          { icon:"⚡", text:"A verb shows action or state of being — run, think, is, seems, become" },
+          { icon:"🔁", text:"Transitive verb needs an object: 'She kicked the ball.' (ball = object)" },
+          { icon:"🚫", text:"Intransitive verb has no object: 'He laughed.' / 'The baby slept.'" },
+          { icon:"🤝", text:"Helping verbs: is, are, was, were, has, have, had, will, shall, may, can" },
+        ]},
+      { type:"facts", heading:"ADJECTIVES",
+        items:[
+          { icon:"🎨", text:"An adjective describes a noun: the tall building, a bright student, three dogs" },
+          { icon:"📊", text:"Degrees: Positive (tall) → Comparative (taller) → Superlative (tallest)" },
+          { icon:"🔢", text:"Numeral adjectives: cardinal (two books) and ordinal (the first chapter)" },
+          { icon:"👉", text:"Demonstrative: this, that, these, those — point to specific nouns" },
+        ]},
+      { type:"facts", heading:"ADVERBS",
+        items:[
+          { icon:"⏱️", text:"Adverb of time: yesterday, soon, already, still, just, now, then" },
+          { icon:"📍", text:"Adverb of place: here, there, somewhere, everywhere, outside, above" },
+          { icon:"🎚️", text:"Adverb of degree: very, quite, rather, too, enough, almost, nearly" },
+          { icon:"💡", text:"Most adverbs of manner end in -ly: quickly, silently, beautifully, carefully" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-002", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"PREPOSITIONS OF TIME",
+        items:[
+          { icon:"📅", text:"IN — months, years, seasons: in January, in 2024, in winter, in the century" },
+          { icon:"📆", text:"ON — specific days and dates: on Monday, on 15th August, on New Year's Day" },
+          { icon:"⏰", text:"AT — exact time and special times: at 9 o'clock, at noon, at night, at midnight" },
+          { icon:"⚠️", text:"Tricky: 'in the morning/afternoon/evening' but 'at night' — no 'in the night'" },
+        ]},
+      { type:"facts", heading:"PREPOSITIONS OF PLACE",
+        items:[
+          { icon:"📍", text:"IN — enclosed spaces: in the box, in India, in a room, in the water" },
+          { icon:"🔝", text:"ON — surfaces and transport: on the table, on the bus, on the wall" },
+          { icon:"🎯", text:"AT — specific points: at the door, at school, at the bus stop, at home" },
+          { icon:"↕️", text:"ABOVE vs OVER: above = higher position. Over = directly above or covering." },
+        ]},
+      { type:"facts", heading:"DIRECTION PREPOSITIONS",
+        items:[
+          { icon:"➡️", text:"TO — movement towards: going to school, walking to the park" },
+          { icon:"⬆️", text:"INTO — movement inside: jump into the pool, walk into the room" },
+          { icon:"🔄", text:"THROUGH — movement across: drive through the tunnel, run through the forest" },
+          { icon:"🚶", text:"ACROSS vs ALONG: across = from one side to other. Along = following a path." },
+        ]},
+      { type:"vocab", heading:"COMMON PREPOSITION ERRORS",
+        items:[
+          { wrong:"Discuss about the topic",      right:"Discuss the topic" },
+          { wrong:"Married with her",             right:"Married to her" },
+          { wrong:"Divide between three people",  right:"Divide among three people (3+)" },
+          { wrong:"Superior than others",         right:"Superior to others" },
+          { wrong:"Cope up with stress",          right:"Cope with stress" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-003", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"vocab", heading:"REPLACE 'VERY + FEELING'",
+        items:[
+          { wrong:"Very tired",   right:"Exhausted" },
+          { wrong:"Very happy",   right:"Elated / Overjoyed" },
+          { wrong:"Very angry",   right:"Furious / Livid" },
+          { wrong:"Very sad",     right:"Devastated / Heartbroken" },
+          { wrong:"Very scared",  right:"Terrified / Petrified" },
+        ]},
+      { type:"vocab", heading:"REPLACE 'VERY + SIZE/SPEED'",
+        items:[
+          { wrong:"Very big",     right:"Enormous / Gigantic" },
+          { wrong:"Very small",   right:"Tiny / Minute" },
+          { wrong:"Very fast",    right:"Rapid / Swift" },
+          { wrong:"Very slow",    right:"Sluggish / Leisurely" },
+          { wrong:"Very loud",    right:"Deafening / Thunderous" },
+        ]},
+      { type:"vocab", heading:"REPLACE 'VERY + QUALITY'",
+        items:[
+          { wrong:"Very good",      right:"Excellent / Outstanding" },
+          { wrong:"Very bad",       right:"Terrible / Dreadful" },
+          { wrong:"Very smart",     right:"Brilliant / Ingenious" },
+          { wrong:"Very beautiful", right:"Stunning / Gorgeous" },
+          { wrong:"Very important", right:"Crucial / Vital" },
+        ]},
+      { type:"vocab", heading:"REPLACE 'VERY + WEATHER'",
+        items:[
+          { wrong:"Very cold",    right:"Freezing / Icy" },
+          { wrong:"Very hot",     right:"Scorching / Sweltering" },
+          { wrong:"Very windy",   right:"Blustery / Gusty" },
+          { wrong:"Very wet",     right:"Drenched / Soaked" },
+          { wrong:"Very bright",  right:"Dazzling / Blazing" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-004", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"THERE / THEIR / THEY'RE",
+        items:[
+          { icon:"📍", text:"THERE = a place or to introduce: 'Put it there.' / 'There is a cat.'" },
+          { icon:"👨‍👩‍👧", text:"THEIR = belonging to them: 'Their books are on the shelf.'" },
+          { icon:"🤝", text:"THEY'RE = they are: 'They're going to the market tomorrow.'" },
+          { icon:"✅", text:"Trick: expand THEY'RE — if 'they are' fits, use they're. Otherwise check the others." },
+        ]},
+      { type:"facts", heading:"ITS / IT'S AND YOUR / YOU'RE",
+        items:[
+          { icon:"🐶", text:"ITS = belonging to it (no apostrophe): 'The dog wagged its tail.'" },
+          { icon:"🔗", text:"IT'S = it is OR it has: 'It's raining.' / 'It's been a long day.'" },
+          { icon:"📚", text:"YOUR = belonging to you: 'Is that your book?'" },
+          { icon:"✅", text:"YOU'RE = you are: 'You're doing great!' Expand it to check." },
+        ]},
+      { type:"facts", heading:"AFFECT / EFFECT",
+        items:[
+          { icon:"🎬", text:"AFFECT = verb (action): 'The rain affected our plans.' (A = Action)" },
+          { icon:"📦", text:"EFFECT = noun (result): 'The effect of the rain was flooding.' (E = End result)" },
+          { icon:"💊", text:"Exception: Effect as a verb = to bring about: 'To effect change in society.'" },
+          { icon:"✅", text:"Memory trick: RAVEN — Remember Affect Verb Effect Noun" },
+        ]},
+      { type:"facts", heading:"ACCEPT / EXCEPT AND MORE",
+        items:[
+          { icon:"✅", text:"ACCEPT = to receive or agree: 'She accepted the award with a smile.'" },
+          { icon:"❌", text:"EXCEPT = excluding: 'Everyone came except Riya.'" },
+          { icon:"📐", text:"PRINCIPAL = main or school head. PRINCIPLE = a rule or belief." },
+          { icon:"📝", text:"STATIONERY = paper/pens. STATIONARY = not moving." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-005", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"formula", heading:"SIMPLE TENSES",
+        items:[
+          { n:1, label:"Simple Present",  formula:"Subject + V1 (+ s/es for he/she/it)" },
+          { n:2, label:"Simple Past",     formula:"Subject + V2" },
+          { n:3, label:"Simple Future",   formula:"Subject + will + V1" },
+          { n:4, label:"Key tip",         formula:"3rd person singular gets -s/-es: 'She runs'" },
+        ]},
+      { type:"formula", heading:"CONTINUOUS TENSES",
+        items:[
+          { n:1, label:"Present Continuous", formula:"is/am/are + V-ing" },
+          { n:2, label:"Past Continuous",    formula:"was/were + V-ing" },
+          { n:3, label:"Future Continuous",  formula:"will be + V-ing" },
+          { n:4, label:"Use for",            formula:"action happening at that exact moment" },
+        ]},
+      { type:"formula", heading:"PERFECT TENSES",
+        items:[
+          { n:1, label:"Present Perfect",  formula:"has/have + V3 (past participle)" },
+          { n:2, label:"Past Perfect",     formula:"had + V3" },
+          { n:3, label:"Future Perfect",   formula:"will have + V3" },
+          { n:4, label:"Use for",          formula:"completed action before another action" },
+        ]},
+      { type:"facts", heading:"IRREGULAR VERB FORMS",
+        items:[
+          { icon:"📝", text:"go → went → gone    |    come → came → come" },
+          { icon:"📝", text:"write → wrote → written   |   speak → spoke → spoken" },
+          { icon:"📝", text:"take → took → taken   |   break → broke → broken" },
+          { icon:"📝", text:"see → saw → seen   |   know → knew → known" },
+          { icon:"📝", text:"teach → taught → taught   |   think → thought → thought" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-006", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"SIMILE AND METAPHOR",
+        items:[
+          { icon:"🔗", text:"SIMILE: compares using 'like' or 'as' → 'She ran like the wind.'" },
+          { icon:"✨", text:"METAPHOR: states one thing IS another → 'Life is a rollercoaster.'" },
+          { icon:"📚", text:"More similes: as brave as a lion · as cold as ice · like a fish out of water" },
+          { icon:"📚", text:"More metaphors: Time is money · The classroom was a zoo · Heart of stone" },
+        ]},
+      { type:"facts", heading:"PERSONIFICATION AND ALLITERATION",
+        items:[
+          { icon:"🎭", text:"PERSONIFICATION: gives human qualities to non-human things" },
+          { icon:"🌙", text:"Examples: 'The wind whispered.' / 'The sun smiled.' / 'Stars danced.'" },
+          { icon:"🔤", text:"ALLITERATION: same consonant sound at the start of nearby words" },
+          { icon:"🐍", text:"Examples: 'Peter Piper picked peppers.' / 'She sells sea shells.'" },
+        ]},
+      { type:"facts", heading:"HYPERBOLE AND ONOMATOPOEIA",
+        items:[
+          { icon:"💥", text:"HYPERBOLE: extreme exaggeration for effect (not meant literally)" },
+          { icon:"😂", text:"Examples: 'I've told you a million times.' / 'I could eat a horse.'" },
+          { icon:"🔊", text:"ONOMATOPOEIA: words that sound like what they describe" },
+          { icon:"🐝", text:"Examples: buzz, crash, sizzle, whisper, giggle, roar, splash, hiss" },
+        ]},
+      { type:"facts", heading:"OXYMORON AND IDIOMS",
+        items:[
+          { icon:"🔀", text:"OXYMORON: two contradictory words together — deafening silence · bittersweet" },
+          { icon:"📝", text:"More: living dead · clearly confused · open secret · same difference" },
+          { icon:"💬", text:"IDIOM: phrase where literal meaning does not equal actual meaning" },
+          { icon:"📝", text:"'Piece of cake' = very easy · 'Break a leg' = good luck · 'It's raining cats and dogs' = heavy rain" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-007", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"ACTIVE VOICE",
+        items:[
+          { icon:"🎬", text:"ACTIVE: Subject performs the action — 'Riya wrote the letter.' (direct, clear)" },
+          { icon:"✅", text:"Active voice is preferred in writing — more direct and concise." },
+          { icon:"📝", text:"Active examples: 'The dog chased the cat.' / 'She won the prize.'" },
+          { icon:"💡", text:"Clue: the subject (doer) comes FIRST in an active sentence." },
+        ]},
+      { type:"facts", heading:"PASSIVE VOICE",
+        items:[
+          { icon:"🔄", text:"PASSIVE: Subject receives the action — 'The letter was written by Riya.'" },
+          { icon:"🔧", text:"To convert: Object → Subject · add was/were/is/are + V3 · add 'by + doer'" },
+          { icon:"📝", text:"Passive examples: 'The cat was chased by the dog.' / 'The prize was won by her.'" },
+          { icon:"⚠️", text:"Clue: look for 'was/were + past participle' → it's passive voice." },
+        ]},
+      { type:"formula", heading:"ACTIVE TO PASSIVE — FORMULAS",
+        items:[
+          { n:1, label:"Present Simple",   formula:"is/are + V3" },
+          { n:2, label:"Past Simple",      formula:"was/were + V3" },
+          { n:3, label:"Future",           formula:"will be + V3" },
+          { n:4, label:"Present Perfect",  formula:"has/have been + V3" },
+          { n:5, label:"Infinitive",       formula:"to be + V3" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-008", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"FULL STOP, COMMA, QUESTION MARK",
+        items:[
+          { icon:".", text:"FULL STOP — ends a declarative or imperative sentence. 'She went home.'" },
+          { icon:"?", text:"QUESTION MARK — ends a direct question. 'Where are you going?'" },
+          { icon:"!", text:"EXCLAMATION MARK — shows strong emotion. 'What a brilliant idea!'" },
+          { icon:",", text:"COMMA — separates list items, clauses, and after introductory phrases." },
+        ]},
+      { type:"facts", heading:"APOSTROPHE, COLON AND SEMICOLON",
+        items:[
+          { icon:"'", text:"APOSTROPHE for possession: Riya's book · the children's toys · India's rivers" },
+          { icon:"'", text:"APOSTROPHE for contraction: don't · can't · it's · they're · won't" },
+          { icon:":", text:"COLON introduces a list or explanation: 'I need: milk, eggs, bread.'" },
+          { icon:";", text:"SEMICOLON joins two related independent clauses: 'She studied; she passed.'" },
+        ]},
+      { type:"vocab", heading:"COMMON PUNCTUATION ERRORS",
+        items:[
+          { wrong:"Its a beautiful day",               right:"It's a beautiful day" },
+          { wrong:"The childrens books",               right:"The children's books" },
+          { wrong:"I like: apples bananas and grapes", right:"I like apples, bananas and grapes" },
+          { wrong:"She is smart, she scored 100",      right:"She is smart; she scored 100" },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  MATHEMATICS  (7 packs)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-m-001", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"PERCENTAGE — BASICS",
+        items:[
+          { n:1, label:"% of a number",      formula:"(x ÷ 100) × n" },
+          { n:2, label:"What % is x of y?",  formula:"(x ÷ y) × 100" },
+          { n:3, label:"Find original value", formula:"val ÷ (% ÷ 100)" },
+          { n:4, label:"% increase",          formula:"(increase ÷ original) × 100" },
+          { n:5, label:"% decrease",          formula:"(decrease ÷ original) × 100" },
+        ]},
+      { type:"formula", heading:"PROFIT AND LOSS",
+        items:[
+          { n:1, label:"Profit",      formula:"SP − CP" },
+          { n:2, label:"Loss",        formula:"CP − SP" },
+          { n:3, label:"Profit %",    formula:"(Profit ÷ CP) × 100" },
+          { n:4, label:"Loss %",      formula:"(Loss ÷ CP) × 100" },
+          { n:5, label:"SP from P%",  formula:"CP × (1 + P/100)" },
+          { n:6, label:"SP from L%",  formula:"CP × (1 − L/100)" },
+        ]},
+      { type:"formula", heading:"DISCOUNT AND TAX",
+        items:[
+          { n:1, label:"Discount",       formula:"MP − SP" },
+          { n:2, label:"Discount %",     formula:"(Discount ÷ MP) × 100" },
+          { n:3, label:"SP after disc.", formula:"MP × (1 − D%/100)" },
+          { n:4, label:"Price with tax", formula:"Cost × (1 + Tax%/100)" },
+        ]},
+      { type:"facts", heading:"PERCENTAGE SHORTCUTS",
+        items:[
+          { icon:"⚡", text:"10% of any number: move decimal one place left. 10% of 450 = 45" },
+          { icon:"⚡", text:"5%: halve the 10%. 5% of 450 = 22.5" },
+          { icon:"⚡", text:"25%: divide by 4. 25% of 440 = 110" },
+          { icon:"⚡", text:"50%: divide by 2. 50% of 380 = 190" },
+          { icon:"⚡", text:"1%: move decimal two places left. 1% of 3500 = 35" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-002", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"facts", heading:"TYPES OF NUMBERS",
+        items:[
+          { icon:"1️⃣", text:"Natural numbers: 1, 2, 3, 4… (counting numbers, no zero)" },
+          { icon:"0️⃣", text:"Whole numbers: 0, 1, 2, 3… (natural + zero)" },
+          { icon:"➖", text:"Integers: …-3, -2, -1, 0, 1, 2, 3… (positive, zero, negative)" },
+          { icon:"½", text:"Rational numbers: can be written as p/q where q is not 0" },
+          { icon:"π", text:"Irrational numbers: cannot be expressed as p/q. E.g. sqrt2, pi, e" },
+        ]},
+      { type:"formula", heading:"DIVISIBILITY RULES",
+        items:[
+          { n:2, label:"Divisible by 2",   formula:"Last digit is 0, 2, 4, 6 or 8" },
+          { n:3, label:"Divisible by 3",   formula:"Sum of digits is divisible by 3" },
+          { n:4, label:"Divisible by 4",   formula:"Last 2 digits divisible by 4" },
+          { n:5, label:"Divisible by 5",   formula:"Last digit is 0 or 5" },
+          { n:9, label:"Divisible by 9",   formula:"Sum of digits is divisible by 9" },
+          { n:11, label:"Divisible by 11", formula:"Alternating digit sum difference = 0 or 11" },
+        ]},
+      { type:"formula", heading:"LCM AND HCF",
+        items:[
+          { n:1, label:"HCF (GCD)",         formula:"Highest common factor of two numbers" },
+          { n:2, label:"LCM",               formula:"Lowest common multiple of two numbers" },
+          { n:3, label:"Key relationship",  formula:"LCM × HCF = Product of two numbers" },
+          { n:4, label:"LCM by prime fact", formula:"Take highest power of each prime" },
+          { n:5, label:"HCF by prime fact", formula:"Take lowest power of common primes" },
+        ]},
+      { type:"facts", heading:"NUMBER SHORTCUTS",
+        items:[
+          { icon:"⚡", text:"Sum of first n natural numbers: n(n+1) divided by 2" },
+          { icon:"⚡", text:"Sum of first n odd numbers: n squared. e.g. 1+3+5+7 = 4^2 = 16" },
+          { icon:"⚡", text:"Sum of squares formula: n(n+1)(2n+1) divided by 6" },
+          { icon:"⚡", text:"A prime number has exactly 2 factors: 1 and itself. 1 is NOT prime." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-003", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"facts", heading:"TYPES OF ANGLES",
+        items:[
+          { icon:"📐", text:"Acute angle: less than 90 degrees" },
+          { icon:"📐", text:"Right angle: exactly 90 degrees" },
+          { icon:"📐", text:"Obtuse angle: between 90 and 180 degrees" },
+          { icon:"📐", text:"Straight angle: exactly 180 degrees" },
+          { icon:"📐", text:"Reflex angle: between 180 and 360 degrees" },
+          { icon:"🔄", text:"Complete angle: exactly 360 degrees" },
+        ]},
+      { type:"formula", heading:"TRIANGLES",
+        items:[
+          { n:1, label:"Angle sum",           formula:"A + B + C = 180 degrees" },
+          { n:2, label:"Area",                formula:"(1/2) x base x height" },
+          { n:3, label:"Perimeter",           formula:"a + b + c" },
+          { n:4, label:"Pythagoras theorem",  formula:"a² + b² = c²  (right triangle only)" },
+          { n:5, label:"Equilateral area",    formula:"(sqrt3 / 4) × side²" },
+        ]},
+      { type:"formula", heading:"QUADRILATERALS AND CIRCLES",
+        items:[
+          { n:1, label:"Square area",       formula:"side²" },
+          { n:2, label:"Rectangle area",    formula:"length × breadth" },
+          { n:3, label:"Rhombus area",      formula:"(1/2) × d1 × d2 (diagonals)" },
+          { n:4, label:"Trapezium area",    formula:"(1/2) × (a+b) × height" },
+          { n:5, label:"Circle area",       formula:"pi × r²" },
+          { n:6, label:"Circumference",     formula:"2 × pi × r" },
+        ]},
+      { type:"facts", heading:"GEOMETRY TIPS",
+        items:[
+          { icon:"📐", text:"Sum of angles in a triangle = 180 degrees. In a quadrilateral = 360 degrees." },
+          { icon:"📐", text:"Exterior angle of a triangle = sum of the two non-adjacent interior angles." },
+          { icon:"📐", text:"Pythagorean triples to memorise: 3-4-5, 5-12-13, 8-15-17, 7-24-25" },
+          { icon:"📐", text:"Equilateral triangle: all 3 sides equal, all 3 angles = 60 degrees." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-004", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"FRACTIONS — OPERATIONS",
+        items:[
+          { n:1, label:"Add/Subtract",      formula:"Make denominators equal, then operate on numerators" },
+          { n:2, label:"Multiply",          formula:"(a/b) × (c/d) = (a×c) ÷ (b×d)" },
+          { n:3, label:"Divide",            formula:"(a/b) ÷ (c/d) = (a/b) × (d/c)" },
+          { n:4, label:"Mixed to improper", formula:"(whole × denom + numer) ÷ denom" },
+          { n:5, label:"Simplify",          formula:"Divide numerator and denominator by their HCF" },
+        ]},
+      { type:"formula", heading:"DECIMALS AND CONVERSIONS",
+        items:[
+          { n:1, label:"Fraction to Decimal", formula:"Divide numerator by denominator" },
+          { n:2, label:"Decimal to Fraction", formula:"Write over 10/100/1000, then simplify" },
+          { n:3, label:"% to Decimal",        formula:"Divide by 100 (45% = 0.45)" },
+          { n:4, label:"Decimal to %",        formula:"Multiply by 100 (0.7 = 70%)" },
+          { n:5, label:"Fraction to %",       formula:"(Numerator ÷ Denominator) × 100" },
+        ]},
+      { type:"facts", heading:"FRACTION TIPS",
+        items:[
+          { icon:"💡", text:"Proper fraction: numerator less than denominator — e.g. 3/7" },
+          { icon:"💡", text:"Improper fraction: numerator greater than denominator — e.g. 9/4" },
+          { icon:"💡", text:"Equivalent fractions: 1/2 = 2/4 = 3/6 = 4/8 (multiply both by same number)" },
+          { icon:"💡", text:"To compare fractions: cross multiply. 3/5 vs 4/7 → 21 vs 20 → 3/5 is greater" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-005", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"ALGEBRAIC IDENTITIES",
+        items:[
+          { n:1, label:"(a+b)²",      formula:"a² + 2ab + b²" },
+          { n:2, label:"(a-b)²",      formula:"a² - 2ab + b²" },
+          { n:3, label:"(a+b)(a-b)",  formula:"a² - b²" },
+          { n:4, label:"(a+b)³",      formula:"a³ + 3a²b + 3ab² + b³" },
+          { n:5, label:"a³+b³",       formula:"(a+b)(a² - ab + b²)" },
+          { n:6, label:"a³-b³",       formula:"(a-b)(a² + ab + b²)" },
+        ]},
+      { type:"formula", heading:"LINEAR EQUATIONS",
+        items:[
+          { n:1, label:"One variable",   formula:"ax + b = c  →  x = (c-b)/a" },
+          { n:2, label:"Substitution",   formula:"Solve one equation for x, substitute in other" },
+          { n:3, label:"Elimination",    formula:"Add/subtract equations to eliminate one variable" },
+          { n:4, label:"Cross multiply", formula:"a/b = c/d  →  ad = bc" },
+        ]},
+      { type:"facts", heading:"ALGEBRA TIPS",
+        items:[
+          { icon:"🔑", text:"Golden rule: whatever you do to one side, do to the other side" },
+          { icon:"🔑", text:"Moving terms: a term moves to other side with opposite sign (+ becomes -)" },
+          { icon:"🔑", text:"Distributive law: a(b+c) = ab + ac. Always expand before solving." },
+          { icon:"🔑", text:"Always verify your answer by substituting back into the equation." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-006", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"MEAN, MEDIAN AND MODE",
+        items:[
+          { n:1, label:"Mean (Average)",   formula:"Sum of values ÷ Number of values" },
+          { n:2, label:"Median (odd n)",   formula:"Middle value when data is sorted" },
+          { n:3, label:"Median (even n)",  formula:"Average of two middle values" },
+          { n:4, label:"Mode",             formula:"Most frequently occurring value" },
+          { n:5, label:"Range",            formula:"Highest value - Lowest value" },
+        ]},
+      { type:"formula", heading:"SPEED, DISTANCE AND TIME",
+        items:[
+          { n:1, label:"Speed",             formula:"Distance ÷ Time" },
+          { n:2, label:"Distance",          formula:"Speed × Time" },
+          { n:3, label:"Time",              formula:"Distance ÷ Speed" },
+          { n:4, label:"Avg speed (2 legs)", formula:"2 × S1 × S2 ÷ (S1 + S2)" },
+          { n:5, label:"km/h to m/s",       formula:"Multiply by 5/18" },
+          { n:6, label:"m/s to km/h",       formula:"Multiply by 18/5" },
+        ]},
+      { type:"formula", heading:"RATIO AND PROPORTION",
+        items:[
+          { n:1, label:"Ratio a:b",         formula:"a/b (simplify by HCF)" },
+          { n:2, label:"Proportion",        formula:"a:b = c:d  →  ad = bc" },
+          { n:3, label:"4th proportional",  formula:"x = (b×c) ÷ a" },
+          { n:4, label:"Dividing in ratio", formula:"Total × (part ÷ sum of parts)" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-007", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"SIMPLE AND COMPOUND INTEREST",
+        items:[
+          { n:1, label:"Simple Interest",   formula:"(P × R × T) ÷ 100" },
+          { n:2, label:"Amount (SI)",       formula:"P + SI" },
+          { n:3, label:"Compound Interest", formula:"P × (1 + R/100)^n - P" },
+          { n:4, label:"Amount (CI)",       formula:"P × (1 + R/100)^n" },
+          { n:5, label:"CI half-yearly",    formula:"P × (1 + R/200)^(2n)" },
+        ]},
+      { type:"formula", heading:"AREA AND VOLUME",
+        items:[
+          { n:1, label:"Cube volume",       formula:"side³" },
+          { n:2, label:"Cuboid volume",     formula:"l × b × h" },
+          { n:3, label:"Cylinder volume",   formula:"pi × r² × h" },
+          { n:4, label:"Cone volume",       formula:"(1/3) × pi × r² × h" },
+          { n:5, label:"Sphere volume",     formula:"(4/3) × pi × r³" },
+          { n:6, label:"Cube surface area", formula:"6 × side²" },
+        ]},
+      { type:"facts", heading:"MATHS MEMORY TRICKS",
+        items:[
+          { icon:"🧠", text:"Squares 1-15: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225" },
+          { icon:"🧠", text:"Cubes 1-10: 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000" },
+          { icon:"🧠", text:"pi approx 3.14159 | sqrt2 approx 1.414 | sqrt3 approx 1.732" },
+          { icon:"🧠", text:"BODMAS: Brackets, Orders, Division, Multiplication, Addition, Subtraction" },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  SCIENCE  (6 packs)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-s-001", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"BODY SYSTEMS OVERVIEW",
+        items:[
+          { icon:"🦴", text:"Skeletal system: 206 bones in adults (babies have ~270). Gives shape and protects organs." },
+          { icon:"💪", text:"Muscular system: 3 types — skeletal (voluntary), smooth (involuntary), cardiac (heart)" },
+          { icon:"🫀", text:"Circulatory system: heart pumps ~100,000 times/day. Blood travels ~96,000 km of vessels." },
+          { icon:"🧠", text:"Nervous system: brain + spinal cord = CNS. Nerves carry signals at up to 120 m/s." },
+        ]},
+      { type:"facts", heading:"DIGESTIVE SYSTEM",
+        items:[
+          { icon:"👄", text:"Digestion starts in the mouth — saliva contains amylase enzyme that breaks down starch." },
+          { icon:"🫁", text:"Food travels: mouth → oesophagus → stomach → small intestine → large intestine" },
+          { icon:"🧪", text:"Stomach: HCl acid kills germs and activates pepsin enzyme to digest proteins." },
+          { icon:"🩸", text:"Small intestine (7-8 m long): most digestion and absorption of nutrients into blood." },
+          { icon:"💧", text:"Large intestine: absorbs water. Undigested food becomes faeces and exits." },
+        ]},
+      { type:"facts", heading:"CIRCULATORY SYSTEM",
+        items:[
+          { icon:"🫀", text:"Heart has 4 chambers: 2 atria (receive blood) and 2 ventricles (pump blood)" },
+          { icon:"🔴", text:"Arteries: carry oxygenated blood away from heart (except pulmonary artery)" },
+          { icon:"🔵", text:"Veins: carry deoxygenated blood to heart (except pulmonary vein)" },
+          { icon:"🩸", text:"Red blood cells carry oxygen. White blood cells fight infection. Platelets clot blood." },
+        ]},
+      { type:"facts", heading:"RESPIRATORY SYSTEM",
+        items:[
+          { icon:"🫁", text:"Lungs contain 300-500 million alveoli (tiny air sacs) for gas exchange." },
+          { icon:"💨", text:"Inhale: oxygen enters blood via alveoli. Exhale: carbon dioxide leaves blood." },
+          { icon:"🔬", text:"Diaphragm: a dome-shaped muscle below lungs that controls breathing." },
+          { icon:"📊", text:"We breathe ~15-20 times per minute and take ~8 million breaths per year." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-002", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"PHOTOSYNTHESIS",
+        items:[
+          { icon:"🌿", text:"Equation: 6CO2 + 6H2O + light energy → C6H12O6 (glucose) + 6O2" },
+          { icon:"☀️", text:"Happens in chloroplasts, using chlorophyll — the green pigment in leaves." },
+          { icon:"🌡️", text:"Factors affecting rate: light intensity, CO2 concentration, temperature, water" },
+          { icon:"🌙", text:"Respiration happens 24/7. Photosynthesis only happens in the presence of light." },
+        ]},
+      { type:"facts", heading:"PARTS OF A PLANT",
+        items:[
+          { icon:"🌱", text:"Roots: anchor the plant, absorb water and minerals from soil, store food" },
+          { icon:"🪵", text:"Stem: supports the plant, transports water (xylem) and food (phloem)" },
+          { icon:"🍃", text:"Leaves: site of photosynthesis. Stomata (tiny pores) allow gas exchange." },
+          { icon:"🌸", text:"Flower: reproductive organ. Contains petals, sepals, stamens and pistil." },
+          { icon:"🌰", text:"Seed: contains embryo and food store. Dispersed by wind, water, animals." },
+        ]},
+      { type:"facts", heading:"PLANT ADAPTATIONS",
+        items:[
+          { icon:"🌵", text:"Cactus (desert): thick waxy stem stores water, spines reduce water loss" },
+          { icon:"🌊", text:"Water hyacinth (aquatic): spongy stems trap air for buoyancy" },
+          { icon:"🏔️", text:"Pine tree (cold mountains): needle leaves reduce snow load and water loss" },
+          { icon:"🌴", text:"Mangrove (coast): stilt roots for support in mud, aerial roots for oxygen" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-003", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"PLANETS OF THE SOLAR SYSTEM",
+        items:[
+          { icon:"☀️", text:"Order from Sun: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune" },
+          { icon:"🪐", text:"Largest planet: Jupiter (1,300 Earths fit inside). Smallest: Mercury." },
+          { icon:"♨️", text:"Hottest planet: Venus (462 C) due to greenhouse effect — not Mercury!" },
+          { icon:"💍", text:"Saturn's rings are ice and rock. It's the least dense planet — could float on water!" },
+        ]},
+      { type:"facts", heading:"THE MOON AND TIDES",
+        items:[
+          { icon:"🌕", text:"Moon orbits Earth in ~27.3 days. We always see the same side (synchronous rotation)." },
+          { icon:"🌓", text:"Moon phases: New → Waxing Crescent → First Quarter → Full → Waning → Last Quarter → New" },
+          { icon:"🌊", text:"High tide: ocean faces Moon (gravity pull). Low tide: when it faces away." },
+          { icon:"🌑", text:"Solar eclipse: Moon between Earth and Sun. Lunar eclipse: Earth between Sun and Moon." },
+        ]},
+      { type:"facts", heading:"STARS AND THE UNIVERSE",
+        items:[
+          { icon:"⭐", text:"Our Sun is a medium-sized star (G-type yellow dwarf), ~4.6 billion years old." },
+          { icon:"🌌", text:"Nearest star to Sun: Proxima Centauri, ~4.24 light years away." },
+          { icon:"🔭", text:"A light year = distance light travels in one year = ~9.46 trillion km." },
+          { icon:"🪐", text:"Our galaxy: Milky Way, a spiral galaxy with ~200-400 billion stars." },
+          { icon:"💥", text:"Big Bang Theory: universe began ~13.8 billion years ago from a single hot point." },
+        ]},
+      { type:"facts", heading:"SPACE EXPLORATION FACTS",
+        items:[
+          { icon:"🚀", text:"First human in space: Yuri Gagarin (USSR), April 12, 1961." },
+          { icon:"🌍", text:"First humans on Moon: Neil Armstrong and Buzz Aldrin, July 20, 1969 (Apollo 11)." },
+          { icon:"🇮🇳", text:"First Indian in space: Rakesh Sharma, 1984. Chandrayaan-3 landed on Moon's south pole in 2023." },
+          { icon:"🛸", text:"ISS (International Space Station) orbits Earth at ~400 km altitude, 16 times per day." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-004", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"NEWTON'S LAWS OF MOTION",
+        items:[
+          { icon:"⚡", text:"1st Law (Inertia): An object at rest stays at rest; in motion stays in motion unless force acts." },
+          { icon:"📐", text:"2nd Law: F = ma. Force equals mass multiplied by acceleration." },
+          { icon:"🔄", text:"3rd Law: For every action, there is an equal and opposite reaction." },
+          { icon:"🍎", text:"Gravity: all objects with mass attract each other. Earth's gravity = 9.8 m/s squared." },
+        ]},
+      { type:"facts", heading:"LIGHT",
+        items:[
+          { icon:"💡", text:"Light travels at ~3 x 10^8 m/s (300,000 km/s) in vacuum — fastest speed possible." },
+          { icon:"🌈", text:"White light splits into 7 colours (VIBGYOR) by a prism due to refraction." },
+          { icon:"🔍", text:"Reflection: angle of incidence = angle of reflection. Used in mirrors." },
+          { icon:"🔬", text:"Refraction: light bends when moving between media of different density (water to air)." },
+          { icon:"🌈", text:"Rainbow forms due to dispersion + internal reflection of light inside water droplets." },
+        ]},
+      { type:"facts", heading:"SOUND",
+        items:[
+          { icon:"🔊", text:"Sound is a mechanical wave — it needs a medium to travel. Cannot travel in vacuum." },
+          { icon:"📊", text:"Speed of sound: ~343 m/s in air, ~1,480 m/s in water, ~5,120 m/s in steel." },
+          { icon:"📢", text:"Pitch depends on frequency (Hz). High frequency = high pitch. Low = low pitch." },
+          { icon:"🦇", text:"Ultrasound (>20,000 Hz): used in sonar and medical imaging." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-005", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"STATES OF MATTER",
+        items:[
+          { icon:"🧊", text:"Solid: fixed shape and volume. Particles closely packed, vibrate in place." },
+          { icon:"💧", text:"Liquid: fixed volume, no fixed shape. Particles close but can flow past each other." },
+          { icon:"💨", text:"Gas: no fixed shape or volume. Particles far apart, move freely and rapidly." },
+          { icon:"🔥", text:"Plasma: 4th state — ionised gas at very high temperatures. Found in stars and lightning." },
+        ]},
+      { type:"facts", heading:"CHEMICAL VS PHYSICAL CHANGES",
+        items:[
+          { icon:"🔄", text:"Physical change: no new substance formed. Reversible. E.g. melting ice, dissolving sugar." },
+          { icon:"⚗️", text:"Chemical change: new substance formed. Usually irreversible. E.g. burning, rusting." },
+          { icon:"🧪", text:"Signs of chemical change: colour change, gas produced, heat given off, precipitate formed." },
+          { icon:"🍞", text:"Baking bread, burning wood, rusting iron, digesting food = chemical changes." },
+        ]},
+      { type:"facts", heading:"ACIDS, BASES AND pH",
+        items:[
+          { icon:"🍋", text:"Acids: pH less than 7. Sour taste, turn blue litmus red. E.g. HCl, vinegar, lemon juice." },
+          { icon:"🧼", text:"Bases: pH greater than 7. Bitter taste, turn red litmus blue. E.g. NaOH, baking soda." },
+          { icon:"💧", text:"Neutral: pH = 7. Pure water is neutral." },
+          { icon:"⚗️", text:"Neutralisation: Acid + Base → Salt + Water. E.g. HCl + NaOH → NaCl + H2O." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-006", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"ELECTRICITY BASICS",
+        items:[
+          { icon:"⚡", text:"Electric current (I): flow of electric charge. Measured in Amperes (A)." },
+          { icon:"🔋", text:"Voltage (V): electrical pressure that pushes current. Measured in Volts." },
+          { icon:"🔌", text:"Resistance (R): opposition to current flow. Measured in Ohms." },
+          { icon:"📐", text:"Ohm's Law: V = I × R" },
+        ]},
+      { type:"facts", heading:"SERIES AND PARALLEL CIRCUITS",
+        items:[
+          { icon:"➡️", text:"Series circuit: components in a single loop. Same current flows through all." },
+          { icon:"⚠️", text:"Series: if one component fails, the whole circuit breaks. Total R = R1 + R2 + R3" },
+          { icon:"⑂", text:"Parallel circuit: components in separate branches. Same voltage across each branch." },
+          { icon:"✅", text:"Parallel: if one fails, others still work. Home wiring is always parallel." },
+        ]},
+      { type:"facts", heading:"MAGNETS AND MAGNETISM",
+        items:[
+          { icon:"🧲", text:"Magnets attract iron, nickel and cobalt. Every magnet has a north and south pole." },
+          { icon:"↔️", text:"Like poles repel (N-N, S-S). Unlike poles attract (N-S)." },
+          { icon:"🌍", text:"Earth is a giant magnet — geographic north = magnetic south." },
+          { icon:"⚡", text:"Electromagnet: coil of wire carrying current. Strength increases with more turns." },
+          { icon:"🔋", text:"Electric motor: converts electrical energy to mechanical energy using electromagnetism." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  HISTORY  (3 packs)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-h-001", subject:"History", color:"#8b5cf6",
+    slides:[
+      { type:"facts", heading:"INDUS VALLEY CIVILISATION",
+        items:[
+          { icon:"🏛️", text:"Flourished ~2600-1900 BCE. Major cities: Mohenjo-daro, Harappa, Dholavira, Lothal." },
+          { icon:"🚿", text:"Advanced urban planning: grid-pattern streets, covered drains, multi-storey brick houses." },
+          { icon:"⚖️", text:"Standardised weights and measures used for trade across a large network." },
+          { icon:"❓", text:"Script still undeciphered. Decline possibly due to climate change or river shifts ~1900 BCE." },
+        ]},
+      { type:"facts", heading:"MAURYAN EMPIRE",
+        items:[
+          { icon:"👑", text:"Founded by Chandragupta Maurya in 322 BCE with help of Chanakya (Kautilya)." },
+          { icon:"📜", text:"Arthashastra: Chanakya's treatise on statecraft, economics and military strategy." },
+          { icon:"☸️", text:"Ashoka the Great (268-232 BCE): after Kalinga War, converted to Buddhism, spread Dhamma." },
+          { icon:"🏛️", text:"Ashoka's rock edicts and pillars spread across the subcontinent — symbols of Indian heritage." },
+        ]},
+      { type:"facts", heading:"GUPTA EMPIRE — GOLDEN AGE",
+        items:[
+          { icon:"✨", text:"~320-550 CE. Known as India's Golden Age of science, art, and literature." },
+          { icon:"🔢", text:"Aryabhatta: calculated value of pi, explained Earth's rotation, proposed heliocentric theory." },
+          { icon:"📚", text:"Kalidasa: wrote Abhijnanashakuntalam — peak of Sanskrit literature." },
+          { icon:"🔟", text:"Decimal system and concept of zero were developed in India during this period." },
+        ]},
+      { type:"facts", heading:"DELHI SULTANATE AND MUGHALS",
+        items:[
+          { icon:"🕌", text:"Delhi Sultanate: 1206-1526 CE. Five dynasties: Slave, Khilji, Tughlaq, Sayyid, Lodi." },
+          { icon:"👑", text:"Mughal Empire: 1526-1857. Founded by Babur after 1st Battle of Panipat (1526)." },
+          { icon:"🏯", text:"Akbar the Great: religious tolerance (Din-i-Ilahi), Navratnas." },
+          { icon:"🕌", text:"Shah Jahan: built Taj Mahal (1632-53) for wife Mumtaz Mahal, in Agra." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-h-002", subject:"History", color:"#8b5cf6",
+    slides:[
+      { type:"facts", heading:"THE 1857 REVOLT",
+        items:[
+          { icon:"⚔️", text:"1857 Revolt (Sepoy Mutiny): First War of Indian Independence against British rule." },
+          { icon:"🔫", text:"Immediate cause: Enfield rifle cartridges (rumoured greased with cow/pig fat)." },
+          { icon:"👑", text:"Leaders: Mangal Pandey, Rani Lakshmibai (Jhansi), Nana Sahib, Bahadur Shah Zafar." },
+          { icon:"📜", text:"After 1857: British Crown took direct control. East India Company rule ended." },
+        ]},
+      { type:"facts", heading:"FREEDOM MOVEMENT LEADERS",
+        items:[
+          { icon:"🕊️", text:"Mahatma Gandhi: led mass non-violent movements. Father of the Nation. Born Oct 2, 1869." },
+          { icon:"🌹", text:"Jawaharlal Nehru: First PM of India. Led Indian National Congress." },
+          { icon:"⚡", text:"Subhas Chandra Bose: formed INA (Indian National Army). Give me blood — I'll give you freedom." },
+          { icon:"🏹", text:"Bhagat Singh: revolutionary executed in 1931. Symbol of youth nationalist movement." },
+        ]},
+      { type:"facts", heading:"KEY MOVEMENTS AND EVENTS",
+        items:[
+          { icon:"🧂", text:"Salt March (1930): Gandhi walked 386 km from Sabarmati to Dandi to protest salt tax." },
+          { icon:"🚪", text:"Quit India Movement (1942): 'Do or Die' — Gandhi's call for immediate British withdrawal." },
+          { icon:"🤝", text:"Non-Cooperation (1920): boycott of British goods, schools, courts. First mass movement." },
+          { icon:"🇮🇳", text:"Independence: August 15, 1947. Constitution adopted January 26, 1950 (Republic Day)." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-h-003", subject:"History", color:"#8b5cf6",
+    slides:[
+      { type:"facts", heading:"ANCIENT WORLD CIVILISATIONS",
+        items:[
+          { icon:"🐊", text:"Egypt (~3100 BCE): pharaohs, pyramids, mummification, hieroglyphic writing, Nile River." },
+          { icon:"🏺", text:"Mesopotamia (Iraq): Sumerians invented writing (cuneiform), wheel, and first cities." },
+          { icon:"🏛️", text:"Greece (~800-146 BCE): democracy, philosophy (Socrates, Plato, Aristotle), Olympics." },
+          { icon:"🦅", text:"Rome (~753 BCE-476 CE): republic to empire, Latin language, legal system, roads." },
+        ]},
+      { type:"facts", heading:"INDUSTRIAL REVOLUTION",
+        items:[
+          { icon:"🏭", text:"Began in Britain ~1760. Shift from hand production to machine manufacturing." },
+          { icon:"♨️", text:"Steam engine (James Watt, 1769): powered factories, trains, ships — changed the world." },
+          { icon:"🚂", text:"First railway: Stockton to Darlington (1825). Mass transport transformed trade." },
+          { icon:"🌍", text:"Led to urbanisation, rise of capitalism, child labour, and workers' rights movements." },
+        ]},
+      { type:"facts", heading:"WORLD WARS",
+        items:[
+          { icon:"🌍", text:"WW1 (1914-1918): triggered by assassination of Archduke Franz Ferdinand in Sarajevo." },
+          { icon:"🤝", text:"Allied Powers vs Central Powers. Ended with Treaty of Versailles (1919)." },
+          { icon:"💣", text:"WW2 (1939-1945): Nazi Germany invaded Poland. Allied vs Axis (Germany, Italy, Japan)." },
+          { icon:"☢️", text:"US dropped atomic bombs on Hiroshima (Aug 6) and Nagasaki (Aug 9), 1945. Japan surrendered." },
+          { icon:"🕊️", text:"UN founded Oct 24, 1945 to maintain international peace after WW2." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  GEOGRAPHY  (3 packs)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-g-001", subject:"Geography", color:"#ef4444",
+    slides:[
+      { type:"facts", heading:"INDIA — PHYSICAL FEATURES",
+        items:[
+          { icon:"🏔️", text:"Himalayas: youngest fold mountains. Kangchenjunga (8,586 m) is India's highest peak." },
+          { icon:"🌾", text:"Northern Plains: formed by Indus, Ganga, Brahmaputra rivers. Most fertile, densely populated." },
+          { icon:"🪨", text:"Deccan Plateau: ancient hard rock (Gondwanaland). Rich in minerals — coal, iron, manganese." },
+          { icon:"🏖️", text:"Coastal plains: Western (narrow, steep) and Eastern (wider, deltaic) coasts." },
+          { icon:"🌴", text:"Thar Desert (Rajasthan): largest hot desert in India. Annual rainfall less than 250 mm." },
+        ]},
+      { type:"facts", heading:"INDIA — MAJOR RIVERS",
+        items:[
+          { icon:"🌊", text:"Himalayan rivers: perennial (always flowing) — Ganga, Yamuna, Brahmaputra, Indus." },
+          { icon:"🏜️", text:"Peninsular rivers: seasonal — Godavari, Krishna, Cauvery, Narmada, Tapti, Mahanadi." },
+          { icon:"📏", text:"Longest river: Ganga (2,525 km). Brahmaputra is largest by water volume." },
+          { icon:"⬇️", text:"Narmada and Tapti flow west to Arabian Sea. Most peninsular rivers flow east to Bay of Bengal." },
+        ]},
+      { type:"facts", heading:"INDIA — CLIMATE AND SEASONS",
+        items:[
+          { icon:"💨", text:"India has tropical monsoon climate. Four seasons: Winter, Summer, Monsoon, Retreating Monsoon." },
+          { icon:"🌧️", text:"South-West Monsoon (June-Sept): brings 75-90% of India's annual rainfall." },
+          { icon:"🌡️", text:"Coldest region: Drass, Ladakh (-45C in winter). Hottest: Rajasthan (50C in summer)." },
+          { icon:"☔", text:"Wettest place on Earth: Mawsynram, Meghalaya (~11,871 mm/year rainfall)." },
+        ]},
+      { type:"facts", heading:"INDIA — STATES AND FACTS",
+        items:[
+          { icon:"🗺️", text:"India: 28 states + 8 Union Territories. Largest state: Rajasthan. Smallest: Goa." },
+          { icon:"👨‍👩‍👧‍👦", text:"Most populous state: Uttar Pradesh. Least populous: Sikkim." },
+          { icon:"🌲", text:"Longest coastline state: Gujarat (1,600 km). India's total coastline: ~7,516 km." },
+          { icon:"🗻", text:"Highest capital: Leh (Ladakh, 3,524 m). Southernmost point: Indira Point, A&N Islands." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-g-002", subject:"Geography", color:"#ef4444",
+    slides:[
+      { type:"facts", heading:"CONTINENTS AND OCEANS",
+        items:[
+          { icon:"🌍", text:"7 Continents (largest to smallest): Asia, Africa, North America, South America, Antarctica, Europe, Australia." },
+          { icon:"🌊", text:"5 Oceans (largest to smallest): Pacific, Atlantic, Indian, Southern, Arctic." },
+          { icon:"🌐", text:"Pacific Ocean: largest and deepest (Mariana Trench, 11,034 m — deepest point on Earth)." },
+          { icon:"🗺️", text:"Equator (0 degrees) divides Earth into Northern and Southern hemispheres." },
+          { icon:"🧭", text:"Prime Meridian (0 degrees longitude) passes through Greenwich, UK." },
+        ]},
+      { type:"facts", heading:"WORLD MOUNTAINS AND DESERTS",
+        items:[
+          { icon:"🏔️", text:"Highest peak: Mt Everest (8,849 m), Nepal/Tibet. Part of the Himalayas." },
+          { icon:"🏔️", text:"Longest mountain range: Andes (South America, 7,000 km)." },
+          { icon:"🏜️", text:"Largest hot desert: Sahara (Africa, ~9.2 million km squared). Covers 31% of Africa." },
+          { icon:"❄️", text:"Largest cold desert: Antarctic Desert (~14.2 million km squared) — often forgotten!" },
+        ]},
+      { type:"facts", heading:"WORLD RIVERS AND LAKES",
+        items:[
+          { icon:"🌊", text:"Longest river: Nile (Africa, 6,650 km). Amazon (S. America) is 2nd but largest by volume." },
+          { icon:"🚤", text:"Amazon carries 20% of all river water flowing into the world's oceans." },
+          { icon:"💧", text:"Largest freshwater lake: Lake Superior (North America, 82,103 km squared)." },
+          { icon:"🏞️", text:"Deepest lake: Lake Baikal (Russia, 1,642 m). Contains 20% of world's fresh surface water." },
+          { icon:"🧂", text:"Saltiest lake: Dead Sea (Israel/Jordan). So salty you float naturally — no fish can live there." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-g-003", subject:"Geography", color:"#ef4444",
+    slides:[
+      { type:"facts", heading:"NATURAL DISASTERS",
+        items:[
+          { icon:"🌋", text:"Volcano: magma from Earth's mantle erupts through a vent. Ring of Fire has 75% of world's volcanoes." },
+          { icon:"🌏", text:"Earthquake: caused by movement of tectonic plates. Measured on Richter scale." },
+          { icon:"🌊", text:"Tsunami: giant ocean wave triggered by underwater earthquake or landslide." },
+          { icon:"🌀", text:"Cyclone (Indian Ocean), Typhoon (Pacific), Hurricane (Atlantic) — all the same phenomenon!" },
+        ]},
+      { type:"facts", heading:"CLIMATE ZONES",
+        items:[
+          { icon:"🔥", text:"Tropical: near equator (0-23.5 degrees). Hot and wet all year. E.g. Amazon, Congo rainforests." },
+          { icon:"🌵", text:"Arid/Desert: 20-30 degrees N and S. Very little rain. E.g. Sahara, Thar, Arabian Desert." },
+          { icon:"🌤️", text:"Temperate: 35-65 degrees N and S. Moderate climate with 4 seasons. Most of Europe, India's north." },
+          { icon:"❄️", text:"Polar: above 66.5 degrees (Arctic Circle). Extremely cold, ice-covered most of year." },
+          { icon:"🏔️", text:"Mountain (Alpine): cold due to altitude regardless of latitude. E.g. Himalayas, Alps, Andes." },
+        ]},
+      { type:"facts", heading:"ENVIRONMENT AND RESOURCES",
+        items:[
+          { icon:"⚡", text:"Renewable energy: solar, wind, hydro, geothermal, tidal — won't run out." },
+          { icon:"🛢️", text:"Non-renewable: coal, oil, natural gas — formed over millions of years, finite supply." },
+          { icon:"🌡️", text:"Global warming: rising CO2 levels trap heat → temperature rise → melting ice caps → sea level rise." },
+          { icon:"♻️", text:"3 Rs: Reduce (use less), Reuse (use again), Recycle (process into new materials)." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  GK  (3 packs)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-gk-001", subject:"GK", color:"#f59e0b",
+    slides:[
+      { type:"facts", heading:"INDIA — NATIONAL SYMBOLS",
+        items:[
+          { icon:"🦚", text:"National Bird: Indian Peacock (Pavo cristatus) — designated 1963." },
+          { icon:"🐯", text:"National Animal: Bengal Tiger — designated 1973 under Project Tiger." },
+          { icon:"🪷", text:"National Flower: Lotus (Nelumbo nucifera) — symbol of purity and grace." },
+          { icon:"🌳", text:"National Tree: Banyan (Ficus benghalensis) — symbolises unity and immortality." },
+          { icon:"🐬", text:"National Aquatic Animal: River Dolphin (Gangetic Dolphin) — endangered species." },
+        ]},
+      { type:"facts", heading:"INDIA — KEY FACTS",
+        items:[
+          { icon:"🌍", text:"World's largest democracy. Second most populous country (~1.44 billion people, 2024)." },
+          { icon:"🗣️", text:"22 official languages in Constitution. Hindi + English = official languages of Union." },
+          { icon:"🎵", text:"National Anthem: Jana Gana Mana (by Rabindranath Tagore). Duration: 52 seconds." },
+          { icon:"🏛️", text:"Capital: New Delhi. Largest city: Mumbai (financial capital)." },
+        ]},
+      { type:"facts", heading:"INDIA — FIRSTS AND RECORDS",
+        items:[
+          { icon:"🥇", text:"First Indian to win Nobel Prize: Rabindranath Tagore (Literature, 1913)." },
+          { icon:"🏆", text:"First Indian to win Olympic gold (individual): Abhinav Bindra (Shooting, 2008 Beijing)." },
+          { icon:"🚀", text:"Chandrayaan-3 (2023) first to land on Moon's South Pole. Mangalyaan (2014) reached Mars in first attempt." },
+          { icon:"♟️", text:"Chess was invented in India (~6th century CE) — originally called 'Chaturanga'." },
+        ]},
+      { type:"facts", heading:"WORLD — IMPORTANT RECORDS",
+        items:[
+          { icon:"🌍", text:"Most populous country: India (surpassed China in 2023, ~1.44 billion)." },
+          { icon:"📏", text:"Largest country by area: Russia (17.1 million km squared). Smallest: Vatican City (0.44 km squared)." },
+          { icon:"🗼", text:"Tallest building: Burj Khalifa, Dubai (828 m). Tallest statue: Statue of Unity, India (182 m)." },
+          { icon:"🌉", text:"Longest bridge: Danyang-Kunshan Grand Bridge, China (164.8 km)." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-gk-002", subject:"GK", color:"#f59e0b",
+    slides:[
+      { type:"facts", heading:"INVENTIONS AND INVENTORS",
+        items:[
+          { icon:"💡", text:"Electricity (practical): Thomas Edison (electric light bulb, 1879). AC system: Nikola Tesla." },
+          { icon:"📱", text:"Telephone: Alexander Graham Bell (1876). World Wide Web: Tim Berners-Lee (1989)." },
+          { icon:"✈️", text:"Aeroplane: Wright Brothers (Orville and Wilbur), first flight Dec 17, 1903." },
+          { icon:"🩺", text:"Penicillin: Alexander Fleming (1928). Vaccination: Edward Jenner (smallpox, 1796)." },
+        ]},
+      { type:"facts", heading:"NOTABLE SCIENTISTS",
+        items:[
+          { icon:"🍎", text:"Isaac Newton: Laws of Motion and Gravitation. Invented calculus." },
+          { icon:"⚛️", text:"Albert Einstein: Theory of Relativity (E=mc squared). Nobel Prize 1921 for photoelectric effect." },
+          { icon:"⚗️", text:"Marie Curie: discovered Polonium and Radium. First person to win 2 Nobel Prizes." },
+          { icon:"🧬", text:"Charles Darwin: Theory of Evolution by Natural Selection (Origin of Species, 1859)." },
+          { icon:"🔬", text:"Louis Pasteur: germ theory, pasteurisation, vaccines for rabies and anthrax." },
+        ]},
+      { type:"facts", heading:"CURRENT AFFAIRS — SCIENCE AND TECH",
+        items:[
+          { icon:"🤖", text:"Artificial Intelligence (AI): ChatGPT launched Nov 2022. Now used across all industries." },
+          { icon:"🚀", text:"SpaceX Starship: world's most powerful rocket. Elon Musk aims for Mars colony." },
+          { icon:"🔋", text:"Electric vehicles (EVs): India's EV policy aims for 30% EV share by 2030." },
+          { icon:"🌞", text:"India is world's 3rd largest solar energy producer. Aims for 500 GW renewable by 2030." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-gk-003", subject:"GK", color:"#f59e0b",
+    slides:[
+      { type:"facts", heading:"INTERNATIONAL ORGANISATIONS",
+        items:[
+          { icon:"🕊️", text:"UN (United Nations): founded 1945, 193 member nations. HQ: New York. Promotes peace." },
+          { icon:"💰", text:"World Bank and IMF: provide financial assistance and stability to developing nations." },
+          { icon:"🌍", text:"WHO (World Health Organization): directs global health. HQ: Geneva, Switzerland." },
+          { icon:"📚", text:"UNESCO: promotes education, science, culture. Designates World Heritage Sites." },
+          { icon:"👶", text:"UNICEF: protects children's rights and provides humanitarian aid worldwide." },
+        ]},
+      { type:"facts", heading:"SPORTS — MAJOR EVENTS",
+        items:[
+          { icon:"🥇", text:"Olympics: every 4 years. Summer 2024: Paris. Winter 2026: Milan-Cortina, Italy." },
+          { icon:"⚽", text:"FIFA World Cup: every 4 years. 2026 hosts: USA, Canada, Mexico. 2022 winner: Argentina." },
+          { icon:"🏏", text:"ICC Cricket T20 World Cup 2024: India won. ICC Cricket World Cup 2023: Australia won." },
+          { icon:"🎾", text:"Grand Slams: Australian Open, French Open (Roland Garros), Wimbledon, US Open." },
+        ]},
+      { type:"facts", heading:"AWARDS AND RECOGNITIONS",
+        items:[
+          { icon:"🏅", text:"Bharat Ratna: India's highest civilian award. First recipients (1954): C. Rajagopalachari, S. Radhakrishnan, C.V. Raman." },
+          { icon:"🌹", text:"Padma Awards: Padma Vibhushan, Padma Bhushan, Padma Shri — announced on Republic Day." },
+          { icon:"🎖️", text:"Nobel Prize: awarded in Physics, Chemistry, Medicine, Literature, Peace, Economics." },
+          { icon:"🏆", text:"Khel Ratna: India's highest sports honour. Arjuna Award: for outstanding sports achievement." },
+        ]},
+    ]
+  },
 
 ];
