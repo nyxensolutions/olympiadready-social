@@ -2,7 +2,7 @@
 // Builds a ~12s, 1080×1920 vertical MP4 Reel for a given date.
 // Usage: node generate-reel.js <YYYY-MM-DD>
 //
-// 11 rotating reel scripts, picked by day-of-month % 11:
+// 15 rotating reel scripts, picked by day-of-month % 15:
 //   0 — Platform overview      "Still using old question banks?"
 //   1 — Free vs Pro            "Start completely FREE"
 //   2 — For parents            "Is your child ready?"
@@ -14,6 +14,10 @@
 //   8 — Free tier hook         "15 free papers. No card."
 //   9 — School pilot pitch     "Your school gets a free invite code"
 //  10 — Comparison hook        "₹6,400 vs ₹129 — the maths every parent should see"
+//  11 — Child social proof     "My friend got gold. I asked how."
+//  12 — Parent WhatsApp bait   "Share this with every parent group"
+//  13 — School urgency         "August is weeks away. Is your school ready?"
+//  14 — Zero cost school       "Your school pays ₹0 to get started"
 //
 // Requires: ffmpeg on PATH, Playwright chromium installed.
 
@@ -717,8 +721,194 @@ function script10() { return [
   </div>${FOOT}`,
 ];}
 
+// Script 11 — Child's POV social proof "My friend got gold. I asked how."
+function script11() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">🥇 True Story</div>
+    <h1 style="font-size:86px;">My friend got<br><span class="g">Olympiad gold.</span><br>I asked how.</h1>
+    <p class="sub" style="margin-top:36px;">She wasn't smarter. She just practised<br>the right way — here's what she used.</p>
+  </div>${FOOT}`,
+  // 2 The secret
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:32px;">✅ The Answer: OlympiadReady</div>
+    <h1 style="font-size:82px;margin-bottom:24px;">AI-generated<br>papers. Every<br><span class="g">single day.</span></h1>
+    <div class="feats">
+      <div class="feat"><span class="ic">♾️</span><span>Unlimited practice — never repeats</span></div>
+      <div class="feat"><span class="ic">📝</span><span>Full timed mock exams</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI explains every wrong answer</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Free to start
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:32px;">🎁 And It's Free to Start</div>
+    <h1 style="font-size:88px;margin-bottom:20px;">15 free papers.<br><span class="gr">No card.</span><br>No catch.</h1>
+    <p class="sub" style="font-size:26px;">Class 1–12 · IMO · NSO · IEO · IGKO<br>SOF-aligned content. AI-powered.</p>
+  </div>${FOOT}`,
+  // 4 Progress = results
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📈 Practice = Progress</div>
+    <h1 style="font-size:82px;margin-bottom:24px;"><span class="g">10 questions</span><br>a day changes<br>everything.</h1>
+    ${card(SS.badges, "dashboard", 520)}
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🚀 Start like she did</div>
+    <h1 style="font-size:90px;margin-bottom:32px;">Your turn<br>to earn the<br><span class="g">gold medal.</span></h1>
+    <div class="url-box" style="margin-bottom:28px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:24px;">Free to start · No download · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 12 — Parent WhatsApp share bait "Every parent group needs this"
+function script12() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">📲 Share With Every Parent</div>
+    <h1 style="font-size:82px;">Every parent<br>in your<br><span class="g">school group</span><br>needs to see this.</h1>
+  </div>${FOOT}`,
+  // 2 The offer
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">🎁 15 Free Olympiad Papers</div>
+    <h1 style="font-size:84px;margin-bottom:20px;">Your child gets<br><span class="gr">15 free</span><br>practice papers.</h1>
+    <p class="sub" style="font-size:26px;">No registration fee. No credit card.<br>No catch whatsoever.</p>
+  </div>${FOOT}`,
+  // 3 What's covered
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📚 All SOF Olympiads Covered</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">➕</span><span>IMO — Maths Olympiad</span></div>
+      <div class="feat"><span class="ic">🔬</span><span>NSO — Science Olympiad</span></div>
+      <div class="feat"><span class="ic">📖</span><span>IEO — English Olympiad</span></div>
+      <div class="feat"><span class="ic">🌍</span><span>IGKO — General Knowledge</span></div>
+      <div class="feat"><span class="ic">💻</span><span>NCO, ISSO & more — Class 1–12</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 Price comparison
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="compare" style="margin-top:0;">
+      <div class="col col-free">
+        <div class="col-title" style="color:#f87171;">Private Tutor</div>
+        <div class="col-item">₹800/hour</div>
+        <div class="col-item">Fixed timings</div>
+        <div class="col-item">1 subject</div>
+        <div class="col-item">No AI help</div>
+        <div class="price" style="color:#f87171;">₹6,400 <span>/mo</span></div>
+      </div>
+      <div class="col col-pro">
+        <div class="col-title" style="color:#FBB024;">OlympiadReady</div>
+        <div class="col-item"><span class="ck">✓</span>Any time</div>
+        <div class="col-item"><span class="ck">✓</span>9 subjects</div>
+        <div class="col-item"><span class="ck">✓</span>24/7 AI tutor</div>
+        <div class="col-item"><span class="ck">✓</span>Unlimited papers</div>
+        <div class="price">₹129 <span>/mo</span></div>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:28px;font-size:24px;">15 papers free first. No card needed.</p>
+  </div>${FOOT}`,
+  // 5 CTA — share prompt
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">📤 Forward to Your Parent Group</div>
+    <h1 style="font-size:86px;margin-bottom:28px;">Help another<br>parent's child<br><span class="g">prepare better.</span></h1>
+    <div class="url-box" style="margin-bottom:28px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:24px;">Free to start · SOF-aligned · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 13 — School urgency "August is weeks away. Is your school ready?"
+function script13() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">⏰ Olympiad Season Alert</div>
+    <h1 style="font-size:82px;">August<br>registrations<br>open <span class="g">in weeks.</span></h1>
+    <p class="sub" style="margin-top:32px;">Is your school's Olympiad preparation<br>already in place?</p>
+  </div>${FOOT}`,
+  // 2 The gap
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">❌ The Usual Problem</div>
+    <h1 style="font-size:82px;margin-bottom:24px;">Students register.<br>Then <span style="color:#f87171;">wonder</span><br>how to prepare.</h1>
+    <div class="feats" style="width:86%;">
+      <div class="feat"><span class="ic">🤔</span><span>No structured practice plan</span></div>
+      <div class="feat"><span class="ic">📚</span><span>Relying on last year's books</span></div>
+      <div class="feat"><span class="ic">😤</span><span>Teachers handling prep alone</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Solution
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">✅ OlympiadReady School Pilot</div>
+    <h1 style="font-size:80px;margin-bottom:20px;">One invite code.<br>Your entire<br><span class="g">school prepared.</span></h1>
+    <p class="sub" style="font-size:26px;">Students sign up free · Coordinator tracks<br>scores · School branding on dashboard.</p>
+  </div>${FOOT}`,
+  // 4 What students get
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📖 50,000+ Questions · 9 Subjects</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🤖</span><span>AI-generated SOF-aligned practice</span></div>
+      <div class="feat"><span class="ic">📝</span><span>Timed mock exams with scoring</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>Step-by-step AI explanations</span></div>
+      <div class="feat"><span class="ic">🏆</span><span>Badges + certificates per student</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:32px;">📧 Claim Your School's Code Now</div>
+    <h1 style="font-size:78px;margin-bottom:24px;">Don't let<br>August catch<br><span class="g">your school<br>unprepared.</span></h1>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num">1</div><div><div class="step-text">Email us today</div><div class="step-sub">nyxencloud@gmail.com</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-text">Get your school code</div><div class="step-sub">Within 24 hours</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-text">30-day free pilot starts</div><div class="step-sub">Zero payment needed</div></div></div>
+    </div>
+  </div>${FOOT}`,
+];}
+
+// Script 14 — Zero cost school "Your school pays ₹0"
+function script14() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:36px;">🏫 For School Coordinators</div>
+    <h1 style="font-size:84px;">Your school<br>pays <span class="gr">₹0</span> to<br>get started.</h1>
+    <p class="sub" style="margin-top:32px;">We run a free 30-day pilot for schools<br>before Olympiad season. No strings attached.</p>
+  </div>${FOOT}`,
+  // 2 What the school gets
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🎓 Your School Gets</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🔑</span><span>Unique school invite code</span></div>
+      <div class="feat"><span class="ic">🏫</span><span>School logo on every student's dashboard</span></div>
+      <div class="feat"><span class="ic">📊</span><span>Coordinator view — who practiced, their scores</span></div>
+      <div class="feat"><span class="ic">📣</span><span>OlympiadReady mention in school communications</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 What students get
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">👧 Every Student Gets</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">❓</span><span>50,000+ SOF-aligned questions</span></div>
+      <div class="feat"><span class="ic">🤖</span><span>AI-generated papers — unlimited</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI explanations after every test</span></div>
+      <div class="feat"><span class="ic">🏅</span><span>Badges, certificates & leaderboard</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 Coordinator dashboard preview
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📊 See Every Student's Progress</div>
+    <h1 style="font-size:80px;margin-bottom:16px;">Know who's<br><span class="g">practising.</span><br>Know who's not.</h1>
+    <p class="sub" style="font-size:25px;margin-bottom:24px;">Real-time coordinator dashboard.<br>Share performance reports with parents.</p>
+    ${card(SS.mock, "dashboard", 420)}
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">📧 One Email. That's All It Takes.</div>
+    <h1 style="font-size:84px;margin-bottom:24px;">Be the school<br>that prepares<br><span class="g">students right.</span></h1>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num">✉</div><div><div class="step-text">nyxencloud@gmail.com</div><div class="step-sub">Subject: School Pilot — [Your School Name]</div></div></div>
+    </div>
+    <p class="sub" style="margin-top:28px;font-size:24px;">30-day free pilot · Class 1–12 · 9 subjects · ₹0 to start</p>
+  </div>${FOOT}`,
+];}
+
 // ── Pick script by day ───────────────────────────────────────────────
-const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10];
+const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10, script11, script12, script13, script14];
 const day     = parseInt(dateStr.slice(-2), 10);
 const SCENES  = SCRIPTS[day % SCRIPTS.length]();
 console.log(`using script ${day % SCRIPTS.length} (day=${day})`);

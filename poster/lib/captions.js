@@ -13,11 +13,21 @@ const fs = require("fs");
 const path = require("path");
 const ROOT = path.resolve(__dirname, "..", "..");
 
-const TAGS_FEED  = "#OlympiadReady #Olympiad #DailyQuiz #LearningIsFun #BrainTeaser #OnlineLearning #EdTech #QuizTime";
-const TAGS_REEL  = "#OlympiadReady #Olympiad #Reels #LearningPlatform #AILearning #UnlimitedLearning #EdTech #Shorts";
-const TAGS_ANSW  = "#OlympiadReady #Olympiad #AnswersRevealed #DailyQuiz #LearningIsFun #EdTech";
-const TAGS_DYK   = "#OlympiadReady #DidYouKnow #FunFacts #DidYouKnowFacts #AmazingFacts #LearnSomethingNew #EdTech #CuriousMind #InterestingFacts";
-const TAGS_LEARN = "#OlympiadReady #LearnWithOlympiadReady #DailyLearning #StudyTips #Olympiad #EdTech #KidsEducation #LearningIsFun #SchoolStudents #OlympiadPrep";
+// ── Audience-specific hashtag sets ──────────────────────────────────────────
+// General feed / quiz
+const TAGS_FEED  = "#OlympiadReady #SOFOlympiad #DailyQuiz #OlympiadPrep #IndianStudents #BrainTeaser #EdTech #QuizTime #IMO #NSO #IEO #MathOlympiad #Class1to12";
+// Reel base (platform/general)
+const TAGS_REEL  = "#OlympiadReady #Olympiad #SOFOlympiad #AILearning #OlympiadPrep #EdTech #IndianStudents #FreePractice #MathOlympiad #NSO #IEO #Class1to12 #Reels";
+// Answer reveals
+const TAGS_ANSW  = "#OlympiadReady #SOFOlympiad #AnswersRevealed #DailyQuiz #OlympiadPrep #IndianStudents #EdTech #IMO #NSO #IEO";
+// Did you know
+const TAGS_DYK   = "#OlympiadReady #DidYouKnow #FunFacts #AmazingFacts #LearnSomethingNew #EdTech #IndianStudents #CuriousMind #InterestingFacts #KidsFacts #SchoolStudents";
+// Learn carousels
+const TAGS_LEARN = "#OlympiadReady #LearnWithOlympiadReady #DailyLearning #StudyTips #SOFOlympiad #EdTech #KidsEducation #IndianStudents #OlympiadPrep #SchoolStudents #Class1to12 #LearningIsFun";
+// Audience-targeted hashtag sets
+const TAGS_PARENTS  = "#OlympiadReady #IndianParents #ParentsOfIndia #SOFOlympiad #OlympiadPrep #SchoolParents #KidsEducation #AffordableEducation #SmartParenting #IndianMoms #IMO #NSO #IEO";
+const TAGS_SCHOOLS  = "#OlympiadReady #IndianSchools #SchoolCoordinator #OlympiadSchool #SOFOlympiad #TeacherLife #SchoolEducation #OlympiadPrep #EdTech #AcademicExcellence #IndianEducation #CBSESchools";
+const TAGS_KIDS     = "#OlympiadReady #KidsOfIndia #StudentLife #OlympiadKids #SOFOlympiad #StudyMotivation #IndianStudents #SchoolLife #OlympiadPrep #MathOlympiad #KidsSports #GoldMedal";
 
 function readJsonOrNull(p) {
   try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; }
@@ -81,15 +91,41 @@ function buildReel(dateStr) {
   if (override?.caption) {
     return override.caption + "\n\n" + (override.hashtags || TAGS_REEL);
   }
-  // Rotates by day-of-month so the Reel caption varies even on auto.
+  // 15-entry pool — one per reel script (day % 15 keeps caption in sync with visual).
   const pool = [
-    "Smarter Olympiad prep, powered by AI ✨\n\nInfinite practice. Real exam patterns. Mastery tracking.\n\nStart free → olympiadready.com",
-    "Watch scores climb week on week 📈\n\nDaily quizzes, full mock exams, instant explanations.\n\nFree to start → olympiadready.com",
-    "Never run out of questions ♾️\n\nAI generates fresh, level-perfect Olympiad practice on demand.\n\nTry it free → olympiadready.com",
-    "Real Olympiad practice. Real progress.\n\nMock exams, badges, leaderboards & more.\n\nolympiadready.com",
+    // 0 — Platform overview
+    `Smarter Olympiad prep, powered by AI ✨\n\nInfinite practice. Real exam patterns. Badges. Physical medals.\n\nStart free → olympiadready.com\n\n${TAGS_REEL}`,
+    // 1 — Free vs Pro
+    `Everything your child needs — completely free to start ✅\n\nFree practice tests, free PDF downloads, free mock exams.\nAfter free papers: just ₹129/subject/month.\n\nNo credit card. No download. → olympiadready.com\n\n${TAGS_PARENTS}`,
+    // 2 — For parents
+    `Is your child ready for their Olympiad? 🎯\n\nOlympiadReady prepares students for IMO, NSO, IEO, NCO & more.\nAI questions · Timed mocks · Progress tracking · Real rewards.\n\nFree to start → olympiadready.com\n\n${TAGS_PARENTS}`,
+    // 3 — AI Tutor
+    `Stuck on a problem at 11 PM? 🤖\n\nYour OlympiadReady AI Tutor is awake.\nAsk anything. Get step-by-step clarity. Any topic. Any time.\n\nFree AI Tutor → olympiadready.com\n\n${TAGS_REEL}`,
+    // 4 — How it works
+    `Olympiad prep in 4 simple steps 🏅\n\n1️⃣ Pick your Olympiad & class\n2️⃣ Take an AI timed mock exam\n3️⃣ Review with AI explanations\n4️⃣ Track progress & earn badges\n\nStart free → olympiadready.com\n\n${TAGS_REEL}`,
+    // 5 — From boring to brilliant
+    `Stop studying from the same old PDFs 📄\n\nOlympiadReady generates fresh AI-powered Olympiad papers every time.\nNo repeats. No guessing. No boring static content.\n\nMake the switch → olympiadready.com\n\n${TAGS_REEL}`,
+    // 6 — Score story
+    `Watch your child's score climb week on week 📈\n\n10 minutes of daily practice → consistent score improvement.\nFull mock exams · AI analysis · Weak topic detection.\n\nFree to start → olympiadready.com\n\n${TAGS_PARENTS}`,
+    // 7 — All subjects
+    `Every Olympiad subject in one place 📚\n\nIMO · NSO · IEO · NCO · IGKO · Spell Bee · ISSO\nAll AI-powered. All SOF-aligned. Class 1–12.\n\nolympiadready.com\n\n${TAGS_REEL}`,
+    // 8 — Free tier hook
+    `15 free Olympiad papers. No credit card. No catch. 🎁\n\nSOF-aligned practice for IMO, NSO, IEO & IGKO — Class 1–12.\nAI explains every wrong answer.\n\nSign up free → olympiadready.com\n\n${TAGS_PARENTS}`,
+    // 9 — School pilot
+    `Schools: your students deserve better than YouTube videos and old books. 🏫\n\nOlympiadReady gives your school a free pilot:\n✅ Unique invite code\n✅ Coordinator dashboard\n✅ School branding\n✅ 50,000+ SOF-aligned questions\n\nEmail us: nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
+    // 10 — Price comparison
+    `Private tutor: ₹6,400/month. OlympiadReady: ₹129/month. 💸\n\nUnlimited papers. 24/7 AI explanations. 9 subjects. No fixed schedule.\n\nFirst 15 papers completely free → olympiadready.com\n\n${TAGS_PARENTS}`,
+    // 11 — Child social proof
+    `My friend got Olympiad gold. I asked how. 🥇\n\nShe practised with OlympiadReady — AI papers, timed mocks, instant explanations.\nStarted free. Upgraded later.\n\nYour turn → olympiadready.com\n\n${TAGS_KIDS}`,
+    // 12 — Parent WhatsApp bait
+    `Save this and share it in your parent group 📲\n\n15 free Olympiad papers for every child.\nIMO · NSO · IEO · IGKO · Class 1–12\nNo credit card. No download.\n\nolympiadready.com — share with every Olympiad parent you know!\n\n${TAGS_PARENTS}`,
+    // 13 — School urgency
+    `Olympiad registrations open in August ⏰\n\nIs your school's preparation already in place?\n\nOlympiadReady offers a free 30-day school pilot:\n📧 Email nyxencloud@gmail.com to claim your school's invite code before August.\n\n50,000+ questions · 9 subjects · Class 1–12 · AI-powered.\n\n${TAGS_SCHOOLS}`,
+    // 14 — Zero cost school
+    `Your school pays ₹0 to get started. 🏫\n\nFree 30-day pilot → unique school code → students prep free → coordinator tracks progress.\n\nNo payment. No commitment. Just better Olympiad results.\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
   ];
   const day = parseInt(dateStr.slice(-2), 10);
-  return pool[day % pool.length] + "\n\n" + TAGS_REEL;
+  return pool[day % pool.length];
 }
 
 function buildDyk(dateStr, slot) {
@@ -121,33 +157,24 @@ function buildYouTubeShort(dateStr) {
   const DESC_FOOTER = `\n\n✅ Free practice tests & mock exams\n📄 Free PDF question paper downloads\n🧠 AI explanations after every answer\n🤖 AI Tutor — doubt clearing 24/7\n🏆 Badges, certificates & physical medals\n👑 Unlimited access from ₹129/mo\n\n🌐 Start free → olympiadready.com\n\n#OlympiadReady #Shorts #Olympiad #AILearning #EdTech #OlympiadPrep #FreePractice`;
 
   const scripts = [
-    {
-      title: "Still Using Old Question Banks? Try This Instead 🚀 | OlympiadReady #Shorts",
-      description: "India's #1 AI-powered Olympiad coach. Unlimited practice questions, full mock exams, instant AI explanations, and real badges — all free to start!" + DESC_FOOTER,
-    },
-    {
-      title: "Everything Your Child Needs — Completely FREE ✅ | OlympiadReady #Shorts",
-      description: "Free practice tests, free PDF downloads, free mock exams — and unlimited everything from just ₹129/mo. No credit card needed to start!" + DESC_FOOTER,
-    },
-    {
-      title: "Is Your Child Ready for Their Olympiad? 🎯 | OlympiadReady #Shorts",
-      description: "OlympiadReady prepares students for IMO, NSO, IEO, NCO & more. AI-generated questions, printable PDFs, progress tracking and real rewards." + DESC_FOOTER,
-    },
-    {
-      title: "Meet Your AI Olympiad Tutor 🤖 — Doubts Cleared 24/7 | OlympiadReady #Shorts",
-      description: "Stuck on a problem at 11 PM? Your OlympiadReady AI Tutor explains every concept instantly — any topic, any time, step by step." + DESC_FOOTER,
-    },
-    {
-      title: "Olympiad Prep in 4 Simple Steps 🏅 | OlympiadReady #Shorts",
-      description: "Pick your Olympiad → Take a timed AI mock exam → Review with AI explanations → Track progress & earn badges. Start free today!" + DESC_FOOTER,
-    },
-    {
-      title: "From Boring PDFs to Brilliant Results ✨ | OlympiadReady #Shorts",
-      description: "Stop studying from static PDFs. OlympiadReady generates fresh, AI-powered Olympiad papers every time — no repeats, no guessing." + DESC_FOOTER,
-    },
+    { title: "Still Using Old Question Banks? Try This Instead 🚀 | OlympiadReady #Shorts", description: "India's #1 AI-powered Olympiad coach. Unlimited practice questions, full mock exams, instant AI explanations, and real badges — all free to start!" + DESC_FOOTER },
+    { title: "Everything Your Child Needs — Completely FREE ✅ | OlympiadReady #Shorts", description: "Free practice tests, free PDF downloads, free mock exams — and unlimited everything from just ₹129/mo. No credit card needed to start!" + DESC_FOOTER },
+    { title: "Is Your Child Ready for Their Olympiad? 🎯 | OlympiadReady #Shorts", description: "OlympiadReady prepares students for IMO, NSO, IEO, NCO & more. AI-generated questions, printable PDFs, progress tracking and real rewards." + DESC_FOOTER },
+    { title: "Meet Your AI Olympiad Tutor 🤖 — Doubts Cleared 24/7 | OlympiadReady #Shorts", description: "Stuck on a problem at 11 PM? Your OlympiadReady AI Tutor explains every concept instantly — any topic, any time, step by step." + DESC_FOOTER },
+    { title: "Olympiad Prep in 4 Simple Steps 🏅 | OlympiadReady #Shorts", description: "Pick your Olympiad → Take a timed AI mock exam → Review with AI explanations → Track progress & earn badges. Start free today!" + DESC_FOOTER },
+    { title: "From Boring PDFs to Brilliant Results ✨ | OlympiadReady #Shorts", description: "Stop studying from static PDFs. OlympiadReady generates fresh, AI-powered Olympiad papers every time — no repeats, no guessing." + DESC_FOOTER },
+    { title: "Watch Your Child's Score Climb Every Week 📈 | OlympiadReady #Shorts", description: "10 minutes of daily AI practice → consistent Olympiad score improvement. Full mock exams, instant AI analysis, weak topic detection. Free to start!" + DESC_FOOTER },
+    { title: "Every Olympiad Subject in One Place 📚 | OlympiadReady #Shorts", description: "IMO, NSO, IEO, NCO, IGKO, Spell Bee — all covered, all AI-powered, all SOF-aligned. Class 1–12. Free to start!" + DESC_FOOTER },
+    { title: "15 Free Olympiad Papers — No Credit Card 🎁 | OlympiadReady #Shorts", description: "Your child gets 15 free SOF-aligned practice papers to start. No catch. AI explains every wrong answer. Class 1–12 · IMO · NSO · IEO · IGKO." + DESC_FOOTER },
+    { title: "Free Olympiad Prep for Your Entire School 🏫 | OlympiadReady #Shorts", description: "Schools get a free 30-day pilot — unique invite code, coordinator dashboard, school branding. Students prep free. Email nyxencloud@gmail.com" + DESC_FOOTER },
+    { title: "₹6,400 vs ₹129 — The Maths Every Parent Should See 💸 | OlympiadReady #Shorts", description: "Private tutor costs ₹6,400/month for one subject. OlympiadReady: ₹129/month for 9 subjects, unlimited papers, 24/7 AI tutor. Try free first!" + DESC_FOOTER },
+    { title: "My Friend Got Olympiad Gold. Here's How She Prepared 🥇 | OlympiadReady #Shorts", description: "AI-generated papers daily. Timed mock exams. Instant explanations for every wrong answer. 15 free papers to start. No credit card needed." + DESC_FOOTER },
+    { title: "Share This With Every Parent Group 📲 | OlympiadReady #Shorts", description: "15 free Olympiad papers for every child. IMO · NSO · IEO · IGKO · Class 1–12. No credit card. No download. Just pure Olympiad practice!" + DESC_FOOTER },
+    { title: "August Olympiad Season Is Coming — Is Your School Ready? ⏰ | OlympiadReady #Shorts", description: "OlympiadReady school pilot: free 30-day access, coordinator dashboard, 50,000+ SOF-aligned questions. Email nyxencloud@gmail.com before August." + DESC_FOOTER },
+    { title: "Your School Pays ₹0 to Get Started 🏫 | OlympiadReady #Shorts", description: "Free school pilot: unique invite code → students prep free → coordinator tracks scores → school branding on dashboard. Email nyxencloud@gmail.com" + DESC_FOOTER },
   ];
 
-  const s = scripts[day % scripts.length];
+  const s = scripts[day % 15];
   return { title: s.title, description: s.description, tags: TAGS, categoryId: "27" };
 }
 
@@ -156,66 +183,86 @@ function buildLearn(dateStr, subject) {
   if (override?.caption) {
     return override.caption + "\n\n" + (override.hashtags || TAGS_LEARN);
   }
-  const subjectLine = subject ? `Today's subject: ${subject} 📖\n\n` : "";
+  const sub = subject || "Today's topic";
   const pool = [
-    `${subjectLine}Swipe through today's carousel and level up your Olympiad knowledge! 🧠\n\nSave this for quick revision before your next exam.\n\nUnlimited AI practice → olympiadready.com 🎯`,
-    `${subjectLine}Your daily bite-sized learning carousel is here! 📚\n\nSwipe through all the slides — great for last-minute revision.\n\nFree practice, all subjects → olympiadready.com`,
-    `${subjectLine}Smart revision in a carousel ✨\n\nSwipe → to see all the slides. Share it with a classmate who needs this!\n\nUnlimited Olympiad practice, free to start → olympiadready.com`,
-    `${subjectLine}Follow us for a new learn carousel every afternoon at 1:30 PM IST 💡\n\nBite-sized knowledge across all Olympiad subjects — swipe and learn!\n\nAI-powered Olympiad prep → olympiadready.com`,
+    // 0 — save & revise
+    `📖 ${sub} — today's carousel is here!\n\nSwipe through all the slides and save this for quick revision before your Olympiad. 🧠\n\nWant to test what you just learned? Unlimited AI practice, free to start → olympiadready.com\n\n${TAGS_LEARN}`,
+    // 1 — parent hook
+    `🎓 Daily ${sub} lesson for your child!\n\nShare this carousel with them — 3 slides, 3 minutes, one important topic mastered. 💡\n\nFull Olympiad practice with AI explanations → olympiadready.com\n\n${TAGS_PARENTS} ${TAGS_LEARN}`,
+    // 2 — classmate share
+    `📚 ${sub} — swipe to learn it right!\n\nTag a classmate who needs to see this → they'll thank you before exam day 😄\n\nFree AI-powered Olympiad practice → olympiadready.com\n\n${TAGS_KIDS} ${TAGS_LEARN}`,
+    // 3 — follow CTA
+    `💡 ${sub} in a quick carousel!\n\nWe post a new learn carousel every day at 1:30 PM IST. Follow so you never miss one!\n\n50,000+ practice questions + AI explanations at olympiadready.com\n\n${TAGS_LEARN}`,
+    // 4 — school hook
+    `🏫 Today's ${sub} carousel — perfect for classroom revision!\n\nCoordinators: share our daily carousels with students for free bite-sized prep.\n\nInterested in a free school pilot? Email nyxencloud@gmail.com\n\n${TAGS_SCHOOLS} ${TAGS_LEARN}`,
+    // 5 — save for exam
+    `⭐ Save this! ${sub} — key concepts in one carousel.\n\nThe best students revise daily, not the night before. Build that habit here. 📈\n\nPractice what you learned → free tests at olympiadready.com\n\n${TAGS_LEARN}`,
   ];
   const day = parseInt(dateStr.slice(-2), 10);
-  return pool[day % pool.length] + "\n\n" + TAGS_LEARN;
+  return pool[day % pool.length];
 }
 
-// ── Reel captions — extended pool matching 11 scripts ───────────────────────
-// Used in buildReel() pool (overrides the 4-item pool above when script >= 4).
+// ── Reel captions — extended pool matching all 15 scripts ───────────────────
+// Reference copies for manual use / override JSONs. buildReel() includes all of these inline.
 const REEL_POOL_EXTRA = [
   // script 8 — free tier hook
-  "15 free Olympiad papers. No credit card. No catch. 🎁\n\nSOF-aligned practice for IMO, NSO, IEO & IGKO — Class 1–12.\nAI explains every wrong answer.\n\nSign up free → olympiadready.in",
+  `15 free Olympiad papers. No credit card. No catch. 🎁\n\nSOF-aligned practice for IMO, NSO, IEO & IGKO — Class 1–12.\nAI explains every wrong answer.\n\nSign up free → olympiadready.com\n\n${TAGS_PARENTS}`,
   // script 9 — school pilot
-  "Schools: your students deserve better than YouTube videos and old books. 🏫\n\nOlympiadReady gives your school a free pilot — unique invite code, student dashboard, school branding.\n\n9 subjects · Class 1–12 · 50,000+ questions · AI-powered.\n\nEmail us: nyxencloud@gmail.com",
+  `Schools: your students deserve better than YouTube videos and old books. 🏫\n\nOlympiadReady gives your school a free pilot — unique invite code, student dashboard, school branding.\n\n9 subjects · Class 1–12 · 50,000+ questions · AI-powered.\n\nEmail us: nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
   // script 10 — comparison
-  "Private tutor: ₹6,400/month. OlympiadReady: ₹129/month. 💸\n\nUnlimited papers. 24/7 AI explanations. 50,000+ questions. 9 subjects.\n\nFirst 15 papers completely free → olympiadready.in",
+  `Private tutor: ₹6,400/month. OlympiadReady: ₹129/month. 💸\n\nUnlimited papers. 24/7 AI explanations. 50,000+ questions. 9 subjects.\n\nFirst 15 papers completely free → olympiadready.com\n\n${TAGS_PARENTS}`,
+  // script 11 — child social proof
+  `My friend got Olympiad gold. I asked how. 🥇\n\nShe practised with OlympiadReady every day. AI papers, timed mocks, instant explanations.\n\nYour turn → olympiadready.com\n\n${TAGS_KIDS}`,
+  // script 12 — parent share bait
+  `Save this and share it in your parent group 📲\n\n15 free Olympiad papers for every child. No card. No download.\nIMO · NSO · IEO · IGKO · Class 1–12\n\nolympiadready.com\n\n${TAGS_PARENTS}`,
+  // script 13 — school urgency
+  `Olympiad registrations open in August ⏰\n\nIs your school ready?\n\nFree 30-day pilot → unique school code → students prep free → coordinator tracks scores.\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
+  // script 14 — zero cost school
+  `Your school pays ₹0 to get started. 🏫\n\nFree pilot · School branding · Coordinator dashboard · 50,000+ questions.\n\n📧 nyxencloud@gmail.com | Subject: School Pilot — [Your School Name]\n\n${TAGS_SCHOOLS}`,
 ];
 
 // ── WhatsApp / parent group messages ────────────────────────────────────────
 const WHATSAPP_POSTS = {
   // Version A — casual parent-to-parent
-  casual: `Found this app for Olympiad prep — OlympiadReady (olympiadready.in). Gives 15 free practice papers to start, no card needed. SOF-aligned for IMO/NSO/IEO, Class 1–12. AI explains every wrong answer. After the free papers it's only ₹129/subject/month. Worth trying!`,
+  casual: `Found this for Olympiad prep — OlympiadReady (olympiadready.com). Gives 15 free practice papers to start, no card needed. SOF-aligned for IMO, NSO, IEO — Class 1–12. AI explains every wrong answer. After free papers it's only ₹129/subject/month. Worth trying!`,
 
   // Version B — includes pricing comparison
-  detailed: `Sharing this for anyone whose kids are doing SOF Olympiads 👇\n\nOlympiadReady (olympiadready.in) — 15 free practice papers to start, then ₹129/subject/month. Compare that to a private tutor at ₹800/hour × 2 sessions = ₹6,400/month for just one subject.\n\nApp has 50,000+ questions, AI explanations, Class 1–12, all 9 Olympiad subjects. No credit card to start.`,
+  detailed: `Sharing this for anyone whose kids are doing SOF Olympiads 👇\n\nOlympiadReady (olympiadready.com) — 15 free practice papers, then ₹129/subject/month. Compare that to a private tutor at ₹800/hour × 2 sessions = ₹6,400/month for just one subject.\n\n50,000+ questions, AI explanations, Class 1–12, all 9 Olympiad subjects. No credit card to start. Share this with every parent whose child is appearing in an Olympiad this year.`,
 
   // Version C — school pilot focus
-  schoolPilot: `For school parents/coordinators — OlympiadReady is offering a free pilot for schools.\n\nSchool gets a unique invite code → students sign up free → coordinator can see who practiced & their scores.\n\n9 subjects, Class 1–12, SOF-aligned. Email nyxencloud@gmail.com to request your school's code before Olympiad season (August).`,
+  schoolPilot: `For school coordinators/principals — OlympiadReady is offering a free pilot before Olympiad season.\n\nYour school gets a unique invite code → students sign up free → coordinator dashboard shows who practised & their scores → school logo on every student's dashboard.\n\n9 subjects, Class 1–12, 50,000+ SOF-aligned questions, AI explanations.\n\nEmail nyxencloud@gmail.com (Subject: School Pilot — [School Name]) before August registrations open.`,
+
+  // Version D — child / student message
+  childMessage: `Hey! Found this for Olympiad practice — OlympiadReady (olympiadready.com). 15 free papers to start, no card needed. AI explains every wrong answer — super helpful when you're stuck. Works for IMO, NSO, IEO, IGKO, Spell Bee, Class 1–12. Try it!`,
 };
 
-// ── Instagram captions — 5 angles ───────────────────────────────────────────
-const TAGS_FREE   = "#OlympiadReady #SOFOlympiad #IMO #NSO #IEO #FreePractice #OlympiadPrep #IndianStudents #Class1to12 #EdTech";
-const TAGS_PRICE  = "#OlympiadReady #OlympiadPrep #IndianParents #AffordableEducation #SOFOlympiad #MathOlympiad #EdTech #SmartLearning";
-const TAGS_AI     = "#OlympiadReady #AILearning #OlympiadPrep #SOFOlympiad #IndianStudents #EdTech #MathOlympiad #SmartPrep";
-const TAGS_SCHOOL = "#OlympiadReady #SchoolOlympiad #SOFOlympiad #IndianSchools #OlympiadPrep #TeacherLife #EdTech #AcademicExcellence";
-const TAGS_AUG    = "#OlympiadReady #OlympiadSeason #SOFOlympiad #IMO #NSO #IEO #OlympiadPrep #IndianStudents #MathOlympiad #AugustOlympiad";
-
+// ── Instagram feed captions — 7 angles ──────────────────────────────────────
 const CAPTION_ANGLES = [
-  // Angle 1 — 15 free papers
-  `15 free Olympiad practice papers. No credit card. No catch. 🎁\n\nWe believe every child deserves a shot at the gold — so we made it free to start.\n50,000+ SOF-aligned questions · AI explanations · Class 1–12.\n\nLink in bio → olympiadready.in\n\n${TAGS_FREE}`,
+  // Angle 1 — 15 free papers (for parents)
+  `15 free Olympiad practice papers. No credit card. No catch. 🎁\n\nEvery child deserves a real shot at the gold — so we made it free to start.\n\n✅ 50,000+ SOF-aligned questions\n✅ AI explanations after every answer\n✅ Class 1–12 · IMO · NSO · IEO · IGKO\n\nLink in bio → olympiadready.com\n\n${TAGS_PARENTS}`,
 
-  // Angle 2 — price comparison
-  `₹800/hour tutor × 8 sessions = ₹6,400/month for one subject. 💸\n\nOlympiadReady: ₹129/subject/month.\nUnlimited papers. 24/7 AI explanations. No fixed schedule.\n\nThe maths is simple. Try it free first → olympiadready.in\n\n${TAGS_PRICE}`,
+  // Angle 2 — price comparison (for parents)
+  `₹800/hour tutor × 8 sessions = ₹6,400/month for one subject. 💸\n\nOlympiadReady: ₹129/subject/month.\nUnlimited papers. 24/7 AI explanations. No fixed schedule. No missed classes.\n\nThe maths is simple. Try it free first → olympiadready.com\n\n${TAGS_PARENTS}`,
 
-  // Angle 3 — 50,000 questions + AI
-  `50,000+ questions. AI that explains every single wrong answer. 🧠\n\nNo more guessing why you got it wrong.\nNo more staring at an answer key with no explanation.\nJust clear, step-by-step AI guidance — every time.\n\nFree to start → olympiadready.in\n\n${TAGS_AI}`,
+  // Angle 3 — AI explanations (for students)
+  `50,000+ questions. AI that explains every single wrong answer. 🧠\n\nNo more guessing why you got it wrong.\nNo more staring at an answer key with zero context.\nJust clear, step-by-step AI guidance — every time.\n\nFree to start → olympiadready.com\n\n${TAGS_KIDS}`,
 
-  // Angle 4 — school pilot
-  `Schools: your students can get free access to OlympiadReady. 🏫\n\nWe're partnering with schools before Olympiad season.\nYour school gets a unique invite code → students sign up free → you see their progress.\n\nEmail us: nyxencloud@gmail.com\n\n${TAGS_SCHOOL}`,
+  // Angle 4 — school pilot (for schools/coordinators)
+  `Schools: give your students free Olympiad prep — we'll handle the rest. 🏫\n\nOlympiadReady school pilot (before August):\n🔑 Unique invite code for your school\n📊 Coordinator dashboard — track every student's progress\n🏫 Your school logo on every dashboard\n\n9 subjects · Class 1–12 · 50,000+ questions · AI-powered\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
 
-  // Angle 5 — August season
-  `Olympiad registrations open in August. ⏰\n\nIs your child already practising?\nSOF Olympiads (IMO, NSO, IEO, IGKO) need consistent preparation — not last-minute cramming.\n\n15 free papers to start. No excuses. → olympiadready.in\n\n${TAGS_AUG}`,
+  // Angle 5 — August urgency (for parents)
+  `Olympiad registrations open in August. ⏰\n\nIs your child already practising?\nSOF Olympiads (IMO, NSO, IEO, IGKO) need consistent prep — not last-minute cramming.\n\n15 free papers to start. No excuses. → olympiadready.com\n\n${TAGS_PARENTS}`,
+
+  // Angle 6 — child social proof (for kids + parents)
+  `Every gold medalist practised more than everyone else. 🥇\n\nThe difference isn't talent. It's consistent, structured practice.\n\nAI-generated papers · Timed mocks · Instant explanations · Badges & certificates\n\n15 papers free → olympiadready.com\n\n${TAGS_KIDS}`,
+
+  // Angle 7 — school urgency (for coordinators)
+  `August Olympiad registrations are around the corner. 📅\n\nDon't let your students walk in unprepared.\n\nOlympiadReady free school pilot:\n✅ 30-day free access for all your students\n✅ No payment — zero cost to the school\n✅ Coordinator sees who's practising\n\n📧 nyxencloud@gmail.com before spots fill up.\n\n${TAGS_SCHOOLS}`,
 ];
 
 module.exports = {
   buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel,
   buildReel, buildDyk, buildYouTubeShort, buildLearn,
   WHATSAPP_POSTS, CAPTION_ANGLES, REEL_POOL_EXTRA,
+  TAGS_PARENTS, TAGS_SCHOOLS, TAGS_KIDS,
 };
