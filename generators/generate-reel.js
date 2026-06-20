@@ -62,6 +62,9 @@ const SS = {
   slidePricing:   loadImg("slide-pricing.png"),
   // website
   websiteHome:    loadImg("website-homepage.png"),
+  // school pilot
+  schoolPilot:    loadImg("school-pilot-promo.png"),
+  schoolPilotBadge: loadImg("school-pilot-badge.png"),
 };
 
 const W = 1080, H = 1920;
@@ -644,11 +647,13 @@ function script8() { return [
 
 // Script 9 — School pilot pitch (coordinator / principal audience)
 function script9() { return [
-  // 1 Hook — the problem
-  `${HEAD}<div class="s dark">${BLOBS}${WM}
-    <div class="pill-w" style="margin-bottom:36px;">🏫 For Schools & Coordinators</div>
-    <h1 style="font-size:84px;">Students prepping<br>with <span style="color:#f87171;">YouTube videos</span><br>&amp; old books?</h1>
-    <p class="sub" style="margin-top:32px;">There's a structured, SOF-aligned<br>solution — and it's free for your school.</p>
+  // 1 Hook — school pilot promo full-bleed
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.schoolPilotBadge ? `<img src="${SS.schoolPilotBadge}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.92;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 100px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 50%);">
+      ${WM}
+      <h1 style="font-size:84px;margin-top:16px;">Free school<br>pilot — <span class="g">Olympiad<br>season is here.</span></h1>
+    </div>
   </div>${FOOT}`,
   // 2 Solution — invite code
   `${HEAD}<div class="s dark">${BLOBS}${WM}
@@ -839,10 +844,13 @@ function script12() { return [
 // Script 13 — School urgency "August is weeks away. Is your school ready?"
 function script13() { return [
   // 1 Hook
-  `${HEAD}<div class="s dark">${BLOBS}${WM}
-    <div class="pill-w" style="margin-bottom:36px;">⏰ Olympiad Season Alert</div>
-    <h1 style="font-size:82px;">August<br>registrations<br>open <span class="g">in weeks.</span></h1>
-    <p class="sub" style="margin-top:32px;">Is your school's Olympiad preparation<br>already in place?</p>
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.schoolPilot ? `<img src="${SS.schoolPilot}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.90;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 100px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 50%);">
+      ${WM}
+      <h1 style="font-size:82px;margin-top:16px;">August<br>registrations<br>open <span class="g">in weeks.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">Is your school's Olympiad preparation<br>already in place?</p>
+    </div>
   </div>${FOOT}`,
   // 2 The gap
   `${HEAD}<div class="s dark">${BLOBS}${WM}
@@ -885,10 +893,13 @@ function script13() { return [
 // Script 14 — Zero cost school "Your school pays ₹0"
 function script14() { return [
   // 1 Hook
-  `${HEAD}<div class="s dark">${BLOBS}${WM}
-    <div class="pill-g" style="margin-bottom:36px;">🏫 For School Coordinators</div>
-    <h1 style="font-size:84px;">Your school<br>pays <span class="gr">₹0</span> to<br>get started.</h1>
-    <p class="sub" style="margin-top:32px;">We run a free 30-day pilot for schools<br>before Olympiad season. No strings attached.</p>
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.schoolPilotBadge ? `<img src="${SS.schoolPilotBadge}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.90;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 100px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 50%);">
+      ${WM}
+      <h1 style="font-size:84px;margin-top:16px;">Your school<br>pays <span class="gr">₹0</span> to<br>get started.</h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">30-day free pilot. No strings attached.</p>
+    </div>
   </div>${FOOT}`,
   // 2 What the school gets
   `${HEAD}<div class="s dark">${BLOBS}${WM}
