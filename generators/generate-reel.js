@@ -41,14 +41,27 @@ function loadImg(name) {
 }
 
 const SS = {
-  practice:    loadImg("practice.png"),
-  mock:        loadImg("mock-exam.png"),
-  explanation: loadImg("explanation.png"),
-  badges:      loadImg("badges.png"),
-  pdf:         loadImg("pdf-download.png"),
-  pricing:     loadImg("pricing.png"),
-  aiTutor:     loadImg("ai-tutor.png"),
-  boring:      loadImg("boring.png"),
+  // app screenshots
+  practice:       loadImg("practice.png"),
+  mock:           loadImg("mock-exam.png"),
+  explanation:    loadImg("explanation.png"),
+  badges:         loadImg("badges.png"),
+  pdf:            loadImg("pdf-download.png"),
+  pricing:        loadImg("pricing.png"),
+  aiTutor:        loadImg("ai_tutor.png"),
+  // promotional / marketing
+  aiTutorPoster:  loadImg("promo-ai-tutor-poster.png"),
+  aiRobotStudent: loadImg("promo-ai-robot-student.png"),
+  certRewards:    loadImg("promo-certificates-rewards.png"),
+  mascotTrophy:   loadImg("promo-mascot-trophy.jpeg"),
+  sofSubjects:    loadImg("promo-sof-subjects.png"),
+  videoThumb:     loadImg("promo-video-thumbnail.jpg"),
+  // marketing slides
+  slideAiIntro:   loadImg("slide-ai-tutor-intro.png"),
+  slideFeatures:  loadImg("slide-exam-features.png"),
+  slidePricing:   loadImg("slide-pricing.png"),
+  // website
+  websiteHome:    loadImg("website-homepage.png"),
 };
 
 const W = 1080, H = 1920;
@@ -171,10 +184,13 @@ function imgCard(src, imgH = 520) {
 // Script 0 — Platform overview
 function script0() { return [
   // 1 Hook
-  `${HEAD}<div class="s dark">${BLOBS}${WM}
-    <div class="pill" style="margin-bottom:40px;">⚡ India's #1 AI Olympiad Coach</div>
-    <h1 style="font-size:100px;">Still using<br><span class="g">old question<br>banks?</span></h1>
-    <p class="sub" style="margin-top:36px;">There's a smarter, AI-powered way<br>to prepare for every Olympiad.</p>
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.slideAiIntro ? `<img src="${SS.slideAiIntro}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0.85;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 100px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <h1 style="font-size:92px;margin-top:16px;">Still using<br><span class="g">old question<br>banks?</span></h1>
+      <p class="sub" style="margin-top:24px;font-size:27px;">There's a smarter, AI-powered way<br>to prepare for every Olympiad.</p>
+    </div>
   </div>${FOOT}`,
   // 2 AI Practice
   `${HEAD}<div class="s dark top">${BLOBS}${WM}
@@ -249,9 +265,10 @@ function script1() { return [
   </div>${FOOT}`,
   // 5 Go Pro
   `${HEAD}<div class="s dark top">${BLOBS}${WM}
-    <div class="pill" style="margin-bottom:24px;">👑 Go Pro — Unlock Everything</div>
-    <h1 style="font-size:80px;margin-bottom:24px;">Unlimited for<br><span class="g">just ₹129/mo.</span></h1>
-    <div class="compare">
+    <div class="pill" style="margin-bottom:16px;">👑 Go Pro — Unlock Everything</div>
+    <h1 style="font-size:72px;margin-bottom:16px;">Unlimited for<br><span class="g">just ₹129/mo.</span></h1>
+    ${imgCard(SS.slidePricing, 340)}
+    <div class="compare" style="margin-top:16px;">
       <div class="col col-free">
         <div class="col-title">Free</div>
         <div class="col-item"><span class="ck">✓</span> Practice tests</div>
@@ -318,7 +335,7 @@ function script2() { return [
     <div class="pill-w" style="margin-bottom:24px;">🏅 Earn Real Rewards</div>
     <h1 style="font-size:84px;margin-bottom:10px;">Badges.<br>Certificates.<br><span class="g">Physical medals.</span></h1>
     <p class="sub" style="font-size:25px;margin-bottom:28px;">Earn all 18 badges → receive a real<br>Olympiad medal shipped to your door 📦</p>
-    ${card(SS.badges, "dashboard", 470)}
+    ${imgCard(SS.certRewards || SS.badges, 470)}
   </div>${FOOT}`,
   // 6 CTA
   `${HEAD}<div class="s dark">${BLOBS}${WM}
@@ -341,7 +358,7 @@ function script3() { return [
   `${HEAD}<div class="s dark top">${BLOBS}${WM}
     <div class="pill-w" style="margin-bottom:24px;">✨ OlympiadReady AI Tutor</div>
     <h1 style="font-size:80px;margin-bottom:24px;">Your personal<br><span class="g">Olympiad coach.</span><br>24 × 7.</h1>
-    ${imgCard(SS.aiTutor, 560)}
+    ${imgCard(SS.aiTutorPoster || SS.aiTutor, 560)}
   </div>${FOOT}`,
   // 3 Chat mock
   `${HEAD}<div class="s dark top">${BLOBS}${WM}
@@ -431,13 +448,14 @@ function script4() { return [
   </div>${FOOT}`,
 ];}
 
-// Script 5 — Problem → Solution (uses Boring.png)
+// Script 5 — Problem → Solution
 function script5() { return [
-  // 1 Hook — Boring.png fills the frame
+  // 1 Hook — website homepage fills the frame
   `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
-    ${SS.boring ? `<img src="${SS.boring}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.92;">` : ""}
-    <div style="position:relative;z-index:2;padding:0 60px 100px;text-align:center;">
-      <div class="wm" style="position:static;margin-bottom:20px;">${`<img src="${LOGO_LIGHT}"><span style="color:#fff;">Olympiad</span><span class="r">Ready</span>`}</div>
+    ${SS.websiteHome ? `<img src="${SS.websiteHome}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0.88;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 90px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.95) 0%,transparent 100%);">
+      ${WM}
+      <h1 style="font-size:80px;margin-top:16px;">Still using<br><span class="g">the old way?</span></h1>
     </div>
   </div>${FOOT}`,
   // 2 Solution intro
@@ -527,10 +545,13 @@ function script6() { return [
 // Script 7 — Every Olympiad subject in one place
 function script7() { return [
   // 1 Hook
-  `${HEAD}<div class="s dark">${BLOBS}${WM}
-    <div class="pill-w" style="margin-bottom:36px;">📚 All Subjects. One Platform.</div>
-    <h1 style="font-size:88px;">Every Olympiad<br>subject in<br><span class="g">one place.</span></h1>
-    <p class="sub" style="margin-top:36px;">IMO. NSO. IEO. NCO. ISSO.<br>All covered. All AI-powered.</p>
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.sofSubjects ? `<img src="${SS.sofSubjects}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.85;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 90px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.96) 0%,transparent 60%);">
+      ${WM}
+      <h1 style="font-size:84px;margin-top:16px;">Every Olympiad<br>subject in<br><span class="g">one place.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">IMO. NSO. IEO. NCO. ISSO.<br>All covered. All AI-powered.</p>
+    </div>
   </div>${FOOT}`,
   // 2 Maths
   `${HEAD}<div class="s dark">${BLOBS}${WM}
@@ -749,7 +770,7 @@ function script11() { return [
   `${HEAD}<div class="s dark top">${BLOBS}${WM}
     <div class="pill-w" style="margin-bottom:24px;">📈 Practice = Progress</div>
     <h1 style="font-size:82px;margin-bottom:24px;"><span class="g">10 questions</span><br>a day changes<br>everything.</h1>
-    ${card(SS.badges, "dashboard", 520)}
+    ${imgCard(SS.mascotTrophy || SS.badges, 520)}
   </div>${FOOT}`,
   // 5 CTA
   `${HEAD}<div class="s dark">${BLOBS}${WM}
