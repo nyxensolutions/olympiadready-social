@@ -755,5 +755,18 @@
     "ytVideoId": "TeDRtSIrPaw",
     "file": "content/reels/2026-06-21.mp4",
     "at": "2026-06-21T05:27:41.964Z"
+  },
+  {
+    "slotKey": "2026-06-21-learn",
+    "type": "carousel",
+    "igMediaId": "18080362157638812",
+    "subject": "English",
+    "files": [
+      "content/learn/2026-06-21-slide-1.png",
+      "content/learn/2026-06-21-slide-2.png",
+      "content/learn/2026-06-21-slide-3.png",
+      "content/learn/2026-06-21-slide-4.png"
+    ],
+    "at": "2026-06-21T08:02:57.804Z"
   }
 ]
