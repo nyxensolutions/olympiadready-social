@@ -799,5 +799,12 @@
     "igMediaId": "18458013712119317",
     "file": "content/quizzes/2026-06-22/morning-question.png",
     "at": "2026-06-22T01:26:34.522Z"
+  },
+  {
+    "slotKey": "2026-06-22-dyk-morning",
+    "type": "image",
+    "igMediaId": "17904397131442770",
+    "file": "content/dyk/2026-06-22-morning.png",
+    "at": "2026-06-22T03:26:36.256Z"
   }
 ]
