@@ -991,5 +991,17 @@
     "ytVideoId": "oSVEqTskWVk",
     "file": "content/reels/2026-06-25.mp4",
     "at": "2026-06-25T05:27:42.084Z"
+  },
+  {
+    "slotKey": "2026-06-25-learn",
+    "type": "carousel",
+    "igMediaId": "18000209354773703",
+    "subject": "English",
+    "files": [
+      "content/learn/2026-06-25-slide-1.png",
+      "content/learn/2026-06-25-slide-2.png",
+      "content/learn/2026-06-25-slide-3.png"
+    ],
+    "at": "2026-06-25T08:02:43.807Z"
   }
 ]
