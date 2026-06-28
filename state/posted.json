@@ -1166,5 +1166,18 @@
     "ytVideoId": "itqSC2S3riU",
     "file": "content/reels/2026-06-28.mp4",
     "at": "2026-06-28T05:27:50.765Z"
+  },
+  {
+    "slotKey": "2026-06-28-learn",
+    "type": "carousel",
+    "igMediaId": "18114147571810143",
+    "subject": "Mathematics",
+    "files": [
+      "content/learn/2026-06-28-slide-1.png",
+      "content/learn/2026-06-28-slide-2.png",
+      "content/learn/2026-06-28-slide-3.png",
+      "content/learn/2026-06-28-slide-4.png"
+    ],
+    "at": "2026-06-28T08:02:41.267Z"
   }
 ]
