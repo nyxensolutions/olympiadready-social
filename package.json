@@ -18,6 +18,8 @@
     "gen:reel": "node generators/generate-reel.js",
     "post:learn": "node poster/post-instagram.js learn",
     "gen:learn": "node generators/generate-learn-image.js",
+    "post:blog": "node poster/post-instagram.js blog",
+    "gen:blog": "node generators/generate-blog-image.js",
     "dry-run": "DRY_RUN=1 node poster/post-instagram.js"
   },
   "dependencies": {

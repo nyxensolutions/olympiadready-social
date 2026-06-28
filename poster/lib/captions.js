@@ -260,9 +260,43 @@ const CAPTION_ANGLES = [
   `August Olympiad registrations are around the corner. 📅\n\nDon't let your students walk in unprepared.\n\nOlympiadReady free school pilot:\n✅ 30-day free access for all your students\n✅ No payment — zero cost to the school\n✅ Coordinator sees who's practising\n\n📧 nyxencloud@gmail.com before spots fill up.\n\n${TAGS_SCHOOLS}`,
 ];
 
+// ── Blog recap captions — 28 posts rotate deterministically ─────────────────
+const TAGS_BLOG_PARENTS  = "#OlympiadReady #IndianParents #OlympiadPrep #SOFOlympiad #IMO #NSO #IEO #KidsEducation #SmartParenting #OlympiadBlog #SchoolParents #AffordableEducation";
+const TAGS_BLOG_STUDENTS = "#OlympiadReady #OlympiadPrep #SOFOlympiad #StudentLife #StudyMotivation #OlympiadKids #IndianStudents #IMO #NSO #IEO #OlympiadBlog #MathOlympiad";
+const TAGS_BLOG_SCHOOLS  = "#OlympiadReady #IndianSchools #OlympiadPrep #SOFOlympiad #TeacherLife #EdTech #OlympiadBlog #AcademicExcellence #SchoolCoordinator #CBSESchools";
+
+const BLOG_AUDIENCES = { parents: TAGS_BLOG_PARENTS, students: TAGS_BLOG_STUDENTS, schools: TAGS_BLOG_SCHOOLS };
+
+function buildBlog(dateStr, meta) {
+  // meta from content/blog/<date>-meta.json: { slug, title, audience }
+  const tags = BLOG_AUDIENCES[meta.audience] || TAGS_BLOG_PARENTS;
+  const url = `olympiadready.com/blog/${meta.slug}`;
+
+  const pools = {
+    parents: [
+      `Swipe to see what every Olympiad parent should know 👆\n\n📖 ${meta.title}\n\nFull guide: ${url}\n\nFree Olympiad practice for your child → olympiadready.com\n\n${tags}`,
+      `Save this if your child is appearing in an Olympiad this year 📌\n\n${meta.title} — key takeaways in the slides.\n\nRead the full post: ${url}\n\n${tags}`,
+      `Quick read every Olympiad parent needs 👇\n\n${meta.title}\n\nLink: ${url}\n\nPractice free first → olympiadready.com\n\n${tags}`,
+    ],
+    students: [
+      `Swipe for the cheat sheet 👆\n\n📖 ${meta.title}\n\nFull guide: ${url}\n\nPractice free today → olympiadready.com\n\n${tags}`,
+      `Study smarter, not harder 🧠\n\n${meta.title} — key points in the slides.\n\nRead more: ${url}\n\n${tags}`,
+      `Save this for your Olympiad prep 📌\n\n${meta.title}\n\n${url}\n\nFree practice → olympiadready.com\n\n${tags}`,
+    ],
+    schools: [
+      `Attention Olympiad coordinators 📋\n\n${meta.title} — swipe for the highlights.\n\nFull article: ${url}\n\nFree school pilot → nyxencloud@gmail.com\n\n${tags}`,
+      `For school coordinators and teachers 🏫\n\n${meta.title}\n\nRead: ${url}\n\nOlympiadReady free school pilot before August → nyxencloud@gmail.com\n\n${tags}`,
+    ],
+  };
+
+  const day = parseInt(dateStr.slice(-2), 10);
+  const pool = pools[meta.audience] || pools.parents;
+  return pool[day % pool.length];
+}
+
 module.exports = {
   buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel,
-  buildReel, buildDyk, buildYouTubeShort, buildLearn,
+  buildReel, buildDyk, buildYouTubeShort, buildLearn, buildBlog,
   WHATSAPP_POSTS, CAPTION_ANGLES, REEL_POOL_EXTRA,
   TAGS_PARENTS, TAGS_SCHOOLS, TAGS_KIDS,
 };

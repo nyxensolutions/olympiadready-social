@@ -271,6 +271,46 @@ async function runLearn() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
+async function ensureBlogSlides(dateStr) {
+  const metaFile = path.join(ROOT, "content", "blog", `${dateStr}-meta.json`);
+  const slide1   = path.join(ROOT, "content", "blog", `${dateStr}-slide-1.png`);
+  if (fs.existsSync(metaFile) && fs.existsSync(slide1)) {
+    log(`using existing blog slides for ${dateStr}`);
+  } else {
+    log(`generating blog carousel for ${dateStr} …`);
+    execSync(`node generators/generate-blog-image.js ${dateStr}`, { cwd: ROOT, stdio: "inherit" });
+    if (!fs.existsSync(metaFile)) fail(`generator did not produce meta file ${metaFile}`);
+  }
+  const meta = JSON.parse(fs.readFileSync(metaFile, "utf8"));
+  const slidePaths = [];
+  for (let i = 1; i <= meta.slideCount; i++) {
+    const f = path.join(ROOT, "content", "blog", `${dateStr}-slide-${i}.png`);
+    if (!fs.existsSync(f)) fail(`missing slide ${i}: ${f}`);
+    slidePaths.push(f);
+  }
+  return { slidePaths, meta };
+}
+
+async function runBlog() {
+  const date = istDateString();
+  const slotKey = `${date}-blog`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const { slidePaths, meta } = await ensureBlogSlides(date);
+  await commitContent(`content: blog carousel ("${meta.title}", 3 slides) for ${date}`);
+
+  const caption = captions.buildBlog(date, meta);
+  const urls = slidePaths.map(rawUrlFor);
+  log(`carousel URLs (${urls.length} slides):\n  ${urls.join("\n  ")}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+  const mediaId = await postCarousel({ imageUrls: urls, caption });
+  record({ slotKey, type: "carousel", igMediaId: mediaId, slug: meta.slug,
+           files: slidePaths.map(f => path.relative(ROOT, f)) });
+  log(`✅ posted ig media ${mediaId}`);
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
 // ── main ───────────────────────────────────────────────────────────
 const HANDLERS = {
   morning: runMorning,
@@ -280,6 +320,7 @@ const HANDLERS = {
   "dyk-morning": runDykMorning,
   "dyk-evening": runDykEvening,
   learn: runLearn,
+  blog: runBlog,
 };
 
 (async () => {
