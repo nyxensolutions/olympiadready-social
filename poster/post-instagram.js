@@ -297,7 +297,7 @@ async function runBlog() {
   if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
 
   const { slidePaths, meta } = await ensureBlogSlides(date);
-  await commitContent(`content: blog carousel ("${meta.title}", 3 slides) for ${date}`);
+  await commitContent(`content: blog carousel for ${date} — ${meta.title}`);
 
   const caption = captions.buildBlog(date, meta);
   const urls = slidePaths.map(rawUrlFor);
