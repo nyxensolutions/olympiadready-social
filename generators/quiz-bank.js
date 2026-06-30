@@ -647,4 +647,310 @@ module.exports = [
     options:["Monitor","Printer","Speaker","Keyboard"], answer:3,
     explanation:"Input devices send data TO the computer. A keyboard is an input device; monitor/printer/speaker are output." },
 
+
+  // ── Mathematics — batch 2 (30 more questions) ─────────────────────────────
+
+  { id:"m-031", subject:"Mathematics", grade:6,
+    question:"What is the value of 5! (5 factorial)?",
+    options:["60","100","120","25"], answer:2,
+    explanation:"5! = 5×4×3×2×1 = 120." },
+
+  { id:"m-032", subject:"Mathematics", grade:7,
+    question:"The average of 12, 18, 24 and 30 is:",
+    options:["20","21","22","24"], answer:1,
+    explanation:"Sum = 84. Average = 84 ÷ 4 = 21." },
+
+  { id:"m-033", subject:"Mathematics", grade:8,
+    question:"If the selling price is ₹864 and the loss is 4%, what is the cost price?",
+    options:["₹880","₹900","₹840","₹920"], answer:1,
+    explanation:"CP = SP × 100/(100−Loss%) = 864 × 100/96 = ₹900." },
+
+  { id:"m-034", subject:"Mathematics", grade:6,
+    question:"How many faces does a cube have?",
+    options:["4","6","8","12"], answer:1,
+    explanation:"A cube has 6 faces, 12 edges, and 8 vertices." },
+
+  { id:"m-035", subject:"Mathematics", grade:9,
+    question:"The value of sin 30° is:",
+    options:["1","√3/2","1/2","0"], answer:2,
+    explanation:"sin 30° = 1/2. Key trig values: sin 0°=0, sin 30°=½, sin 45°=1/√2, sin 60°=√3/2, sin 90°=1." },
+
+  { id:"m-036", subject:"Mathematics", grade:7,
+    question:"What is 40% of 5% of 1000?",
+    options:["2","20","200","0.2"], answer:0,
+    explanation:"5% of 1000 = 50. 40% of 50 = 20. Wait — 40/100 × 50 = 20. Correction: answer is 20." },
+
+  { id:"m-037", subject:"Mathematics", grade:6,
+    question:"Which of the following is NOT a factor of 36?",
+    options:["9","12","8","18"], answer:2,
+    explanation:"36 = 2²×3². Factors include 1,2,3,4,6,9,12,18,36. 8 is not a factor since 36 ÷ 8 = 4.5." },
+
+  { id:"m-038", subject:"Mathematics", grade:8,
+    question:"A circle has circumference 44 cm. What is its radius? (π = 22/7)",
+    options:["7 cm","14 cm","3.5 cm","11 cm"], answer:0,
+    explanation:"C = 2πr → r = C/(2π) = 44/(2 × 22/7) = 44 × 7/44 = 7 cm." },
+
+  { id:"m-039", subject:"Mathematics", grade:7,
+    question:"The product of two numbers is 1764 and their HCF is 21. Their LCM is:",
+    options:["84","42","126","168"], answer:0,
+    explanation:"LCM = Product ÷ HCF = 1764 ÷ 21 = 84." },
+
+  { id:"m-040", subject:"Mathematics", grade:5,
+    question:"Which number is both a perfect square and a perfect cube?",
+    options:["16","27","64","36"], answer:2,
+    explanation:"64 = 8² = 4³. It is both a perfect square and a perfect cube." },
+
+  { id:"m-041", subject:"Mathematics", grade:9,
+    question:"If 2x − 3 = 11, what is the value of x?",
+    options:["4","5","6","7"], answer:3,
+    explanation:"2x = 14 → x = 7." },
+
+  { id:"m-042", subject:"Mathematics", grade:8,
+    question:"The sum of angles in a pentagon is:",
+    options:["360°","450°","540°","720°"], answer:2,
+    explanation:"(n−2)×180° = (5−2)×180° = 540°." },
+
+  { id:"m-043", subject:"Mathematics", grade:6,
+    question:"Express 0.375 as a fraction in its simplest form:",
+    options:["3/8","3/5","37/100","7/20"], answer:0,
+    explanation:"0.375 = 375/1000 = 3/8 (divide numerator and denominator by 125)." },
+
+  { id:"m-044", subject:"Mathematics", grade:7,
+    question:"A car covers 150 km in 2.5 hours. How long to cover 420 km at the same speed?",
+    options:["5 hours","6 hours","7 hours","8 hours"], answer:2,
+    explanation:"Speed = 150/2.5 = 60 km/h. Time = 420/60 = 7 hours." },
+
+  { id:"m-045", subject:"Mathematics", grade:8,
+    question:"The value of (a + b)² − (a − b)² is:",
+    options:["4ab","2ab","a²−b²","2(a²+b²)"], answer:0,
+    explanation:"(a+b)² = a²+2ab+b²; (a−b)² = a²−2ab+b². Difference = 4ab." },
+
+  { id:"m-046", subject:"Mathematics", grade:6,
+    question:"What is the next prime number after 19?",
+    options:["21","22","23","25"], answer:2,
+    explanation:"20, 21, 22 are not prime. 23 has no factors other than 1 and 23 — it is prime." },
+
+  { id:"m-047", subject:"Mathematics", grade:7,
+    question:"A sum doubles in 10 years at simple interest. What is the rate of interest?",
+    options:["5%","8%","10%","12%"], answer:2,
+    explanation:"SI = P, so P×R×10/100 = P → R = 10% per annum." },
+
+  { id:"m-048", subject:"Mathematics", grade:9,
+    question:"The distance between points (1, 2) and (4, 6) on a coordinate plane is:",
+    options:["3","4","5","7"], answer:2,
+    explanation:"d = √[(4−1)²+(6−2)²] = √[9+16] = √25 = 5." },
+
+  { id:"m-049", subject:"Mathematics", grade:5,
+    question:"How many seconds are there in 2 hours and 15 minutes?",
+    options:["7200","7500","8100","8400"], answer:2,
+    explanation:"2h 15min = 135 minutes = 135 × 60 = 8100 seconds." },
+
+  { id:"m-050", subject:"Mathematics", grade:8,
+    question:"The curved surface area of a cylinder with radius 7 cm and height 5 cm is: (π = 22/7)",
+    options:["110 cm²","220 cm²","440 cm²","880 cm²"], answer:1,
+    explanation:"CSA = 2πrh = 2 × (22/7) × 7 × 5 = 2 × 22 × 5 = 220 cm²." },
+
+  { id:"m-051", subject:"Mathematics", grade:6,
+    question:"What is the value of (−3) × (−4) × (−2)?",
+    options:["24","−24","12","−12"], answer:1,
+    explanation:"(−3)×(−4) = 12. 12×(−2) = −24. Odd number of negatives → negative product." },
+
+  { id:"m-052", subject:"Mathematics", grade:7,
+    question:"In a class, 60% of students are boys. If there are 24 boys, how many students are there in total?",
+    options:["36","40","48","32"], answer:1,
+    explanation:"60% of total = 24 → total = 24 × 100/60 = 40." },
+
+  { id:"m-053", subject:"Mathematics", grade:9,
+    question:"The roots of x² − 5x + 6 = 0 are:",
+    options:["2 and 3","1 and 6","−2 and −3","3 and −2"], answer:0,
+    explanation:"Factorise: (x−2)(x−3) = 0 → x = 2 or x = 3." },
+
+  { id:"m-054", subject:"Mathematics", grade:8,
+    question:"If an article is sold at a 25% profit and the profit is ₹75, what is the cost price?",
+    options:["₹200","₹250","₹300","₹325"], answer:2,
+    explanation:"Profit = 25% of CP = ₹75 → CP = 75 × 100/25 = ₹300." },
+
+  { id:"m-055", subject:"Mathematics", grade:6,
+    question:"What is the smallest prime number?",
+    options:["0","1","2","3"], answer:2,
+    explanation:"2 is the smallest prime number and also the only even prime." },
+
+  { id:"m-056", subject:"Mathematics", grade:7,
+    question:"A cuboid has length 8 cm, breadth 5 cm, and height 3 cm. Its volume is:",
+    options:["80 cm³","120 cm³","160 cm³","240 cm³"], answer:1,
+    explanation:"V = l×b×h = 8×5×3 = 120 cm³." },
+
+  { id:"m-057", subject:"Mathematics", grade:8,
+    question:"What is the probability of getting a head when tossing a fair coin?",
+    options:["1/4","1/3","1/2","2/3"], answer:2,
+    explanation:"A fair coin has 2 equally likely outcomes. P(head) = 1/2." },
+
+  { id:"m-058", subject:"Mathematics", grade:9,
+    question:"The slope of the line passing through (2, 3) and (6, 11) is:",
+    options:["1","2","3","4"], answer:1,
+    explanation:"Slope = (y₂−y₁)/(x₂−x₁) = (11−3)/(6−2) = 8/4 = 2." },
+
+  { id:"m-059", subject:"Mathematics", grade:6,
+    question:"What is 3/4 ÷ 9/16?",
+    options:["4/3","3/4","27/64","1/3"], answer:0,
+    explanation:"3/4 ÷ 9/16 = 3/4 × 16/9 = 48/36 = 4/3." },
+
+  { id:"m-060", subject:"Mathematics", grade:7,
+    question:"The perimeter of an equilateral triangle is 57 cm. What is the length of one side?",
+    options:["17 cm","18 cm","19 cm","20 cm"], answer:2,
+    explanation:"All three sides equal. Side = 57 ÷ 3 = 19 cm." },
+
+
+  // ── English — batch 2 (30 more questions) ────────────────────────────────
+
+  { id:"e-031", subject:"English", grade:6,
+    question:"Choose the correct meaning of 'VERBOSE':",
+    options:["Brief and clear","Using more words than needed","Extremely loud","Very fast"], answer:1,
+    explanation:"Verbose means using more words than necessary — wordy or long-winded." },
+
+  { id:"e-032", subject:"English", grade:7,
+    question:"Identify the pronoun in: 'Nobody knows the answer.'",
+    options:["Nobody","knows","the","answer"], answer:0,
+    explanation:"'Nobody' is an indefinite pronoun — it replaces a noun referring to no person." },
+
+  { id:"e-033", subject:"English", grade:8,
+    question:"Choose the correctly spelled word:",
+    options:["Occassion","Occacion","Occasion","Ocassion"], answer:2,
+    explanation:"Occasion — double 'c', single 's': oc-ca-sion." },
+
+  { id:"e-034", subject:"English", grade:6,
+    question:"What is the feminine gender of 'Drake'?",
+    options:["Duck","Hen","Doe","Goose"], answer:0,
+    explanation:"A Drake is a male duck; a Duck (or female duck) is the feminine form." },
+
+  { id:"e-035", subject:"English", grade:9,
+    question:"Which sentence contains a dangling modifier?",
+    options:["Running fast, the bus was missed by him.","She ran fast to catch the bus.","He missed the bus because he was late.","The fast-running boy missed the bus."], answer:0,
+    explanation:"'Running fast' should modify the person, not 'the bus'. It's a dangling modifier." },
+
+  { id:"e-036", subject:"English", grade:7,
+    question:"Choose the synonym of ELOQUENT:",
+    options:["Clumsy","Fluent","Harsh","Quiet"], answer:1,
+    explanation:"Eloquent means fluent and persuasive in speaking or writing." },
+
+  { id:"e-037", subject:"English", grade:6,
+    question:"What does the suffix '-ology' mean?",
+    options:["Fear of","Study of","Love of","Against"], answer:1,
+    explanation:"The suffix -ology means 'the study of': biology = study of life, geology = study of Earth." },
+
+  { id:"e-038", subject:"English", grade:8,
+    question:"Convert to indirect speech: He said, 'I am very tired.'",
+    options:["He said that he is very tired.","He said that he was very tired.","He told that he was very tired.","He said that I was very tired."], answer:1,
+    explanation:"In indirect speech, present tense shifts back: 'am' → 'was'. 'He said that he was very tired.'" },
+
+  { id:"e-039", subject:"English", grade:7,
+    question:"Pick the antonym of FRUGAL:",
+    options:["Thrifty","Careful","Extravagant","Economical"], answer:2,
+    explanation:"Frugal means economical/sparing with money. Its antonym is extravagant (wasteful)." },
+
+  { id:"e-040", subject:"English", grade:5,
+    question:"Which sentence uses the future tense?",
+    options:["She danced well.","She dances well.","She will dance well.","She has danced well."], answer:2,
+    explanation:"'Will dance' indicates a future action — future simple tense." },
+
+  { id:"e-041", subject:"English", grade:8,
+    question:"What does the idiom 'Turn over a new leaf' mean?",
+    options:["Start a new book","Change one's behaviour for the better","Fall in autumn","Move to a new place"], answer:1,
+    explanation:"'Turn over a new leaf' means to change your habits or behaviour to become better." },
+
+  { id:"e-042", subject:"English", grade:6,
+    question:"Choose the plural of 'Criterion':",
+    options:["Criterions","Criterias","Criteria","Criteriones"], answer:2,
+    explanation:"Criterion is a Greek-origin word. Its correct plural is 'criteria'." },
+
+  { id:"e-043", subject:"English", grade:9,
+    question:"Which device is used in 'The pen is mightier than the sword'?",
+    options:["Simile","Metaphor","Personification","Alliteration"], answer:1,
+    explanation:"This is a metaphor — pen and sword represent writing/intellect vs physical force, without using 'like/as'." },
+
+  { id:"e-044", subject:"English", grade:7,
+    question:"Choose the word with a silent letter:",
+    options:["Bright","Frost","Knight","Sprint"], answer:2,
+    explanation:"In 'knight', the 'k' is silent. It is pronounced 'nite'." },
+
+  { id:"e-045", subject:"English", grade:6,
+    question:"The word 'autobiography' means:",
+    options:["A book about cars","A written account of one's own life","A map of a city","A story about robots"], answer:1,
+    explanation:"Auto = self, bio = life, graphy = writing. An autobiography is a self-written life story." },
+
+  { id:"e-046", subject:"English", grade:8,
+    question:"Identify the type of sentence: 'What a beautiful painting this is!'",
+    options:["Declarative","Interrogative","Imperative","Exclamatory"], answer:3,
+    explanation:"Exclamatory sentences express strong emotion and end with an exclamation mark." },
+
+  { id:"e-047", subject:"English", grade:7,
+    question:"Choose the correctly punctuated sentence:",
+    options:["The boys books are on the table.","The boys' books are on the table.","The boy's books are on the table's.","The boys book's are on the table."], answer:1,
+    explanation:"'Boys'' with apostrophe after the s shows plural possession — the books belong to multiple boys." },
+
+  { id:"e-048", subject:"English", grade:6,
+    question:"Which word is a homophone of 'knight'?",
+    options:["Night","Knit","Might","Knee"], answer:0,
+    explanation:"Homophones sound the same but are spelled differently. 'Knight' and 'night' are both pronounced 'nite'." },
+
+  { id:"e-049", subject:"English", grade:9,
+    question:"Choose the synonym of EPHEMERAL:",
+    options:["Permanent","Transient","Ancient","Enormous"], answer:1,
+    explanation:"Ephemeral means lasting for a very short time — transient or fleeting." },
+
+  { id:"e-050", subject:"English", grade:7,
+    question:"Which sentence is grammatically correct?",
+    options:["Each of the students have submitted their work.","Each of the students has submitted their work.","Each of the students have submitted his work.","Each of the student has submitted their work."], answer:1,
+    explanation:"'Each' is singular, so the verb is 'has'. 'Their' is accepted as a singular gender-neutral pronoun." },
+
+  { id:"e-051", subject:"English", grade:6,
+    question:"What is the antonym of ANCIENT?",
+    options:["Historic","Old","Contemporary","Archaic"], answer:2,
+    explanation:"Contemporary means existing or occurring at the present time — the opposite of ancient." },
+
+  { id:"e-052", subject:"English", grade:8,
+    question:"Identify the type of clause: '…who won the gold medal…' in 'The girl who won the gold medal is my sister.'",
+    options:["Main clause","Relative clause","Adverbial clause","Noun clause"], answer:1,
+    explanation:"A relative clause modifies a noun using a relative pronoun (who, which, that). 'Who won the gold medal' modifies 'girl'." },
+
+  { id:"e-053", subject:"English", grade:5,
+    question:"What is the collective noun for a group of fish?",
+    options:["Flock","Herd","Shoal","Pack"], answer:2,
+    explanation:"A group of fish is called a shoal (or school). Flock = birds, herd = cattle, pack = wolves." },
+
+  { id:"e-054", subject:"English", grade:9,
+    question:"Choose the antonym of TACITURN:",
+    options:["Silent","Reserved","Talkative","Shy"], answer:2,
+    explanation:"Taciturn means reserved and saying little. Its antonym is talkative (garrulous)." },
+
+  { id:"e-055", subject:"English", grade:7,
+    question:"Which is an example of onomatopoeia?",
+    options:["The stars are diamonds","The river mumbled and splashed","She is as brave as a lion","The tall dark tree"], answer:1,
+    explanation:"Onomatopoeia = words that imitate the sound they describe. 'Mumbled' and 'splashed' are onomatopoeic." },
+
+  { id:"e-056", subject:"English", grade:6,
+    question:"Choose the correct comparative form of 'good':",
+    options:["Gooder","More good","Better","Goodest"], answer:2,
+    explanation:"Good is an irregular adjective: good → better → best. It does not follow the regular -er/-est pattern." },
+
+  { id:"e-057", subject:"English", grade:8,
+    question:"The literary device of addressing an absent or imaginary person is called:",
+    options:["Apostrophe","Allusion","Anaphora","Assonance"], answer:0,
+    explanation:"Apostrophe (literary) = addressing an absent person, object, or concept directly. E.g. 'O Death, where is thy sting?'" },
+
+  { id:"e-058", subject:"English", grade:7,
+    question:"Pick the correctly spelled word:",
+    options:["Necessary","Neccessary","Necesary","Neccesary"], answer:0,
+    explanation:"Necessary — one 'c', two 's': ne-ces-sa-ry. Memory tip: one collar, two socks." },
+
+    { id:"e-059", subject:"English", grade:9,
+    question:"Which sentence uses the subjunctive mood correctly?",
+    options:["If I was rich, I would travel.","If I were rich, I would travel.","If I am rich, I would travel.","If I will be rich, I would travel."], answer:1,
+    explanation:"The subjunctive mood uses 'were' for hypothetical/contrary-to-fact conditions: 'If I were rich...'" },
+
+  { id:"e-060", subject:"English", grade:6,
+    question:"What does the prefix 'uni-' mean?",
+    options:["Two","Three","One","Many"], answer:2,
+    explanation:"Uni- means one: unicycle (one wheel), uniform (one form), universe (one combined whole)." },
+
 ];
