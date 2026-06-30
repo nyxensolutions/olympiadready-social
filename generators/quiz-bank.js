@@ -953,4 +953,263 @@ module.exports = [
     options:["Two","Three","One","Many"], answer:2,
     explanation:"Uni- means one: unicycle (one wheel), uniform (one form), universe (one combined whole)." },
 
+
+  // ── Science — batch 2 (20 more questions) ────────────────────────────────
+
+  { id:"s-021", subject:"Science", grade:6,
+    question:"Which part of the plant conducts photosynthesis mainly?",
+    options:["Root","Stem","Leaf","Flower"], answer:2,
+    explanation:"Leaves contain chlorophyll and have a large surface area to absorb sunlight for photosynthesis." },
+
+  { id:"s-022", subject:"Science", grade:7,
+    question:"What type of energy does a moving car possess?",
+    options:["Potential energy","Chemical energy","Kinetic energy","Nuclear energy"], answer:2,
+    explanation:"Any object in motion has kinetic energy. KE = ½mv²." },
+
+  { id:"s-023", subject:"Science", grade:8,
+    question:"Which gas is produced at the cathode during electrolysis of water?",
+    options:["Oxygen","Carbon dioxide","Hydrogen","Nitrogen"], answer:2,
+    explanation:"During electrolysis of water: hydrogen gas is produced at the cathode (−) and oxygen at the anode (+)." },
+
+  { id:"s-024", subject:"Science", grade:6,
+    question:"The process by which water vapour changes into liquid water is called:",
+    options:["Evaporation","Condensation","Sublimation","Precipitation"], answer:1,
+    explanation:"Condensation is the change of state from gas (vapour) to liquid — like dew forming on cold surfaces." },
+
+  { id:"s-025", subject:"Science", grade:7,
+    question:"Which of the following is a non-renewable source of energy?",
+    options:["Solar","Wind","Coal","Tidal"], answer:2,
+    explanation:"Coal is a fossil fuel formed over millions of years — once used, it cannot be replenished quickly." },
+
+  { id:"s-026", subject:"Science", grade:8,
+    question:"An object weighs 60 N on Earth. What is its mass? (g = 10 m/s²)",
+    options:["6 kg","60 kg","600 kg","0.6 kg"], answer:0,
+    explanation:"Weight = mass × g → mass = Weight/g = 60/10 = 6 kg." },
+
+  { id:"s-027", subject:"Science", grade:6,
+    question:"The symbol of the element Gold is:",
+    options:["Go","Gd","Au","Ag"], answer:2,
+    explanation:"Gold's symbol is Au from its Latin name 'Aurum'. Silver is Ag (Argentum)." },
+
+  { id:"s-028", subject:"Science", grade:7,
+    question:"Which mirror is used in the rear-view mirror of vehicles?",
+    options:["Plane mirror","Concave mirror","Convex mirror","Bifocal mirror"], answer:2,
+    explanation:"Convex mirrors give a wider field of view, making them ideal for rear-view mirrors in vehicles." },
+
+  { id:"s-029", subject:"Science", grade:8,
+    question:"The atomic number of Carbon is:",
+    options:["4","6","8","12"], answer:1,
+    explanation:"Carbon (C) has atomic number 6 — meaning 6 protons in its nucleus. Its mass number is 12." },
+
+  { id:"s-030", subject:"Science", grade:6,
+    question:"Which blood group is known as the 'universal donor'?",
+    options:["A","B","AB","O"], answer:3,
+    explanation:"Blood group O (negative) can donate red blood cells to any blood group — it is the universal donor." },
+
+  { id:"s-031", subject:"Science", grade:7,
+    question:"The unit of electric current is:",
+    options:["Volt","Watt","Ampere","Ohm"], answer:2,
+    explanation:"Electric current is measured in Amperes (A). Volt measures potential difference; Ohm measures resistance." },
+
+  { id:"s-032", subject:"Science", grade:8,
+    question:"Which of these is an example of a chemical change?",
+    options:["Melting ice","Cutting paper","Burning wood","Dissolving salt in water"], answer:2,
+    explanation:"Burning wood produces new substances (ash, CO₂, water vapour) — it is an irreversible chemical change." },
+
+  { id:"s-033", subject:"Science", grade:6,
+    question:"The longest bone in the human body is the:",
+    options:["Humerus","Spine","Femur","Tibia"], answer:2,
+    explanation:"The femur (thigh bone) is the longest and strongest bone in the human body." },
+
+  { id:"s-034", subject:"Science", grade:7,
+    question:"Which lens is used to correct myopia (short-sightedness)?",
+    options:["Convex","Bifocal","Concave","Cylindrical"], answer:2,
+    explanation:"Myopia is corrected using concave (diverging) lenses, which spread out light before it enters the eye." },
+
+  { id:"s-035", subject:"Science", grade:8,
+    question:"Rusting of iron is an example of:",
+    options:["Physical change","Reduction","Oxidation","Sublimation"], answer:2,
+    explanation:"Rusting is oxidation — iron reacts with oxygen and water to form iron oxide (Fe₂O₃·nH₂O)." },
+
+  { id:"s-036", subject:"Science", grade:6,
+    question:"Which planet is known as Earth's 'twin' due to its similar size?",
+    options:["Mars","Mercury","Venus","Uranus"], answer:2,
+    explanation:"Venus is nearly the same size as Earth and is often called Earth's twin, though it has a very different atmosphere." },
+
+  { id:"s-037", subject:"Science", grade:7,
+    question:"What is the full form of DNA?",
+    options:["Deoxyribose Nucleic Acid","Deoxyribonucleic Acid","Dinitrogen Amino Acid","Dual Nucleic Acid"], answer:1,
+    explanation:"DNA stands for Deoxyribonucleic Acid — the molecule that carries genetic information in all living organisms." },
+
+  { id:"s-038", subject:"Science", grade:8,
+    question:"The SI unit of pressure is:",
+    options:["Newton","Joule","Pascal","Watt"], answer:2,
+    explanation:"Pressure is measured in Pascals (Pa). 1 Pascal = 1 Newton per square metre (N/m²)." },
+
+  { id:"s-039", subject:"Science", grade:6,
+    question:"Which vitamin helps in blood clotting?",
+    options:["Vitamin A","Vitamin C","Vitamin D","Vitamin K"], answer:3,
+    explanation:"Vitamin K is essential for blood clotting (coagulation). A deficiency leads to excessive bleeding." },
+
+  { id:"s-040", subject:"Science", grade:7,
+    question:"The phenomenon of light bending when it passes from one medium to another is called:",
+    options:["Reflection","Refraction","Diffraction","Dispersion"], answer:1,
+    explanation:"Refraction is the bending of light as it passes between media of different optical densities, e.g. air to glass." },
+
+
+  // ── History — batch 2 (15 more questions) ────────────────────────────────
+
+  { id:"h-016", subject:"History", grade:6,
+    question:"Who was the founder of the Gupta Empire?",
+    options:["Chandragupta I","Samudragupta","Chandragupta Maurya","Ashoka"], answer:0,
+    explanation:"Chandragupta I founded the Gupta Empire around 320 CE, which became India's 'Golden Age'." },
+
+  { id:"h-017", subject:"History", grade:7,
+    question:"The French Revolution began in the year:",
+    options:["1776","1789","1799","1804"], answer:1,
+    explanation:"The French Revolution began in 1789 with the storming of the Bastille on 14 July — now Bastille Day." },
+
+  { id:"h-018", subject:"History", grade:6,
+    question:"Who wrote the Indian national song 'Vande Mataram'?",
+    options:["Rabindranath Tagore","Bankim Chandra Chattopadhyay","Subhas Chandra Bose","Mahatma Gandhi"], answer:1,
+    explanation:"Bankim Chandra Chattopadhyay wrote Vande Mataram in 1882 in his novel Anandamath." },
+
+  { id:"h-019", subject:"History", grade:7,
+    question:"The Battle of Plassey (1757) was fought between:",
+    options:["British and Marathas","British and Siraj ud-Daulah of Bengal","French and British","British and Tipu Sultan"], answer:1,
+    explanation:"The Battle of Plassey (1757) saw the British East India Company defeat Siraj ud-Daulah, establishing British dominance in Bengal." },
+
+  { id:"h-020", subject:"History", grade:6,
+    question:"Which ancient wonder of the world still exists today?",
+    options:["Hanging Gardens of Babylon","Colossus of Rhodes","Great Pyramid of Giza","Lighthouse of Alexandria"], answer:2,
+    explanation:"The Great Pyramid of Giza is the only ancient wonder still standing — built around 2560 BCE." },
+
+  { id:"h-021", subject:"History", grade:7,
+    question:"Mahatma Gandhi's full name was:",
+    options:["Mohandas Karam Chand Gandhi","Mohandas Karamchand Gandhi","Mohanlal Karamchand Gandhi","Mohandas Kishan Gandhi"], answer:1,
+    explanation:"Gandhi's full name was Mohandas Karamchand Gandhi. He was born on 2 October 1869 in Porbandar, Gujarat." },
+
+  { id:"h-022", subject:"History", grade:8,
+    question:"The United Nations was established in the year:",
+    options:["1939","1945","1947","1950"], answer:1,
+    explanation:"The UN was founded on 24 October 1945, after World War II, to promote international peace and cooperation." },
+
+  { id:"h-023", subject:"History", grade:6,
+    question:"Who built the Red Fort in Delhi?",
+    options:["Akbar","Humayun","Shah Jahan","Aurangzeb"], answer:2,
+    explanation:"Shah Jahan built the Red Fort (Lal Qila) in Delhi between 1638 and 1648 as his imperial palace." },
+
+  { id:"h-024", subject:"History", grade:7,
+    question:"The Partition of Bengal (1905) was reversed in:",
+    options:["1907","1909","1911","1919"], answer:2,
+    explanation:"Lord Curzon's Partition of Bengal (1905) was annulled in 1911 due to massive public protests and the Swadeshi Movement." },
+
+  { id:"h-025", subject:"History", grade:8,
+    question:"Who was the first President of the United States?",
+    options:["Abraham Lincoln","Benjamin Franklin","Thomas Jefferson","George Washington"], answer:3,
+    explanation:"George Washington became the first President of the United States in 1789 and served two terms until 1797." },
+
+  { id:"h-026", subject:"History", grade:6,
+    question:"The Indian Constitution came into effect on:",
+    options:["15 August 1947","26 January 1950","26 November 1949","2 October 1950"], answer:1,
+    explanation:"The Constitution of India came into force on 26 January 1950 — celebrated as Republic Day." },
+
+  { id:"h-027", subject:"History", grade:7,
+    question:"Who gave the famous 'Tryst with Destiny' speech on India's independence?",
+    options:["Mahatma Gandhi","Sardar Patel","B.R. Ambedkar","Jawaharlal Nehru"], answer:3,
+    explanation:"Nehru delivered the 'Tryst with Destiny' speech at midnight on 14–15 August 1947 in the Constituent Assembly." },
+
+  { id:"h-028", subject:"History", grade:8,
+    question:"The Industrial Revolution began in which country?",
+    options:["France","United States","Germany","Britain"], answer:3,
+    explanation:"The Industrial Revolution began in Britain in the late 18th century, transforming manufacturing with steam power and machinery." },
+
+  { id:"h-029", subject:"History", grade:6,
+    question:"Who discovered the sea route to India?",
+    options:["Columbus","Magellan","Vasco da Gama","Marco Polo"], answer:2,
+    explanation:"Vasco da Gama of Portugal discovered the sea route to India in 1498, reaching Calicut (Kozhikode) in Kerala." },
+
+  { id:"h-030", subject:"History", grade:7,
+    question:"The Champaran Satyagraha of 1917 was Gandhi's first major movement in India. It was against:",
+    options:["Salt tax","Indigo plantation system","Cow slaughter","Untouchability"], answer:1,
+    explanation:"Gandhi led the Champaran Satyagraha (1917) against the exploitative indigo plantation system in Bihar." },
+
+
+  // ── Geography — batch 2 (15 more questions) ──────────────────────────────
+
+  { id:"g-016", subject:"Geography", grade:6,
+    question:"Which is the longest river in India?",
+    options:["Yamuna","Brahmaputra","Ganga","Godavari"], answer:2,
+    explanation:"The Ganga is the longest river in India at approximately 2,525 km, flowing from Gangotri to the Bay of Bengal." },
+
+  { id:"g-017", subject:"Geography", grade:7,
+    question:"The Tropic of Cancer passes through how many Indian states?",
+    options:["6","7","8","9"], answer:2,
+    explanation:"The Tropic of Cancer passes through 8 Indian states: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram." },
+
+  { id:"g-018", subject:"Geography", grade:6,
+    question:"Which is the smallest country in the world by area?",
+    options:["Monaco","San Marino","Liechtenstein","Vatican City"], answer:3,
+    explanation:"Vatican City (0.44 km²) is the world's smallest country by both area and population." },
+
+  { id:"g-019", subject:"Geography", grade:7,
+    question:"The Deccan Plateau is located in:",
+    options:["North India","South India","East India","West India"], answer:1,
+    explanation:"The Deccan Plateau is a large triangular plateau in southern India, bounded by the Western and Eastern Ghats." },
+
+  { id:"g-020", subject:"Geography", grade:5,
+    question:"Which is the capital of Canada?",
+    options:["Toronto","Vancouver","Ottawa","Montreal"], answer:2,
+    explanation:"Ottawa is the capital of Canada. Toronto is the largest city but not the capital." },
+
+  { id:"g-021", subject:"Geography", grade:7,
+    question:"The Great Barrier Reef is located off the coast of:",
+    options:["South Africa","New Zealand","India","Australia"], answer:3,
+    explanation:"The Great Barrier Reef, the world's largest coral reef system, lies off the coast of Queensland, Australia." },
+
+  { id:"g-022", subject:"Geography", grade:6,
+    question:"Which ocean lies between Africa and Australia?",
+    options:["Atlantic Ocean","Pacific Ocean","Arctic Ocean","Indian Ocean"], answer:3,
+    explanation:"The Indian Ocean is bounded by Africa to the west, Asia to the north, and Australia to the east." },
+
+  { id:"g-023", subject:"Geography", grade:8,
+    question:"The Suez Canal connects the:",
+    options:["Red Sea and Arabian Sea","Mediterranean Sea and Red Sea","Black Sea and Caspian Sea","Atlantic and Pacific Ocean"], answer:1,
+    explanation:"The Suez Canal (Egypt) connects the Mediterranean Sea to the Red Sea, cutting the Europe-Asia sea route by thousands of km." },
+
+  { id:"g-024", subject:"Geography", grade:6,
+    question:"Which country is known as the 'Land of the Rising Sun'?",
+    options:["China","Thailand","Japan","South Korea"], answer:2,
+    explanation:"Japan is called the Land of the Rising Sun. The Japanese name for Japan, 'Nihon', means 'origin of the sun'." },
+
+  { id:"g-025", subject:"Geography", grade:7,
+    question:"The Thar Desert is located in which Indian state?",
+    options:["Gujarat","Punjab","Rajasthan","Haryana"], answer:2,
+    explanation:"The Thar (Great Indian Desert) is primarily in Rajasthan, stretching into Pakistan. It covers about 200,000 km²." },
+
+  { id:"g-026", subject:"Geography", grade:6,
+    question:"Which river flows through the city of London?",
+    options:["Seine","Rhine","Danube","Thames"], answer:3,
+    explanation:"The River Thames flows through London, England. The Seine flows through Paris, the Rhine through Germany." },
+
+  { id:"g-027", subject:"Geography", grade:8,
+    question:"Which is the most densely populated country in the world?",
+    options:["Bangladesh","Monaco","India","South Korea"], answer:1,
+    explanation:"Monaco is the most densely populated country at ~26,000 people/km². Bangladesh is most densely populated large country." },
+
+  { id:"g-028", subject:"Geography", grade:7,
+    question:"The Strait of Malacca separates:",
+    options:["India and Sri Lanka","Malaysia and Indonesia","Japan and Korea","Australia and Papua New Guinea"], answer:1,
+    explanation:"The Strait of Malacca separates the Malay Peninsula (Malaysia) from the Indonesian island of Sumatra." },
+
+  { id:"g-029", subject:"Geography", grade:5,
+    question:"Which is the largest country in the world by area?",
+    options:["Canada","China","USA","Russia"], answer:3,
+    explanation:"Russia is the largest country at 17.1 million km² — covering about 11% of Earth's land area." },
+
+  { id:"g-030", subject:"Geography", grade:6,
+    question:"The Western Ghats run along the _____ coast of India:",
+    options:["Eastern","Northern","Western","Southern"], answer:2,
+    explanation:"The Western Ghats (Sahyadri) run parallel to India's western coast from Gujarat to Kerala, spanning ~1,600 km." },
+
 ];
