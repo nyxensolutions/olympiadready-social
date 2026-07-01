@@ -1355,5 +1355,17 @@
     "ytVideoId": "Wr94h_CztjE",
     "file": "content/reels/2026-07-01.mp4",
     "at": "2026-07-01T05:28:28.707Z"
+  },
+  {
+    "slotKey": "2026-07-01-blog",
+    "type": "carousel",
+    "igMediaId": "18183891403398187",
+    "slug": "spell-bee-preparation",
+    "files": [
+      "content/blog/2026-07-01-slide-1.png",
+      "content/blog/2026-07-01-slide-2.png",
+      "content/blog/2026-07-01-slide-3.png"
+    ],
+    "at": "2026-07-01T05:32:20.337Z"
   }
 ]
