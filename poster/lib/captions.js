@@ -123,9 +123,19 @@ function buildReel(dateStr) {
     `Olympiad registrations open in August ⏰\n\nIs your school's preparation already in place?\n\nOlympiadReady offers a free 30-day school pilot:\n📧 Email nyxencloud@gmail.com to claim your school's invite code before August.\n\n50,000+ questions · 9 subjects · Class 1–12 · AI-powered.\n\n${TAGS_SCHOOLS}`,
     // 14 — Zero cost school
     `Your school pays ₹0 to get started. 🏫\n\nFree 30-day pilot → unique school code → students prep free → coordinator tracks progress.\n\nNo payment. No commitment. Just better Olympiad results.\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
+    // 15 — #1 positioning
+    `India's #1 Olympiad prep platform — and here's why. 🏆\n\n50,000+ SOF-aligned questions. AI-generated papers that never repeat. Real timed mocks. Badges and physical medals.\n\nSerious students choose OlympiadReady.\n\nStart free → olympiadready.com\n\n${TAGS_REEL}`,
+    // 16 — Unlimited practice
+    `Your child will never run out of Olympiad questions. Ever. ♾️\n\nOlympiadReady uses AI to generate fresh papers every session — difficulty adapts, topics rotate, questions never repeat.\n\n50,000+ questions + unlimited AI papers = the only prep they'll need.\n\nolympiadready.com\n\n${TAGS_REEL}`,
+    // 17 — Free PDF downloads
+    `Download full Olympiad papers as PDFs — completely free. 📄\n\nPrint them. Practise offline. Every paper includes an answer key and AI explanations.\n\nIMO · NSO · IEO · IGKO · Spell Bee · Class 1–12\n\nDownload now → olympiadready.com\n\n${TAGS_PARENTS}`,
+    // 18 — Best questions
+    `Not all Olympiad questions are equal. 🎯\n\nOurs are mapped to the official SOF syllabus, tested for accuracy, and built on real past paper patterns — not copied from random books.\n\n50,000+ questions. Zero filler.\n\nPractise with the best → olympiadready.com\n\n${TAGS_REEL}`,
+    // 19 — Free value stack
+    `Everything your child needs to start — completely free. 🆓\n\n✅ 15 full practice papers\n✅ PDF downloads\n✅ AI explanations\n✅ AI Tutor — 24/7\n\nNo credit card. No download. Just better Olympiad prep.\n\nClaim your free papers → olympiadready.com\n\n${TAGS_PARENTS}`,
   ];
   const day = parseInt(dateStr.slice(-2), 10);
-  return pool[day % pool.length];
+  return pool[day % 20];
 }
 
 function buildDyk(dateStr, slot) {

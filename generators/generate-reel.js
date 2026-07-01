@@ -2,7 +2,7 @@
 // Builds a ~12s, 1080×1920 vertical MP4 Reel for a given date.
 // Usage: node generate-reel.js <YYYY-MM-DD>
 //
-// 15 rotating reel scripts, picked by day-of-month % 15:
+// 20 rotating reel scripts, picked by day-of-month % 20:
 //   0 — Platform overview      "Still using old question banks?"
 //   1 — Free vs Pro            "Start completely FREE"
 //   2 — For parents            "Is your child ready?"
@@ -18,6 +18,11 @@
 //  12 — Parent WhatsApp bait   "Share this with every parent group"
 //  13 — School urgency         "August is weeks away. Is your school ready?"
 //  14 — Zero cost school       "Your school pays ₹0 to get started"
+//  15 — #1 positioning         "The #1 platform serious Olympiad students use"
+//  16 — Unlimited practice     "Never run out of questions. Ever."
+//  17 — Free PDF downloads     "Download Olympiad papers as PDFs. Always free."
+//  18 — Best questions         "Not all Olympiad questions are equal. Ours are the best."
+//  19 — Free value stack       "Start practising right now. Free."
 //
 // Requires: ffmpeg on PATH, Playwright chromium installed.
 
@@ -939,10 +944,200 @@ function script14() { return [
   </div>${FOOT}`,
 ];}
 
+// ── Scripts 15–19: Platform positioning ────────────────────────────
+function script15() { return [
+  // 1 Hook — #1 positioning
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.mascotTrophy ? `<img src="${SS.mascotTrophy}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.25;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 110px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <div class="pill" style="margin-bottom:28px;">🏆 India's Best Olympiad Prep</div>
+      <h1 style="font-size:80px;margin-top:0;">The #1 platform<br>serious Olympiad<br>students <span class="g">use.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">Here's exactly why. Swipe →</p>
+    </div>
+  </div>${FOOT}`,
+  // 2 Why #1 — questions
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📚 Questions That Win Medals</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">✅</span><span>50,000+ SOF-aligned questions</span></div>
+      <div class="feat"><span class="ic">🤖</span><span>AI generates fresh papers — never repeats</span></div>
+      <div class="feat"><span class="ic">🎯</span><span>Mapped to IMO, NSO, IEO, IGKO, NCO patterns</span></div>
+      <div class="feat"><span class="ic">📈</span><span>Harder questions as your score improves</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Why #1 — results
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">🥇 Built for Toppers</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Other apps give<br>you content.<br>We give you <span class="g">results.</span></h1>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">🧠</span><span>AI explanations after every answer</span></div>
+      <div class="feat"><span class="ic">⏱</span><span>Real timed conditions — just like exam day</span></div>
+      <div class="feat"><span class="ic">🏅</span><span>Track rank, badges & weak topics</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🚀 Start Free Today</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Join the #1<br><span class="g">Olympiad prep</span><br>platform.</h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">15 free papers · No credit card · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+function script16() { return [
+  // 1 Hook — unlimited practice
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.practice ? `<img src="${SS.practice}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.20;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 110px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <div class="pill" style="margin-bottom:28px;">♾️ Unlimited Practice</div>
+      <h1 style="font-size:78px;margin-top:0;">Your child will<br>never run out of<br>questions. <span class="g">Ever.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">Here's how it works →</p>
+    </div>
+  </div>${FOOT}`,
+  // 2 How AI generates
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🤖 Powered by AI</div>
+    <h1 style="font-size:80px;margin-bottom:28px;">Every paper is<br><span class="g">freshly generated.</span><br>No repeats.</h1>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">🎲</span><span>New questions every single session</span></div>
+      <div class="feat"><span class="ic">📐</span><span>Difficulty adapts to your level</span></div>
+      <div class="feat"><span class="ic">⏱</span><span>Timed exactly like the real exam</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Volume stat
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:32px;">📊 The Numbers</div>
+    <h1 style="font-size:72px;line-height:1.1;margin-bottom:28px;"><span class="g">50,000+</span><br>curated questions<br>+ AI-generated<br>unlimited papers</h1>
+    <p class="sub" style="font-size:26px;">Most platforms give you 200. We give you infinite.</p>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">♾️ Practice Without Limits</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Start free.<br>Practice <span class="g">forever.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">AI-powered · SOF-aligned · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+function script17() { return [
+  // 1 Hook — free PDFs
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.pdf ? `<img src="${SS.pdf}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.22;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 110px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <div class="pill" style="margin-bottom:28px;">📄 Free PDF Downloads</div>
+      <h1 style="font-size:78px;margin-top:0;">Download Olympiad<br>papers as PDFs.<br><span class="g">Always free.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">Print. Practise offline. No paywall. →</p>
+    </div>
+  </div>${FOOT}`,
+  // 2 What's inside the PDFs
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📄 What You Get in Every PDF</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">❓</span><span>Full SOF-aligned question paper</span></div>
+      <div class="feat"><span class="ic">✅</span><span>Answer key included</span></div>
+      <div class="feat"><span class="ic">💡</span><span>AI explanations for every question</span></div>
+      <div class="feat"><span class="ic">🖨️</span><span>Print-ready A4 format</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Subjects
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">📚 All 9 Subjects</div>
+    <h1 style="font-size:80px;margin-bottom:28px;">PDF papers for<br>every <span class="g">Olympiad</span><br>your child takes.</h1>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">🔢</span><span>IMO · NSO · IEO · NCO · IGKO</span></div>
+      <div class="feat"><span class="ic">🔤</span><span>Spell Bee · ISSO · Class 1–12</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">📥 Download Your Free PDFs</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Print. Practise.<br><span class="g">Win.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">Free forever · No account needed to browse</p>
+  </div>${FOOT}`,
+];}
+
+function script18() { return [
+  // 1 Hook — best questions
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.sofSubjects ? `<img src="${SS.sofSubjects}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.20;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 110px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <div class="pill" style="margin-bottom:28px;">🎯 Highest-Quality Questions</div>
+      <h1 style="font-size:78px;margin-top:0;">Not all Olympiad<br>questions are<br><span class="g">equal.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">Ours are the best. Here's why →</p>
+    </div>
+  </div>${FOOT}`,
+  // 2 Quality proof
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🔬 How We Build Questions</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📋</span><span>Mapped to official SOF syllabus — not guesses</span></div>
+      <div class="feat"><span class="ic">🧪</span><span>Each question tested for accuracy & clarity</span></div>
+      <div class="feat"><span class="ic">🏆</span><span>Based on real past paper patterns</span></div>
+      <div class="feat"><span class="ic">🤖</span><span>AI explanations reviewed for correctness</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Differentiation
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">✅ OlympiadReady vs the Rest</div>
+    <h1 style="font-size:76px;margin-bottom:28px;">Other platforms<br>copy & paste.<br>We <span class="g">craft questions</span><br>that win medals.</h1>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🎯 Practice with the Best</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">50,000+ questions.<br><span class="g">Zero filler.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">SOF-aligned · Class 1–12 · Free to start</p>
+  </div>${FOOT}`,
+];}
+
+function script19() { return [
+  // 1 Hook — everything free to start
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.pricing ? `<img src="${SS.pricing}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.18;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 110px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <div class="pill-g" style="margin-bottom:28px;">🆓 Free Practice Papers</div>
+      <h1 style="font-size:78px;margin-top:0;">Start practising<br>for your Olympiad<br><span class="g">right now. Free.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">No card. No catch. Here's everything you get →</p>
+    </div>
+  </div>${FOOT}`,
+  // 2 Free value stack
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">🆓 What's Free — Forever</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📄</span><span>15 full practice papers — no card</span></div>
+      <div class="feat"><span class="ic">📥</span><span>PDF downloads of every paper</span></div>
+      <div class="feat"><span class="ic">🤖</span><span>AI explanations on all free papers</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI Tutor — ask anything, anytime</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 After free
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">💛 After Your Free Papers</div>
+    <h1 style="font-size:80px;margin-bottom:28px;">Unlock <span class="g">unlimited</span><br>practice for less<br>than a snack.</h1>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num">₹</div><div><div class="step-text">₹129 / subject / month</div><div class="step-sub">Less than ₹5 per day · cancel any time</div></div></div>
+      <div class="step"><div class="step-num">♾</div><div><div class="step-text">Unlimited AI-generated papers</div><div class="step-sub">Fresh questions every session · never repeats</div></div></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🆓 Claim Your Free Papers</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">15 free papers.<br><span class="g">Start today.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">No credit card · No download · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
 // ── Pick script by day ───────────────────────────────────────────────
-const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10, script11, script12, script13, script14];
+const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10, script11, script12, script13, script14, script15, script16, script17, script18, script19];
 const day     = parseInt(dateStr.slice(-2), 10);
-const SCENES  = SCRIPTS[day % SCRIPTS.length]();
+const SCENES  = SCRIPTS[day % 20]();
 console.log(`using script ${day % SCRIPTS.length} (day=${day})`);
 
 // ── Render scenes via Playwright ────────────────────────────────────
