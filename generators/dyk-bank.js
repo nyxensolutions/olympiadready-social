@@ -604,4 +604,230 @@ module.exports = [
     fact: "The @ symbol in email addresses was chosen by Ray Tomlinson in 1971 because it was 'not commonly used' in names, making it a perfect separator.",
     source: "Ray Tomlinson",
   },
+
+  // ── Science — batch 2 ────────────────────────────────────────────────────
+  {
+    category: "Science",
+    icon: "🌈",
+    fact: "A rainbow is actually a full circle — you only see a semicircle because the ground gets in the way. From an aeroplane you can sometimes see the whole ring!",
+    source: "Optics",
+  },
+  {
+    category: "Science",
+    icon: "🧲",
+    fact: "If you cut a magnet in half, you don't get a north pole and a south pole — you get two smaller magnets, each with their own north and south!",
+    source: "Physics",
+  },
+  {
+    category: "Science",
+    icon: "🌙",
+    fact: "The Moon is slowly drifting away from Earth at about 3.8 cm per year — roughly the speed at which your fingernails grow.",
+    source: "NASA",
+  },
+  {
+    category: "Science",
+    icon: "🦴",
+    fact: "Babies are born with around 270 bones, but adults have only 206. Bones fuse together as we grow — most by age 25.",
+    source: "Anatomy",
+  },
+  {
+    category: "Science",
+    icon: "💧",
+    fact: "Water is the only natural substance found in all three states — solid, liquid, and gas — at temperatures common on Earth's surface.",
+  },
+  {
+    category: "Science",
+    icon: "🌞",
+    fact: "The Sun accounts for 99.86% of all the mass in our solar system. Everything else — all 8 planets, moons, asteroids — makes up just 0.14%.",
+    source: "NASA",
+  },
+  {
+    category: "Science",
+    icon: "🧪",
+    fact: "Oxygen was discovered independently by Carl Scheele (1772) and Joseph Priestley (1774) — but Antoine Lavoisier named it and explained its role in combustion.",
+    source: "Chemistry History",
+  },
+  {
+    category: "Science",
+    icon: "🐬",
+    fact: "Dolphins sleep with one eye open and one half of their brain at a time — a process called unihemispheric sleep that keeps them alert to danger.",
+    source: "Marine Biology",
+  },
+  {
+    category: "Science",
+    icon: "⚗️",
+    fact: "Glass is neither a solid nor a liquid — it is an amorphous solid. Old window panes appear thicker at the bottom due to old manufacturing methods, not because glass 'flows'.",
+    source: "Materials Science",
+  },
+  {
+    category: "Science",
+    icon: "🦟",
+    fact: "Mosquitoes are the deadliest animals on Earth — responsible for more than 1 million human deaths per year through the diseases they carry.",
+    source: "WHO",
+  },
+
+  // ── Maths — batch 2 ──────────────────────────────────────────────────────
+  {
+    category: "Maths",
+    icon: "🔁",
+    fact: "The number 142857 is called a cyclic number — multiply it by 1 through 6 and you get the same digits rearranged: 142857 × 2 = 285714, × 3 = 428571…",
+  },
+  {
+    category: "Maths",
+    icon: "🎂",
+    fact: "The number 1729 is called the Hardy-Ramanujan number. Ramanujan instantly recognised it as the smallest number expressible as the sum of two cubes in two different ways: 1³+12³ = 9³+10³.",
+    source: "Mathematical History",
+  },
+  {
+    category: "Maths",
+    icon: "♾️",
+    fact: "There are different sizes of infinity. The infinity of real numbers is provably larger than the infinity of whole numbers — Georg Cantor proved this in 1874.",
+    source: "Set Theory",
+  },
+  {
+    category: "Maths",
+    icon: "🗺️",
+    fact: "The Four Colour Theorem states that any map can be coloured using at most 4 colours so no two adjacent regions share the same colour. It took until 1976 to prove — using a computer!",
+    source: "Graph Theory",
+  },
+  {
+    category: "Maths",
+    icon: "🔢",
+    fact: "Zero is the only number that is neither positive nor negative. It was one of India's greatest gifts to mathematics — formalised by Brahmagupta in 628 CE.",
+    source: "History of Mathematics",
+  },
+
+  // ── History — batch 2 ────────────────────────────────────────────────────
+  {
+    category: "History",
+    icon: "🏺",
+    fact: "Ancient Greeks invented the alarm clock around 250 BCE. Ctesibius of Alexandria built a water clock (clepsydra) that used a whistle to wake people at a set time.",
+    source: "Ancient History",
+  },
+  {
+    category: "History",
+    icon: "⚔️",
+    fact: "The Mongol Empire was the largest contiguous land empire in history, covering 24 million km² at its peak — about 16% of Earth's total land area.",
+    source: "Historical Records",
+  },
+  {
+    category: "History",
+    icon: "🇮🇳",
+    fact: "India invented the game of Chess (Chaturanga) around 600 CE. It then spread to Persia, the Arab world, and eventually Europe — where the modern rules evolved.",
+    source: "History of Games",
+  },
+  {
+    category: "History",
+    icon: "🏛️",
+    fact: "Ancient Romans had fast food restaurants called 'thermopolia' — street counters with built-in clay pots for keeping food warm. Over 80 have been found in Pompeii alone.",
+    source: "Roman History",
+  },
+  {
+    category: "History",
+    icon: "📜",
+    fact: "The Magna Carta (1215) was the first document to limit the power of an English king — King John was forced to sign it by rebellious barons. It laid foundations for modern democracy.",
+    source: "British History",
+  },
+  {
+    category: "History",
+    icon: "🌍",
+    fact: "The Berlin Wall fell on 9 November 1989 after standing for 28 years. It had divided East and West Berlin since 1961 and became a global symbol of the Cold War.",
+    source: "Modern History",
+  },
+
+  // ── Geography — batch 2 ──────────────────────────────────────────────────
+  {
+    category: "Geography",
+    icon: "🌊",
+    fact: "Norway has the world's longest fjord — the Sognefjord stretches 204 km inland and reaches depths of over 1,300 metres.",
+    source: "Geography",
+  },
+  {
+    category: "Geography",
+    icon: "🏔️",
+    fact: "Antarctica is the highest continent on Earth by average elevation (~2,300 m). It also holds 90% of the world's ice and 70% of its fresh water.",
+    source: "Geography",
+  },
+  {
+    category: "Geography",
+    icon: "🇧🇷",
+    fact: "Brazil is so large it shares a border with every South American country except Chile and Ecuador — 10 out of 12 neighbouring countries.",
+    source: "World Atlas",
+  },
+  {
+    category: "Geography",
+    icon: "🌵",
+    fact: "Antarctica is technically a desert — it receives less than 200 mm of precipitation per year, making it drier than the Sahara.",
+    source: "Geography",
+  },
+  {
+    category: "Geography",
+    icon: "🗻",
+    fact: "India is home to 9 of the world's 14 mountains over 8,000 metres, all in the Himalayas and Karakoram range.",
+    source: "Geography",
+  },
+
+  // ── GK — batch 2 ─────────────────────────────────────────────────────────
+  {
+    category: "GK",
+    icon: "🎮",
+    fact: "The video game industry is now larger than the global film and music industries combined — generating over $180 billion per year worldwide.",
+    source: "Industry Reports, 2023",
+  },
+  {
+    category: "GK",
+    icon: "🐜",
+    fact: "Ants never sleep. They take hundreds of short power naps (about 1 minute each) throughout the day instead of one long sleep like humans.",
+    source: "Entomology",
+  },
+  {
+    category: "GK",
+    icon: "🌡️",
+    fact: "The coldest natural temperature ever recorded on Earth was −89.2°C at the Soviet Vostok Station in Antarctica on 21 July 1983.",
+    source: "WMO",
+  },
+  {
+    category: "GK",
+    icon: "📱",
+    fact: "More people on Earth have access to a mobile phone than to a flush toilet. As of 2023, there are more active mobile phones than humans on the planet.",
+    source: "UN Reports",
+  },
+  {
+    category: "GK",
+    icon: "🦁",
+    fact: "A lion's roar can be heard from up to 8 km away. Lions roar to communicate territory boundaries and to locate other members of their pride.",
+    source: "National Geographic",
+  },
+
+  // ── Technology — batch 2 ─────────────────────────────────────────────────
+  {
+    category: "Technology",
+    icon: "🤖",
+    fact: "The word 'Robot' was first used in a 1920 Czech play called R.U.R. by Karel Čapek. It comes from the Czech word 'robota' meaning forced labour.",
+    source: "Etymology",
+  },
+  {
+    category: "Technology",
+    icon: "🛰️",
+    fact: "There are over 8,000 tonnes of space debris orbiting Earth — including defunct satellites, rocket stages, and fragments from collisions.",
+    source: "ESA, 2023",
+  },
+  {
+    category: "Technology",
+    icon: "💡",
+    fact: "Thomas Edison didn't invent the light bulb — he improved it. Humphry Davy created the first electric arc lamp in 1802, nearly 80 years before Edison's patent.",
+    source: "Science History",
+  },
+  {
+    category: "Technology",
+    icon: "🔋",
+    fact: "The first rechargeable battery was invented by French physicist Gaston Planté in 1859 — a lead-acid battery, the same basic technology still used in cars today.",
+    source: "Technology History",
+  },
+  {
+    category: "Technology",
+    icon: "🌐",
+    fact: "If you put all the data on the internet onto DVDs and stacked them up, the stack would reach from Earth to the Moon — and back — more than 300 times.",
+    source: "Data Statistics, 2023",
+  },
 ];
