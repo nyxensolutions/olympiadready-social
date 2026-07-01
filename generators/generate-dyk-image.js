@@ -31,15 +31,21 @@ if (!dateStr || !["morning","evening"].includes(slot)) {
 // bg: dominant background colour of the photo (used as card base colour)
 // pos: CSS object-position for the <img>
 const ALL_IMAGES = [
-  { file:"left1.jpg",  side:"left",  bg:"#e0e0e0", pos:"35% top"    },
-  { file:"left2.jpg",  side:"left",  bg:"#dadada", pos:"center top"  },
-  { file:"left3.JPG",  side:"left",  bg:"#f2f2f2", pos:"40% top"    },
-  { file:"right1.jpg", side:"right", bg:"#282828", pos:"center top"  },
-  { file:"right2.jpg", side:"right", bg:"#f5f5f5", pos:"center top"  },
-  { file:"right3.jpg", side:"right", bg:"#a8cde0", pos:"80% center" },
-  { file:"right4.JPG", side:"right", bg:"#f2d4a4", pos:"center top"  },
-  { file:"right5.jpg", side:"right", bg:"#f5c200", pos:"center top"  },
-  { file:"right6.JPG", side:"right", bg:"#a8c8e8", pos:"center top"  },
+  { file:"left1.jpg",  side:"left",  bg:"#e0e0e0", pos:"35% top"     },
+  { file:"left2.jpg",  side:"left",  bg:"#dadada", pos:"center top"   },
+  { file:"left3.JPG",  side:"left",  bg:"#f2f2f2", pos:"40% top"     },
+  { file:"left4.jpg",  side:"left",  bg:"#f5a820", pos:"center top"   },
+  { file:"left5.jpg",  side:"left",  bg:"#3a7ca5", pos:"center center"},
+  { file:"left6.jpg",  side:"left",  bg:"#f0ebe4", pos:"center top"   },
+  { file:"left7.jpg",  side:"left",  bg:"#1a1a1a", pos:"center top"   },
+  { file:"right1.jpg", side:"right", bg:"#282828", pos:"center top"   },
+  { file:"right2.jpg", side:"right", bg:"#f5f5f5", pos:"center top"   },
+  { file:"right3.jpg", side:"right", bg:"#a8cde0", pos:"80% center"  },
+  { file:"right5.jpg", side:"right", bg:"#f5c200", pos:"center top"   },
+  { file:"right6.JPG", side:"right", bg:"#a8c8e8", pos:"center top"   },
+  { file:"right7.jpg", side:"right", bg:"#1a5db5", pos:"center top"   },
+  { file:"right8.jpg", side:"right", bg:"#f5a820", pos:"center top"   },
+  { file:"right9.jpg", side:"right", bg:"#111111", pos:"center top"   },
 ];
 
 // ── Deterministic picks ──────────────────────────────────────────────────────
