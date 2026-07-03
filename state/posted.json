@@ -1485,5 +1485,17 @@
     "ytVideoId": "gDex1vJ_0ZI",
     "file": "content/reels/2026-07-03.mp4",
     "at": "2026-07-03T05:27:20.944Z"
+  },
+  {
+    "slotKey": "2026-07-03-blog",
+    "type": "carousel",
+    "igMediaId": "18119872954799986",
+    "slug": "olympiad-preparation-class-6-10",
+    "files": [
+      "content/blog/2026-07-03-slide-1.png",
+      "content/blog/2026-07-03-slide-2.png",
+      "content/blog/2026-07-03-slide-3.png"
+    ],
+    "at": "2026-07-03T05:32:31.801Z"
   }
 ]
