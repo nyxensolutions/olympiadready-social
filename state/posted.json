@@ -1766,5 +1766,12 @@
       "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-07-06/evening-answer.png"
     ],
     "at": "2026-07-07T08:26:50.187Z"
+  },
+  {
+    "slotKey": "2026-07-07-evening",
+    "type": "image",
+    "igMediaId": "18107960686982405",
+    "file": "content/quizzes/2026-07-07/evening-question.png",
+    "at": "2026-07-07T13:26:57.626Z"
   }
 ]
