@@ -1802,5 +1802,17 @@
     "ytVideoId": "nHGilRO-GkE",
     "file": "content/reels/2026-07-08.mp4",
     "at": "2026-07-08T05:27:39.756Z"
+  },
+  {
+    "slotKey": "2026-07-08-blog",
+    "type": "carousel",
+    "igMediaId": "17947755444217331",
+    "slug": "ai-olympiad-preparation",
+    "files": [
+      "content/blog/2026-07-08-slide-1.png",
+      "content/blog/2026-07-08-slide-2.png",
+      "content/blog/2026-07-08-slide-3.png"
+    ],
+    "at": "2026-07-08T05:32:39.107Z"
   }
 ]
