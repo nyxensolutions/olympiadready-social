@@ -2121,5 +2121,17 @@
     "ytVideoId": "8k6WcAtaZoU",
     "file": "content/reels/2026-07-13.mp4",
     "at": "2026-07-13T05:27:42.734Z"
+  },
+  {
+    "slotKey": "2026-07-13-blog",
+    "type": "carousel",
+    "igMediaId": "18086705426544026",
+    "slug": "how-to-prepare-for-imo",
+    "files": [
+      "content/blog/2026-07-13-slide-1.png",
+      "content/blog/2026-07-13-slide-2.png",
+      "content/blog/2026-07-13-slide-3.png"
+    ],
+    "at": "2026-07-13T05:32:47.910Z"
   }
 ]
