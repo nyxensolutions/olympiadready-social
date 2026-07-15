@@ -1,0 +1,21 @@
+{
+  "next_index": 0,
+  "batches": [
+    { "folder": "batch-001-photosynthesis",    "scheduled": "2026-07-17", "posted": false },
+    { "folder": "batch-002-fractions",          "scheduled": "2026-07-19", "posted": false },
+    { "folder": "batch-003-newtons-laws",       "scheduled": "2026-07-21", "posted": false },
+    { "folder": "batch-004-parts-of-speech",    "scheduled": "2026-07-23", "posted": false },
+    { "folder": "batch-005-water-cycle",        "scheduled": "2026-07-25", "posted": false },
+    { "folder": "batch-006-percentage-tricks",  "scheduled": "2026-07-27", "posted": false },
+    { "folder": "batch-007-indus-valley",       "scheduled": "2026-07-29", "posted": false },
+    { "folder": "batch-008-electricity",        "scheduled": "2026-07-31", "posted": false },
+    { "folder": "batch-009-figurative-language","scheduled": "2026-08-02", "posted": false },
+    { "folder": "batch-010-algebra-basics",     "scheduled": "2026-08-04", "posted": false },
+    { "folder": "batch-011-food-chains",        "scheduled": "2026-08-06", "posted": false },
+    { "folder": "batch-012-digestive-system",   "scheduled": "2026-08-08", "posted": false },
+    { "folder": "batch-013-ratio-proportion",   "scheduled": "2026-08-10", "posted": false },
+    { "folder": "batch-014-tenses-guide",       "scheduled": "2026-08-12", "posted": false },
+    { "folder": "batch-015-solar-system",       "scheduled": "2026-08-14", "posted": false },
+    { "folder": "batch-016-mughal-empire",      "scheduled": "2026-08-16", "posted": false }
+  ]
+}
