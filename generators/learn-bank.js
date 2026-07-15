@@ -917,6 +917,94 @@ module.exports = [
   },
 
   // ══════════════════════════════════════════════════════════════
+  //  COMPUTER SCIENCE  (3 packs)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-cs-001", subject:"Computer Science", color:"#0f172a",
+    slides:[
+      { type:"formula", heading:"NUMBER SYSTEMS",
+        items:[
+          { n:1, label:"Decimal (Base 10)", formula:"Digits: 0-9. Value depends on position × 10^n" },
+          { n:2, label:"Binary (Base 2)",   formula:"Digits: 0 and 1 only. Value = position × 2^n" },
+          { n:3, label:"Octal (Base 8)",    formula:"Digits: 0-7. Group binary digits in 3s" },
+          { n:4, label:"Hexadecimal (16)",  formula:"Digits: 0-9 and A-F. Group binary in 4s" },
+        ]},
+      { type:"facts", heading:"BINARY ↔ DECIMAL CONVERSION",
+        items:[
+          { icon:"🔢", text:"Binary to Decimal: multiply each bit by 2^(position) and add. Rightmost bit = 2^0 = 1." },
+          { icon:"📝", text:"1011 in binary = 1×8 + 0×4 + 1×2 + 1×1 = 8+0+2+1 = 11 in decimal." },
+          { icon:"🔄", text:"Decimal to Binary: repeatedly divide by 2, write remainders bottom-up." },
+          { icon:"📝", text:"13 ÷ 2 = 6 R1 → 6 ÷ 2 = 3 R0 → 3 ÷ 2 = 1 R1 → 1 ÷ 2 = 0 R1 → binary: 1101" },
+        ]},
+      { type:"facts", heading:"NUMBER SYSTEM QUICK FACTS",
+        items:[
+          { icon:"💻", text:"Computers use BINARY (base 2) internally — all data is stored as 0s and 1s (bits)." },
+          { icon:"📦", text:"1 bit = 0 or 1. 4 bits = 1 nibble. 8 bits = 1 byte. 1024 bytes = 1 KB." },
+          { icon:"🎨", text:"Hexadecimal is used for colours in web design: #FF0000 = red (R=255, G=0, B=0)." },
+          { icon:"🔡", text:"ASCII: each keyboard character has a binary code. 'A' = 65 decimal = 01000001 binary." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-cs-002", subject:"Computer Science", color:"#0f172a",
+    slides:[
+      { type:"facts", heading:"COMPUTER HARDWARE",
+        items:[
+          { icon:"🧠", text:"CPU (Central Processing Unit): brain of the computer. Executes instructions (GHz = clock speed)." },
+          { icon:"💾", text:"RAM (Random Access Memory): temporary storage — lost when power is off. More RAM = faster multitasking." },
+          { icon:"💿", text:"HDD/SSD: permanent storage for files. SSD (Solid State Drive) is much faster than HDD." },
+          { icon:"🖥️", text:"Input devices: keyboard, mouse, scanner, microphone. Output: monitor, printer, speakers." },
+        ]},
+      { type:"facts", heading:"SOFTWARE — TYPES AND EXAMPLES",
+        items:[
+          { icon:"⚙️", text:"System software: manages hardware. Examples: Windows, macOS, Linux, Android, iOS." },
+          { icon:"📱", text:"Application software: specific tasks. Examples: Chrome, Word, Photoshop, YouTube app." },
+          { icon:"🛠️", text:"Utility software: maintenance. Examples: antivirus, disk cleaner, compression tools." },
+          { icon:"🔓", text:"Open source software: code is public, anyone can modify it. Examples: Linux, Firefox, VLC." },
+        ]},
+      { type:"formula", heading:"MEMORY UNITS",
+        items:[
+          { n:1, label:"1 Bit",      formula:"Smallest unit of data — 0 or 1" },
+          { n:2, label:"8 Bits",     formula:"= 1 Byte" },
+          { n:3, label:"1024 Bytes", formula:"= 1 Kilobyte (KB)" },
+          { n:4, label:"1024 KB",    formula:"= 1 Megabyte (MB)" },
+          { n:5, label:"1024 MB",    formula:"= 1 Gigabyte (GB)" },
+          { n:6, label:"1024 GB",    formula:"= 1 Terabyte (TB)" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-cs-003", subject:"Computer Science", color:"#0f172a",
+    slides:[
+      { type:"facts", heading:"INTERNET & NETWORKING",
+        items:[
+          { icon:"🌐", text:"Internet: global network of networks using TCP/IP protocol to communicate." },
+          { icon:"🔗", text:"URL = Uniform Resource Locator (web address). HTTP = protocol. HTTPS = secure HTTP." },
+          { icon:"📡", text:"IP address: unique address for each device on a network (like a postal address for computers)." },
+          { icon:"📶", text:"Wi-Fi uses radio waves. Bluetooth uses short-range radio. 5G = 5th generation mobile network." },
+        ]},
+      { type:"facts", heading:"PROGRAMMING CONCEPTS",
+        items:[
+          { icon:"📝", text:"Algorithm: step-by-step instructions to solve a problem. Must be finite, clear, and correct." },
+          { icon:"🔄", text:"Loop: repeat a set of instructions. FOR loop (fixed times), WHILE loop (while condition is true)." },
+          { icon:"🔀", text:"Conditional: IF-ELSE. If condition is TRUE, run block A. Else run block B." },
+          { icon:"📦", text:"Variable: a named container that stores a value. Its value can change during execution." },
+          { icon:"🔧", text:"Function: reusable block of code. Avoids repeating the same code multiple times." },
+        ]},
+      { type:"facts", heading:"CYBERSECURITY & SAFE INTERNET",
+        items:[
+          { icon:"🔐", text:"Strong password: at least 12 characters, mix of letters, numbers and symbols. Never share it." },
+          { icon:"🦠", text:"Computer virus: malicious software that replicates and damages files. Prevented by antivirus software." },
+          { icon:"🎣", text:"Phishing: fake emails/websites that trick you into sharing personal info. Never click suspicious links." },
+          { icon:"🔒", text:"HTTPS in a URL means the website connection is encrypted and safer for entering personal data." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
   //  GK  (3 packs)
   // ══════════════════════════════════════════════════════════════
 
@@ -979,6 +1067,89 @@ module.exports = [
   },
 
   {
+    id:"lc-gk-004", subject:"GK", color:"#f59e0b",
+    slides:[
+      { type:"facts", heading:"OLYMPICS — KEY FACTS",
+        items:[
+          { icon:"🏅", text:"Modern Olympics began in Athens, Greece in 1896. Revived by Pierre de Coubertin." },
+          { icon:"🔥", text:"Olympic flame is lit in Olympia, Greece and carried by relay to the host city." },
+          { icon:"🌏", text:"Olympic motto: 'Faster, Higher, Stronger — Together' (Citius, Altius, Fortius — Communiter)." },
+          { icon:"🥇", text:"Most Olympic gold medals ever: USA (gold) and overall. Michael Phelps: 23 golds (swimming)." },
+        ]},
+      { type:"facts", heading:"INDIA AT THE OLYMPICS",
+        items:[
+          { icon:"🇮🇳", text:"India's first Olympic medal: KD Jadhav won bronze in wrestling at 1952 Helsinki Olympics." },
+          { icon:"🏑", text:"India dominated field hockey: won 8 gold medals from 1928 to 1980." },
+          { icon:"🏹", text:"Abhinav Bindra: India's first individual Olympic gold (shooting, 10m air rifle, Beijing 2008)." },
+          { icon:"🥊", text:"Paris 2024: India won 6 medals. Neeraj Chopra: silver in javelin (defending champion)." },
+          { icon:"🤼", text:"Vinesh Phogat qualified for Paris final but was disqualified — became a major national conversation." },
+        ]},
+      { type:"facts", heading:"SPORTS WORLD RECORDS",
+        items:[
+          { icon:"⚡", text:"Fastest human: Usain Bolt (Jamaica) — 100m in 9.58 seconds (Berlin 2009). Still unbroken." },
+          { icon:"🏊", text:"Fastest swimmer: Caeleb Dressel — 50m freestyle in 20.91 seconds." },
+          { icon:"🏏", text:"Cricket: Sachin Tendulkar — 100 international centuries (51 Test, 49 ODI). Unmatched." },
+          { icon:"⚽", text:"Football: Cristiano Ronaldo — most international goals (130+). Lionel Messi: 8 Ballon d'Or awards." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-gk-005", subject:"GK", color:"#f59e0b",
+    slides:[
+      { type:"facts", heading:"KEY INVENTIONS IN HISTORY",
+        items:[
+          { icon:"💡", text:"Light bulb: Thomas Edison (1879). Practical incandescent bulb that could last for hours." },
+          { icon:"📞", text:"Telephone: Alexander Graham Bell (1876). First words spoken: 'Mr Watson, come here!'" },
+          { icon:"✈️", text:"Aeroplane: Wright Brothers (Orville and Wilbur) at Kitty Hawk, USA, December 17, 1903." },
+          { icon:"🖨️", text:"Printing press: Johannes Gutenberg (~1450 CE) — made books available to common people." },
+        ]},
+      { type:"facts", heading:"TECHNOLOGY MILESTONES",
+        items:[
+          { icon:"💻", text:"First computer: ENIAC (1945) — filled an entire room, weighed 30 tonnes, cost millions." },
+          { icon:"🌐", text:"World Wide Web: invented by Tim Berners-Lee in 1989. First website: info.cern.ch." },
+          { icon:"📱", text:"First iPhone: launched by Steve Jobs on January 9, 2007. Changed mobile computing forever." },
+          { icon:"🤖", text:"Artificial Intelligence: term coined at Dartmouth Conference, 1956. ChatGPT launched in 2022." },
+          { icon:"🛰️", text:"First satellite: Sputnik 1 (USSR, October 4, 1957). First object sent into Earth orbit." },
+        ]},
+      { type:"facts", heading:"INDIAN TECHNOLOGY ACHIEVEMENTS",
+        items:[
+          { icon:"🚀", text:"ISRO founded 1969 by Vikram Sarabhai. India's space agency on a fraction of NASA's budget." },
+          { icon:"🌙", text:"Chandrayaan-3 (Aug 23, 2023): India became 4th country to land on Moon (south pole — a first)." },
+          { icon:"🔴", text:"Mangalyaan (Mars Orbiter Mission, 2013): reached Mars orbit on first attempt. Only country to do so." },
+          { icon:"🛸", text:"GSLV Mk III (LVM3): India's heaviest rocket. Can carry 4-tonne satellites to geostationary orbit." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-gk-006", subject:"GK", color:"#f59e0b",
+    slides:[
+      { type:"facts", heading:"INDIA'S GOVERNMENT — BASICS",
+        items:[
+          { icon:"🏛️", text:"India is a Sovereign, Socialist, Secular, Democratic Republic (Preamble words)." },
+          { icon:"📜", text:"Constitution adopted: November 26, 1949 (Constitution Day). Enacted: January 26, 1950." },
+          { icon:"📖", text:"Longest written constitution in the world. Original: 395 articles, 8 schedules, 22 parts." },
+          { icon:"⚖️", text:"B.R. Ambedkar: Chairman of Drafting Committee. Called Father of the Indian Constitution." },
+        ]},
+      { type:"facts", heading:"THREE BRANCHES OF GOVERNMENT",
+        items:[
+          { icon:"📋", text:"Legislature (Parliament): makes laws. Rajya Sabha (Upper House) + Lok Sabha (Lower House)." },
+          { icon:"⚙️", text:"Executive: implements laws. President → Prime Minister → Cabinet Ministers → Civil Services." },
+          { icon:"⚖️", text:"Judiciary: interprets laws. Supreme Court → High Courts → District Courts." },
+          { icon:"🔒", text:"Checks and balances: each branch limits the power of the others. No single body dominates." },
+        ]},
+      { type:"facts", heading:"FUNDAMENTAL RIGHTS & DUTIES",
+        items:[
+          { icon:"🗣️", text:"Right to Equality (Art 14-18), Right to Freedom (Art 19-22), Right to Education (Art 21A)." },
+          { icon:"🛡️", text:"Right against Exploitation (Art 23-24), Cultural Rights (Art 29-30), Right to Constitutional Remedies (Art 32)." },
+          { icon:"✅", text:"Fundamental Duties (Art 51A): respect national symbols, protect environment, promote harmony." },
+          { icon:"🏛️", text:"Directive Principles of State Policy: not enforceable in court but guide government policy-making." },
+        ]},
+    ]
+  },
+
+  {
     id:"lc-gk-003", subject:"GK", color:"#f59e0b",
     slides:[
       { type:"facts", heading:"UNITED NATIONS — KEY FACTS",
@@ -1004,6 +1175,591 @@ module.exports = [
           { icon:"🛡️", text:"NATO: military alliance of 32 countries, mainly North America and Europe." },
           { icon:"🌏", text:"SAARC: South Asian association — India, Pakistan, Bangladesh, Nepal, Sri Lanka and more." },
           { icon:"🇮🇳", text:"G20: 20 major economies. India held G20 presidency in 2023 (New Delhi Summit)." },
+        ]},
+    ]
+  },
+
+
+  // ══════════════════════════════════════════════════════════════
+  //  ENGLISH — additional packs (lc-e-009 to lc-e-012)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-e-009", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"CONJUNCTIONS",
+        items:[
+          { icon:"🔗", text:"Coordinating (FANBOYS): For, And, Nor, But, Or, Yet, So — join equal clauses." },
+          { icon:"↕️", text:"Subordinating: although, because, since, unless, until, when, while, if, after, before." },
+          { icon:"📋", text:"Correlative pairs: either…or, neither…nor, not only…but also, both…and, whether…or." },
+          { icon:"✅", text:"'Because' introduces reason. 'Although' introduces contrast. 'Unless' = 'if not'." },
+        ]},
+      { type:"facts", heading:"CONDITIONALS",
+        items:[
+          { icon:"0️⃣", text:"Zero conditional: always true. 'If water reaches 100°C, it boils.' (If + present, present)" },
+          { icon:"1️⃣", text:"First conditional: real/possible future. 'If it rains, we will cancel.' (If + present, will)" },
+          { icon:"2️⃣", text:"Second conditional: imaginary/unlikely. 'If I were rich, I would travel.' (If + past, would)" },
+          { icon:"3️⃣", text:"Third conditional: impossible (past). 'If I had studied, I would have passed.' (If + past perfect, would have)" },
+        ]},
+      { type:"vocab", heading:"COMMON CONJUNCTION ERRORS",
+        items:[
+          { wrong:"Although she studied, but she failed",     right:"Although she studied, she failed" },
+          { wrong:"Because he was tired, so he slept",        right:"Because he was tired, he slept" },
+          { wrong:"Despite of the rain, we played",           right:"Despite the rain, we played" },
+          { wrong:"Neither he or she came",                   right:"Neither he nor she came" },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-010", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"TYPES OF SENTENCES",
+        items:[
+          { icon:"💬", text:"Declarative: makes a statement. 'The sun rises in the east.' Ends with a full stop." },
+          { icon:"❓", text:"Interrogative: asks a question. 'Where are you going?' Ends with a question mark." },
+          { icon:"⚡", text:"Exclamatory: expresses strong feeling. 'What a surprise!' Ends with exclamation mark." },
+          { icon:"👉", text:"Imperative: gives a command or request. 'Close the door please.' Subject (you) is implied." },
+        ]},
+      { type:"facts", heading:"SENTENCE STRUCTURE",
+        items:[
+          { icon:"🔹", text:"Simple sentence: one independent clause. 'She sang beautifully.'" },
+          { icon:"🔸", text:"Compound sentence: two independent clauses joined by a conjunction. 'She sang and he played guitar.'" },
+          { icon:"🔶", text:"Complex sentence: one main clause + one or more subordinate clauses. 'She sang while he played.'" },
+          { icon:"💎", text:"Compound-complex: two independent + one subordinate clause. 'She sang and he played, while the audience cheered.'" },
+        ]},
+      { type:"vocab", heading:"DIRECT SPEECH TO INDIRECT SPEECH",
+        items:[
+          { wrong:"She said, 'I am tired.'",                right:"She said that she was tired." },
+          { wrong:"He asked, 'Where do you live?'",         right:"He asked where I lived." },
+          { wrong:"Teacher said, 'Complete your homework.'", right:"Teacher told us to complete our homework." },
+          { wrong:"She said, 'I will come tomorrow.'",      right:"She said that she would come the next day." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-011", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"vocab", heading:"COMMON IDIOMS — ACTIONS",
+        items:[
+          { wrong:"Hit the sack",              right:"Go to sleep" },
+          { wrong:"Under the weather",         right:"Feeling ill or unwell" },
+          { wrong:"Bite the bullet",           right:"Endure a painful situation patiently" },
+          { wrong:"Let the cat out of the bag", right:"Accidentally reveal a secret" },
+          { wrong:"Beat around the bush",      right:"Avoid getting to the main point" },
+        ]},
+      { type:"vocab", heading:"COMMON IDIOMS — SUCCESS/FAILURE",
+        items:[
+          { wrong:"Hit the nail on the head",  right:"Say something exactly right" },
+          { wrong:"Bite off more than you can chew", right:"Take on more than you can handle" },
+          { wrong:"Once in a blue moon",       right:"Very rarely" },
+          { wrong:"Go back to the drawing board", right:"Start something over from the beginning" },
+          { wrong:"The ball is in your court", right:"It's your turn to take action or decide" },
+        ]},
+      { type:"facts", heading:"PROVERBS — MEANINGS",
+        items:[
+          { icon:"📖", text:"'Actions speak louder than words' — what you do matters more than what you say." },
+          { icon:"📖", text:"'Every cloud has a silver lining' — every bad situation has something positive in it." },
+          { icon:"📖", text:"'A stitch in time saves nine' — fix a problem early before it gets bigger." },
+          { icon:"📖", text:"'Don't judge a book by its cover' — don't judge by appearances alone." },
+          { icon:"📖", text:"'The pen is mightier than the sword' — writing and ideas are more powerful than violence." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-e-012", subject:"English", color:"#0EA5A4",
+    slides:[
+      { type:"facts", heading:"READING COMPREHENSION STRATEGIES",
+        items:[
+          { icon:"👀", text:"SKIM first: read headings, first/last sentences of each para to get the main idea quickly." },
+          { icon:"🔍", text:"SCAN for answers: look for keywords from the question — don't re-read everything." },
+          { icon:"📌", text:"Underline key words in questions BEFORE reading — then you know what to look for." },
+          { icon:"✅", text:"For 'title' questions: find the CENTRAL theme, not just a detail mentioned in the passage." },
+        ]},
+      { type:"facts", heading:"ANSWERING COMPREHENSION QUESTIONS",
+        items:[
+          { icon:"1️⃣", text:"'What does the word X mean?' — find the word in context and choose the closest synonym." },
+          { icon:"2️⃣", text:"'Give a title to the passage' — it should cover ALL the content, not just one part." },
+          { icon:"3️⃣", text:"'What does the author suggest?' — look for words like 'should', 'must', 'important'." },
+          { icon:"4️⃣", text:"Inference questions: the answer is not directly stated — read between the lines." },
+        ]},
+      { type:"facts", heading:"ESSAY & PARAGRAPH WRITING TIPS",
+        items:[
+          { icon:"📝", text:"Paragraph structure: Topic sentence → Supporting details → Example → Concluding sentence." },
+          { icon:"🔗", text:"Transition words: First, Moreover, However, In addition, Therefore, As a result, In conclusion." },
+          { icon:"✍️", text:"Good essay structure: Introduction (hook + thesis) → Body paragraphs → Conclusion (summary + insight)." },
+          { icon:"⚠️", text:"Avoid: starting sentences with 'I think', repetition, vague words like 'nice', 'good', 'thing'." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  MATHEMATICS — additional packs (lc-m-008 to lc-m-012)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-m-008", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"RATIO AND PROPORTION",
+        items:[
+          { n:1, label:"Ratio a:b",           formula:"= a/b (same units only)" },
+          { n:2, label:"Proportion",          formula:"a:b = c:d  →  ad = bc (cross product)" },
+          { n:3, label:"3rd proportional",    formula:"If a:b = b:x → x = b²/a" },
+          { n:4, label:"Mean proportional",   formula:"Between a and b = √(a × b)" },
+          { n:5, label:"Divide in ratio m:n", formula:"Parts = m/(m+n) × total  and  n/(m+n) × total" },
+        ]},
+      { type:"formula", heading:"UNITARY METHOD",
+        items:[
+          { n:1, label:"Direct proportion",   formula:"More of A → more of B (same direction)" },
+          { n:2, label:"Inverse proportion",  formula:"More of A → less of B (opposite direction)" },
+          { n:3, label:"Direct: find unit",   formula:"Value of 1 = given value ÷ given quantity" },
+          { n:4, label:"Then multiply",       formula:"Required value = unit value × required quantity" },
+        ]},
+      { type:"facts", heading:"RATIO TIPS AND TRICKS",
+        items:[
+          { icon:"💡", text:"To compare ratios: convert to same denominator or find decimal equivalents." },
+          { icon:"💡", text:"If A:B = 3:5 and B:C = 5:7, then A:B:C = 3:5:7 (B is the common link)." },
+          { icon:"💡", text:"Compound ratio: A:B combined with C:D = AC:BD (multiply corresponding terms)." },
+          { icon:"⚡", text:"Trick: if ratio is a:b, total must be a multiple of (a+b). E.g. ratio 3:5 → totals 8,16,24..." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-009", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"SPEED, DISTANCE AND TIME",
+        items:[
+          { n:1, label:"Speed",            formula:"Distance ÷ Time" },
+          { n:2, label:"Distance",         formula:"Speed × Time" },
+          { n:3, label:"Time",             formula:"Distance ÷ Speed" },
+          { n:4, label:"Average speed",    formula:"Total distance ÷ Total time (NOT average of speeds!)" },
+          { n:5, label:"Convert km/h → m/s", formula:"Multiply by 5/18" },
+          { n:6, label:"Convert m/s → km/h", formula:"Multiply by 18/5" },
+        ]},
+      { type:"formula", heading:"TRAINS AND BOATS",
+        items:[
+          { n:1, label:"Train crosses a pole",    formula:"Time = length of train ÷ speed" },
+          { n:2, label:"Train crosses a platform", formula:"Time = (train + platform length) ÷ speed" },
+          { n:3, label:"Two trains same dir.",     formula:"Relative speed = difference of speeds" },
+          { n:4, label:"Two trains opposite dir.", formula:"Relative speed = sum of speeds" },
+          { n:5, label:"Boat downstream",         formula:"Speed = boat speed + current speed" },
+          { n:6, label:"Boat upstream",           formula:"Speed = boat speed − current speed" },
+        ]},
+      { type:"facts", heading:"SPEED/DISTANCE/TIME — TIPS",
+        items:[
+          { icon:"⚡", text:"Always check units! If speed in km/h and time in minutes, convert time to hours first." },
+          { icon:"📐", text:"Average speed trap: if you travel equal DISTANCES at two speeds, use harmonic mean: 2ab/(a+b)." },
+          { icon:"🚂", text:"For trains: the length of the train itself must be added to whatever it crosses." },
+          { icon:"🚤", text:"Still water speed of boat = (downstream + upstream) ÷ 2. Current = (downstream − upstream) ÷ 2." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-010", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"PROBABILITY — BASICS",
+        items:[
+          { n:1, label:"Probability (P)",      formula:"Favourable outcomes ÷ Total outcomes" },
+          { n:2, label:"Range",                formula:"0 ≤ P(E) ≤ 1 always" },
+          { n:3, label:"Certain event",        formula:"P = 1 (will definitely happen)" },
+          { n:4, label:"Impossible event",     formula:"P = 0 (cannot happen)" },
+          { n:5, label:"Complementary",        formula:"P(not E) = 1 − P(E)" },
+          { n:6, label:"Sum of all outcomes",  formula:"Always = 1" },
+        ]},
+      { type:"facts", heading:"PROBABILITY WITH CARDS AND COINS",
+        items:[
+          { icon:"🃏", text:"Standard deck: 52 cards = 4 suits × 13 cards. Suits: Hearts, Diamonds (red), Clubs, Spades (black)." },
+          { icon:"🎴", text:"Face cards: Jack, Queen, King (12 total). Aces: 4. Number cards (2-10): 36." },
+          { icon:"🪙", text:"Fair coin: P(Head) = 1/2, P(Tail) = 1/2. Two tosses: 4 outcomes (HH, HT, TH, TT)." },
+          { icon:"🎲", text:"Fair die (1-6): P(any number) = 1/6. P(even) = 3/6 = 1/2. P(prime) = 3/6 = 1/2 (2,3,5)." },
+        ]},
+      { type:"facts", heading:"PROBABILITY — COMMON MISTAKES",
+        items:[
+          { icon:"⚠️", text:"Each coin toss or dice roll is INDEPENDENT — previous results do not affect the next." },
+          { icon:"⚠️", text:"P(A or B) = P(A) + P(B) ONLY if A and B are mutually exclusive (cannot happen together)." },
+          { icon:"✅", text:"When drawing WITHOUT replacement: total outcomes reduce for each draw." },
+          { icon:"✅", text:"Experimental probability approaches theoretical probability as number of trials increases." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-011", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"formula", heading:"MENSURATION — 3D SOLIDS",
+        items:[
+          { n:1, label:"Cube volume",         formula:"side³" },
+          { n:2, label:"Cuboid volume",       formula:"l × b × h" },
+          { n:3, label:"Cylinder volume",     formula:"π r² h" },
+          { n:4, label:"Cone volume",         formula:"(1/3) π r² h" },
+          { n:5, label:"Sphere volume",       formula:"(4/3) π r³" },
+          { n:6, label:"Hemisphere volume",   formula:"(2/3) π r³" },
+        ]},
+      { type:"formula", heading:"SURFACE AREAS",
+        items:[
+          { n:1, label:"Cube total SA",       formula:"6 × side²" },
+          { n:2, label:"Cuboid total SA",     formula:"2(lb + bh + lh)" },
+          { n:3, label:"Cylinder curved SA",  formula:"2 π r h" },
+          { n:4, label:"Cylinder total SA",   formula:"2 π r (r + h)" },
+          { n:5, label:"Cone curved SA",      formula:"π r l  (l = slant height)" },
+          { n:6, label:"Sphere SA",           formula:"4 π r²" },
+        ]},
+      { type:"facts", heading:"MENSURATION TIPS",
+        items:[
+          { icon:"💡", text:"Slant height of cone (l) = √(r² + h²). Calculate this before finding curved surface area." },
+          { icon:"💡", text:"If a solid is melted and recast: volume stays the SAME. Only shape changes." },
+          { icon:"💡", text:"Hollow cylinder: volume = π(R² − r²) × h where R = outer radius, r = inner radius." },
+          { icon:"💡", text:"π ≈ 22/7 for simple calculations. Use 3.14 when more precision is needed." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-m-012", subject:"Mathematics", color:"#2563EB",
+    slides:[
+      { type:"facts", heading:"NUMBER PATTERNS",
+        items:[
+          { icon:"🔢", text:"Arithmetic sequence: constant difference. 2, 5, 8, 11, 14… (diff = 3). nth term = a + (n-1)d" },
+          { icon:"🔢", text:"Geometric sequence: constant ratio. 2, 6, 18, 54… (ratio = 3). nth term = a × r^(n-1)" },
+          { icon:"🔢", text:"Fibonacci: each term = sum of previous two. 1, 1, 2, 3, 5, 8, 13, 21, 34…" },
+          { icon:"🔢", text:"Perfect squares: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225…" },
+        ]},
+      { type:"formula", heading:"ARITHMETIC PROGRESSION (AP)",
+        items:[
+          { n:1, label:"nth term (Tn)",     formula:"a + (n-1)d   (a=first term, d=common diff)" },
+          { n:2, label:"Sum of n terms",   formula:"(n/2) × [2a + (n-1)d]" },
+          { n:3, label:"Sum (alt form)",   formula:"(n/2) × (first + last term)" },
+          { n:4, label:"Find 'd'",         formula:"Any term minus the previous term" },
+          { n:5, label:"Find 'a'",         formula:"T1 = a (the very first term)" },
+        ]},
+      { type:"facts", heading:"PATTERN TIPS FOR OLYMPIADS",
+        items:[
+          { icon:"🎯", text:"Sum of first n natural numbers: n(n+1)/2. E.g. 1+2+...+100 = 100×101/2 = 5050." },
+          { icon:"🎯", text:"Sum of first n odd numbers: n². E.g. 1+3+5+7+9 = 5² = 25." },
+          { icon:"🎯", text:"Sum of first n even numbers: n(n+1). E.g. 2+4+6+8 = 4×5 = 20." },
+          { icon:"🎯", text:"Triangular numbers: 1, 3, 6, 10, 15, 21… Formula: n(n+1)/2." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  SCIENCE — additional packs (lc-s-007 to lc-s-011)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-s-007", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"LIGHT — REFLECTION",
+        items:[
+          { icon:"🔦", text:"Law of reflection: angle of incidence = angle of reflection. Both measured from the normal." },
+          { icon:"🪞", text:"Plane mirror image: virtual, erect, same size, laterally inverted, as far behind as object in front." },
+          { icon:"🥣", text:"Concave mirror (converges light): used in torches, headlights, shaving mirrors, solar cookers." },
+          { icon:"🚗", text:"Convex mirror (diverges light): always virtual, erect, diminished. Used in rear-view mirrors." },
+        ]},
+      { type:"facts", heading:"LIGHT — REFRACTION AND LENSES",
+        items:[
+          { icon:"🌊", text:"Refraction: bending of light when it passes from one medium to another (speed changes)." },
+          { icon:"💧", text:"Light bends TOWARDS normal when going from less dense to more dense medium (e.g. air → water)." },
+          { icon:"🔍", text:"Convex lens (converging): thicker in middle. Used in magnifying glass, cameras, human eye, projectors." },
+          { icon:"👓", text:"Concave lens (diverging): thinner in middle. Used to correct short-sightedness (myopia)." },
+        ]},
+      { type:"facts", heading:"COLOURS AND SPECTRUM",
+        items:[
+          { icon:"🌈", text:"VIBGYOR: Violet, Indigo, Blue, Green, Yellow, Orange, Red — the 7 colours of visible light." },
+          { icon:"☀️", text:"White light splits into VIBGYOR when passed through a glass prism (dispersion)." },
+          { icon:"🌈", text:"Rainbow: sunlight refracts, reflects inside water droplets, then refracts again — produces spectrum." },
+          { icon:"🔴", text:"Red light: longest wavelength, least bent. Violet: shortest wavelength, most bent." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-008", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"SOUND — PROPERTIES",
+        items:[
+          { icon:"🔊", text:"Sound is a longitudinal mechanical wave — needs a medium to travel (cannot travel in vacuum)." },
+          { icon:"⚡", text:"Speed of sound: ~343 m/s in air (at 20°C). Faster in liquids, fastest in solids." },
+          { icon:"🎵", text:"Frequency (Hz): number of vibrations per second. High frequency = high-pitched sound." },
+          { icon:"📢", text:"Amplitude: height of wave = loudness. More amplitude → louder sound. Measured in decibels (dB)." },
+        ]},
+      { type:"facts", heading:"ECHO AND ULTRASOUND",
+        items:[
+          { icon:"🔁", text:"Echo: reflection of sound. Minimum distance for echo = 17.2 m (sound needs 0.1s gap to return)." },
+          { icon:"🦇", text:"Ultrasound (>20,000 Hz): above human hearing range. Bats use it for echolocation." },
+          { icon:"🏥", text:"Ultrasound uses in medicine: sonography/scans, breaking kidney stones (lithotripsy)." },
+          { icon:"🚢", text:"SONAR: Sound Navigation And Ranging — measures ocean depth using ultrasound echoes." },
+        ]},
+      { type:"facts", heading:"HUMAN HEARING RANGE",
+        items:[
+          { icon:"👂", text:"Human hearing range: 20 Hz to 20,000 Hz (20 kHz). This narrows with age." },
+          { icon:"🐕", text:"Infrasound (<20 Hz): below human range. Elephants, whales, and dogs detect it." },
+          { icon:"🌍", text:"Earthquakes produce infrasound — animals may sense it and show unusual behaviour before quakes." },
+          { icon:"🎸", text:"Musical note 'A' = 440 Hz. Humans speak typically between 85-255 Hz fundamental frequency." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-009", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"ACIDS, BASES AND SALTS",
+        items:[
+          { icon:"🧪", text:"Acid: tastes sour, turns blue litmus red, pH less than 7. Examples: HCl, H2SO4, vinegar, lemon juice." },
+          { icon:"🧼", text:"Base: tastes bitter, feels soapy, turns red litmus blue, pH greater than 7. Examples: NaOH, lime water, baking soda." },
+          { icon:"⚖️", text:"Neutral: pH = 7. Neither acid nor base. Examples: pure water, common salt solution." },
+          { icon:"🧂", text:"Salt: formed when acid reacts with base (neutralisation). E.g. HCl + NaOH → NaCl + H2O." },
+        ]},
+      { type:"formula", heading:"pH SCALE",
+        items:[
+          { n:1, label:"pH 0-2",   formula:"Very strong acid (battery acid, stomach HCl)" },
+          { n:2, label:"pH 3-4",   formula:"Weak acid (vinegar pH 3, tomato pH 4)" },
+          { n:3, label:"pH 5-6",   formula:"Mildly acidic (coffee, rain water, urine)" },
+          { n:4, label:"pH 7",     formula:"Neutral (pure water, salt solution)" },
+          { n:5, label:"pH 8-10",  formula:"Mild base (blood pH 7.4, soap, baking soda)" },
+          { n:6, label:"pH 11-14", formula:"Strong base (lime, bleach, drain cleaner)" },
+        ]},
+      { type:"facts", heading:"CHEMICAL VS PHYSICAL CHANGE",
+        items:[
+          { icon:"🔥", text:"Chemical change: new substance formed, irreversible. Burning, rusting, fermentation, cooking." },
+          { icon:"💧", text:"Physical change: no new substance, reversible. Melting, boiling, cutting, dissolving sugar in water." },
+          { icon:"🌡️", text:"Signs of chemical change: colour change, gas produced, heat/light released, precipitate formed." },
+          { icon:"✅", text:"Rusting of iron: iron + oxygen + water → iron oxide (Fe2O3). Slowed by painting, galvanising." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-010", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"ECOSYSTEMS AND FOOD CHAINS",
+        items:[
+          { icon:"🌿", text:"Producers: plants make their own food via photosynthesis. Base of ALL food chains." },
+          { icon:"🐛", text:"Primary consumers (herbivores): eat plants. E.g. deer, rabbit, caterpillar, grasshopper." },
+          { icon:"🦊", text:"Secondary consumers (carnivores/omnivores): eat herbivores. E.g. frog, small bird, fox." },
+          { icon:"🦅", text:"Tertiary consumers (top predators): eat secondary consumers. E.g. hawk, lion, shark." },
+          { icon:"🍄", text:"Decomposers: fungi and bacteria break down dead matter — return nutrients to soil." },
+        ]},
+      { type:"facts", heading:"ECOSYSTEMS — KEY CONCEPTS",
+        items:[
+          { icon:"🕸️", text:"Food web: multiple food chains interconnected in an ecosystem. More realistic than a single chain." },
+          { icon:"📊", text:"Pyramid of energy: energy decreases at each trophic level (~90% lost as heat at each step)." },
+          { icon:"🌱", text:"Only ~10% of energy transfers to the next level — that's why food chains rarely exceed 4-5 levels." },
+          { icon:"🦁", text:"Keystone species: removing them collapses the ecosystem. E.g. wolves in Yellowstone, bees globally." },
+        ]},
+      { type:"facts", heading:"BIODIVERSITY AND CONSERVATION",
+        items:[
+          { icon:"🌍", text:"India has about 8% of world's species on just 2.4% of land area — a biodiversity hotspot." },
+          { icon:"🐯", text:"India's Project Tiger (1973): saved Bengal tiger from extinction. Now ~3,600+ tigers in India." },
+          { icon:"🌊", text:"Coral reefs: cover less than 1% of ocean floor but support 25% of all marine species." },
+          { icon:"♻️", text:"Threats to biodiversity: habitat destruction, pollution, invasive species, climate change, poaching." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-s-011", subject:"Science", color:"#10b981",
+    slides:[
+      { type:"facts", heading:"HUMAN DISEASES — TYPES",
+        items:[
+          { icon:"🦠", text:"Infectious diseases (communicable): spread from person to person. E.g. cold, flu, TB, COVID-19." },
+          { icon:"🍔", text:"Non-infectious (non-communicable): cannot spread. E.g. diabetes, cancer, heart disease, asthma." },
+          { icon:"🧫", text:"Bacterial diseases: TB, cholera, typhoid, plague. Treated with antibiotics." },
+          { icon:"🦟", text:"Viral diseases: flu, cold, dengue, polio, AIDS. Antibiotics do NOT work — need antivirals/vaccines." },
+        ]},
+      { type:"facts", heading:"DISEASE VECTORS AND PREVENTION",
+        items:[
+          { icon:"🦟", text:"Mosquito-borne: malaria (Anopheles), dengue (Aedes aegypti), chikungunya (Aedes aegypti)." },
+          { icon:"💧", text:"Waterborne diseases (contaminated water): cholera, typhoid, hepatitis A, dysentery." },
+          { icon:"💉", text:"Vaccines: train the immune system using weakened/dead pathogens. Prevent, not cure." },
+          { icon:"🧼", text:"Prevention: hand washing, boiling water, mosquito nets, clean sanitation, vaccination." },
+        ]},
+      { type:"facts", heading:"IMMUNITY AND VACCINES",
+        items:[
+          { icon:"🛡️", text:"Innate immunity: general defence present from birth — skin, mucus, white blood cells." },
+          { icon:"🎯", text:"Adaptive immunity: specific defence against particular pathogens — develops after exposure." },
+          { icon:"💉", text:"Edward Jenner (1796): first vaccine — cowpox material to protect against smallpox." },
+          { icon:"🌍", text:"Smallpox: the only human disease completely eradicated (1980) through global vaccination." },
+          { icon:"🇮🇳", text:"India's Universal Immunisation Programme covers polio, TB, hepatitis B, measles, tetanus and more." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  HISTORY — additional packs (lc-h-004 to lc-h-006)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-h-004", subject:"History", color:"#8b5cf6",
+    slides:[
+      { type:"facts", heading:"VEDIC AGE (~1500–600 BCE)",
+        items:[
+          { icon:"📜", text:"Early Vedic period: Aryans settled in Punjab. Main text: Rigveda (oldest Vedic text, ~1500 BCE)." },
+          { icon:"📚", text:"4 Vedas: Rigveda (hymns), Samaveda (songs), Yajurveda (rituals), Atharvaveda (spells/herbs)." },
+          { icon:"🏙️", text:"Later Vedic period: Aryans spread to Ganga plains. Kingdoms (Mahajanapadas) emerged." },
+          { icon:"⚖️", text:"Varna system emerged: Brahmin (priests), Kshatriya (warriors), Vaishya (traders), Shudra (workers)." },
+        ]},
+      { type:"facts", heading:"GUPTA EMPIRE — GOLDEN AGE",
+        items:[
+          { icon:"👑", text:"Founded by Sri Gupta (~240 CE). Greatest ruler: Chandragupta II (Vikramaditya, 376–415 CE)." },
+          { icon:"📐", text:"Aryabhata: calculated pi (π), explained solar/lunar eclipses, stated Earth rotates on its axis." },
+          { icon:"🔢", text:"Brahmagupta: formulated rules for zero and negative numbers. Indian numerals spread to the world." },
+          { icon:"📚", text:"Kalidasa: greatest Sanskrit poet. Works: Abhijnanashakuntalam, Meghaduta, Raghuvamsa." },
+          { icon:"🏛️", text:"Ajanta Caves (2nd century BCE–5th century CE): Buddhist paintings at their artistic peak under Guptas." },
+        ]},
+      { type:"facts", heading:"BUDDHISM AND JAINISM",
+        items:[
+          { icon:"☸️", text:"Siddhartha Gautama (Buddha): born in Lumbini, Nepal. Attained enlightenment in Bodh Gaya under a pipal tree." },
+          { icon:"🙏", text:"Four Noble Truths: life has suffering → cause is desire → end suffering → follow the Eightfold Path." },
+          { icon:"⚡", text:"Mahavira (24th Tirthankara): born in Vaishali. Jain philosophy: non-violence (ahimsa) above all." },
+          { icon:"🌍", text:"Both Buddhism and Jainism arose in 6th century BCE, challenged the rigid Varna system of Vedic religion." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-h-005", subject:"History", color:"#8b5cf6",
+    slides:[
+      { type:"facts", heading:"DELHI SULTANATE (1206–1526)",
+        items:[
+          { icon:"👑", text:"Founded by Qutb-ud-din Aibak in 1206. Five dynasties: Slave, Khalji, Tughlaq, Sayyid, Lodi." },
+          { icon:"🕌", text:"Qutb Minar (Delhi): started by Qutb-ud-din Aibak, completed by Iltutmish. 73 m tall, UNESCO site." },
+          { icon:"⚡", text:"Alauddin Khalji: market reforms, price control, military expansion, defeated Mongol invasions." },
+          { icon:"🌍", text:"Ibn Battuta: Moroccan traveller who visited India during Muhammad bin Tughlaq's reign. Wrote detailed observations." },
+        ]},
+      { type:"facts", heading:"MUGHAL EMPIRE (1526–1857)",
+        items:[
+          { icon:"👑", text:"Founded by Babur after First Battle of Panipat (1526) — defeated Ibrahim Lodi using gunpowder." },
+          { icon:"🏛️", text:"Akbar the Great (1556-1605): Din-i-Ilahi, Navratna, religious tolerance, centralised administration." },
+          { icon:"🕌", text:"Shah Jahan: built Taj Mahal (1632-53) for wife Mumtaz. Also built Red Fort and Jama Masjid." },
+          { icon:"⚔️", text:"Aurangzeb: last major Mughal emperor. Expanded empire but strict policies weakened it after his death." },
+          { icon:"💰", text:"Mughal India: world's largest economy (~25% of global GDP) in the 17th century." },
+        ]},
+      { type:"facts", heading:"BATTLE OF PANIPAT (3 BATTLES)",
+        items:[
+          { icon:"⚔️", text:"First Battle (1526): Babur defeated Ibrahim Lodi → Founded Mughal Empire." },
+          { icon:"⚔️", text:"Second Battle (1556): Akbar's forces (under Bairam Khan) defeated Hemu → Secured Mughal rule." },
+          { icon:"⚔️", text:"Third Battle (1761): Ahmad Shah Durrani defeated Marathas → Weakened Maratha power." },
+          { icon:"🗺️", text:"Panipat (in modern Haryana) is called 'the decisive battleground of India' — shaped history 3 times." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-h-006", subject:"History", color:"#8b5cf6",
+    slides:[
+      { type:"facts", heading:"PARTITION OF INDIA (1947)",
+        items:[
+          { icon:"🇮🇳", text:"August 14/15, 1947: British India divided into India and Pakistan at midnight." },
+          { icon:"😢", text:"Largest mass migration in history: ~15 million people displaced. Estimated 200,000-2 million killed." },
+          { icon:"📜", text:"Mountbatten Plan (June 1947): announced partition. Cyril Radcliffe drew the border in just 5 weeks." },
+          { icon:"🤝", text:"Jawaharlal Nehru's Tryst with Destiny speech at midnight August 14-15, 1947 — iconic moment." },
+        ]},
+      { type:"facts", heading:"INTEGRATION OF PRINCELY STATES",
+        items:[
+          { icon:"🗺️", text:"At independence, 562 princely states existed. Sardar Vallabhbhai Patel integrated them into India." },
+          { icon:"💪", text:"Patel called 'Iron Man of India' for his role in unifying India. Also first Deputy PM and Home Minister." },
+          { icon:"🏔️", text:"Hyderabad: held out but 'Police Action' (Operation Polo, September 1948) forced accession." },
+          { icon:"🏔️", text:"Kashmir: signed instrument of accession to India in October 1947 after Pakistani tribal invasion." },
+        ]},
+      { type:"facts", heading:"INDIA'S CONSTITUTION MAKERS",
+        items:[
+          { icon:"⚖️", text:"B.R. Ambedkar: Chairman of Drafting Committee. Also Dr of Law, Columbia & London. Father of Constitution." },
+          { icon:"📜", text:"Constituent Assembly: 299 members, met for 2 years 11 months 18 days. 11 sessions held." },
+          { icon:"🖊️", text:"Constitution is HANDWRITTEN and illustrated — 251 pages. Calligraphy by Prem Behari Narain Raizada." },
+          { icon:"🌍", text:"India's Constitution is influenced by: UK (parliamentary system), USA (fundamental rights), Ireland (DPSP), Australia (joint sitting)." },
+        ]},
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  //  GEOGRAPHY — additional packs (lc-g-004 to lc-g-006)
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id:"lc-g-004", subject:"Geography", color:"#ef4444",
+    slides:[
+      { type:"facts", heading:"LAYERS OF THE ATMOSPHERE",
+        items:[
+          { icon:"🌍", text:"Troposphere (0-12 km): where weather occurs. Temperature decreases with height. We live here." },
+          { icon:"☀️", text:"Stratosphere (12-50 km): contains the OZONE LAYER. Temperature increases upward. Very dry." },
+          { icon:"💫", text:"Mesosphere (50-80 km): meteorites burn up here. Coldest layer (−90°C at top)." },
+          { icon:"🌡️", text:"Thermosphere (80-600 km): auroras occur here. Temperature rises steeply (up to 2000°C!)." },
+          { icon:"🛸", text:"Exosphere: outermost layer merging into space. Satellites orbit in this region." },
+        ]},
+      { type:"facts", heading:"WEATHER AND CLIMATE",
+        items:[
+          { icon:"🌤️", text:"Weather: short-term atmospheric conditions at a place (daily). Climate: average weather over 30+ years." },
+          { icon:"🌧️", text:"Types of rainfall: Convectional (equatorial), Orographic (mountains), Frontal (temperate)." },
+          { icon:"🌀", text:"Tropical cyclone: intense low-pressure system over warm ocean. Winds exceed 120 km/h." },
+          { icon:"⛅", text:"Monsoon: seasonal reversal of winds. India's SW monsoon arrives June-September bringing 75% of rainfall." },
+        ]},
+      { type:"facts", heading:"CLIMATE CHANGE FACTS",
+        items:[
+          { icon:"🌡️", text:"Earth has warmed ~1.1°C since pre-industrial times. Paris Agreement: limit to 1.5°C rise." },
+          { icon:"🧊", text:"Arctic sea ice is melting: extent reduced by ~13% per decade since 1979 (NASA data)." },
+          { icon:"🌊", text:"Sea level rise: glaciers melting + thermal expansion = ~3.7 mm rise per year globally." },
+          { icon:"🌿", text:"Greenhouse gases: CO2, methane, nitrous oxide, water vapour trap heat in atmosphere." },
+          { icon:"🇮🇳", text:"India pledged net-zero emissions by 2070 (COP26, Glasgow). 500 GW renewable energy target by 2030." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-g-005", subject:"Geography", color:"#ef4444",
+    slides:[
+      { type:"facts", heading:"INDIA'S AGRICULTURE",
+        items:[
+          { icon:"🌾", text:"India: 2nd largest agricultural producer in the world. 50%+ of workforce in agriculture." },
+          { icon:"🌱", text:"Kharif crops (sown June, harvested Oct): rice, maize, cotton, sugarcane, groundnut, millet." },
+          { icon:"❄️", text:"Rabi crops (sown Oct, harvested March): wheat, mustard, gram, peas, barley, linseed." },
+          { icon:"🌈", text:"Zaid crops: grown between seasons (March-June). Watermelon, cucumber, musk melon, vegetables." },
+        ]},
+      { type:"facts", heading:"GREEN REVOLUTION",
+        items:[
+          { icon:"🌾", text:"Green Revolution (1960s-70s): introduction of high-yield variety (HYV) seeds. Led by MS Swaminathan." },
+          { icon:"🚜", text:"Punjab and Haryana became India's 'grain bowls' — massive increase in wheat and rice production." },
+          { icon:"📈", text:"India went from food-scarce (1960s) to self-sufficient in food grain (by 1980s) due to Green Revolution." },
+          { icon:"⚠️", text:"Side effects: overuse of fertilisers/pesticides damaged soil and groundwater in Punjab." },
+        ]},
+      { type:"facts", heading:"IRRIGATION AND SOIL TYPES",
+        items:[
+          { icon:"💧", text:"Main irrigation types: canal (largest), wells and tubewells, tanks (especially Tamil Nadu, Andhra Pradesh)." },
+          { icon:"🟤", text:"Alluvial soil: most fertile, found in Indo-Gangetic plains. Grows wheat, rice, sugarcane." },
+          { icon:"⚫", text:"Black soil (Regur): Maharashtra and Deccan. Retains moisture, ideal for cotton. Called 'cotton soil'." },
+          { icon:"🔴", text:"Red and Yellow soil: Odisha, Chhattisgarh, Tamil Nadu. Low fertility, needs fertiliser." },
+          { icon:"🏔️", text:"Mountain soil: Himalayas, Northeast. Rich in humus, supports forests and tea plantations." },
+        ]},
+    ]
+  },
+
+  {
+    id:"lc-g-006", subject:"Geography", color:"#ef4444",
+    slides:[
+      { type:"facts", heading:"INDIA'S MINERALS AND INDUSTRIES",
+        items:[
+          { icon:"⛏️", text:"Coal: India has 4th largest coal reserves. Major fields: Jharkhand (Jharia), West Bengal (Raniganj)." },
+          { icon:"🔩", text:"Iron ore: Odisha and Chhattisgarh are largest producers. Bellary-Hospet (Karnataka) also major." },
+          { icon:"🪙", text:"Mica: India is world's top producer. Used in electrical and electronics industry. Jharkhand leads." },
+          { icon:"⛽", text:"Petroleum: Mumbai High (offshore), Gujarat, Rajasthan are main producing areas in India." },
+        ]},
+      { type:"facts", heading:"MAJOR INDUSTRIES",
+        items:[
+          { icon:"👕", text:"Cotton textile: oldest industry in India. Major centres: Mumbai (Manchester of India), Ahmedabad." },
+          { icon:"🏭", text:"Iron and Steel: Jamshedpur (Tata Steel, 1907). Also Bhilai, Rourkela, Bokaro, Visakhapatnam." },
+          { icon:"💻", text:"IT and Software: Bengaluru (Silicon Valley of India), Hyderabad, Pune, Chennai, Noida." },
+          { icon:"💊", text:"Pharmaceutical: India is 'pharmacy of the world' — supplies 20% of global generic medicines." },
+        ]},
+      { type:"facts", heading:"TRANSPORT IN INDIA",
+        items:[
+          { icon:"🚂", text:"Indian Railways: one of world's largest networks. ~68,000 km track, 13,000+ trains daily." },
+          { icon:"🛣️", text:"National Highways: ~1,40,000 km. NH 44 (Srinagar to Kanyakumari, ~3,745 km) is longest." },
+          { icon:"✈️", text:"Largest airports: Indira Gandhi International (Delhi), Chhatrapati Shivaji (Mumbai)." },
+          { icon:"🚢", text:"Major ports: Mumbai (largest), Kandla, Kolkata, Chennai, Kochi, JNPT (Jawaharlal Nehru Port, Navi Mumbai)." },
         ]},
     ]
   },
