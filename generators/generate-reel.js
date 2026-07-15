@@ -2,7 +2,7 @@
 // Builds a ~12s, 1080×1920 vertical MP4 Reel for a given date.
 // Usage: node generate-reel.js <YYYY-MM-DD>
 //
-// 20 rotating reel scripts, picked by day-of-month % 20:
+// 30 rotating reel scripts, picked by day-of-month % 30:
 //   0 — Platform overview      "Still using old question banks?"
 //   1 — Free vs Pro            "Start completely FREE"
 //   2 — For parents            "Is your child ready?"
@@ -11,7 +11,7 @@
 //   5 — Problem → solution     "From boring to brilliant"
 //   6 — Score story            "Watch your score climb"
 //   7 — Subjects covered       "Every Olympiad subject in one place"
-//   8 — Free tier hook         "15 free papers. No card."
+//   8 — Free tier hook         "5 free papers. No card."
 //   9 — School pilot pitch     "Your school gets a free invite code"
 //  10 — Comparison hook        "₹6,400 vs ₹129 — the maths every parent should see"
 //  11 — Child social proof     "My friend got gold. I asked how."
@@ -23,6 +23,16 @@
 //  17 — Free PDF downloads     "Download Olympiad papers as PDFs. Always free."
 //  18 — Best questions         "Not all Olympiad questions are equal. Ours are the best."
 //  19 — Free value stack       "Start practising right now. Free."
+//  20 — Mock exam simulator    "Real Exam. Real Pressure."
+//  21 — OMR practice workflow  "Practice exactly like exam day"
+//  22 — Answer key deep-dive   "Know WHY you got it wrong"
+//  23 — Badges & rewards       "Every paper earns you something"
+//  24 — Leaderboard            "See your rank. Climb it."
+//  25 — Spell Bee prep         "Spell Bee made easy — Class 1–12"
+//  26 — Try without signup     "No login. Just practice."
+//  27 — Olympiad tip: time     "Olympiad Tip: Beat the clock"
+//  28 — Olympiad tip: strategy "Olympiad Tip: Smart approach to MCQs"
+//  29 — Mistake review         "Your wrong answers are your secret weapon"
 //
 // Requires: ffmpeg on PATH, Playwright chromium installed.
 
@@ -54,6 +64,18 @@ const SS = {
   pdf:            loadImg("pdf-download.png"),
   pricing:        loadImg("pricing.png"),
   aiTutor:        loadImg("ai_tutor.png"),
+  // new product screenshots (July 2026)
+  mockSimulator:  loadImg("mock-exam-simulator.png"),
+  pdfDownloads:   loadImg("pdf-downloads-page.png"),
+  practicePaper:  loadImg("practice-paper-pdf.png"),
+  omrSheet:       loadImg("omr-answer-sheet.png"),
+  answerKey:      loadImg("answer-key-explanations.png"),
+  spellBee:       loadImg("spell-bee-prep.png"),
+  subModal:       loadImg("subscription-modal.png"),
+  leaderboard:    loadImg("leaderboard.png"),
+  badgesRewards:  loadImg("badges-rewards.png"),
+  tryNow:         loadImg("try-without-signup.png"),
+  landingHero:    loadImg("landing-hero.png"),
   // promotional / marketing
   aiTutorPoster:  loadImg("promo-ai-tutor-poster.png"),
   aiRobotStudent: loadImg("promo-ai-robot-student.png"),
@@ -610,12 +632,12 @@ function script7() { return [
   </div>${FOOT}`,
 ];}
 
-// Script 8 — Free tier hook (parent audience) "15 free papers. No card."
+// Script 8 — Free tier hook (parent audience) "5 free papers. No card."
 function script8() { return [
   // 1 Hook
   `${HEAD}<div class="s dark">${BLOBS}${WM}
     <div class="pill" style="margin-bottom:40px;">🎁 100% Free to Start</div>
-    <h1 style="font-size:88px;">Your child gets<br><span class="g">15 free</span><br>Olympiad papers.</h1>
+    <h1 style="font-size:88px;">Your child gets<br><span class="g">5 free</span><br>Olympiad papers.</h1>
     <p class="sub" style="margin-top:36px;">No credit card. No catch.<br>Just pure Olympiad practice.</p>
   </div>${FOOT}`,
   // 2 What's included
@@ -644,7 +666,7 @@ function script8() { return [
   // 5 CTA
   `${HEAD}<div class="s dark">${BLOBS}${WM}
     <div class="pill" style="margin-bottom:40px;">🚀 Start Free Today</div>
-    <h1 style="font-size:90px;margin-bottom:32px;">15 free papers.<br><span class="g">Sign up now.</span></h1>
+    <h1 style="font-size:90px;margin-bottom:32px;">5 free papers.<br><span class="g">Sign up now.</span></h1>
     <div class="url-box" style="margin-bottom:28px;"><span class="globe">🌐</span> olympiadready.in</div>
     <p class="sub" style="font-size:24px;">No credit card · Class 1–12 · All Olympiads</p>
   </div>${FOOT}`,
@@ -773,7 +795,7 @@ function script11() { return [
   // 3 Free to start
   `${HEAD}<div class="s dark">${BLOBS}${WM}
     <div class="pill-g" style="margin-bottom:32px;">🎁 And It's Free to Start</div>
-    <h1 style="font-size:88px;margin-bottom:20px;">15 free papers.<br><span class="gr">No card.</span><br>No catch.</h1>
+    <h1 style="font-size:88px;margin-bottom:20px;">5 free papers.<br><span class="gr">No card.</span><br>No catch.</h1>
     <p class="sub" style="font-size:26px;">Class 1–12 · IMO · NSO · IEO · IGKO<br>SOF-aligned content. AI-powered.</p>
   </div>${FOOT}`,
   // 4 Progress = results
@@ -800,8 +822,8 @@ function script12() { return [
   </div>${FOOT}`,
   // 2 The offer
   `${HEAD}<div class="s dark">${BLOBS}${WM}
-    <div class="pill-g" style="margin-bottom:28px;">🎁 15 Free Olympiad Papers</div>
-    <h1 style="font-size:84px;margin-bottom:20px;">Your child gets<br><span class="gr">15 free</span><br>practice papers.</h1>
+    <div class="pill-g" style="margin-bottom:28px;">🎁 5 Free Olympiad Papers</div>
+    <h1 style="font-size:84px;margin-bottom:20px;">Your child gets<br><span class="gr">5 free</span><br>practice papers.</h1>
     <p class="sub" style="font-size:26px;">No registration fee. No credit card.<br>No catch whatsoever.</p>
   </div>${FOOT}`,
   // 3 What's covered
@@ -835,7 +857,7 @@ function script12() { return [
         <div class="price">₹129 <span>/mo</span></div>
       </div>
     </div>
-    <p class="sub" style="margin-top:28px;font-size:24px;">15 papers free first. No card needed.</p>
+    <p class="sub" style="margin-top:28px;font-size:24px;">5 papers free first. No card needed.</p>
   </div>${FOOT}`,
   // 5 CTA — share prompt
   `${HEAD}<div class="s dark">${BLOBS}${WM}
@@ -981,7 +1003,7 @@ function script15() { return [
     <div class="pill" style="margin-bottom:40px;">🚀 Start Free Today</div>
     <h1 style="font-size:88px;margin-bottom:28px;">Join the #1<br><span class="g">Olympiad prep</span><br>platform.</h1>
     <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
-    <p class="sub" style="font-size:25px;">15 free papers · No credit card · Class 1–12</p>
+    <p class="sub" style="font-size:25px;">5 free papers · No credit card · Class 1–12</p>
   </div>${FOOT}`,
 ];}
 
@@ -1110,7 +1132,7 @@ function script19() { return [
   `${HEAD}<div class="s dark">${BLOBS}${WM}
     <div class="pill-g" style="margin-bottom:24px;">🆓 What's Free — Forever</div>
     <div class="feats">
-      <div class="feat"><span class="ic">📄</span><span>15 full practice papers — no card</span></div>
+      <div class="feat"><span class="ic">📄</span><span>5 full practice papers — no card</span></div>
       <div class="feat"><span class="ic">📥</span><span>PDF downloads of every paper</span></div>
       <div class="feat"><span class="ic">🤖</span><span>AI explanations on all free papers</span></div>
       <div class="feat"><span class="ic">🧠</span><span>AI Tutor — ask anything, anytime</span></div>
@@ -1128,16 +1150,359 @@ function script19() { return [
   // 4 CTA
   `${HEAD}<div class="s dark">${BLOBS}${WM}
     <div class="pill" style="margin-bottom:40px;">🆓 Claim Your Free Papers</div>
-    <h1 style="font-size:84px;margin-bottom:28px;">15 free papers.<br><span class="g">Start today.</span></h1>
+    <h1 style="font-size:84px;margin-bottom:28px;">5 free papers.<br><span class="g">Start today.</span></h1>
     <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
     <p class="sub" style="font-size:25px;">No credit card · No download · Class 1–12</p>
   </div>${FOOT}`,
 ];}
 
+// ── Scripts 20–29: Product deep-dives & Olympiad tips ───────────────
+
+// Script 20 — Mock Exam Simulator "Real Exam. Real Pressure."
+function script20() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.mockSimulator ? `<img src="${SS.mockSimulator}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0.22;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 110px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <div class="pill" style="margin-bottom:28px;">📝 Mock Exam Mode</div>
+      <h1 style="font-size:82px;margin-top:0;">Real Exam.<br>Real Pressure.<br><span class="g">Real Results.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">Practice in exam conditions — before it counts →</p>
+    </div>
+  </div>${FOOT}`,
+  // 2 What mock exams do
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🎯 Why Mock Exams Matter</div>
+    <h1 style="font-size:80px;margin-bottom:24px;">Pressure is a<br>skill. <span class="g">Train it.</span></h1>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">⏱</span><span>Full countdown timer — exactly like the real exam</span></div>
+      <div class="feat"><span class="ic">📊</span><span>50-question papers matching Olympiad pattern</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>Instant AI explanations after every attempt</span></div>
+      <div class="feat"><span class="ic">📈</span><span>Track score improvements over time</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 3 Screenshot card
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">📱 The OlympiadReady Experience</div>
+    <h1 style="font-size:72px;margin-bottom:20px;">AI-Powered<br><span class="g">Adaptive Mock</span><br>Exams</h1>
+    ${card(SS.mockSimulator, "mock-exams", 540)}
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">📝 Try a Mock Exam Free</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Simulate your<br>Olympiad <span class="g">today.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">No card · Class 1–12 · All Olympiad subjects</p>
+  </div>${FOOT}`,
+];}
+
+// Script 21 — OMR Practice Workflow "Practice exactly like exam day"
+function script21() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">📋 The Complete Practice System</div>
+    <h1 style="font-size:86px;">Practice exactly<br>like <span class="g">exam day.</span></h1>
+    <p class="sub" style="margin-top:28px;font-size:26px;">Download. Print. Fill OMR. Check answers. Repeat.</p>
+  </div>${FOOT}`,
+  // 2 Step 1: Download PDF paper
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:20px;">Step 1 — Download the Paper</div>
+    <h1 style="font-size:78px;margin-bottom:20px;"><span class="g">Full question</span><br>paper PDF.<br>Free to download.</h1>
+    ${card(SS.practicePaper, "downloads", 560)}
+  </div>${FOOT}`,
+  // 3 Step 2: OMR sheet
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:20px;">Step 2 — Print & Fill the OMR Sheet</div>
+    <h1 style="font-size:78px;margin-bottom:20px;">Practice on<br>a real <span class="g">OMR sheet.</span><br>Just like your exam.</h1>
+    ${card(SS.omrSheet, "downloads", 560)}
+  </div>${FOOT}`,
+  // 4 Step 3: Answer key
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:20px;">Step 3 — Check with Answer Key</div>
+    <h1 style="font-size:78px;margin-bottom:20px;">Detailed answers<br>+ <span class="g">step-by-step</span><br>AI explanations.</h1>
+    ${card(SS.answerKey, "results", 560)}
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">📥 Download Free Papers</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">The full Olympiad<br>experience.<br><span class="g">At home.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:24px;">Paper + OMR + Answer Key · All subjects · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 22 — Answer Key & Explanations "Know WHY you got it wrong"
+function script22() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">💡 The Secret to Improving Fast</div>
+    <h1 style="font-size:88px;">Getting it wrong<br>is fine.<br><span class="g">Not knowing why</span><br>is the problem.</h1>
+  </div>${FOOT}`,
+  // 2 What explanations look like
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">🧠 Step-by-Step AI Explanations</div>
+    <h1 style="font-size:80px;margin-bottom:20px;">Every answer<br>has a <span class="g">full<br>explanation.</span></h1>
+    ${card(SS.answerKey, "results", 560)}
+  </div>${FOOT}`,
+  // 3 What you get
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📖 After Every Paper You Get:</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">✅</span><span>Full answer key with correct options</span></div>
+      <div class="feat"><span class="ic">🔍</span><span>Detailed explanation for every question</span></div>
+      <div class="feat"><span class="ic">🧮</span><span>Step-by-step working for Math problems</span></div>
+      <div class="feat"><span class="ic">📌</span><span>Topic tags — spot your weak areas fast</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">💡 Learn from Every Mistake</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Practice smarter.<br><span class="g">Improve faster.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">AI explanations included · Free to start</p>
+  </div>${FOOT}`,
+];}
+
+// Script 23 — Badges & Rewards "Every paper earns you something"
+function script23() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🏅 Earn While You Learn</div>
+    <h1 style="font-size:92px;">Every paper<br>you complete<br>earns you <span class="g">something.</span></h1>
+  </div>${FOOT}`,
+  // 2 Badges showcase
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">🏆 18+ Badges to Earn</div>
+    <h1 style="font-size:76px;margin-bottom:20px;">Sharpshooter.<br>Speed Demon.<br><span class="g">Mock Master.</span><br>Which one's next?</h1>
+    ${card(SS.badgesRewards, "dashboard", 560)}
+  </div>${FOOT}`,
+  // 3 What you can earn
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🎯 Badges Worth Chasing</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🥇</span><span>First Step — complete your first paper</span></div>
+      <div class="feat"><span class="ic">🎯</span><span>Perfect Score — 100% on any paper</span></div>
+      <div class="feat"><span class="ic">🔥</span><span>3-Day Streak — practice 3 days in a row</span></div>
+      <div class="feat"><span class="ic">📜</span><span>Digital Certificate — share on social media</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🏅 Start Earning Badges</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Practice. Earn.<br><span class="g">Celebrate.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">18+ badges · Digital certificate · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 24 — Leaderboard "See your rank. Climb it."
+function script24() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark" style="padding:0;justify-content:flex-end;">${BLOBS}
+    ${SS.leaderboard ? `<img src="${SS.leaderboard}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0.20;">` : ""}
+    <div style="position:relative;z-index:2;width:100%;padding:0 60px 110px;text-align:center;background:linear-gradient(to top,rgba(5,15,51,0.97) 0%,transparent 55%);">
+      ${WM}
+      <div class="pill" style="margin-bottom:28px;">🏆 Monthly Leaderboard</div>
+      <h1 style="font-size:84px;margin-top:0;">Who's leading<br>this month?<br><span class="g">Could be you.</span></h1>
+      <p class="sub" style="margin-top:20px;font-size:26px;">See your rank. Climb it. →</p>
+    </div>
+  </div>${FOOT}`,
+  // 2 Leaderboard visual
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">📊 Monthly Top Scorers</div>
+    <h1 style="font-size:78px;margin-bottom:20px;">Real students.<br>Real ranks.<br><span class="g">Real competition.</span></h1>
+    ${card(SS.leaderboard, "leaderboard", 560)}
+  </div>${FOOT}`,
+  // 3 How to climb
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📈 How to Climb the Board</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📝</span><span>Complete more papers — every score counts</span></div>
+      <div class="feat"><span class="ic">🎯</span><span>Accuracy matters — aim for 90%+</span></div>
+      <div class="feat"><span class="ic">🔥</span><span>Daily streaks boost your rank faster</span></div>
+      <div class="feat"><span class="ic">🥇</span><span>Top 3 get featured every month</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🏆 Claim Your Spot</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">The leaderboard<br>is live.<br><span class="g">Are you on it?</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">Monthly rankings · All subjects · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 25 — Spell Bee Prep "Spell Bee made easy — Class 1–12"
+function script25() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🔤 Spell Bee Prep</div>
+    <h1 style="font-size:92px;">Spell Bee<br>is serious.<br>We make <span class="g">prep easy.</span></h1>
+    <p class="sub" style="margin-top:28px;font-size:26px;">Topic-wise prep · Class 1–12 · Download & practise →</p>
+  </div>${FOOT}`,
+  // 2 Spell Bee page screenshot
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">📚 Complete Spell Bee Syllabus</div>
+    <h1 style="font-size:78px;margin-bottom:20px;">Topic-wise<br>Spell Bee prep<br>for <span class="g">every class.</span></h1>
+    ${card(SS.spellBee, "spell-bee", 560)}
+  </div>${FOOT}`,
+  // 3 What's inside
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🏆 Your Spell Bee Toolkit</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📖</span><span>Word lists topic-wise — Animals, Food, Space & more</span></div>
+      <div class="feat"><span class="ic">📄</span><span>Downloadable practice sheets with answers</span></div>
+      <div class="feat"><span class="ic">🎯</span><span>Difficulty levels — Foundation, Advanced, Champion</span></div>
+      <div class="feat"><span class="ic">🔢</span><span>Class 1 to Class 12 covered</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🔤 Start Spell Bee Prep</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Spell every word<br><span class="g">correctly.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">Free downloads · Class 1–12 · SOF Spell Bee aligned</p>
+  </div>${FOOT}`,
+];}
+
+// Script 26 — Try Without Signup "No login. Just practice."
+function script26() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:36px;">✅ Zero Friction</div>
+    <h1 style="font-size:96px;">No login.<br>No download.<br><span class="g">Just practice.</span></h1>
+    <p class="sub" style="margin-top:28px;font-size:26px;">Get a feel for OlympiadReady in 30 seconds →</p>
+  </div>${FOOT}`,
+  // 2 Try-now screenshot
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">👆 Try Before You Sign Up</div>
+    <h1 style="font-size:80px;margin-bottom:20px;">Pick a subject.<br>Pick a class.<br><span class="g">Start practising.</span></h1>
+    ${card(SS.tryNow, "try", 560)}
+  </div>${FOOT}`,
+  // 3 No barriers
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🚪 No Barriers to Entry</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🆓</span><span>Try instantly — no account required</span></div>
+      <div class="feat"><span class="ic">📱</span><span>Works on phone, tablet, or laptop</span></div>
+      <div class="feat"><span class="ic">📚</span><span>All 9 Olympiad subjects available to explore</span></div>
+      <div class="feat"><span class="ic">🤖</span><span>Full AI explanations even on the free try</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🚀 Try It Right Now</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">30 seconds to<br>your first <span class="g">question.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">No account needed · No card · Instant access</p>
+  </div>${FOOT}`,
+];}
+
+// Script 27 — Olympiad Tip: Time Management
+function script27() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">⏱ Olympiad Tip #1</div>
+    <h1 style="font-size:88px;">Students fail not<br>because they<br>don't know.<br>They <span class="g">run out of time.</span></h1>
+  </div>${FOOT}`,
+  // 2 The problem
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">📊 The Time Trap</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">IMO gives you<br><span class="g">60 minutes</span><br>for 50 questions.</h1>
+    <p class="sub" style="font-size:28px;">That's <strong style="color:#FBB024;">72 seconds</strong> per question.<br>Can your child do it?</p>
+  </div>${FOOT}`,
+  // 3 The strategy
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">✅ The 3-Pass Strategy</div>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num">1</div><div><div class="step-text">First pass: answer what you know fast</div><div class="step-sub">Don't spend more than 60 seconds on any question</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-text">Second pass: tackle the tricky ones</div><div class="step-sub">You now have more time per question</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-text">Third pass: guess the remaining</div><div class="step-sub">No negative marking in most Olympiads</div></div></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 Practice tip
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">🏋️ Train It Daily</div>
+    <h1 style="font-size:84px;margin-bottom:24px;">Time management<br>is a <span class="g">muscle.</span><br>Train it.</h1>
+    <p class="sub" style="font-size:26px;">Use timed mock exams on OlympiadReady<br>to build speed under pressure.</p>
+    <div class="url-box" style="margin-top:40px;"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 28 — Olympiad Tip: Smart Approach to MCQs
+function script28() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🎯 Olympiad Tip #2</div>
+    <h1 style="font-size:84px;">The smartest<br>students don't<br>just guess.<br>They <span class="g">eliminate.</span></h1>
+  </div>${FOOT}`,
+  // 2 The MCQ trick
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">🔍 The Elimination Method</div>
+    <h1 style="font-size:80px;margin-bottom:28px;">In a 4-option MCQ,<br>removing <span class="g">2 wrong</span><br>gives you 50-50.</h1>
+    <p class="sub" style="font-size:26px;">Even if you're unsure, smart elimination<br>doubles your chance of getting it right.</p>
+  </div>${FOOT}`,
+  // 3 Steps
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">✅ Eliminate Like a Topper</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">❌</span><span>Cross out options with obvious errors first</span></div>
+      <div class="feat"><span class="ic">🔢</span><span>For Math: check if numbers are in the right range</span></div>
+      <div class="feat"><span class="ic">🔬</span><span>For Science: units and logic often rule out 2 options</span></div>
+      <div class="feat"><span class="ic">🎯</span><span>Never leave an answer blank — no negative marking!</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 Practice CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">💪 Sharpen This Skill Daily</div>
+    <h1 style="font-size:84px;margin-bottom:24px;">Practice 1 paper<br>a day and this<br>becomes <span class="g">instinct.</span></h1>
+    <div class="url-box" style="margin-top:36px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="margin-top:24px;font-size:24px;">Daily practice papers · AI explanations · Free to start</p>
+  </div>${FOOT}`,
+];}
+
+// Script 29 — Mistake Review "Your wrong answers are your secret weapon"
+function script29() { return [
+  // 1 Hook
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🔍 The Improvement Secret</div>
+    <h1 style="font-size:86px;">Your wrong<br>answers are<br>your <span class="g">secret<br>weapon.</span></h1>
+  </div>${FOOT}`,
+  // 2 Why mistakes matter
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">💡 Most students ignore mistakes.</div>
+    <h1 style="font-size:84px;margin-bottom:24px;">Toppers<br><span class="g">study them.</span></h1>
+    <p class="sub" style="font-size:26px;">Every mistake tells you exactly what to<br>practice next. That's the edge.</p>
+  </div>${FOOT}`,
+  // 3 How OlympiadReady helps
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">✅ What Happens After You Submit</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">❌</span><span>See every question you got wrong, instantly</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI explains WHY the correct answer is right</span></div>
+      <div class="feat"><span class="ic">📌</span><span>Topic tags highlight your weak areas</span></div>
+      <div class="feat"><span class="ic">🔁</span><span>Retry similar questions until you master the concept</span></div>
+    </div>
+  </div>${FOOT}`,
+  // 4 Answer key visual
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">📖 Detailed Answer Key & Explanations</div>
+    <h1 style="font-size:78px;margin-bottom:20px;">Don't just see<br>the right answer.<br><span class="g">Understand it.</span></h1>
+    ${card(SS.answerKey, "results", 540)}
+  </div>${FOOT}`,
+  // 5 CTA
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:40px;">🔍 Turn Mistakes Into Wins</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Start practising.<br><span class="g">Improve daily.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:25px;">AI explanations · Mistake tracking · Free to start</p>
+  </div>${FOOT}`,
+];}
+
 // ── Pick script by day ───────────────────────────────────────────────
-const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10, script11, script12, script13, script14, script15, script16, script17, script18, script19];
+const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10, script11, script12, script13, script14, script15, script16, script17, script18, script19, script20, script21, script22, script23, script24, script25, script26, script27, script28, script29];
 const day     = parseInt(dateStr.slice(-2), 10);
-const SCENES  = SCRIPTS[day % 20]();
+const SCENES  = SCRIPTS[day % 30]();
 console.log(`using script ${day % SCRIPTS.length} (day=${day})`);
 
 // ── Render scenes via Playwright ────────────────────────────────────
