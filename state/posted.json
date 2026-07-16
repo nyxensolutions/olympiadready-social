@@ -2321,5 +2321,18 @@
     "ytVideoId": "nJpA0wqwIvw",
     "file": "content/reels/2026-07-16.mp4",
     "at": "2026-07-16T05:27:48.208Z"
+  },
+  {
+    "slotKey": "2026-07-16-learn",
+    "type": "carousel",
+    "igMediaId": "18137211103568591",
+    "subject": "English",
+    "files": [
+      "content/learn/2026-07-16-slide-1.png",
+      "content/learn/2026-07-16-slide-2.png",
+      "content/learn/2026-07-16-slide-3.png",
+      "content/learn/2026-07-16-slide-4.png"
+    ],
+    "at": "2026-07-16T08:03:23.136Z"
   }
 ]
