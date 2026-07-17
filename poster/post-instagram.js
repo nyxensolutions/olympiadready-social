@@ -312,6 +312,35 @@ async function runBlog() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
+async function runHandwrittenReel() {
+  const date    = istDateString();
+  const slotKey = `${date}-handwritten-reel`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const mp4         = path.join(ROOT, "content", "reels", `${date}-handwritten.mp4`);
+  const captionFile = path.join(ROOT, "content", "reels", `${date}-handwritten.txt`);
+
+  if (!fs.existsSync(mp4)) {
+    log(`No handwritten reel for ${date} — nothing to post.`);
+    return;
+  }
+
+  const caption = fs.existsSync(captionFile)
+    ? fs.readFileSync(captionFile, "utf8").trim()
+    : `Study notes reel for ${date}`;
+
+  const url = rawUrlFor(mp4);
+  log(`video URL: ${url}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+
+  const mediaId = await postReel({ videoUrl: url, caption });
+  log(`✅ posted ig media ${mediaId}`);
+
+  record({ slotKey, type: "reel", igMediaId: mediaId, file: path.relative(ROOT, mp4) });
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
 // ── main ───────────────────────────────────────────────────────────
 const HANDLERS = {
   morning: runMorning,
@@ -322,6 +351,7 @@ const HANDLERS = {
   "dyk-evening": runDykEvening,
   learn: runLearn,
   blog: runBlog,
+  "handwritten-reel": runHandwrittenReel,
 };
 
 (async () => {

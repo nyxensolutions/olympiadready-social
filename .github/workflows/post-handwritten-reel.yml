@@ -46,18 +46,19 @@ jobs:
           R2_SECRET_KEY: ${{ secrets.R2_SECRET_KEY }}
           R2_BUCKET:     ${{ secrets.R2_BUCKET }}
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           DATE="${{ github.event.inputs.date || '' }}"
           if [ -z "$DATE" ]; then
             DATE=$(TZ='Asia/Kolkata' date +%Y-%m-%d)
           fi
-          REEL="content/reels/${DATE}-handwritten.mp4"
-          CAPTION_FILE="content/reels/${DATE}-handwritten.txt"
-          if [ ! -f "$REEL" ]; then
+          if [ ! -f "content/reels/${DATE}-handwritten.mp4" ]; then
             echo "No reel generated for $DATE — skipping post step."
             exit 0
           fi
-          node scripts/post-reel.js "$REEL" "$CAPTION_FILE"
+          node poster/post-instagram.js handwritten-reel
 
       - name: Commit updated queue.json
         run: |
