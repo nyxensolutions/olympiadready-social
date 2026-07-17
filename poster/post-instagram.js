@@ -325,6 +325,10 @@ async function runHandwrittenReel() {
     return;
   }
 
+  // Commit the generated MP4 + caption + updated queue.json to GitHub FIRST
+  // so the raw.githubusercontent.com URL exists when Instagram fetches it.
+  await commitContent(`content: handwritten reel for ${date}`);
+
   const caption = fs.existsSync(captionFile)
     ? fs.readFileSync(captionFile, "utf8").trim()
     : `Study notes reel for ${date}`;
