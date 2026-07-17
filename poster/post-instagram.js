@@ -325,6 +325,10 @@ async function runHandwrittenReel() {
     return;
   }
 
+  // Stage queue.json (marked posted by the generator) so it doesn't block
+  // the pull --rebase inside commitContent with "unstaged changes" error.
+  execSync("git add social-content/handwritten/queue.json", { cwd: ROOT, stdio: "ignore" });
+
   // Commit the generated MP4 + caption + updated queue.json to GitHub FIRST
   // so the raw.githubusercontent.com URL exists when Instagram fetches it.
   await commitContent(`content: handwritten reel for ${date}`);
