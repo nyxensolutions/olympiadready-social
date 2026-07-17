@@ -79,12 +79,18 @@ const totalDur = (N * SLIDE_DURATION).toFixed(1);
 const filterFile = path.join(TMP_DIR, `filter-${targetDate}.txt`);
 fs.writeFileSync(filterFile, vFilters + xchain, "utf8");
 
+// Instagram Reels require an AAC audio track even for silent videos.
+// anullsrc generates a silent stereo stream; -shortest trims it to video length.
 const cmd = [
   "ffmpeg -y",
   inputs,
+  `-f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100`,
   `-filter_complex_script "${filterFile}"`,
   `-map "[v]"`,
-  `-c:v libx264 -pix_fmt yuv420p -r 30 -t ${totalDur} -movflags +faststart`,
+  `-map ${N}:a`,
+  `-c:v libx264 -pix_fmt yuv420p -r 30`,
+  `-c:a aac -b:a 128k`,
+  `-t ${totalDur} -movflags +faststart`,
   `"${out}"`,
 ].join(" ");
 
