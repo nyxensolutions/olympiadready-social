@@ -65,16 +65,20 @@ const scale = `scale=${W}:${H}:force_original_aspect_ratio=decrease,pad=${W}:${H
 const inputs      = slides.map(s => `-loop 1 -t ${SLIDE_DURATION} -i "${s}"`).join(" ");
 const vFilters    = slides.map((_, i) => `[${i}:v]${scale}[v${i}];`).join("");
 
+// Each xfade offset is measured from the start of the ACCUMULATED stream,
+// not a flat i*D formula. Correct: i * (D - F) so each transition starts
+// (D - F) seconds after the previous one began.
 let xchain = "", prev = "v0";
 for (let i = 1; i < N; i++) {
   const out_label = i === N - 1 ? "v" : `x${i}`;
-  const offset    = (i * SLIDE_DURATION - FADE_DURATION).toFixed(1);
+  const offset    = (i * (SLIDE_DURATION - FADE_DURATION)).toFixed(1);
   xchain += `[${prev}][v${i}]xfade=transition=fade:duration=${FADE_DURATION}:offset=${offset}[${out_label}];`;
   prev = `x${i}`;
 }
 xchain = xchain.replace(/;$/, "");
 
-const totalDur = (N * SLIDE_DURATION).toFixed(1);
+// Total = N slides minus (N-1) fade overlaps
+const totalDur = (N * SLIDE_DURATION - (N - 1) * FADE_DURATION).toFixed(1);
 
 const filterFile = path.join(TMP_DIR, `filter-${targetDate}.txt`);
 fs.writeFileSync(filterFile, vFilters + xchain, "utf8");
