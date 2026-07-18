@@ -2488,5 +2488,12 @@
     "igMediaId": "18010259345932846",
     "file": "content/quizzes/2026-07-18/evening-question.png",
     "at": "2026-07-18T13:26:45.286Z"
+  },
+  {
+    "slotKey": "2026-07-18-dyk-evening",
+    "type": "image",
+    "igMediaId": "18203501008366364",
+    "file": "content/dyk/2026-07-18-evening.png",
+    "at": "2026-07-18T15:26:47.453Z"
   }
 ]
