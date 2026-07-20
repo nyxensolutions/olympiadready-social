@@ -2567,5 +2567,12 @@
     "igMediaId": "18354842317301208",
     "file": "content/quizzes/2026-07-20/morning-question.png",
     "at": "2026-07-20T01:27:05.277Z"
+  },
+  {
+    "slotKey": "2026-07-20-dyk-morning",
+    "type": "image",
+    "igMediaId": "18042253454819539",
+    "file": "content/dyk/2026-07-20-morning.png",
+    "at": "2026-07-20T03:26:57.517Z"
   }
 ]
