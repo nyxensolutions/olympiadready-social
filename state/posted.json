@@ -2671,5 +2671,15 @@
       "content/learn/2026-07-21-slide-3.png"
     ],
     "at": "2026-07-21T08:02:51.951Z"
+  },
+  {
+    "slotKey": "2026-07-20-answers",
+    "type": "carousel",
+    "igMediaId": "18033035102652217",
+    "files": [
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-07-20/morning-answer.png",
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-07-20/evening-answer.png"
+    ],
+    "at": "2026-07-21T08:27:03.820Z"
   }
 ]
