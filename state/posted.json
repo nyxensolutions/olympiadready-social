@@ -2659,5 +2659,17 @@
     "ytVideoId": "Kw4gR2GfwS0",
     "file": "content/reels/2026-07-21.mp4",
     "at": "2026-07-21T05:27:48.488Z"
+  },
+  {
+    "slotKey": "2026-07-21-learn",
+    "type": "carousel",
+    "igMediaId": "18106772378107465",
+    "subject": "Computer Science",
+    "files": [
+      "content/learn/2026-07-21-slide-1.png",
+      "content/learn/2026-07-21-slide-2.png",
+      "content/learn/2026-07-21-slide-3.png"
+    ],
+    "at": "2026-07-21T08:02:51.951Z"
   }
 ]
