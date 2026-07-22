@@ -2717,5 +2717,17 @@
     "ytVideoId": "PsJ7MiZqUY8",
     "file": "content/reels/2026-07-22.mp4",
     "at": "2026-07-22T05:28:11.406Z"
+  },
+  {
+    "slotKey": "2026-07-22-blog",
+    "type": "carousel",
+    "igMediaId": "18084977189646123",
+    "slug": "ai-olympiad-preparation",
+    "files": [
+      "content/blog/2026-07-22-slide-1.png",
+      "content/blog/2026-07-22-slide-2.png",
+      "content/blog/2026-07-22-slide-3.png"
+    ],
+    "at": "2026-07-22T05:33:05.722Z"
   }
 ]
