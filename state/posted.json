@@ -2844,5 +2844,13 @@
     "igMediaId": "18109665691989665",
     "file": "content/dyk/2026-07-24-morning.png",
     "at": "2026-07-24T03:26:49.046Z"
+  },
+  {
+    "slotKey": "2026-07-24-reel",
+    "type": "reel",
+    "igMediaId": "17890592040405878",
+    "ytVideoId": "yeAC-T8kkn4",
+    "file": "content/reels/2026-07-24.mp4",
+    "at": "2026-07-24T05:27:42.779Z"
   }
 ]
