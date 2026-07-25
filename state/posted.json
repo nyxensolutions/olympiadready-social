@@ -2939,5 +2939,17 @@
       "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-07-24/evening-answer.png"
     ],
     "at": "2026-07-25T08:26:58.256Z"
+  },
+  {
+    "slotKey": "2026-07-25-learn",
+    "type": "carousel",
+    "igMediaId": "18191107171379849",
+    "subject": "GK",
+    "files": [
+      "content/learn/2026-07-25-slide-1.png",
+      "content/learn/2026-07-25-slide-2.png",
+      "content/learn/2026-07-25-slide-3.png"
+    ],
+    "at": "2026-07-25T09:44:03.373Z"
   }
 ]
