@@ -2987,5 +2987,17 @@
     "ytVideoId": "JQjHkyQaKRY",
     "file": "content/reels/2026-07-26.mp4",
     "at": "2026-07-26T05:28:30.852Z"
+  },
+  {
+    "slotKey": "2026-07-26-learn",
+    "type": "carousel",
+    "igMediaId": "18112773097939356",
+    "subject": "GK",
+    "files": [
+      "content/learn/2026-07-26-slide-1.png",
+      "content/learn/2026-07-26-slide-2.png",
+      "content/learn/2026-07-26-slide-3.png"
+    ],
+    "at": "2026-07-26T08:02:59.668Z"
   }
 ]
