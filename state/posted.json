@@ -3064,5 +3064,17 @@
       "content/blog/2026-07-27-slide-3.png"
     ],
     "at": "2026-07-27T05:32:32.862Z"
+  },
+  {
+    "slotKey": "2026-07-27-learn",
+    "type": "carousel",
+    "igMediaId": "18116708473710044",
+    "subject": "GK",
+    "files": [
+      "content/learn/2026-07-27-slide-1.png",
+      "content/learn/2026-07-27-slide-2.png",
+      "content/learn/2026-07-27-slide-3.png"
+    ],
+    "at": "2026-07-27T08:03:02.340Z"
   }
 ]
