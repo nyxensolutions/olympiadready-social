@@ -3187,5 +3187,17 @@
     "ytVideoId": "4HPN4q8M_hA",
     "file": "content/reels/2026-07-29.mp4",
     "at": "2026-07-29T05:27:41.370Z"
+  },
+  {
+    "slotKey": "2026-07-29-blog",
+    "type": "carousel",
+    "igMediaId": "18100547696590170",
+    "slug": "imo-preparation-class-3",
+    "files": [
+      "content/blog/2026-07-29-slide-1.png",
+      "content/blog/2026-07-29-slide-2.png",
+      "content/blog/2026-07-29-slide-3.png"
+    ],
+    "at": "2026-07-29T05:32:39.434Z"
   }
 ]
