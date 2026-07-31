@@ -3335,5 +3335,18 @@
       "content/blog/2026-07-31-slide-3.png"
     ],
     "at": "2026-07-31T05:32:11.030Z"
+  },
+  {
+    "slotKey": "2026-07-31-learn",
+    "type": "carousel",
+    "igMediaId": "17939536740317357",
+    "subject": "English",
+    "files": [
+      "content/learn/2026-07-31-slide-1.png",
+      "content/learn/2026-07-31-slide-2.png",
+      "content/learn/2026-07-31-slide-3.png",
+      "content/learn/2026-07-31-slide-4.png"
+    ],
+    "at": "2026-07-31T08:02:43.933Z"
   }
 ]
