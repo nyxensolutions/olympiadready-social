@@ -3323,5 +3323,17 @@
     "ytVideoId": "1IWuqr-UZtU",
     "file": "content/reels/2026-07-31.mp4",
     "at": "2026-07-31T05:28:15.025Z"
+  },
+  {
+    "slotKey": "2026-07-31-blog",
+    "type": "carousel",
+    "igMediaId": "18120938065834790",
+    "slug": "how-to-prepare-for-ieo",
+    "files": [
+      "content/blog/2026-07-31-slide-1.png",
+      "content/blog/2026-07-31-slide-2.png",
+      "content/blog/2026-07-31-slide-3.png"
+    ],
+    "at": "2026-07-31T05:32:11.030Z"
   }
 ]
