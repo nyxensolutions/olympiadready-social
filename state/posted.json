@@ -3308,5 +3308,12 @@
     "igMediaId": "18101467412337526",
     "file": "content/reels/2026-07-31-handwritten.mp4",
     "at": "2026-07-31T02:32:25.997Z"
+  },
+  {
+    "slotKey": "2026-07-31-dyk-morning",
+    "type": "image",
+    "igMediaId": "18154453072498618",
+    "file": "content/dyk/2026-07-31-morning.png",
+    "at": "2026-07-31T03:26:42.987Z"
   }
 ]
