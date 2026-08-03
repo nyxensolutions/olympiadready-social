@@ -80,6 +80,56 @@
       "folder": "batch-016-mughal-empire",
       "scheduled": "2026-08-16",
       "posted": false
+    },
+    {
+      "folder": "batch-017-geometry-angles-triangles",
+      "scheduled": "2026-08-18",
+      "posted": false
+    },
+    {
+      "folder": "batch-018-hcf-lcm",
+      "scheduled": "2026-08-20",
+      "posted": false
+    },
+    {
+      "folder": "batch-019-respiratory-system",
+      "scheduled": "2026-08-22",
+      "posted": false
+    },
+    {
+      "folder": "batch-020-active-passive-voice",
+      "scheduled": "2026-08-24",
+      "posted": false
+    },
+    {
+      "folder": "batch-021-speed-distance-time",
+      "scheduled": "2026-08-26",
+      "posted": false
+    },
+    {
+      "folder": "batch-022-cells-structure-function",
+      "scheduled": "2026-08-28",
+      "posted": false
+    },
+    {
+      "folder": "batch-023-direct-indirect-speech",
+      "scheduled": "2026-08-30",
+      "posted": false
+    },
+    {
+      "folder": "batch-024-profit-loss-discount",
+      "scheduled": "2026-09-01",
+      "posted": false
+    },
+    {
+      "folder": "batch-025-light-reflection-refraction",
+      "scheduled": "2026-09-03",
+      "posted": false
+    },
+    {
+      "folder": "batch-026-indian-geography",
+      "scheduled": "2026-09-05",
+      "posted": false
     }
   ]
 }

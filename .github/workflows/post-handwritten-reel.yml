@@ -1,4 +1,4 @@
-name: Post Handwritten Reel (08:00 IST)
+name: Post Handwritten Carousel (08:00 IST)
 
 on:
   schedule:
@@ -28,18 +28,15 @@ jobs:
 
       - run: npm ci || npm install
 
-      - name: Install ffmpeg
-        run: sudo apt-get install -y ffmpeg
-
-      - name: Generate handwritten reel
+      - name: Generate handwritten carousel manifest
         run: |
           DATE="${{ github.event.inputs.date || '' }}"
           if [ -z "$DATE" ]; then
             DATE=$(TZ='Asia/Kolkata' date +%Y-%m-%d)
           fi
-          node generators/generate-handwritten-reel.js "$DATE"
+          node generators/generate-handwritten-carousel.js "$DATE"
 
-      - name: Post reel to Instagram
+      - name: Post carousel to Instagram
         env:
           IG_USER_ID:      ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -51,9 +48,8 @@ jobs:
           if [ -z "$DATE" ]; then
             DATE=$(TZ='Asia/Kolkata' date +%Y-%m-%d)
           fi
-          if [ ! -f "content/reels/${DATE}-handwritten.mp4" ]; then
-            echo "No reel generated for $DATE — skipping post step."
+          if [ ! -f "content/handwritten/${DATE}.json" ]; then
+            echo "No carousel manifest for $DATE — skipping post step."
             exit 0
           fi
-          node poster/post-instagram.js handwritten-reel
-
+          node poster/post-instagram.js handwritten-carousel

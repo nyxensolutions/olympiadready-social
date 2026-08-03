@@ -312,40 +312,34 @@ async function runBlog() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
-async function runHandwrittenReel() {
+async function runHandwrittenCarousel() {
   const date    = istDateString();
-  const slotKey = `${date}-handwritten-reel`;
+  const slotKey = `${date}-handwritten-carousel`;
   if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
 
-  const mp4         = path.join(ROOT, "content", "reels", `${date}-handwritten.mp4`);
-  const captionFile = path.join(ROOT, "content", "reels", `${date}-handwritten.txt`);
-
-  if (!fs.existsSync(mp4)) {
-    log(`No handwritten reel for ${date} — nothing to post.`);
+  const manifestFile = path.join(ROOT, "content", "handwritten", `${date}.json`);
+  if (!fs.existsSync(manifestFile)) {
+    log(`No handwritten carousel manifest for ${date} — nothing to post.`);
     return;
   }
 
-  // Stage queue.json (marked posted by the generator) so it doesn't block
-  // the pull --rebase inside commitContent with "unstaged changes" error.
+  const manifest = JSON.parse(fs.readFileSync(manifestFile, "utf8"));
+
+  // Stage queue.json (marked posted by generator) before committing
   execSync("git add social-content/handwritten/queue.json", { cwd: ROOT, stdio: "ignore" });
+  await commitContent(`content: handwritten carousel for ${date} — ${manifest.topic}`);
 
-  // Commit the generated MP4 + caption + updated queue.json to GitHub FIRST
-  // so the raw.githubusercontent.com URL exists when Instagram fetches it.
-  await commitContent(`content: handwritten reel for ${date}`);
-
-  const caption = fs.existsSync(captionFile)
-    ? fs.readFileSync(captionFile, "utf8").trim()
-    : `Study notes reel for ${date}`;
-
-  const url = rawUrlFor(mp4);
-  log(`video URL: ${url}`);
+  const urls    = manifest.slides.map(rel => `${RAW}/${rel}`);
+  const caption = manifest.caption;
+  log(`carousel URLs (${urls.length} slides):\n  ${urls.join("\n  ")}`);
 
   if (DRY) return log("DRY_RUN — skipping Graph API call");
 
-  const mediaId = await postReel({ videoUrl: url, caption });
+  const mediaId = await postCarousel({ imageUrls: urls, caption });
   log(`✅ posted ig media ${mediaId}`);
 
-  record({ slotKey, type: "reel", igMediaId: mediaId, file: path.relative(ROOT, mp4) });
+  record({ slotKey, type: "carousel", igMediaId: mediaId,
+           topic: manifest.topic, files: manifest.slides });
   await commitContent(`state: recorded ${slotKey}`);
 }
 
@@ -359,7 +353,7 @@ const HANDLERS = {
   "dyk-evening": runDykEvening,
   learn: runLearn,
   blog: runBlog,
-  "handwritten-reel": runHandwrittenReel,
+  "handwritten-carousel": runHandwrittenCarousel,
 };
 
 (async () => {
