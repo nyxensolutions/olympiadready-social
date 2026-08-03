@@ -311,6 +311,159 @@ module.exports = [
     explanation:"It means attempting something that is beyond your capacity." },
 
 
+  // ── Mathematics — batch 3 (30 more questions) ─────────────────────────────
+
+  { id:"m-061", subject:"Mathematics", grade:6,
+    question:"What is the value of 12² − 8²?",
+    options:["80","64","144","48"], answer:0,
+    explanation:"12² − 8² = (12+8)(12−8) = 20 × 4 = 80." },
+
+  { id:"m-062", subject:"Mathematics", grade:7,
+    question:"Pipes A and B can fill a tank in 6 and 12 hours respectively. Together, how long do they take?",
+    options:["3 hours","4 hours","5 hours","6 hours"], answer:1,
+    explanation:"Combined rate = 1/6 + 1/12 = 3/12 = 1/4. Time = 4 hours." },
+
+  { id:"m-063", subject:"Mathematics", grade:8,
+    question:"What is the compound interest on ₹10,000 at 10% per annum for 2 years?",
+    options:["₹2000","₹2100","₹1000","₹2050"], answer:1,
+    explanation:"CI = P[(1+r/100)ⁿ − 1] = 10000[(1.1)² − 1] = 10000 × 0.21 = ₹2100." },
+
+  { id:"m-064", subject:"Mathematics", grade:6,
+    question:"The number 5765 is divisible by:",
+    options:["4","6","9","5"], answer:3,
+    explanation:"A number ending in 0 or 5 is divisible by 5. 5765 ends in 5, so it is divisible by 5." },
+
+  { id:"m-065", subject:"Mathematics", grade:7,
+    question:"A and B together complete work in 8 days. A alone takes 12 days. How long does B alone take?",
+    options:["20 days","24 days","16 days","28 days"], answer:1,
+    explanation:"B's rate = 1/8 − 1/12 = 3/24 − 2/24 = 1/24. B takes 24 days." },
+
+  { id:"m-066", subject:"Mathematics", grade:9,
+    question:"If the polynomial p(x) = x³ − 3x + 2, what is p(1)?",
+    options:["0","1","2","−1"], answer:0,
+    explanation:"p(1) = 1 − 3 + 2 = 0. So x = 1 is a root of the polynomial." },
+
+  { id:"m-067", subject:"Mathematics", grade:6,
+    question:"What is the sum of the first 10 natural numbers?",
+    options:["45","50","55","60"], answer:2,
+    explanation:"Sum = n(n+1)/2 = 10×11/2 = 55." },
+
+  { id:"m-068", subject:"Mathematics", grade:8,
+    question:"The median of 7, 3, 9, 1, 5, 11, 13 is:",
+    options:["5","7","9","11"], answer:1,
+    explanation:"Arranged in order: 1,3,5,7,9,11,13. Middle value (4th) = 7." },
+
+  { id:"m-069", subject:"Mathematics", grade:7,
+    question:"If the cost price is ₹800 and the selling price is ₹680, the loss percentage is:",
+    options:["10%","12%","15%","20%"], answer:2,
+    explanation:"Loss = ₹120. Loss% = (120/800) × 100 = 15%." },
+
+  { id:"m-070", subject:"Mathematics", grade:5,
+    question:"How many minutes are there in 3 days?",
+    options:["2,160","3,600","4,320","7,200"], answer:2,
+    explanation:"3 days × 24 hours × 60 minutes = 4,320 minutes." },
+
+  { id:"m-071", subject:"Mathematics", grade:9,
+    question:"The sum of all angles of a regular hexagon is:",
+    options:["540°","720°","900°","1080°"], answer:1,
+    explanation:"(n−2)×180° = (6−2)×180° = 720°." },
+
+  { id:"m-072", subject:"Mathematics", grade:8,
+    question:"What is 15% of 20% of 500?",
+    options:["10","15","20","25"], answer:1,
+    explanation:"20% of 500 = 100. 15% of 100 = 15." },
+
+  { id:"m-073", subject:"Mathematics", grade:6,
+    question:"Which of the following is a perfect number?",
+    options:["4","6","9","12"], answer:1,
+    explanation:"6 is a perfect number — its divisors (1, 2, 3) add up to 6 itself." },
+
+  { id:"m-074", subject:"Mathematics", grade:7,
+    question:"Two numbers are in ratio 3:5. Their sum is 96. What is the larger number?",
+    options:["36","54","60","72"], answer:2,
+    explanation:"Larger = 5/(3+5) × 96 = 5/8 × 96 = 60." },
+
+  { id:"m-075", subject:"Mathematics", grade:9,
+    question:"What is the value of tan 45°?",
+    options:["0","1","√3","1/√3"], answer:1,
+    explanation:"tan 45° = sin 45° / cos 45° = (1/√2)/(1/√2) = 1." },
+
+  { id:"m-076", subject:"Mathematics", grade:8,
+    question:"The area of a rhombus with diagonals 10 cm and 8 cm is:",
+    options:["80 cm²","40 cm²","20 cm²","60 cm²"], answer:1,
+    explanation:"Area = (d₁ × d₂)/2 = (10 × 8)/2 = 40 cm²." },
+
+  { id:"m-077", subject:"Mathematics", grade:6,
+    question:"A clock shows 3:00 PM. What is the angle between the hour and minute hand?",
+    options:["60°","75°","90°","120°"], answer:2,
+    explanation:"At 3:00, the hour hand is at 90° from 12. Minute hand is at 0°. Angle = 90°." },
+
+  { id:"m-078", subject:"Mathematics", grade:7,
+    question:"The speed of a boat in still water is 15 km/h. Stream speed is 3 km/h. Upstream speed is:",
+    options:["12 km/h","18 km/h","10 km/h","15 km/h"], answer:0,
+    explanation:"Upstream speed = Still water speed − Stream speed = 15 − 3 = 12 km/h." },
+
+  { id:"m-079", subject:"Mathematics", grade:5,
+    question:"What is the Roman numeral for 49?",
+    options:["IL","XLIX","XXXXIX","XLXI"], answer:1,
+    explanation:"49 = 50 − 1 = XL + IX = XLIX." },
+
+  { id:"m-080", subject:"Mathematics", grade:8,
+    question:"The mode of the data set 3, 7, 5, 3, 2, 7, 7, 9 is:",
+    options:["3","5","7","9"], answer:2,
+    explanation:"Mode is the most frequently occurring value. 7 appears 3 times — more than any other value." },
+
+  { id:"m-081", subject:"Mathematics", grade:9,
+    question:"If α and β are roots of x² − 7x + 12 = 0, what is α + β?",
+    options:["12","−12","7","−7"], answer:2,
+    explanation:"For ax² + bx + c = 0, sum of roots = −b/a = 7/1 = 7." },
+
+  { id:"m-082", subject:"Mathematics", grade:7,
+    question:"A tap fills a tank in 5 hours. What fraction is filled in 1 hour 12 minutes?",
+    options:["1/5","4/25","6/25","1/4"], answer:2,
+    explanation:"1h 12min = 1.2 hours. Fraction = 1.2/5 = 6/25." },
+
+  { id:"m-083", subject:"Mathematics", grade:6,
+    question:"The number 256 is which power of 2?",
+    options:["2⁶","2⁷","2⁸","2⁹"], answer:2,
+    explanation:"2⁸ = 256. (2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256)." },
+
+  { id:"m-084", subject:"Mathematics", grade:8,
+    question:"A bag has 5 red and 3 blue balls. Probability of picking a red ball is:",
+    options:["3/8","5/8","5/3","3/5"], answer:1,
+    explanation:"P(red) = 5/(5+3) = 5/8." },
+
+  { id:"m-085", subject:"Mathematics", grade:7,
+    question:"If ABCD is a parallelogram and angle A = 70°, what is angle C?",
+    options:["110°","70°","140°","35°"], answer:1,
+    explanation:"Opposite angles in a parallelogram are equal. Angle C = Angle A = 70°." },
+
+  { id:"m-086", subject:"Mathematics", grade:6,
+    question:"Express 2/5 as a percentage:",
+    options:["25%","40%","20%","50%"], answer:1,
+    explanation:"2/5 × 100 = 40%." },
+
+  { id:"m-087", subject:"Mathematics", grade:9,
+    question:"If x − 1/x = 3, what is x² + 1/x²?",
+    options:["9","11","7","13"], answer:1,
+    explanation:"(x − 1/x)² = x² − 2 + 1/x² = 9. So x² + 1/x² = 9 + 2 = 11." },
+
+  { id:"m-088", subject:"Mathematics", grade:7,
+    question:"A shopkeeper marks goods 25% above cost price and gives a 20% discount. Profit or loss?",
+    options:["0% — no profit/no loss","5% profit","5% loss","10% profit"], answer:0,
+    explanation:"SP = 1.25 × 0.80 × CP = 1.00 × CP. No profit, no loss." },
+
+  { id:"m-089", subject:"Mathematics", grade:8,
+    question:"The total surface area of a cube with side 4 cm is:",
+    options:["64 cm²","96 cm²","48 cm²","128 cm²"], answer:1,
+    explanation:"TSA = 6a² = 6 × 16 = 96 cm²." },
+
+  { id:"m-090", subject:"Mathematics", grade:6,
+    question:"What is 1 + 2 + 3 + … + 20?",
+    options:["200","210","220","190"], answer:1,
+    explanation:"Sum = n(n+1)/2 = 20 × 21/2 = 210." },
+
+
   // ── Science (20 questions) ────────────────────────────────────────────────
 
   { id:"s-001", subject:"Science", grade:6,
@@ -952,6 +1105,159 @@ module.exports = [
     question:"What does the prefix 'uni-' mean?",
     options:["Two","Three","One","Many"], answer:2,
     explanation:"Uni- means one: unicycle (one wheel), uniform (one form), universe (one combined whole)." },
+
+
+  // ── English — batch 3 (30 more questions) ────────────────────────────────
+
+  { id:"e-061", subject:"English", grade:6,
+    question:"What is the plural of 'criterion'?",
+    options:["Criterions","Criterias","Criteria","Criterions"], answer:2,
+    explanation:"The correct plural of 'criterion' (from Greek) is 'criteria'." },
+
+  { id:"e-062", subject:"English", grade:7,
+    question:"Choose the word closest in meaning to 'benevolent':",
+    options:["Cruel","Kind","Strict","Lazy"], answer:1,
+    explanation:"Benevolent means well-meaning and kindly — disposed to do good to others." },
+
+  { id:"e-063", subject:"English", grade:8,
+    question:"Which figure of speech is used in: 'The pen is mightier than the sword'?",
+    options:["Simile","Alliteration","Metaphor","Onomatopoeia"], answer:2,
+    explanation:"This is a metaphor — it directly compares the pen (written word) to the sword (force) without using 'like' or 'as'." },
+
+  { id:"e-064", subject:"English", grade:6,
+    question:"Choose the correctly punctuated sentence:",
+    options:["Its raining heavily today.","It's raining heavily today.","Its' raining heavily today.","It's' raining heavily today."], answer:1,
+    explanation:"'It's' is the contraction of 'it is'. 'Its' is the possessive pronoun. Here we need 'it is', so 'it's' is correct." },
+
+  { id:"e-065", subject:"English", grade:9,
+    question:"What does the word 'ephemeral' mean?",
+    options:["Long-lasting","Short-lived","Powerful","Mysterious"], answer:1,
+    explanation:"Ephemeral means lasting for a very short time. Example: 'the ephemeral beauty of a rainbow'." },
+
+  { id:"e-066", subject:"English", grade:7,
+    question:"Which sentence is in passive voice?",
+    options:["The chef cooked the meal.","The students finished the exam.","The book was written by the author.","She sang a song."], answer:2,
+    explanation:"Passive voice has the subject receiving the action. 'The book was written by the author' — the book (subject) receives the action." },
+
+  { id:"e-067", subject:"English", grade:8,
+    question:"What is the antonym of 'verbose'?",
+    options:["Talkative","Concise","Loud","Boring"], answer:1,
+    explanation:"Verbose means using more words than needed. Its antonym is concise — brief and to the point." },
+
+  { id:"e-068", subject:"English", grade:6,
+    question:"Identify the indirect object in: 'She gave him a gift.'",
+    options:["She","gave","him","gift"], answer:2,
+    explanation:"The indirect object answers 'to whom' — 'him' receives the gift indirectly. 'Gift' is the direct object." },
+
+  { id:"e-069", subject:"English", grade:9,
+    question:"What is an 'oxymoron'?",
+    options:["A word that sounds like its meaning","Two contradictory words together","Exaggeration for effect","Giving human traits to objects"], answer:1,
+    explanation:"An oxymoron combines contradictory terms: 'deafening silence', 'bittersweet', 'living death'." },
+
+  { id:"e-070", subject:"English", grade:7,
+    question:"Which word is a homophone of 'knight'?",
+    options:["Night","Knit","Knee","Knot"], answer:0,
+    explanation:"Homophones are words that sound alike but have different spellings/meanings. 'Knight' and 'night' are both pronounced /naɪt/." },
+
+  { id:"e-071", subject:"English", grade:8,
+    question:"'A blessing in disguise' means:",
+    options:["A hidden curse","Something good that seemed bad at first","A wonderful event","A dangerous situation"], answer:1,
+    explanation:"This idiom refers to something that turns out to be good even though it initially appeared to be harmful or unlucky." },
+
+  { id:"e-072", subject:"English", grade:6,
+    question:"What is the verb form of the noun 'decision'?",
+    options:["Decisive","Decide","Decided","Decider"], answer:1,
+    explanation:"The verb form of 'decision' (noun) is 'decide'. Decisive is an adjective." },
+
+  { id:"e-073", subject:"English", grade:9,
+    question:"In the sentence 'Although he was tired, he kept working', 'Although he was tired' is a:",
+    options:["Main clause","Noun clause","Adverbial clause","Relative clause"], answer:2,
+    explanation:"It is an adverbial clause of concession — it modifies the main clause by providing a contrasting condition." },
+
+  { id:"e-074", subject:"English", grade:7,
+    question:"Choose the word that best completes: 'The scientist made a _____ discovery.'",
+    options:["Groundbreaking","Grounded","Broken","Foundation"], answer:0,
+    explanation:"'Groundbreaking' means innovative and pioneering. It is the most appropriate adjective for a major discovery." },
+
+  { id:"e-075", subject:"English", grade:8,
+    question:"Which of the following is an example of alliteration?",
+    options:["The stars shone brightly","Peter Piper picked a peck","She was as brave as a lion","The tree moaned in the wind"], answer:1,
+    explanation:"Alliteration is the repetition of the same consonant sound at the start of nearby words: 'Peter Piper picked'." },
+
+  { id:"e-076", subject:"English", grade:6,
+    question:"What does the suffix '-ology' mean?",
+    options:["Fear of","Study of","Love of","Against"], answer:1,
+    explanation:"'-ology' means the study of: biology (study of life), geology (study of earth), psychology (study of mind)." },
+
+  { id:"e-077", subject:"English", grade:9,
+    question:"What is a 'paradox'?",
+    options:["A pair of similar things","A statement that seems contradictory but reveals truth","An error in logic","A pair of rhyming lines"], answer:1,
+    explanation:"A paradox is a seemingly self-contradictory statement that on investigation proves to be well-founded. E.g., 'I know that I know nothing.'" },
+
+  { id:"e-078", subject:"English", grade:7,
+    question:"Identify the adjective clause in: 'The house that Jack built is old.'",
+    options:["The house","that Jack built","is old","The house is old"], answer:1,
+    explanation:"'That Jack built' modifies the noun 'house' — it functions as an adjective clause (also called a relative clause)." },
+
+  { id:"e-079", subject:"English", grade:8,
+    question:"The word 'gregarious' means:",
+    options:["Shy and reserved","Fond of company","Extremely hungry","Easily angered"], answer:1,
+    explanation:"Gregarious means enjoying the company of others, sociable. It comes from Latin 'grex' meaning flock." },
+
+  { id:"e-080", subject:"English", grade:6,
+    question:"What is the past participle of 'break'?",
+    options:["Broke","Breaked","Broken","Breaking"], answer:2,
+    explanation:"Break → broke (past simple) → broken (past participle). Used in perfect tenses: 'The vase has broken.'" },
+
+  { id:"e-081", subject:"English", grade:7,
+    question:"Which sentence contains a dangling modifier?",
+    options:["Running fast, she won the race.","Running fast, the race was won.","She ran fast to win the race.","She won the race by running fast."], answer:1,
+    explanation:"'Running fast, the race was won' — 'the race' did not run fast. The participle has no clear subject. This is a dangling modifier." },
+
+  { id:"e-082", subject:"English", grade:9,
+    question:"What is the literary term for a story within a story?",
+    options:["Flashback","Frame narrative","Allegory","Soliloquy"], answer:1,
+    explanation:"A frame narrative (or story-within-a-story) is a technique where a main story contains or 'frames' one or more other stories. Example: The Canterbury Tales." },
+
+  { id:"e-083", subject:"English", grade:8,
+    question:"'Pull someone's leg' means:",
+    options:["To injure someone","To joke or tease someone","To help someone walk","To trip someone"], answer:1,
+    explanation:"This idiom means to tease or joke with someone: 'Don't worry, I was just pulling your leg!'" },
+
+  { id:"e-084", subject:"English", grade:6,
+    question:"Which word is spelled correctly?",
+    options:["Occurance","Occurrence","Occurrance","Occurence"], answer:1,
+    explanation:"The correct spelling is 'occurrence' — double 'c' and double 'r'." },
+
+  { id:"e-085", subject:"English", grade:9,
+    question:"What is the mood of the verb in: 'Let there be light'?",
+    options:["Indicative","Subjunctive","Imperative","Interrogative"], answer:1,
+    explanation:"This is the subjunctive mood, expressing a wish or command about a hypothetical/desired state. 'Let there be' is a 3rd-person imperative expressing wish." },
+
+  { id:"e-086", subject:"English", grade:7,
+    question:"Choose the sentence with the correct use of 'fewer' vs 'less':",
+    options:["I have less books than you.","I have fewer money than her.","There are fewer students today.","She drinks less glasses of water."], answer:2,
+    explanation:"'Fewer' is used with countable nouns (students, books). 'Less' is used with uncountable nouns (money, water)." },
+
+  { id:"e-087", subject:"English", grade:8,
+    question:"What does 'ubiquitous' mean?",
+    options:["Unique and rare","Appearing everywhere at once","Very old","Very large"], answer:1,
+    explanation:"Ubiquitous means present, appearing, or found everywhere. 'Mobile phones are ubiquitous in modern life.'" },
+
+  { id:"e-088", subject:"English", grade:6,
+    question:"What type of noun is 'happiness'?",
+    options:["Proper noun","Collective noun","Abstract noun","Material noun"], answer:2,
+    explanation:"An abstract noun names a quality, idea, or state that cannot be seen or touched: happiness, courage, freedom." },
+
+  { id:"e-089", subject:"English", grade:9,
+    question:"The repetition of a grammatical structure for emphasis is called:",
+    options:["Anaphora","Alliteration","Assonance","Antithesis"], answer:0,
+    explanation:"Anaphora is the repetition of a word or phrase at the beginning of successive clauses: 'We shall fight on the beaches, we shall fight on the landing grounds...'" },
+
+  { id:"e-090", subject:"English", grade:7,
+    question:"What is the collective noun for a group of wolves?",
+    options:["Pack","Herd","Flock","Colony"], answer:0,
+    explanation:"A group of wolves is called a 'pack'. Herd is for cattle, flock is for birds, colony is for ants/bats." },
 
 
   // ── Science — batch 2 (20 more questions) ────────────────────────────────
