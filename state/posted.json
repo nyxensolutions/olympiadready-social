@@ -3574,5 +3574,18 @@
     "igMediaId": "18112500499762171",
     "file": "content/quizzes/2026-08-04/morning-question.png",
     "at": "2026-08-04T01:27:06.553Z"
+  },
+  {
+    "slotKey": "2026-08-04-handwritten-carousel",
+    "type": "carousel",
+    "igMediaId": "18029606828832496",
+    "topic": "Algebra Basics",
+    "files": [
+      "social-content/handwritten/batches/batch-010-algebra-basics/slide-1.png",
+      "social-content/handwritten/batches/batch-010-algebra-basics/slide-2.png",
+      "social-content/handwritten/batches/batch-010-algebra-basics/slide-3.png",
+      "social-content/handwritten/batches/batch-010-algebra-basics/slide-4.png"
+    ],
+    "at": "2026-08-04T02:32:02.268Z"
   }
 ]
