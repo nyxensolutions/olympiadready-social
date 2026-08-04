@@ -3602,5 +3602,17 @@
     "ytVideoId": "7KdU0xe_vNE",
     "file": "content/reels/2026-08-04.mp4",
     "at": "2026-08-04T05:27:43.265Z"
+  },
+  {
+    "slotKey": "2026-08-04-learn",
+    "type": "carousel",
+    "igMediaId": "17950300485238506",
+    "subject": "English",
+    "files": [
+      "content/learn/2026-08-04-slide-1.png",
+      "content/learn/2026-08-04-slide-2.png",
+      "content/learn/2026-08-04-slide-3.png"
+    ],
+    "at": "2026-08-04T08:02:43.223Z"
   }
 ]
