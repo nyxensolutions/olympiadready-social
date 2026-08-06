@@ -3729,5 +3729,12 @@
       "social-content/handwritten/batches/batch-011-food-chains/slide-4.png"
     ],
     "at": "2026-08-06T02:32:03.086Z"
+  },
+  {
+    "slotKey": "2026-08-06-dyk-morning",
+    "type": "image",
+    "igMediaId": "17868456579593625",
+    "file": "content/dyk/2026-08-06-morning.png",
+    "at": "2026-08-06T03:27:15.580Z"
   }
 ]
