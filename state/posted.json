@@ -3716,5 +3716,18 @@
     "igMediaId": "18112992484941359",
     "file": "content/quizzes/2026-08-06/morning-question.png",
     "at": "2026-08-06T01:26:59.492Z"
+  },
+  {
+    "slotKey": "2026-08-06-handwritten-carousel",
+    "type": "carousel",
+    "igMediaId": "18130783303711635",
+    "topic": "Food Chains & Ecosystems",
+    "files": [
+      "social-content/handwritten/batches/batch-011-food-chains/slide-1.png",
+      "social-content/handwritten/batches/batch-011-food-chains/slide-2.png",
+      "social-content/handwritten/batches/batch-011-food-chains/slide-3.png",
+      "social-content/handwritten/batches/batch-011-food-chains/slide-4.png"
+    ],
+    "at": "2026-08-06T02:32:03.086Z"
   }
 ]
