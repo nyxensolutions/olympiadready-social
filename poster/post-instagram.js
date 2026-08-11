@@ -343,6 +343,43 @@ async function runHandwrittenCarousel() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
+async function runHandwrittenReel() {
+  const date    = istDateString();
+  const slotKey = `${date}-handwritten-reel`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const mp4         = path.join(ROOT, "content", "reels", `${date}-handwritten.mp4`);
+  const captionFile = path.join(ROOT, "content", "reels", `${date}-handwritten.txt`);
+
+  if (!fs.existsSync(mp4)) {
+    log(`No handwritten reel for ${date} — nothing to post.`);
+    return;
+  }
+
+  // Stage queue.json (marked posted by the generator) so it doesn't block
+  // the pull --rebase inside commitContent with "unstaged changes" error.
+  execSync("git add social-content/handwritten/queue.json", { cwd: ROOT, stdio: "ignore" });
+
+  // Commit the generated MP4 + caption + updated queue.json to GitHub FIRST
+  // so the raw.githubusercontent.com URL exists when Instagram fetches it.
+  await commitContent(`content: handwritten reel for ${date}`);
+
+  const caption = fs.existsSync(captionFile)
+    ? fs.readFileSync(captionFile, "utf8").trim()
+    : `Study notes reel for ${date}`;
+
+  const url = rawUrlFor(mp4);
+  log(`video URL: ${url}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+
+  const mediaId = await postReel({ videoUrl: url, caption });
+  log(`✅ posted ig media ${mediaId}`);
+
+  record({ slotKey, type: "reel", igMediaId: mediaId, file: path.relative(ROOT, mp4) });
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
 // ── main ───────────────────────────────────────────────────────────
 const HANDLERS = {
   morning: runMorning,
@@ -354,6 +391,7 @@ const HANDLERS = {
   learn: runLearn,
   blog: runBlog,
   "handwritten-carousel": runHandwrittenCarousel,
+  "handwritten-reel": runHandwrittenReel,
 };
 
 (async () => {
