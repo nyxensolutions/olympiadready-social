@@ -1,0 +1,69 @@
+name: Refresh Instagram Access Token
+
+# Runs on the 1st of every month — well within the 60-day expiry window.
+# Also runs manually so you can force a refresh at any time.
+on:
+  schedule:
+    - cron: '0 2 1 * *'   # 02:00 UTC on the 1st of every month
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Exchange token for a fresh 60-day long-lived token
+        id: exchange
+        env:
+          FB_APP_ID:       ${{ secrets.FB_APP_ID }}
+          FB_APP_SECRET:   ${{ secrets.FB_APP_SECRET }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          RESPONSE=$(curl -sf \
+            "https://graph.facebook.com/oauth/access_token\
+?grant_type=fb_exchange_token\
+&client_id=${FB_APP_ID}\
+&client_secret=${FB_APP_SECRET}\
+&fb_exchange_token=${IG_ACCESS_TOKEN}")
+
+          if echo "$RESPONSE" | grep -q '"error"'; then
+            echo "❌ Token refresh failed — API returned an error:"
+            echo "$RESPONSE"
+            exit 1
+          fi
+
+          NEW_TOKEN=$(echo "$RESPONSE" | python3 -c \
+            "import sys,json; print(json.load(sys.stdin)['access_token'])")
+
+          if [ -z "$NEW_TOKEN" ]; then
+            echo "❌ Could not parse access_token from response"
+            echo "$RESPONSE"
+            exit 1
+          fi
+
+          echo "✅ New token obtained (length: ${#NEW_TOKEN})"
+          # Pass to next step via env file — never printed to logs
+          echo "NEW_TOKEN=$NEW_TOKEN" >> "$GITHUB_ENV"
+
+      - name: Update IG_ACCESS_TOKEN secret in GitHub
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          echo "$NEW_TOKEN" | gh secret set IG_ACCESS_TOKEN \
+            --repo "${{ github.repository }}"
+          echo "✅ IG_ACCESS_TOKEN secret updated successfully"
+
+      - name: Verify new token is valid
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: |
+          RESULT=$(curl -sf \
+            "https://graph.facebook.com/v20.0/${IG_USER_ID}?fields=id,username&access_token=${NEW_TOKEN}")
+          if echo "$RESULT" | grep -q '"id"'; then
+            USERNAME=$(echo "$RESULT" | python3 -c \
+              "import sys,json; d=json.load(sys.stdin); print(d.get('username','unknown'))")
+            echo "✅ Token verified — connected as @${USERNAME}"
+          else
+            echo "⚠️  Token was saved but verification call returned unexpected response:"
+            echo "$RESULT"
+          fi
