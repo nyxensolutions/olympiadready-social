@@ -192,6 +192,31 @@ const FOOT = `</body></html>`;
 const WM   = `<div class="wm"><img src="${LOGO_LIGHT}"><span>Olympiad</span><span class="r">Ready</span></div>`;
 const BLOBS = `<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>`;
 
+// ── New visual styles for scripts 30–49 ─────────────────────────────
+// Light cream (fresh/readable contrast)
+const BG_LIGHT = `background:#eef2ff;`;
+const WM_LIGHT = `<div class="wm"><img src="${LOGO_LIGHT}"><span style="color:#0B1E5B;">Olympiad</span><span style="color:#d97706;">Ready</span></div>`;
+const H1_LIGHT = `color:#0B1E5B;`;
+const SUB_LIGHT = `color:#3a4a6b;`;
+
+// Deep green (science/nature topics)
+const BG_GREEN = `background:radial-gradient(ellipse 1400px 1000px at 50% -5%,#065f46 0%,#022c22 60%,#011a15 100%);`;
+const BLOBS_G  = `<div class="blob" style="width:600px;height:600px;top:-150px;left:-150px;background:radial-gradient(circle,rgba(16,185,129,.3),transparent 65%);filter:blur(60px);position:absolute;border-radius:50%;pointer-events:none;"></div><div class="blob" style="width:640px;height:640px;bottom:-150px;right:-150px;background:radial-gradient(circle,rgba(5,150,105,.35),transparent 65%);filter:blur(60px);position:absolute;border-radius:50%;pointer-events:none;"></div>`;
+const G_PILL   = `display:inline-flex;align-items:center;gap:10px;background:rgba(16,185,129,.15);border:2px solid #10b981;color:#34d399;font-weight:700;font-size:22px;letter-spacing:1.5px;padding:12px 28px;border-radius:100px;text-transform:uppercase;`;
+const G_HL     = `color:#34d399;`;
+
+// Warm amber (urgency/motivation)
+const BG_AMBER = `background:radial-gradient(ellipse 1400px 1000px at 50% -5%,#92400e 0%,#451a03 60%,#1c0a00 100%);`;
+const BLOBS_A  = `<div class="blob" style="width:600px;height:600px;top:-150px;left:-150px;background:radial-gradient(circle,rgba(251,176,36,.25),transparent 65%);filter:blur(60px);position:absolute;border-radius:50%;pointer-events:none;"></div><div class="blob" style="width:640px;height:640px;bottom:-150px;right:-150px;background:radial-gradient(circle,rgba(217,119,6,.30),transparent 65%);filter:blur(60px);position:absolute;border-radius:50%;pointer-events:none;"></div>`;
+const A_PILL   = `display:inline-flex;align-items:center;gap:10px;background:rgba(251,176,36,.15);border:2px solid #FBB024;color:#FBB024;font-weight:700;font-size:22px;letter-spacing:2px;padding:12px 28px;border-radius:100px;text-transform:uppercase;`;
+const A_HL     = `color:#FBB024;`;
+
+// Deep purple (tips/tricks)
+const BG_PURPLE = `background:radial-gradient(ellipse 1400px 1000px at 50% -5%,#4c1d95 0%,#2e1065 60%,#0f0820 100%);`;
+const BLOBS_P   = `<div class="blob" style="width:600px;height:600px;top:-150px;left:-150px;background:radial-gradient(circle,rgba(167,139,250,.30),transparent 65%);filter:blur(60px);position:absolute;border-radius:50%;pointer-events:none;"></div><div class="blob" style="width:640px;height:640px;bottom:-150px;right:-150px;background:radial-gradient(circle,rgba(139,92,246,.35),transparent 65%);filter:blur(60px);position:absolute;border-radius:50%;pointer-events:none;"></div>`;
+const P_PILL   = `display:inline-flex;align-items:center;gap:10px;background:rgba(167,139,250,.15);border:2px solid #a78bfa;color:#c4b5fd;font-weight:700;font-size:22px;letter-spacing:1.5px;padding:12px 28px;border-radius:100px;text-transform:uppercase;`;
+const P_HL     = `color:#c4b5fd;`;
+
 // ── Helper: browser-frame card ───────────────────────────────────────
 function card(src, urlLabel, imgH = 480) {
   const img = src
@@ -1499,11 +1524,672 @@ function script29() { return [
   </div>${FOOT}`,
 ];}
 
+// ── Scripts 30–49: New content types & visual styles ────────────────
+
+// Script 30 — Quick Maths Challenge (LIGHT style)
+function script30() { return [
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:36px;">⚡ 30-Second Challenge</div>
+    <h1 style="font-size:90px;${H1_LIGHT}">Can you solve<br>this <span style="${A_HL}">Olympiad</span><br>question?</h1>
+    <p style="font-size:28px;${SUB_LIGHT}margin-top:28px;">Tap to see the question →</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:32px;">➕ IMO — Class 7</div>
+    <h1 style="font-size:62px;${H1_LIGHT}line-height:1.2;">A train travels<br>240 km in 3 hours.<br>How long to cover<br><span style="${A_HL}">400 km</span> at the<br>same speed?</h1>
+    <p style="font-size:26px;${SUB_LIGHT}margin-top:24px;">A) 4 hrs &nbsp; B) 5 hrs &nbsp; C) 4.5 hrs &nbsp; D) 6 hrs</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${G_PILL}margin-bottom:28px;">✅ Answer: B — 5 hours</div>
+    <h1 style="font-size:72px;${H1_LIGHT}margin-bottom:28px;">Speed = 240÷3 = <span style="color:#059669;">80 km/h</span><br>Time = 400÷80 = <span style="color:#059669;">5 hours</span></h1>
+    <div style="background:#fff;border-radius:20px;padding:28px 32px;width:90%;box-shadow:0 8px 30px rgba(0,0,0,.08);text-align:left;">
+      <p style="font-size:22px;color:#0B1E5B;font-weight:700;margin-bottom:12px;">🧠 Key formula: Time = Distance ÷ Speed</p>
+      <p style="font-size:20px;color:#4a5a7a;">Practise 100+ Speed-Distance questions on OlympiadReady — free!</p>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:36px;">🚀 Want More Like This?</div>
+    <h1 style="font-size:84px;${H1_LIGHT}margin-bottom:32px;">50,000+ Olympiad<br>questions.<br><span style="${A_HL}">Free to start.</span></h1>
+    <div style="display:inline-flex;align-items:center;gap:16px;background:#0B1E5B;color:#fff;font-weight:800;font-size:40px;padding:24px 48px;border-radius:20px;">🌐 olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 31 — Quick Science Question (GREEN style)
+function script31() { return [
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:36px;">🔬 Science Flashcard</div>
+    <h1 style="font-size:90px;">NSO question.<br><span style="${G_HL}">Can you</span><br>get it right?</h1>
+    <p class="sub" style="margin-top:28px;">Most Class 8 students get this wrong.</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:32px;">🧬 NSO — Class 8</div>
+    <h1 style="font-size:64px;line-height:1.2;margin-bottom:24px;">Which gas is<br>produced when<br>zinc reacts with<br><span style="${G_HL}">dilute sulphuric acid?</span></h1>
+    <p class="sub" style="font-size:26px;">A) Oxygen &nbsp; B) Carbon dioxide<br>C) Hydrogen &nbsp; D) Nitrogen</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:24px;">✅ Answer: C — Hydrogen</div>
+    <h1 style="font-size:68px;line-height:1.2;margin-bottom:24px;">Zn + H₂SO₄ →<br>ZnSO₄ + <span style="${G_HL}">H₂↑</span></h1>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">💡</span><span>Metals + dilute acids → Salt + Hydrogen</span></div>
+      <div class="feat"><span class="ic">🔥</span><span>Hydrogen burns with a "pop" sound</span></div>
+      <div class="feat"><span class="ic">📝</span><span>This reaction appears in NSO & NTSE every year</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:40px;">🌿 Master Science Olympiad</div>
+    <h1 style="font-size:84px;margin-bottom:32px;">50+ NSO-style<br>Science papers.<br><span style="${G_HL}">All free to start.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 32 — Olympiad Tip #3: Read the question twice (PURPLE)
+function script32() { return [
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:36px;">🎯 Olympiad Tip #3</div>
+    <h1 style="font-size:86px;">The mistake<br>that costs<br><span style="${P_HL}">easy marks</span><br>every exam.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:28px;">⚠️ The Problem</div>
+    <h1 style="font-size:82px;margin-bottom:24px;">Reading the<br>question <span style="${P_HL}">once</span><br>and rushing.</h1>
+    <p class="sub" style="font-size:26px;">40% of Olympiad errors are from<br><strong style="color:#c4b5fd;">misreading</strong> — not lack of knowledge.</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:24px;">✅ The Fix: Read It Twice</div>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num" style="background:#7c3aed;">1</div><div><div class="step-text">Read the question</div><div class="step-sub">Understand what is being asked</div></div></div>
+      <div class="step"><div class="step-num" style="background:#7c3aed;">2</div><div><div class="step-text">Read it again — spot the trap</div><div class="step-sub">Look for: "NOT", "EXCEPT", "ALWAYS", "NEVER"</div></div></div>
+      <div class="step"><div class="step-num" style="background:#7c3aed;">3</div><div><div class="step-text">Then look at the options</div><div class="step-sub">Never read options before finishing the question</div></div></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:36px;">💪 Build This Habit</div>
+    <h1 style="font-size:82px;margin-bottom:28px;">Timed mock exams<br>train you to<br><span style="${P_HL}">read under pressure.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="margin-top:24px;font-size:24px;">Full timed papers · All Olympiads · Free to start</p>
+  </div>${FOOT}`,
+];}
+
+// Script 33 — Olympiad Tip #4: Last 10 minutes (AMBER)
+function script33() { return [
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:36px;">⏰ Olympiad Tip #4</div>
+    <h1 style="font-size:88px;">What to do<br>in the <span style="${A_HL}">last<br>10 minutes</span><br>of your exam.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:24px;">🚦 The Final 10 Minutes</div>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num" style="background:#b45309;">1</div><div><div class="step-text">Stop attempting new hard questions</div><div class="step-sub">Switch fully to review mode</div></div></div>
+      <div class="step"><div class="step-num" style="background:#b45309;">2</div><div><div class="step-text">Fill in every unanswered question</div><div class="step-sub">No negative marking = always guess</div></div></div>
+      <div class="step"><div class="step-num" style="background:#b45309;">3</div><div><div class="step-text">Re-check your circled doubtful answers</div><div class="step-sub">Only change if you're now certain</div></div></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:28px;">🧠 The Science Behind This</div>
+    <h1 style="font-size:78px;margin-bottom:24px;">Your first instinct<br>is right <span style="${A_HL}">80%</span><br>of the time.</h1>
+    <p class="sub" style="font-size:26px;">Research shows changing answers<br>lowers your score on average.<br><strong style="color:#FBB024;">Trust your gut. Review. Don't re-do.</strong></p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:36px;">⏱ Train With Real Timers</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">OlympiadReady's<br>mock exams run<br><span style="${A_HL}">exact countdown</span><br>timers.</h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 34 — What toppers do differently (DARK)
+function script34() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">🥇 Topper Habits</div>
+    <h1 style="font-size:86px;">Rank 1<br>Olympiad<br>students do<br><span class="g">5 things</span> differently.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">📋 The Topper Playbook</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📅</span><span><strong>Daily</strong> — 10 questions, same time every day</span></div>
+      <div class="feat"><span class="ic">❌</span><span><strong>Reviews</strong> every wrong answer within 24 hours</span></div>
+      <div class="feat"><span class="ic">⏱</span><span><strong>Takes timed mocks</strong> — never untimed practice only</span></div>
+      <div class="feat"><span class="ic">📖</span><span><strong>Reads explanations</strong>, not just the correct answer</span></div>
+      <div class="feat"><span class="ic">🎯</span><span><strong>Focuses on weak topics</strong> — not favourite topics</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:32px;">💡 The Uncomfortable Truth</div>
+    <h1 style="font-size:82px;margin-bottom:24px;">Toppers don't<br>study <span class="g">more.</span><br>They study<br><span class="g">smarter.</span></h1>
+    <p class="sub" style="font-size:26px;">1 hour of focused, reviewed practice<br>beats 3 hours of passive reading.</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🚀 Start All 5 Habits Today</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">OlympiadReady<br>is built for<br><span class="g">this exact</span><br>system.</h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="margin-top:24px;font-size:24px;">Free to start · AI-powered · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 35 — August Olympiad urgency (AMBER)
+function script35() { return [
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:36px;">📅 August Is Olympiad Season</div>
+    <h1 style="font-size:88px;">Registrations<br>are open.<br>Is your child<br><span style="${A_HL}">ready?</span></h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:28px;">📊 The Preparation Gap</div>
+    <h1 style="font-size:80px;margin-bottom:24px;">Most students<br>register.<br>Few <span style="${A_HL}">prepare</span><br>the right way.</h1>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">❌</span><span>Reading textbooks isn't Olympiad prep</span></div>
+      <div class="feat"><span class="ic">❌</span><span>Solving last year's paper once isn't enough</span></div>
+      <div class="feat"><span class="ic">✅</span><span>Daily timed practice with AI feedback is</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:24px;">⚡ Start Today — Not Tomorrow</div>
+    <h1 style="font-size:80px;margin-bottom:20px;">Every week<br>of practice<br>adds <span style="${A_HL}">≈ 8–12%</span><br>to your score.</h1>
+    <p class="sub" style="font-size:26px;">There are still weeks left.<br>Make every one of them count.</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:36px;">🎯 Your Olympiad Coach is Ready</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">AI practice.<br>Timed mocks.<br><span style="${A_HL}">Starts free.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 36 — Spell Bee Prep (PURPLE)
+function script36() { return [
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:36px;">🐝 Spell Bee Season</div>
+    <h1 style="font-size:90px;">Is your child<br>ready for<br><span style="${P_HL}">Spell Bee</span><br>Class 1–12?</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:24px;">📖 What Spell Bee Tests</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🔤</span><span>Correct spelling under time pressure</span></div>
+      <div class="feat"><span class="ic">📚</span><span>Vocabulary — meaning, usage, antonyms</span></div>
+      <div class="feat"><span class="ic">🔊</span><span>Phonics and word patterns</span></div>
+      <div class="feat"><span class="ic">📝</span><span>Sentence correction & word forms</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:28px;">✅ How OlympiadReady Helps</div>
+    <h1 style="font-size:80px;margin-bottom:24px;">Spell Bee papers<br>for every class.<br><span style="${P_HL}">AI-generated.</span><br>Unlimited.</h1>
+    <p class="sub" style="font-size:25px;">Class 1 to 12 · SOF-aligned vocabulary lists<br>Timed word quizzes · Free to start</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:36px;">🐝 Practise Spell Bee Today</div>
+    <h1 style="font-size:86px;margin-bottom:28px;">Spelling.<br>Vocabulary.<br><span style="${P_HL}">All covered.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 37 — Parents: 3 questions to ask your child (LIGHT)
+function script37() { return [
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:36px;">👨‍👩‍👧 For Parents</div>
+    <h1 style="font-size:84px;${H1_LIGHT}">3 questions<br>to ask your<br>child <span style="${A_HL}">tonight</span><br>about Olympiad.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:28px;">❓ Question 1</div>
+    <h1 style="font-size:76px;${H1_LIGHT}margin-bottom:20px;">"Have you taken<br>a <span style="${A_HL}">timed mock exam</span><br>in the last week?"</h1>
+    <div style="background:#fff;border-radius:20px;padding:24px 28px;width:90%;box-shadow:0 4px 20px rgba(0,0,0,.06);">
+      <p style="font-size:22px;color:#0B1E5B;font-weight:600;">Why it matters: Reading notes ≠ exam readiness. Timed practice is what builds speed and confidence.</p>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:28px;">❓ Question 2 & 3</div>
+    <h1 style="font-size:68px;${H1_LIGHT}margin-bottom:20px;">"What was your<br>score on your<br>last practice paper?"</h1>
+    <h1 style="font-size:68px;${H1_LIGHT}margin-top:16px;">"Do you know<br><span style="${A_HL}">why</span> you got<br>the wrong ones wrong?"</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:32px;">✅ Help Them Practice Right</div>
+    <h1 style="font-size:82px;${H1_LIGHT}margin-bottom:28px;">Timed papers.<br>AI explanations.<br><span style="${A_HL}">Free to start.</span></h1>
+    <div style="display:inline-flex;align-items:center;gap:16px;background:#0B1E5B;color:#fff;font-weight:800;font-size:38px;padding:24px 48px;border-radius:20px;">🌐 olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 38 — The one Maths formula (DARK)
+function script38() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">➕ Olympiad Maths Secret</div>
+    <h1 style="font-size:86px;">The <span class="g">one formula</span><br>that appears<br>in almost<br>every IMO paper.</span></h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">📐 The Formula</div>
+    <h1 style="font-size:96px;margin-bottom:16px;letter-spacing:-2px;"><span class="g">a² + b²<br>= c²</span></h1>
+    <p class="sub" style="font-size:26px;margin-bottom:28px;">Pythagoras' theorem. It appears in<br>geometry, mensuration, coordinate geometry,<br>and speed-distance problems.</p>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">🔺</span><span>Right triangles · Diagonals · Heights</span></div>
+      <div class="feat"><span class="ic">📐</span><span>Common triplets: 3-4-5 · 5-12-13 · 8-15-17</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">💡 Olympiad Trap Question</div>
+    <h1 style="font-size:64px;line-height:1.2;margin-bottom:20px;">A ladder 10m long<br>leans against a wall.<br>Its foot is 6m from<br>the wall. How high<br>does it <span class="g">reach?</span></h1>
+    <p class="sub" style="font-size:26px;">h² = 10² − 6² = 100 − 36 = 64 → <strong style="color:#4ade80;">h = 8m</strong></p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🎯 Master Geometry</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">100+ geometry<br>questions.<br><span class="g">AI-explained.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 39 — Science concept 80% get wrong (GREEN)
+function script39() { return [
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:36px;">🔬 Science Alert</div>
+    <h1 style="font-size:86px;">The science<br>concept <span style="${G_HL}">80%</span><br>of students<br>get wrong.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:24px;">⚡ Mass vs Weight</div>
+    <h1 style="font-size:68px;line-height:1.2;margin-bottom:24px;">They are <span style="color:#f87171;">NOT</span><br>the same thing.</h1>
+    <div class="feats" style="margin-top:0;">
+      <div class="feat"><span class="ic">⚖️</span><span><strong>Mass</strong> = amount of matter. Unit: kg. Never changes.</span></div>
+      <div class="feat"><span class="ic">🌍</span><span><strong>Weight</strong> = mass × gravity. Unit: Newton. Changes on Moon!</span></div>
+      <div class="feat"><span class="ic">🌙</span><span>On the Moon, your mass stays the same but weight = 1/6th</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:24px;">🧪 Exam Question</div>
+    <h1 style="font-size:64px;line-height:1.2;margin-bottom:20px;">A person weighs<br>600N on Earth.<br>What is their<br>weight on the Moon?<br>(g_moon = g/6)</h1>
+    <p class="sub" style="font-size:28px;">Weight on Moon = 600 ÷ 6 = <strong style="${G_HL}">100 N</strong></p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_GREEN}padding:72px 60px;">${BLOBS_G}${WM}
+    <div style="${G_PILL}margin-bottom:36px;">🔬 Master NSO Science</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">500+ NSO Science<br>questions with<br><span style="${G_HL}">AI explanations.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 40 — Try without signup (DARK)
+function script40() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:36px;">⚡ No Login Needed</div>
+    <h1 style="font-size:90px;">Try 5 Olympiad<br>questions <span class="gr">right now.</span><br>No signup.</h1>
+    <p class="sub" style="margin-top:28px;">Seriously. Open the site. Tap Practice.<br>You're in. No account needed.</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🚀 Here's What Happens</div>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num">1</div><div><div class="step-text">Go to olympiadready.com</div><div class="step-sub">Works on phone or laptop</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-text">Pick your subject & class</div><div class="step-sub">IMO, NSO, IEO, IGKO and more</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-text">Start practising instantly</div><div class="step-sub">AI explains every answer immediately</div></div></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:40px;">🎁 Completely Free to Start</div>
+    <h1 style="font-size:88px;margin-bottom:32px;">Open it now.<br><span class="gr">Don't wait.</span></h1>
+    <div class="url-box" style="margin-bottom:24px;"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="font-size:26px;">No download · No credit card · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 41 — Level 2 is where medals are decided (AMBER)
+function script41() { return [
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:36px;">🥇 The Secret Level</div>
+    <h1 style="font-size:86px;">Level 2 is<br>where Olympiad<br><span style="${A_HL}">medals</span><br>are decided.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:24px;">📊 Level 1 vs Level 2</div>
+    <div class="compare">
+      <div class="col col-free">
+        <div class="col-title" style="font-size:22px;">Level 1</div>
+        <div class="col-item" style="font-size:20px;">School-level exam</div>
+        <div class="col-item" style="font-size:20px;">Multiple choice, 50 Qs</div>
+        <div class="col-item" style="font-size:20px;">Qualify top 5–10%</div>
+        <div class="col-item" style="font-size:20px;">Most students stop here</div>
+      </div>
+      <div class="col col-pro">
+        <div class="col-title" style="color:#FBB024;font-size:22px;">Level 2 🏆</div>
+        <div class="col-item" style="font-size:20px;"><span class="ck">✓</span>National level</div>
+        <div class="col-item" style="font-size:20px;"><span class="ck">✓</span>Harder, fewer topics</div>
+        <div class="col-item" style="font-size:20px;"><span class="ck">✓</span>Gold/Silver/Bronze</div>
+        <div class="col-item" style="font-size:20px;"><span class="ck">✓</span>This is where prep matters most</div>
+      </div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:28px;">📚 Level 2 Prep on OlympiadReady</div>
+    <h1 style="font-size:80px;margin-bottom:24px;">Level 2 papers.<br>Harder concepts.<br><span style="${A_HL}">AI-powered</span><br>explanations.</h1>
+    <p class="sub" style="font-size:26px;">Most platforms stop at Level 1.<br>We go all the way to the medal round.</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_AMBER}padding:72px 60px;">${BLOBS_A}${WM}
+    <div style="${A_PILL}margin-bottom:36px;">🎯 Aim Higher</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Don't just<br>qualify Level 1.<br><span style="${A_HL}">Win Level 2.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 42 — Score improvement story (DARK)
+function script42() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">📈 Real Progress</div>
+    <h1 style="font-size:88px;">"My mock score<br>went from<br><span style="color:#f87171;">58%</span> to<br><span class="g">91%</span> in 4 weeks."</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🗓 Week by Week</div>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num" style="background:#ef4444;font-size:20px;">W1</div><div><div class="step-text">Score: 58% — started mock exams</div><div class="step-sub">Reviewed every wrong answer with AI</div></div></div>
+      <div class="step"><div class="step-num" style="background:#f59e0b;font-size:20px;">W2</div><div><div class="step-text">Score: 67% — weak topics spotted</div><div class="step-sub">Focused only on those topics for 3 days</div></div></div>
+      <div class="step"><div class="step-num" style="background:#22c55e;font-size:20px;">W3</div><div><div class="step-text">Score: 78% — speed improving</div><div class="step-sub">Timed mocks every alternate day</div></div></div>
+      <div class="step"><div class="step-num" style="background:#3b82f6;font-size:20px;">W4</div><div><div class="step-text" style="color:#4ade80;">Score: 91% ✨</div><div class="step-sub">Consistent daily practice paid off</div></div></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">✅ The System That Got Them There</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📝</span><span>Daily timed mock exams on OlympiadReady</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>AI explanations for every wrong answer</span></div>
+      <div class="feat"><span class="ic">🎯</span><span>Focused practice on weak topics only</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🚀 Your Turn</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Start week 1<br><span class="g">today.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="margin-top:24px;font-size:24px;">Free to start · AI-powered · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 43 — Quick English Grammar Trap (LIGHT)
+function script43() { return [
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${P_PILL}margin-bottom:36px;">📖 IEO Grammar Challenge</div>
+    <h1 style="font-size:86px;${H1_LIGHT}">Which sentence<br>is <span style="${P_HL}">correct?</span><br>Most students<br>get this wrong.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${P_PILL}margin-bottom:32px;">🔍 Spot the Error</div>
+    <div style="background:#fff;border-radius:20px;padding:28px 32px;width:92%;box-shadow:0 8px 30px rgba(0,0,0,.08);text-align:left;margin-bottom:20px;">
+      <p style="font-size:24px;color:#ef4444;font-weight:700;margin-bottom:8px;">A) ❌ "Neither of the boys have finished their work."</p>
+      <p style="font-size:24px;color:#ef4444;font-weight:700;margin-bottom:8px;">B) ❌ "Each of the students are present today."</p>
+      <p style="font-size:24px;color:#059669;font-weight:700;margin-bottom:8px;">C) ✅ "Neither of the boys has finished his work."</p>
+      <p style="font-size:24px;color:#ef4444;font-weight:700;">D) ❌ "Each students are present today."</p>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${G_PILL}margin-bottom:24px;">✅ The Rule</div>
+    <h1 style="font-size:72px;${H1_LIGHT}margin-bottom:20px;">"Neither" and "Each"<br>take a <span style="color:#059669;">singular verb.</span></h1>
+    <div style="background:#fff;border-radius:20px;padding:24px 28px;width:92%;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:left;">
+      <p style="font-size:21px;color:#0B1E5B;font-weight:600;margin-bottom:10px;">💡 Memory trick: Neither = Not either ONE → singular</p>
+      <p style="font-size:21px;color:#4a5a7a;">Other indefinite pronouns also take singular: each, either, everyone, nobody, someone</p>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${P_PILL}margin-bottom:32px;">📖 Master IEO English</div>
+    <h1 style="font-size:82px;${H1_LIGHT}margin-bottom:28px;">1000+ IEO-style<br>grammar questions.<br><span style="${P_HL}">AI-explained.</span></h1>
+    <div style="display:inline-flex;align-items:center;gap:16px;background:#0B1E5B;color:#fff;font-weight:800;font-size:38px;padding:24px 48px;border-radius:20px;">🌐 olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 44 — 30-Day Olympiad Study Plan (DARK)
+function script44() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">📅 The 30-Day Plan</div>
+    <h1 style="font-size:86px;">How to go<br>from <span style="color:#f87171;">unprepared</span><br>to <span class="g">Olympiad-ready</span><br>in 30 days.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🗓 Week 1 — Baseline</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">📝</span><span>Take 1 full mock exam — don't prepare first</span></div>
+      <div class="feat"><span class="ic">🔍</span><span>Identify your 3 weakest topics from the results</span></div>
+      <div class="feat"><span class="ic">📚</span><span>Study ONLY those 3 topics for 3 days</span></div>
+      <div class="feat"><span class="ic">🔁</span><span>Retake a mock — see if those topics improved</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🗓 Week 2–3 — Build Speed</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">⏱</span><span>1 timed mock every 2 days</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>Read AI explanations for every wrong answer</span></div>
+      <div class="feat"><span class="ic">🎯</span><span>10 targeted practice questions on weak spots daily</span></div>
+      <div class="feat"><span class="ic">📈</span><span>Track score trend — it should go up each week</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🗓 Week 4 — Peak Prep</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🏁</span><span>Full mock exam every day (yes, every day)</span></div>
+      <div class="feat"><span class="ic">⏰</span><span>Simulate real exam timing exactly</span></div>
+      <div class="feat"><span class="ic">✅</span><span>Only review weak topics — don't add new ones</span></div>
+      <div class="feat"><span class="ic">😴</span><span>Day 30: rest, revise formulas, sleep early</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🚀 OlympiadReady Powers This Entire Plan</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Mocks. Practice.<br>AI explanations.<br><span class="g">Day 1 is free.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 45 — Your child's dashboard (DARK)
+function script45() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">📊 Inside Look</div>
+    <h1 style="font-size:86px;">This is what your<br>child's Olympiad<br><span class="g">dashboard</span><br>looks like.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">📈 Progress Dashboard</div>
+    <h1 style="font-size:76px;margin-bottom:20px;">Every paper.<br>Every score.<br><span class="g">Every weak topic</span><br>— visible.</h1>
+    ${card(SS.badges || SS.mock, "dashboard", 480)}
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:24px;">🏅 Badges Earned So Far</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🌟</span><span>First Paper — taken your first mock</span></div>
+      <div class="feat"><span class="ic">🔥</span><span>7-Day Streak — practiced 7 days in a row</span></div>
+      <div class="feat"><span class="ic">🧠</span><span>Subject Master — 90%+ in any subject</span></div>
+      <div class="feat"><span class="ic">🏆</span><span>All 18 badges → physical medal shipped to you</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">🚀 Build Your Dashboard</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Start practising.<br>Watch the <span class="g">numbers<br>grow.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 46 — IMO vs NSO vs IEO — which is right for your child? (LIGHT)
+function script46() { return [
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:32px;">🎯 Parent's Guide</div>
+    <h1 style="font-size:80px;${H1_LIGHT}">IMO vs NSO<br>vs IEO vs IGKO.<br><span style="${A_HL}">Which one</span><br>is right for<br>your child?</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:24px;">➕ IMO — Maths</div>
+    <h1 style="font-size:68px;${H1_LIGHT}margin-bottom:16px;">International<br>Maths Olympiad</h1>
+    <div style="background:#fff;border-radius:20px;padding:24px 28px;width:92%;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:left;">
+      <p style="font-size:22px;color:#0B1E5B;font-weight:700;margin-bottom:8px;">Best for: Students who love Maths</p>
+      <p style="font-size:21px;color:#4a5a7a;margin-bottom:6px;">Topics: Arithmetic, Algebra, Geometry, Data handling</p>
+      <p style="font-size:21px;color:#4a5a7a;">Classes: 1–12 · Two levels</p>
+    </div>
+    <div style="background:#fff;border-radius:20px;padding:24px 28px;width:92%;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:left;margin-top:16px;">
+      <p style="font-size:22px;color:#0B1E5B;font-weight:700;margin-bottom:8px;">🔬 NSO — Best for: Science lovers</p>
+      <p style="font-size:21px;color:#4a5a7a;">Physics, Chemistry, Biology · Classes 1–12</p>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:24px;">📖 IEO & IGKO</div>
+    <div style="background:#fff;border-radius:20px;padding:24px 28px;width:92%;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:left;margin-bottom:16px;">
+      <p style="font-size:22px;color:#0B1E5B;font-weight:700;margin-bottom:8px;">📖 IEO — English lovers</p>
+      <p style="font-size:21px;color:#4a5a7a;">Grammar, Vocabulary, Reading — Classes 1–12</p>
+    </div>
+    <div style="background:#fff;border-radius:20px;padding:24px 28px;width:92%;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:left;margin-bottom:16px;">
+      <p style="font-size:22px;color:#0B1E5B;font-weight:700;margin-bottom:8px;">🌍 IGKO — Curious minds</p>
+      <p style="font-size:21px;color:#4a5a7a;">General Knowledge, Current Affairs — Classes 1–10</p>
+    </div>
+    <div style="background:#fff;border-radius:20px;padding:24px 28px;width:92%;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:left;">
+      <p style="font-size:22px;color:#0B1E5B;font-weight:700;margin-bottom:8px;">💻 NCO / ISSO — Tech kids</p>
+      <p style="font-size:21px;color:#4a5a7a;">Computer Science, Coding — Classes 2–12</p>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s" style="${BG_LIGHT}padding:72px 60px;">${WM_LIGHT}
+    <div style="${A_PILL}margin-bottom:32px;">✅ Prep for ALL of them</div>
+    <h1 style="font-size:82px;${H1_LIGHT}margin-bottom:28px;">One platform.<br>Every Olympiad.<br><span style="${A_HL}">Free to start.</span></h1>
+    <div style="display:inline-flex;align-items:center;gap:16px;background:#0B1E5B;color:#fff;font-weight:800;font-size:38px;padding:24px 48px;border-radius:20px;">🌐 olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 47 — Study smarter not harder (PURPLE)
+function script47() { return [
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:36px;">🎯 Olympiad Tip #5</div>
+    <h1 style="font-size:86px;">Don't study<br><span style="${P_HL}">more.</span><br>Study<br><span style="${P_HL}">smarter.</span></h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:24px;">❌ What Doesn't Work</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">❌</span><span>Reading the same chapter 5 times</span></div>
+      <div class="feat"><span class="ic">❌</span><span>Highlighting everything in the textbook</span></div>
+      <div class="feat"><span class="ic">❌</span><span>Solving only the questions you find easy</span></div>
+      <div class="feat"><span class="ic">❌</span><span>Skipping timed practice until the last week</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:24px;">✅ What Actually Works</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">✅</span><span>Take a test FIRST — then study the gaps</span></div>
+      <div class="feat"><span class="ic">✅</span><span>Review wrong answers before moving on</span></div>
+      <div class="feat"><span class="ic">✅</span><span>Practice under real timed conditions daily</span></div>
+      <div class="feat"><span class="ic">✅</span><span>Spend 80% of time on weak topics, not strong ones</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark" style="${BG_PURPLE}padding:72px 60px;">${BLOBS_P}${WM}
+    <div style="${P_PILL}margin-bottom:36px;">🧠 Built for Smart Studying</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">AI tracks your<br>weak topics.<br>You just <span style="${P_HL}">practice.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+  </div>${FOOT}`,
+];}
+
+// Script 48 — Failed first mock, then won (DARK)
+function script48() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">💪 True Story</div>
+    <h1 style="font-size:84px;">"I scored <span style="color:#f87171;">38%</span><br>on my first<br>mock exam."<br><span class="g">"Then I won<br>Rank 4 State."</span></h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:28px;">💡 What Changed</div>
+    <h1 style="font-size:82px;margin-bottom:24px;">The score<br>didn't matter.<br>What I <span class="g">did next</span><br>did.</h1>
+    <p class="sub" style="font-size:26px;">Instead of feeling bad, I opened the results<br>and read every single AI explanation.</p>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">📋 The Only System You Need</div>
+    <div class="steps" style="width:88%;">
+      <div class="step"><div class="step-num">1</div><div><div class="step-text">Take mock → see your score</div><div class="step-sub">Even 30% is useful data, not failure</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-text">Read AI explanation for each mistake</div><div class="step-sub">Understand WHY, not just what</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-text">Retake 3 days later</div><div class="step-sub">Watch the number go up</div></div></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:28px;">🥇 Your First Mock Is Not Your Last</div>
+    <h1 style="font-size:84px;margin-bottom:28px;">Start today.<br>Score higher<br><span class="g">tomorrow.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="margin-top:24px;font-size:24px;">AI-powered · Free to start · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
+// Script 49 — The PDF every Olympiad student needs (DARK)
+function script49() { return [
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:36px;">📄 Free Download</div>
+    <h1 style="font-size:84px;">The PDF every<br>Olympiad student<br>should <span class="g">download</span><br>right now.</h1>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark top">${BLOBS}${WM}
+    <div class="pill-w" style="margin-bottom:20px;">📥 What's Inside</div>
+    <h1 style="font-size:76px;margin-bottom:16px;">Full question<br>paper + <span class="g">OMR sheet</span><br>+ answer key.</h1>
+    ${card(SS.pdf || SS.practicePaper, "question-papers", 490)}
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill-g" style="margin-bottom:24px;">✅ Why Students Love This</div>
+    <div class="feats">
+      <div class="feat"><span class="ic">🖨️</span><span>Print it and practice with a real pen — just like exam day</span></div>
+      <div class="feat"><span class="ic">✔️</span><span>Fill the OMR sheet — build the bubbling habit</span></div>
+      <div class="feat"><span class="ic">📖</span><span>Detailed answer key explains every question</span></div>
+      <div class="feat"><span class="ic">♾️</span><span>New AI-generated paper each download — no repeats</span></div>
+    </div>
+  </div>${FOOT}`,
+
+  `${HEAD}<div class="s dark">${BLOBS}${WM}
+    <div class="pill" style="margin-bottom:36px;">📥 Download Now — Always Free</div>
+    <h1 style="font-size:88px;margin-bottom:28px;">Print. Practice.<br><span class="g">Win.</span></h1>
+    <div class="url-box"><span class="globe">🌐</span> olympiadready.com</div>
+    <p class="sub" style="margin-top:24px;font-size:25px;">Free PDF downloads · All Olympiads · Class 1–12</p>
+  </div>${FOOT}`,
+];}
+
 // ── Pick script by day ───────────────────────────────────────────────
-const SCRIPTS = [script0, script1, script2, script3, script4, script5, script6, script7, script8, script9, script10, script11, script12, script13, script14, script15, script16, script17, script18, script19, script20, script21, script22, script23, script24, script25, script26, script27, script28, script29];
-const day     = parseInt(dateStr.slice(-2), 10);
-const SCENES  = SCRIPTS[day % 30]();
-console.log(`using script ${day % SCRIPTS.length} (day=${day})`);
+const SCRIPTS = [
+  script0,  script1,  script2,  script3,  script4,
+  script5,  script6,  script7,  script8,  script9,
+  script10, script11, script12, script13, script14,
+  script15, script16, script17, script18, script19,
+  script20, script21, script22, script23, script24,
+  script25, script26, script27, script28, script29,
+  script30, script31, script32, script33, script34,
+  script35, script36, script37, script38, script39,
+  script40, script41, script42, script43, script44,
+  script45, script46, script47, script48, script49,
+];
+
+// Use a fixed epoch so the cycle advances forward each day (not per-month)
+const EPOCH   = new Date("2026-06-01");
+const dayNum  = Math.floor((new Date(dateStr) - EPOCH) / 86400000);
+const SCENES  = SCRIPTS[dayNum % SCRIPTS.length]();
+console.log(`using script ${dayNum % SCRIPTS.length} (dayNum=${dayNum}, date=${dateStr})`);
 
 // ── Render scenes via Playwright ────────────────────────────────────
 (async () => {
