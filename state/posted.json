@@ -3795,5 +3795,17 @@
     "igMediaId": "18104221529525696",
     "file": "content/dyk/2026-08-12-morning.png",
     "at": "2026-08-12T03:27:04.213Z"
+  },
+  {
+    "slotKey": "2026-08-12-blog",
+    "type": "carousel",
+    "igMediaId": "18120364660862619",
+    "slug": "olympiad-preparation-class-1-5",
+    "files": [
+      "content/blog/2026-08-12-slide-1.png",
+      "content/blog/2026-08-12-slide-2.png",
+      "content/blog/2026-08-12-slide-3.png"
+    ],
+    "at": "2026-08-12T05:32:26.907Z"
   }
 ]
