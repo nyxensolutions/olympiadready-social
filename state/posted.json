@@ -3916,5 +3916,15 @@
       "content/blog/2026-08-14-slide-3.png"
     ],
     "at": "2026-08-14T05:33:04.390Z"
+  },
+  {
+    "slotKey": "2026-08-13-answers",
+    "type": "carousel",
+    "igMediaId": "17949948825238540",
+    "files": [
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-08-13/morning-answer.png",
+      "https://raw.githubusercontent.com/nyxensolutions/olympiadready-social/main/content/quizzes/2026-08-13/evening-answer.png"
+    ],
+    "at": "2026-08-14T08:26:59.733Z"
   }
 ]
