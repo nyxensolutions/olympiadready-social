@@ -3938,5 +3938,12 @@
       "content/learn/2026-08-14-slide-3.png"
     ],
     "at": "2026-08-14T09:05:36.697Z"
+  },
+  {
+    "slotKey": "2026-08-14-evening",
+    "type": "image",
+    "igMediaId": "18070891910439599",
+    "file": "content/quizzes/2026-08-14/evening-question.png",
+    "at": "2026-08-14T13:26:54.595Z"
   }
 ]
