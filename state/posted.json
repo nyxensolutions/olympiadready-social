@@ -3966,5 +3966,17 @@
     "igMediaId": "18475648255108118",
     "file": "content/dyk/2026-08-15-morning.png",
     "at": "2026-08-15T03:27:12.046Z"
+  },
+  {
+    "slotKey": "2026-08-15-learn",
+    "type": "carousel",
+    "igMediaId": "18004349642777002",
+    "subject": "English",
+    "files": [
+      "content/learn/2026-08-15-slide-1.png",
+      "content/learn/2026-08-15-slide-2.png",
+      "content/learn/2026-08-15-slide-3.png"
+    ],
+    "at": "2026-08-15T08:03:03.291Z"
   }
 ]
