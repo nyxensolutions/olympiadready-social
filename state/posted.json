@@ -4073,5 +4073,17 @@
     "igMediaId": "18375816565228208",
     "file": "content/dyk/2026-08-17-morning.png",
     "at": "2026-08-17T03:26:59.560Z"
+  },
+  {
+    "slotKey": "2026-08-17-blog",
+    "type": "carousel",
+    "igMediaId": "18124387549886696",
+    "slug": "how-to-prepare-for-nso",
+    "files": [
+      "content/blog/2026-08-17-slide-1.png",
+      "content/blog/2026-08-17-slide-2.png",
+      "content/blog/2026-08-17-slide-3.png"
+    ],
+    "at": "2026-08-17T05:33:09.715Z"
   }
 ]
