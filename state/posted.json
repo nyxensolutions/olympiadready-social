@@ -4085,5 +4085,17 @@
       "content/blog/2026-08-17-slide-3.png"
     ],
     "at": "2026-08-17T05:33:09.715Z"
+  },
+  {
+    "slotKey": "2026-08-17-learn",
+    "type": "carousel",
+    "igMediaId": "18106070933335866",
+    "subject": "Mathematics",
+    "files": [
+      "content/learn/2026-08-17-slide-1.png",
+      "content/learn/2026-08-17-slide-2.png",
+      "content/learn/2026-08-17-slide-3.png"
+    ],
+    "at": "2026-08-17T08:03:14.411Z"
   }
 ]
