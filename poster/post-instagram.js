@@ -119,13 +119,14 @@ async function runEvening() {
 }
 
 async function runNoonAnswers() {
-  // Carousel of YESTERDAY's morning-answer + evening-answer.
+  // Posts answer slide(s) for YESTERDAY's quiz(zes).
+  // With the reduced schedule (morning quiz Mon/Wed/Fri, evening quiz Fri only)
+  // most days only have one answer slide — posted as a single image, not a carousel.
   const yesterday = istYesterdayString();
   const slotKey = `${yesterday}-answers`;
   if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
 
-  // Safety guard: only post answers if at least one of yesterday's questions
-  // was actually posted on Instagram. Prevents answering questions nobody saw.
+  // Only reveal answers for quizzes that were actually posted yesterday.
   const morningPosted = alreadyPosted(`${yesterday}-morning`);
   const eveningPosted = alreadyPosted(`${yesterday}-evening`);
   if (!morningPosted && !eveningPosted) {
@@ -133,17 +134,26 @@ async function runNoonAnswers() {
     return;
   }
 
-  const a1 = await ensureQuizImage(yesterday, "morning", "answer");
-  const a2 = await ensureQuizImage(yesterday, "evening", "answer");
+  const slideFiles = [];
+  if (morningPosted) slideFiles.push(await ensureQuizImage(yesterday, "morning", "answer"));
+  if (eveningPosted) slideFiles.push(await ensureQuizImage(yesterday, "evening", "answer"));
   await commitContent(`content: answers for ${yesterday}`);
 
   const caption = captions.buildAnswersCarousel(yesterday);
-  const urls = [rawUrlFor(a1), rawUrlFor(a2)];
-  log(`carousel URLs:\n  ${urls.join("\n  ")}`);
+  const urls    = slideFiles.map(rawUrlFor);
+  log(`answer URL(s) (${urls.length}):\n  ${urls.join("\n  ")}`);
 
   if (DRY) return log("DRY_RUN — skipping Graph API call");
-  const mediaId = await postCarousel({ imageUrls: urls, caption });
-  record({ slotKey, type: "carousel", igMediaId: mediaId, files: urls });
+
+  // Single answer slide → image post; two slides → carousel
+  let mediaId;
+  if (urls.length === 1) {
+    mediaId = await postImage({ imageUrl: urls[0], caption });
+  } else {
+    mediaId = await postCarousel({ imageUrls: urls, caption });
+  }
+  record({ slotKey, type: urls.length > 1 ? "carousel" : "image", igMediaId: mediaId,
+           files: slideFiles.map(f => path.relative(ROOT, f)) });
   log(`✅ posted ig media ${mediaId}`);
   await commitContent(`state: recorded ${slotKey}`);
 }
@@ -380,6 +390,74 @@ async function runHandwrittenReel() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
+// ── Handwritten one-pager ─────────────────────────────────────────────────────
+// The PNG is committed to content/handwritten-onepager/<YYYY-MM-DD>.png by you
+// before the Monday workflow fires. An optional <YYYY-MM-DD>.json beside it can
+// override the caption (fields: topic, grade, caption, hashtags).
+async function runHandwrittenOnepager() {
+  const date    = istDateString();
+  const slotKey = `${date}-handwritten-onepager`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const img         = path.join(ROOT, "content", "handwritten-onepager", `${date}.png`);
+  const captionFile = path.join(ROOT, "content", "handwritten-onepager", `${date}.json`);
+
+  if (!fs.existsSync(img)) {
+    log(`No handwritten one-pager for ${date} — nothing to post.`);
+    return;
+  }
+
+  const meta    = fs.existsSync(captionFile) ? JSON.parse(fs.readFileSync(captionFile, "utf8")) : {};
+  const caption = captions.buildOnepager(date, meta);
+  const url     = rawUrlFor(img);
+  log(`image URL: ${url}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+
+  const mediaId = await postImage({ imageUrl: url, caption });
+  log(`✅ posted ig media ${mediaId}`);
+
+  record({ slotKey, type: "image", igMediaId: mediaId,
+           topic: meta.topic || "", file: path.relative(ROOT, img) });
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
+// ── Mistake series ─────────────────────────────────────────────────────────────
+// Auto-generates a "most students get this wrong" reveal card from the quiz bank.
+// No manual assets required — Playwright renders the card on the fly.
+async function runMistake() {
+  const date    = istDateString();
+  const slotKey = `${date}-mistake`;
+  if (alreadyPosted(slotKey)) return log(`skipped — ${slotKey} already posted`);
+
+  const imgPath  = path.join(ROOT, "content", "mistake", `${date}.png`);
+  const metaPath = path.join(ROOT, "content", "mistake", `${date}.json`);
+
+  if (!fs.existsSync(imgPath)) {
+    log(`generating mistake card for ${date} …`);
+    execSync(`node generators/generate-mistake-image.js ${date}`, { cwd: ROOT, stdio: "inherit" });
+    if (!fs.existsSync(imgPath)) fail(`generator did not produce ${imgPath}`);
+  } else {
+    log(`using existing ${path.relative(ROOT, imgPath)}`);
+  }
+
+  const meta    = fs.existsSync(metaPath) ? JSON.parse(fs.readFileSync(metaPath, "utf8")) : {};
+  const caption = captions.buildMistake(date, meta);
+  await commitContent(`content: mistake card for ${date}`);
+
+  const url = rawUrlFor(imgPath);
+  log(`image URL: ${url}`);
+
+  if (DRY) return log("DRY_RUN — skipping Graph API call");
+
+  const mediaId = await postImage({ imageUrl: url, caption });
+  log(`✅ posted ig media ${mediaId}`);
+
+  record({ slotKey, type: "image", igMediaId: mediaId,
+           subject: meta.subject || "", file: path.relative(ROOT, imgPath) });
+  await commitContent(`state: recorded ${slotKey}`);
+}
+
 // ── main ───────────────────────────────────────────────────────────
 const HANDLERS = {
   morning: runMorning,
@@ -392,6 +470,8 @@ const HANDLERS = {
   blog: runBlog,
   "handwritten-carousel": runHandwrittenCarousel,
   "handwritten-reel": runHandwrittenReel,
+  "handwritten-onepager": runHandwrittenOnepager,
+  mistake: runMistake,
 };
 
 (async () => {

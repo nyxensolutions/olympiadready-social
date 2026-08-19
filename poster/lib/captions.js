@@ -304,9 +304,50 @@ function buildBlog(dateStr, meta) {
   return pool[day % pool.length];
 }
 
+// ── Handwritten one-pager ─────────────────────────────────────────────────────
+const TAGS_ONEPAGER = "#OlympiadReady #StudyNotes #HandwrittenNotes #OlympiadPrep #SOFOlympiad #IndianStudents #SchoolStudents #RevisionNotes #ExamPrep #LearnWithOlympiadReady #Class1to12 #KidsEducation #NotesOfInstagram #StudyTips #StudyWithMe";
+
+function buildOnepager(dateStr, meta = {}) {
+  // meta from content/handwritten-onepager/<date>.json:
+  //   { topic, grade, caption, hashtags }
+  if (meta.caption) return meta.caption + "\n\n" + (meta.hashtags || TAGS_ONEPAGER);
+
+  const topic = meta.topic || "today's topic";
+  const grade = meta.grade ? `Class ${meta.grade} ` : "";
+  const pool = [
+    `📝 ${grade}${topic} — everything on one page.\n\nSave this. Revise from it. Ace your Olympiad.\n\nKey concepts, formulas, tricks and examples — all in one handwritten cheat sheet.\n\nTest what you know with 50,000+ questions → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+    `One page. Every concept you need for ${topic}. 📖\n\nSwipe through, save it, come back before your Olympiad. This is the stuff that actually gets tested.\n\nFull AI-powered practice → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+    `If your notes looked like this, you'd ace every Olympiad. 🏆\n\n${grade}${topic} — handwritten, visual, built for Olympiad students.\n\nSave for quick revision before exam day 📌\n\nPractice with AI explanations → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+    `The one-pager your ${grade}child needs before their Olympiad. 📄\n\n${topic} — key formulas, definitions, examples. All in one handwritten sheet.\n\nShare this with every student who has an exam coming up!\n\nFree Olympiad practice → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+  ];
+  const day = parseInt(dateStr.slice(-2), 10);
+  return pool[day % pool.length];
+}
+
+// ── Mistake series ─────────────────────────────────────────────────────────────
+const TAGS_MISTAKE = "#OlympiadReady #CommonMistake #OlympiadPrep #SOFOlympiad #MathOlympiad #NSO #IMO #IndianStudents #SchoolStudents #StudyTips #ExamTips #OlympiadKids #Class1to12 #QuizChallenge #BrainTeaser";
+
+function buildMistake(dateStr, meta = {}) {
+  // meta from content/mistake/<date>.json:
+  //   { grade, subject, subjectTag, questionSnippet, caption, hashtags }
+  if (meta.caption) return meta.caption + "\n\n" + (meta.hashtags || TAGS_MISTAKE);
+
+  const subject = meta.subjectTag || "this";
+  const grade   = meta.grade ? `Class ${meta.grade} ` : "";
+  const pool = [
+    `Can YOUR child solve this ${grade}${subject} question? 🤔\n\nMost students choose the wrong answer — and don't know why.\n\nDrop A, B, C or D in the comments 👇 then look at the reveal!\n\nMaster the tricky ones → olympiadready.com\n\n${TAGS_MISTAKE}`,
+    `This ${grade}${subject} question trips up most students. 😅\n\nComment your answer BEFORE looking at the reveal.\nHow many in your family got it right?\n\nPractice 50,000+ questions with AI explanations → olympiadready.com\n\n${TAGS_MISTAKE}`,
+    `Save this. It'll come up in your Olympiad. 📌\n\n90% of ${grade}students who see this ${subject} question pick the wrong option.\n\nWas it you? Drop your answer below 👇\n\nPractice the hard ones free → olympiadready.com\n\n${TAGS_MISTAKE}`,
+    `⚠️ ${grade}${subject} trap question!\n\nThe most common wrong answer is already highlighted. Did you fall for it?\n\nComment below 👇 and share this with your study group!\n\n50,000+ Olympiad questions with AI explanations → olympiadready.com\n\n${TAGS_MISTAKE}`,
+  ];
+  const day = parseInt(dateStr.slice(-2), 10);
+  return pool[day % pool.length];
+}
+
 module.exports = {
   buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel,
   buildReel, buildDyk, buildYouTubeShort, buildLearn, buildBlog,
+  buildOnepager, buildMistake,
   WHATSAPP_POSTS, CAPTION_ANGLES, REEL_POOL_EXTRA,
   TAGS_PARENTS, TAGS_SCHOOLS, TAGS_KIDS,
 };

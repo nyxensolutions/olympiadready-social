@@ -19,6 +19,9 @@
     "post:learn": "node poster/post-instagram.js learn",
     "gen:learn": "node generators/generate-learn-image.js",
     "post:blog": "node poster/post-instagram.js blog",
+    "post:onepager": "node poster/post-instagram.js handwritten-onepager",
+    "post:mistake": "node poster/post-instagram.js mistake",
+    "gen:mistake": "node generators/generate-mistake-image.js",
     "gen:blog": "node generators/generate-blog-image.js",
     "dry-run": "DRY_RUN=1 node poster/post-instagram.js"
   },

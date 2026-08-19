@@ -2,7 +2,7 @@ name: Did You Know — evening (9 PM IST)
 
 on:
   schedule:
-    - cron: "30 15 * * *"  # 15:30 UTC = 21:00 IST
+    - cron: "30 15 * * 0"  # 15:30 UTC = 21:00 IST, Sundays only
   workflow_dispatch:
     inputs:
       dry_run:
