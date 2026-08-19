@@ -4183,5 +4183,12 @@
       "content/blog/2026-08-19-slide-3.png"
     ],
     "at": "2026-08-19T05:38:01.975Z"
+  },
+  {
+    "slotKey": "2026-08-19-evening",
+    "type": "image",
+    "igMediaId": "17920361838201198",
+    "file": "content/quizzes/2026-08-19/evening-question.png",
+    "at": "2026-08-19T14:06:40.552Z"
   }
 ]
