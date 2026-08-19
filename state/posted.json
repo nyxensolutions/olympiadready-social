@@ -4171,5 +4171,17 @@
     "igMediaId": "18626398858031371",
     "file": "content/dyk/2026-08-19-morning.png",
     "at": "2026-08-19T03:29:00.047Z"
+  },
+  {
+    "slotKey": "2026-08-19-blog",
+    "type": "carousel",
+    "igMediaId": "18329864998277413",
+    "slug": "benefits-of-olympiad-exams",
+    "files": [
+      "content/blog/2026-08-19-slide-1.png",
+      "content/blog/2026-08-19-slide-2.png",
+      "content/blog/2026-08-19-slide-3.png"
+    ],
+    "at": "2026-08-19T05:38:01.975Z"
   }
 ]
