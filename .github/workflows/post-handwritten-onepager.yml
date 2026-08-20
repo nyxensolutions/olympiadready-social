@@ -3,9 +3,7 @@ name: Handwritten one-pager (Mon 10 AM IST)
 # Exits silently if no file exists for today — no failure, no issue opened.
 
 on:
-  schedule:
-    - cron: '30 4 * * 1'   # 04:30 UTC = 10:00 IST, Mondays
-  workflow_dispatch:        # manual trigger for any day
+  workflow_dispatch:        # scheduled by cron-job.org (Mon 10 AM IST)
 
 permissions:
   contents: write

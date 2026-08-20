@@ -1,9 +1,7 @@
 name: Did You Know — morning (9 AM IST)
 
 on:
-  schedule:
-    - cron: "30 3 * * 2,4"   # 03:30 UTC = 09:00 IST, Tue/Thu (fills non-quiz mornings)
-  workflow_dispatch:
+  workflow_dispatch:        # scheduled by cron-job.org (Tue/Thu 9 AM IST)
     inputs:
       dry_run:
         description: "Build & commit content but skip the Instagram API call"

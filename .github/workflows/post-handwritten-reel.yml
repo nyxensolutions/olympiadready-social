@@ -1,9 +1,7 @@
 name: Post Handwritten Reel (08:00 IST)
 
 on:
-  schedule:
-    - cron: '30 2 * * *'   # 02:30 UTC = 08:00 IST daily — script exits if no batch scheduled today
-  workflow_dispatch:
+  workflow_dispatch:        # scheduled by cron-job.org (daily 8 AM IST — exits silently if no content)
     inputs:
       date:
         description: 'Date to post (YYYY-MM-DD), defaults to today IST'

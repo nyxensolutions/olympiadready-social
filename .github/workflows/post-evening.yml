@@ -1,9 +1,7 @@
 name: Evening quiz (7 PM IST)
 
 on:
-  schedule:
-    - cron: "30 13 * * 5"  # 13:30 UTC = 19:00 IST, Fridays only
-  workflow_dispatch:
+  workflow_dispatch:        # scheduled by cron-job.org (Fri 7 PM IST)
     inputs:
       dry_run:
         description: "Build & commit content but skip the Instagram API call"

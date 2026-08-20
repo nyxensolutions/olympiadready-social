@@ -3,9 +3,7 @@ name: Mistake series (Fri 11 AM IST)
 # and posts it every Friday. No manual asset required.
 
 on:
-  schedule:
-    - cron: '30 5 * * 5'   # 05:30 UTC = 11:00 IST, Fridays
-  workflow_dispatch:
+  workflow_dispatch:        # scheduled by cron-job.org (Fri 11 AM IST)
     inputs:
       dry_run:
         description: "Generate card but skip the Instagram API call"

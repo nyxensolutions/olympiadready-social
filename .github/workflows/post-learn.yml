@@ -1,9 +1,7 @@
 name: Daily Learn Card (1:30 PM IST)
 
 on:
-  schedule:
-    - cron: "0 8 * * 3"   # 08:00 UTC = 13:30 IST, Wednesdays only
-  workflow_dispatch:
+  workflow_dispatch:        # scheduled by cron-job.org (Wed 1:30 PM IST)
     inputs:
       dry_run:
         description: "Generate & commit card but skip the Instagram API call"

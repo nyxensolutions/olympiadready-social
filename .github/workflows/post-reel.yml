@@ -1,9 +1,7 @@
 name: Daily Reel (11 AM IST)
 
 on:
-  schedule:
-    - cron: "0 6 * * 2"    # 06:00 UTC = 11:30 IST, Tuesdays only (avoids Friday collision with mistake series)
-  workflow_dispatch:
+  workflow_dispatch:        # scheduled by cron-job.org (Tue 11:30 AM IST)
     inputs:
       dry_run:
         description: "Build & commit content but skip the Instagram API call"

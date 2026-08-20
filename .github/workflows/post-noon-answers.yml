@@ -1,9 +1,7 @@
 name: Yesterday's answers — carousel (2 PM IST)
 
 on:
-  schedule:
-    - cron: "30 8 * * 2,4,6"   # 08:30 UTC = 14:00 IST, Tue/Thu/Sat (day after quiz days)
-  workflow_dispatch:
+  workflow_dispatch:        # scheduled by cron-job.org (Tue/Thu/Sat 2 PM IST)
     inputs:
       dry_run:
         description: "Build & commit content but skip the Instagram API call"
