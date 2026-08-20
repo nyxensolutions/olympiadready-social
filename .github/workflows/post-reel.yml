@@ -2,7 +2,7 @@ name: Daily Reel (11 AM IST)
 
 on:
   schedule:
-    - cron: "30 5 * * *"   # 05:30 UTC = 11:00 IST
+    - cron: "0 6 * * 2"    # 06:00 UTC = 11:30 IST, Tuesdays only (avoids Friday collision with mistake series)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -15,7 +15,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: ig-bot
+  group: ig-bot-reel
   cancel-in-progress: false
 
 jobs:

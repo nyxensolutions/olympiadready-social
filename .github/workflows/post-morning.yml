@@ -15,7 +15,7 @@ permissions:
   issues: write             # so failures can auto-open an issue
 
 concurrency:
-  group: ig-bot
+  group: ig-bot-quiz
   cancel-in-progress: false
 
 jobs:

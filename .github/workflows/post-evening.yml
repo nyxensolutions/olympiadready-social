@@ -15,7 +15,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: ig-bot
+  group: ig-bot-quiz
   cancel-in-progress: false
 
 jobs:

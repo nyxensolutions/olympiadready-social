@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: ig-bot
+  group: ig-bot-reel
   cancel-in-progress: false
 
 jobs:

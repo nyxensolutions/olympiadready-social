@@ -2215,7 +2215,7 @@ console.log(`using script ${dayNum % SCRIPTS.length} (dayNum=${dayNum}, date=${d
   if (fs.existsSync(musicDir)) {
     const tracks = fs.readdirSync(musicDir).filter(f => /\.(mp3|m4a|wav)$/i.test(f)).sort();
     if (tracks.length) {
-      musicFile = path.join(musicDir, tracks[day % tracks.length]);
+      musicFile = path.join(musicDir, tracks[dayNum % tracks.length]);
       console.log(`using music: ${path.basename(musicFile)}`);
     }
   }
