@@ -4220,5 +4220,12 @@
       "content/quizzes/2026-08-19/evening-answer.png"
     ],
     "at": "2026-08-20T08:27:12.840Z"
+  },
+  {
+    "slotKey": "2026-08-20-evening",
+    "type": "image",
+    "igMediaId": "18112487929824719",
+    "file": "content/quizzes/2026-08-20/evening-question.png",
+    "at": "2026-08-20T13:26:48.451Z"
   }
 ]
