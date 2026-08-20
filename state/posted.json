@@ -4210,5 +4210,15 @@
       "content/learn/2026-08-20-slide-4.png"
     ],
     "at": "2026-08-20T08:03:21.743Z"
+  },
+  {
+    "slotKey": "2026-08-19-answers",
+    "type": "carousel",
+    "igMediaId": "18110186924046724",
+    "files": [
+      "content/quizzes/2026-08-19/morning-answer.png",
+      "content/quizzes/2026-08-19/evening-answer.png"
+    ],
+    "at": "2026-08-20T08:27:12.840Z"
   }
 ]
