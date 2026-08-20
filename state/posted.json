@@ -4197,5 +4197,18 @@
     "igMediaId": "18136434886625741",
     "file": "content/dyk/2026-08-20-morning.png",
     "at": "2026-08-20T03:27:36.699Z"
+  },
+  {
+    "slotKey": "2026-08-20-learn",
+    "type": "carousel",
+    "igMediaId": "18181511929412710",
+    "subject": "Mathematics",
+    "files": [
+      "content/learn/2026-08-20-slide-1.png",
+      "content/learn/2026-08-20-slide-2.png",
+      "content/learn/2026-08-20-slide-3.png",
+      "content/learn/2026-08-20-slide-4.png"
+    ],
+    "at": "2026-08-20T08:03:21.743Z"
   }
 ]
