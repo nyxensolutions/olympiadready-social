@@ -1,6 +1,7 @@
-name: Handwritten one-pager (Mon 10 AM IST)
-# Posts content/handwritten-onepager/<YYYY-MM-DD>.png committed in advance by you.
-# Exits silently if no file exists for today — no failure, no issue opened.
+name: Handwritten one-pager reel (Mon 10 AM IST)
+# Converts content/handwritten-onepager/<YYYY-MM-DD>.png → 7-sec MP4 via ffmpeg,
+# then posts as an Instagram Reel (same path as handwritten-reel).
+# Exits silently if no PNG exists for today — no failure, no issue opened.
 
 on:
   workflow_dispatch:        # scheduled by cron-job.org (Mon 10 AM IST)
@@ -22,7 +23,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       - run: npm ci || npm install
-      - name: Post handwritten one-pager
+      - name: Install ffmpeg
+        run: sudo apt-get install -y ffmpeg
+      - name: Post handwritten one-pager (as Reel)
         env:
           IG_USER_ID:      ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}

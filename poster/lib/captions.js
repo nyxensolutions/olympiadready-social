@@ -307,6 +307,7 @@ function buildBlog(dateStr, meta) {
 // ── Handwritten one-pager ─────────────────────────────────────────────────────
 const TAGS_ONEPAGER = "#OlympiadReady #StudyNotes #HandwrittenNotes #OlympiadPrep #SOFOlympiad #IndianStudents #SchoolStudents #RevisionNotes #ExamPrep #LearnWithOlympiadReady #Class1to12 #KidsEducation #NotesOfInstagram #StudyTips #StudyWithMe";
 
+// Legacy (static image post) — kept for backwards compatibility
 function buildOnepager(dateStr, meta = {}) {
   // meta from content/handwritten-onepager/<date>.json:
   //   { topic, grade, caption, hashtags }
@@ -319,6 +320,30 @@ function buildOnepager(dateStr, meta = {}) {
     `One page. Every concept you need for ${topic}. 📖\n\nSwipe through, save it, come back before your Olympiad. This is the stuff that actually gets tested.\n\nFull AI-powered practice → olympiadready.com\n\n${TAGS_ONEPAGER}`,
     `If your notes looked like this, you'd ace every Olympiad. 🏆\n\n${grade}${topic} — handwritten, visual, built for Olympiad students.\n\nSave for quick revision before exam day 📌\n\nPractice with AI explanations → olympiadready.com\n\n${TAGS_ONEPAGER}`,
     `The one-pager your ${grade}child needs before their Olympiad. 📄\n\n${topic} — key formulas, definitions, examples. All in one handwritten sheet.\n\nShare this with every student who has an exam coming up!\n\nFree Olympiad practice → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+  ];
+  const day = parseInt(dateStr.slice(-2), 10);
+  return pool[day % pool.length];
+}
+
+// Reel caption — hook-first, optimised for reach & saves
+function buildOnepagerReel(dateStr, meta = {}) {
+  // meta from content/handwritten-onepager/<date>.json:
+  //   { topic, grade, caption_hook, caption, hashtags }
+  // Explicit override wins.
+  if (meta.caption) return meta.caption + "\n\n" + (meta.hashtags || TAGS_ONEPAGER);
+
+  const topic = meta.topic || "today's topic";
+  const grade = meta.grade ? `Class ${meta.grade} ` : "";
+  // Use the per-topic caption_hook if available; otherwise a generic opener.
+  const hook  = meta.caption_hook
+    ? meta.caption_hook
+    : `${grade}${topic} — every formula you need, on one page 📄`;
+
+  const pool = [
+    `${hook}\n\n📝 Save this before your next Olympiad exam.\n\nAll the formulas, tricks and worked examples — handwritten, visual, ready to revise from.\n\nPractice 50,000+ Olympiad questions free → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+    `${hook}\n\n✏️ One page = everything you need for ${grade}${topic}.\n\nHandwritten. Visual. Built for Olympiad students.\n\nSave 📌 and come back on exam day.\n\nFree Olympiad practice → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+    `${hook}\n\n📌 This cheat sheet covers every formula tested in ${grade}Olympiads.\n\nSave it. Share it with your study group. Ace the exam.\n\nAI-powered practice with explanations → olympiadready.com\n\n${TAGS_ONEPAGER}`,
+    `${hook}\n\n🏆 This is what your ${grade}child's revision notes should look like.\n\n${topic} — formulas, examples, memory tricks — all on one handwritten sheet.\n\nFree Olympiad practice tests → olympiadready.com\n\n${TAGS_ONEPAGER}`,
   ];
   const day = parseInt(dateStr.slice(-2), 10);
   return pool[day % pool.length];
@@ -347,7 +372,7 @@ function buildMistake(dateStr, meta = {}) {
 module.exports = {
   buildMorningQuiz, buildEveningQuiz, buildAnswersCarousel,
   buildReel, buildDyk, buildYouTubeShort, buildLearn, buildBlog,
-  buildOnepager, buildMistake,
+  buildOnepager, buildOnepagerReel, buildMistake,
   WHATSAPP_POSTS, CAPTION_ANGLES, REEL_POOL_EXTRA,
   TAGS_PARENTS, TAGS_SCHOOLS, TAGS_KIDS,
 };

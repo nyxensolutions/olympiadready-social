@@ -390,10 +390,13 @@ async function runHandwrittenReel() {
   await commitContent(`state: recorded ${slotKey}`);
 }
 
-// ── Handwritten one-pager ─────────────────────────────────────────────────────
+// ── Handwritten one-pager (posted as a Reel) ──────────────────────────────────
 // The PNG is committed to content/handwritten-onepager/<YYYY-MM-DD>.png by you
-// before the Monday workflow fires. An optional <YYYY-MM-DD>.json beside it can
-// override the caption (fields: topic, grade, caption, hashtags).
+// before the Monday workflow fires. The handler converts it to a short MP4 using
+// ffmpeg (7 sec, 9:16, slow Ken Burns zoom), commits the video, then posts as a
+// Reel via the Graph API — same posting path as handwritten-reel.
+// An optional <YYYY-MM-DD>.json beside the PNG can override the caption
+// (fields: topic, grade, caption_hook, caption, hashtags).
 async function runHandwrittenOnepager() {
   const date    = istDateString();
   const slotKey = `${date}-handwritten-onepager`;
@@ -401,24 +404,47 @@ async function runHandwrittenOnepager() {
 
   const img         = path.join(ROOT, "content", "handwritten-onepager", `${date}.png`);
   const captionFile = path.join(ROOT, "content", "handwritten-onepager", `${date}.json`);
+  const mp4         = path.join(ROOT, "content", "handwritten-onepager", `${date}.mp4`);
 
   if (!fs.existsSync(img)) {
     log(`No handwritten one-pager for ${date} — nothing to post.`);
     return;
   }
 
+  // Convert PNG → short MP4 reel (9:16 portrait, 7 seconds, subtle zoom-in)
+  if (!fs.existsSync(mp4)) {
+    log(`converting ${path.relative(ROOT, img)} → reel MP4 …`);
+    execSync(
+      `ffmpeg -y -loop 1 -i "${img}" ` +
+      `-vf "scale=1080:1920:force_original_aspect_ratio=decrease,` +
+      `pad=1080:1920:(ow-iw)/2:(oh-ih)/2,` +
+      `zoompan=z='min(zoom+0.0004,1.06)':d=175:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920,` +
+      `fps=30" ` +
+      `-c:v libx264 -t 7 -pix_fmt yuv420p "${mp4}"`,
+      { cwd: ROOT, stdio: "inherit" }
+    );
+    if (!fs.existsSync(mp4)) fail(`ffmpeg did not produce ${mp4}`);
+  } else {
+    log(`using existing ${path.relative(ROOT, mp4)}`);
+  }
+
   const meta    = fs.existsSync(captionFile) ? JSON.parse(fs.readFileSync(captionFile, "utf8")) : {};
-  const caption = captions.buildOnepager(date, meta);
-  const url     = rawUrlFor(img);
-  log(`image URL: ${url}`);
+  const caption = captions.buildOnepagerReel(date, meta);
+
+  // Commit the MP4 to GitHub FIRST so the raw.githubusercontent.com URL
+  // is accessible when Instagram fetches it.
+  await commitContent(`content: one-pager reel for ${date}${meta.topic ? ` — ${meta.topic}` : ""}`);
+
+  const url = rawUrlFor(mp4);
+  log(`video URL: ${url}`);
 
   if (DRY) return log("DRY_RUN — skipping Graph API call");
 
-  const mediaId = await postImage({ imageUrl: url, caption });
+  const mediaId = await postReel({ videoUrl: url, caption });
   log(`✅ posted ig media ${mediaId}`);
 
-  record({ slotKey, type: "image", igMediaId: mediaId,
-           topic: meta.topic || "", file: path.relative(ROOT, img) });
+  record({ slotKey, type: "reel", igMediaId: mediaId,
+           topic: meta.topic || "", file: path.relative(ROOT, mp4) });
   await commitContent(`state: recorded ${slotKey}`);
 }
 
