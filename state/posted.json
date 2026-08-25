@@ -4305,5 +4305,14 @@
     "ytVideoId": "Ook4NSo-7mw",
     "file": "content/reels/2026-08-25.mp4",
     "at": "2026-08-25T10:58:28.401Z"
+  },
+  {
+    "slotKey": "2026-08-24-answers",
+    "type": "image",
+    "igMediaId": "17884154925615709",
+    "files": [
+      "content/quizzes/2026-08-24/morning-answer.png"
+    ],
+    "at": "2026-08-25T13:57:24.232Z"
   }
 ]
