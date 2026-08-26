@@ -4321,5 +4321,17 @@
     "igMediaId": "18411802291154051",
     "file": "content/quizzes/2026-08-26/morning-question.png",
     "at": "2026-08-26T06:57:01.367Z"
+  },
+  {
+    "slotKey": "2026-08-26-learn",
+    "type": "carousel",
+    "igMediaId": "18460923166187462",
+    "subject": "Mathematics",
+    "files": [
+      "content/learn/2026-08-26-slide-1.png",
+      "content/learn/2026-08-26-slide-2.png",
+      "content/learn/2026-08-26-slide-3.png"
+    ],
+    "at": "2026-08-26T13:27:49.363Z"
   }
 ]
