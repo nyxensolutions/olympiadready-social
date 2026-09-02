@@ -4451,5 +4451,12 @@
       "content/quizzes/2026-08-31/morning-answer.png"
     ],
     "at": "2026-09-01T13:56:54.339Z"
+  },
+  {
+    "slotKey": "2026-09-02-morning",
+    "type": "image",
+    "igMediaId": "17901855564560420",
+    "file": "content/quizzes/2026-09-02/morning-question.png",
+    "at": "2026-09-02T06:56:58.971Z"
   }
 ]
