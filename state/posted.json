@@ -4552,5 +4552,17 @@
     "topic": "Divisibility Rules 2–13",
     "file": "content/handwritten-onepager/2026-09-07.mp4",
     "at": "2026-09-07T09:57:22.536Z"
+  },
+  {
+    "slotKey": "2026-09-07-blog",
+    "type": "carousel",
+    "igMediaId": "18040052048831504",
+    "slug": "imo-nso-ieo-explained",
+    "files": [
+      "content/blog/2026-09-07-slide-1.png",
+      "content/blog/2026-09-07-slide-2.png",
+      "content/blog/2026-09-07-slide-3.png"
+    ],
+    "at": "2026-09-07T11:02:37.487Z"
   }
 ]
