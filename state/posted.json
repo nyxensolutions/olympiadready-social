@@ -4644,5 +4644,14 @@
     "igMediaId": "18103692830350882",
     "file": "content/quizzes/2026-09-12/evening-question.png",
     "at": "2026-09-11T18:56:54.367Z"
+  },
+  {
+    "slotKey": "2026-09-11-answers",
+    "type": "image",
+    "igMediaId": "18129339364707162",
+    "files": [
+      "content/quizzes/2026-09-11/morning-answer.png"
+    ],
+    "at": "2026-09-12T13:57:02.761Z"
   }
 ]
