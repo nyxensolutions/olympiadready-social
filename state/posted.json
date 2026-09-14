@@ -4689,5 +4689,17 @@
     "topic": "Perfect Squares 1–30",
     "file": "content/handwritten-onepager/2026-09-14.mp4",
     "at": "2026-09-14T09:57:16.173Z"
+  },
+  {
+    "slotKey": "2026-09-14-blog",
+    "type": "carousel",
+    "igMediaId": "18127894027819313",
+    "slug": "imo-nso-ieo-explained",
+    "files": [
+      "content/blog/2026-09-14-slide-1.png",
+      "content/blog/2026-09-14-slide-2.png",
+      "content/blog/2026-09-14-slide-3.png"
+    ],
+    "at": "2026-09-14T11:03:06.347Z"
   }
 ]
