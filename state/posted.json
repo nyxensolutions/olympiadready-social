@@ -4716,5 +4716,14 @@
     "ytVideoId": "soeDnPC37o4",
     "file": "content/reels/2026-09-15.mp4",
     "at": "2026-09-15T10:59:53.488Z"
+  },
+  {
+    "slotKey": "2026-09-14-answers",
+    "type": "image",
+    "igMediaId": "17991142377018936",
+    "files": [
+      "content/quizzes/2026-09-14/morning-answer.png"
+    ],
+    "at": "2026-09-15T13:57:05.314Z"
   }
 ]
