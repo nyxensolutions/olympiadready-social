@@ -4767,5 +4767,12 @@
     "igMediaId": "18071303870573505",
     "file": "content/quizzes/2026-09-18/morning-question.png",
     "at": "2026-09-18T06:57:00.129Z"
+  },
+  {
+    "slotKey": "2026-09-19-evening",
+    "type": "image",
+    "igMediaId": "18162365677495868",
+    "file": "content/quizzes/2026-09-19/evening-question.png",
+    "at": "2026-09-18T18:56:55.807Z"
   }
 ]
