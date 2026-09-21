@@ -4805,5 +4805,17 @@
     "topic": "HCF & LCM Shortcuts",
     "file": "content/handwritten-onepager/2026-09-21.mp4",
     "at": "2026-09-21T09:57:25.163Z"
+  },
+  {
+    "slotKey": "2026-09-21-blog",
+    "type": "carousel",
+    "igMediaId": "18378784420239755",
+    "slug": "imo-nso-ieo-explained",
+    "files": [
+      "content/blog/2026-09-21-slide-1.png",
+      "content/blog/2026-09-21-slide-2.png",
+      "content/blog/2026-09-21-slide-3.png"
+    ],
+    "at": "2026-09-21T11:03:08.218Z"
   }
 ]
