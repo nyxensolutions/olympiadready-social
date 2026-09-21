@@ -4797,5 +4797,13 @@
     "igMediaId": "18133452907657965",
     "file": "content/quizzes/2026-09-21/morning-question.png",
     "at": "2026-09-21T06:56:58.783Z"
+  },
+  {
+    "slotKey": "2026-09-21-handwritten-onepager",
+    "type": "reel",
+    "igMediaId": "18116301425000463",
+    "topic": "HCF & LCM Shortcuts",
+    "file": "content/handwritten-onepager/2026-09-21.mp4",
+    "at": "2026-09-21T09:57:25.163Z"
   }
 ]
