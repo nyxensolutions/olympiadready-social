@@ -4832,5 +4832,14 @@
     "ytVideoId": "ze9RDyMB08w",
     "file": "content/reels/2026-09-22.mp4",
     "at": "2026-09-22T10:58:09.940Z"
+  },
+  {
+    "slotKey": "2026-09-21-answers",
+    "type": "image",
+    "igMediaId": "17975772300132774",
+    "files": [
+      "content/quizzes/2026-09-21/morning-answer.png"
+    ],
+    "at": "2026-09-22T13:57:00.292Z"
   }
 ]
