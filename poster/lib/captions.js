@@ -120,7 +120,7 @@ function buildReel(dateStr) {
     // 12 — Parent WhatsApp bait
     `Save this and share it in your parent group 📲\n\n15 free Olympiad papers for every child.\nIMO · NSO · IEO · IGKO · Class 1–12\nNo credit card. No download.\n\nolympiadready.com — share with every Olympiad parent you know!\n\n${TAGS_PARENTS}`,
     // 13 — School urgency
-    `Olympiad registrations open in August ⏰\n\nIs your school's preparation already in place?\n\nOlympiadReady offers a free 30-day school pilot:\n📧 Email nyxencloud@gmail.com to claim your school's invite code before August.\n\n50,000+ questions · 9 subjects · Class 1–12 · AI-powered.\n\n${TAGS_SCHOOLS}`,
+    `Olympiad exams start in October ⏰\n\nIs your school's preparation already in place?\n\nOlympiadReady offers a free 30-day school pilot:\n📧 Email nyxencloud@gmail.com to claim your school's invite code.\n\n50,000+ questions · 9 subjects · Class 1–12 · AI-powered.\n\n${TAGS_SCHOOLS}`,
     // 14 — Zero cost school
     `Your school pays ₹0 to get started. 🏫\n\nFree 30-day pilot → unique school code → students prep free → coordinator tracks progress.\n\nNo payment. No commitment. Just better Olympiad results.\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
     // 15 — #1 positioning
@@ -180,7 +180,7 @@ function buildYouTubeShort(dateStr) {
     { title: "₹6,400 vs ₹129 — The Maths Every Parent Should See 💸 | OlympiadReady #Shorts", description: "Private tutor costs ₹6,400/month for one subject. OlympiadReady: ₹129/month for 9 subjects, unlimited papers, 24/7 AI tutor. Try free first!" + DESC_FOOTER },
     { title: "My Friend Got Olympiad Gold. Here's How She Prepared 🥇 | OlympiadReady #Shorts", description: "AI-generated papers daily. Timed mock exams. Instant explanations for every wrong answer. 15 free papers to start. No credit card needed." + DESC_FOOTER },
     { title: "Share This With Every Parent Group 📲 | OlympiadReady #Shorts", description: "15 free Olympiad papers for every child. IMO · NSO · IEO · IGKO · Class 1–12. No credit card. No download. Just pure Olympiad practice!" + DESC_FOOTER },
-    { title: "August Olympiad Season Is Coming — Is Your School Ready? ⏰ | OlympiadReady #Shorts", description: "OlympiadReady school pilot: free 30-day access, coordinator dashboard, 50,000+ SOF-aligned questions. Email nyxencloud@gmail.com before August." + DESC_FOOTER },
+    { title: "Olympiad Season Is Here — Is Your School Ready? ⏰ | OlympiadReady #Shorts", description: "OlympiadReady school pilot: free 30-day access, coordinator dashboard, 50,000+ SOF-aligned questions. Email nyxencloud@gmail.com to get started." + DESC_FOOTER },
     { title: "Your School Pays ₹0 to Get Started 🏫 | OlympiadReady #Shorts", description: "Free school pilot: unique invite code → students prep free → coordinator tracks scores → school branding on dashboard. Email nyxencloud@gmail.com" + DESC_FOOTER },
   ];
 
@@ -226,7 +226,7 @@ const REEL_POOL_EXTRA = [
   // script 12 — parent share bait
   `Save this and share it in your parent group 📲\n\n15 free Olympiad papers for every child. No card. No download.\nIMO · NSO · IEO · IGKO · Class 1–12\n\nolympiadready.com\n\n${TAGS_PARENTS}`,
   // script 13 — school urgency
-  `Olympiad registrations open in August ⏰\n\nIs your school ready?\n\nFree 30-day pilot → unique school code → students prep free → coordinator tracks scores.\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
+  `Olympiad exams start in October ⏰\n\nIs your school ready?\n\nFree 30-day pilot → unique school code → students prep free → coordinator tracks scores.\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
   // script 14 — zero cost school
   `Your school pays ₹0 to get started. 🏫\n\nFree pilot · School branding · Coordinator dashboard · 50,000+ questions.\n\n📧 nyxencloud@gmail.com | Subject: School Pilot — [Your School Name]\n\n${TAGS_SCHOOLS}`,
 ];
@@ -240,7 +240,7 @@ const WHATSAPP_POSTS = {
   detailed: `Sharing this for anyone whose kids are doing SOF Olympiads 👇\n\nOlympiadReady (olympiadready.com) — 15 free practice papers, then ₹129/subject/month. Compare that to a private tutor at ₹800/hour × 2 sessions = ₹6,400/month for just one subject.\n\n50,000+ questions, AI explanations, Class 1–12, all 9 Olympiad subjects. No credit card to start. Share this with every parent whose child is appearing in an Olympiad this year.`,
 
   // Version C — school pilot focus
-  schoolPilot: `For school coordinators/principals — OlympiadReady is offering a free pilot before Olympiad season.\n\nYour school gets a unique invite code → students sign up free → coordinator dashboard shows who practised & their scores → school logo on every student's dashboard.\n\n9 subjects, Class 1–12, 50,000+ SOF-aligned questions, AI explanations.\n\nEmail nyxencloud@gmail.com (Subject: School Pilot — [School Name]) before August registrations open.`,
+  schoolPilot: `For school coordinators/principals — OlympiadReady is offering a free pilot before Olympiad season.\n\nYour school gets a unique invite code → students sign up free → coordinator dashboard shows who practised & their scores → school logo on every student's dashboard.\n\n9 subjects, Class 1–12, 50,000+ SOF-aligned questions, AI explanations.\n\nEmail nyxencloud@gmail.com (Subject: School Pilot — [School Name]) to get started.`,
 
   // Version D — child / student message
   childMessage: `Hey! Found this for Olympiad practice — OlympiadReady (olympiadready.com). 15 free papers to start, no card needed. AI explains every wrong answer — super helpful when you're stuck. Works for IMO, NSO, IEO, IGKO, Spell Bee, Class 1–12. Try it!`,
@@ -258,16 +258,16 @@ const CAPTION_ANGLES = [
   `50,000+ questions. AI that explains every single wrong answer. 🧠\n\nNo more guessing why you got it wrong.\nNo more staring at an answer key with zero context.\nJust clear, step-by-step AI guidance — every time.\n\nFree to start → olympiadready.com\n\n${TAGS_KIDS}`,
 
   // Angle 4 — school pilot (for schools/coordinators)
-  `Schools: give your students free Olympiad prep — we'll handle the rest. 🏫\n\nOlympiadReady school pilot (before August):\n🔑 Unique invite code for your school\n📊 Coordinator dashboard — track every student's progress\n🏫 Your school logo on every dashboard\n\n9 subjects · Class 1–12 · 50,000+ questions · AI-powered\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
+  `Schools: give your students free Olympiad prep — we'll handle the rest. 🏫\n\nOlympiadReady school pilot:\n🔑 Unique invite code for your school\n📊 Coordinator dashboard — track every student's progress\n🏫 Your school logo on every dashboard\n\n9 subjects · Class 1–12 · 50,000+ questions · AI-powered\n\n📧 nyxencloud@gmail.com\n\n${TAGS_SCHOOLS}`,
 
-  // Angle 5 — August urgency (for parents)
-  `Olympiad registrations open in August. ⏰\n\nIs your child already practising?\nSOF Olympiads (IMO, NSO, IEO, IGKO) need consistent prep — not last-minute cramming.\n\n15 free papers to start. No excuses. → olympiadready.com\n\n${TAGS_PARENTS}`,
+  // Angle 5 — October urgency (for parents)
+  `Olympiad exams start in October. ⏰\n\nIs your child already practising?\nSOF Olympiads (IMO, NSO, IEO, IGKO) need consistent prep — not last-minute cramming.\n\n15 free papers to start. No excuses. → olympiadready.com\n\n${TAGS_PARENTS}`,
 
   // Angle 6 — child social proof (for kids + parents)
   `Every gold medalist practised more than everyone else. 🥇\n\nThe difference isn't talent. It's consistent, structured practice.\n\nAI-generated papers · Timed mocks · Instant explanations · Badges & certificates\n\n15 papers free → olympiadready.com\n\n${TAGS_KIDS}`,
 
-  // Angle 7 — school urgency (for coordinators)
-  `August Olympiad registrations are around the corner. 📅\n\nDon't let your students walk in unprepared.\n\nOlympiadReady free school pilot:\n✅ 30-day free access for all your students\n✅ No payment — zero cost to the school\n✅ Coordinator sees who's practising\n\n📧 nyxencloud@gmail.com before spots fill up.\n\n${TAGS_SCHOOLS}`,
+  // Angle 7 — season urgency (for coordinators)
+  `Olympiad exams are weeks away. 📅\n\nDon't let your students walk in unprepared.\n\nOlympiadReady free school pilot:\n✅ 30-day free access for all your students\n✅ No payment — zero cost to the school\n✅ Coordinator sees who's practising\n\n📧 nyxencloud@gmail.com before spots fill up.\n\n${TAGS_SCHOOLS}`,
 ];
 
 // ── Blog recap captions — 28 posts rotate deterministically ─────────────────
@@ -295,7 +295,7 @@ function buildBlog(dateStr, meta) {
     ],
     schools: [
       `Attention Olympiad coordinators 📋\n\n${meta.title} — swipe for the highlights.\n\nFull article: ${url}\n\nFree school pilot → nyxencloud@gmail.com\n\n${tags}`,
-      `For school coordinators and teachers 🏫\n\n${meta.title}\n\nRead: ${url}\n\nOlympiadReady free school pilot before August → nyxencloud@gmail.com\n\n${tags}`,
+      `For school coordinators and teachers 🏫\n\n${meta.title}\n\nRead: ${url}\n\nOlympiadReady free school pilot → nyxencloud@gmail.com\n\n${tags}`,
     ],
   };
 

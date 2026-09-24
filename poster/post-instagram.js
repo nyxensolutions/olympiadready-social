@@ -417,9 +417,7 @@ async function runHandwrittenOnepager() {
     execSync(
       `ffmpeg -y -loop 1 -i "${img}" ` +
       `-vf "scale=1080:1920:force_original_aspect_ratio=decrease,` +
-      `pad=1080:1920:(ow-iw)/2:(oh-ih)/2,` +
-      `zoompan=z='min(zoom+0.0004,1.06)':d=175:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920,` +
-      `fps=30" ` +
+      `pad=1080:1920:(ow-iw)/2:(oh-ih)/2,fps=30" ` +
       `-c:v libx264 -t 7 -pix_fmt yuv420p "${mp4}"`,
       { cwd: ROOT, stdio: "inherit" }
     );

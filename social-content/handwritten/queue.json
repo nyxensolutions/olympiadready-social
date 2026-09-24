@@ -88,48 +88,48 @@
     },
     {
       "folder": "batch-018-hcf-lcm",
-      "scheduled": "2026-08-27",
-      "posted": true
+      "scheduled": "2026-09-27",
+      "posted": false
     },
     {
       "folder": "batch-019-respiratory-system",
-      "scheduled": "2026-08-30",
-      "posted": true
+      "scheduled": "2026-09-28",
+      "posted": false
     },
     {
       "folder": "batch-020-active-passive-voice",
-      "scheduled": "2026-08-31",
-      "posted": true
+      "scheduled": "2026-10-01",
+      "posted": false
     },
     {
       "folder": "batch-021-speed-distance-time",
-      "scheduled": "2026-09-03",
-      "posted": true
+      "scheduled": "2026-10-04",
+      "posted": false
     },
     {
       "folder": "batch-022-cells-structure-function",
-      "scheduled": "2026-09-06",
-      "posted": true
+      "scheduled": "2026-10-05",
+      "posted": false
     },
     {
       "folder": "batch-023-direct-indirect-speech",
-      "scheduled": "2026-09-07",
-      "posted": true
+      "scheduled": "2026-10-08",
+      "posted": false
     },
     {
       "folder": "batch-024-profit-loss-discount",
-      "scheduled": "2026-09-10",
-      "posted": true
+      "scheduled": "2026-10-11",
+      "posted": false
     },
     {
       "folder": "batch-025-light-reflection-refraction",
-      "scheduled": "2026-09-13",
-      "posted": true
+      "scheduled": "2026-10-12",
+      "posted": false
     },
     {
       "folder": "batch-026-indian-geography",
-      "scheduled": "2026-09-14",
-      "posted": true
+      "scheduled": "2026-10-15",
+      "posted": false
     }
   ]
 }
