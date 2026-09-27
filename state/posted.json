@@ -4887,5 +4887,12 @@
       "content/quizzes/2026-09-25/morning-answer.png"
     ],
     "at": "2026-09-26T13:56:50.235Z"
+  },
+  {
+    "slotKey": "2026-09-27-handwritten-reel",
+    "type": "reel",
+    "igMediaId": "18078996194372625",
+    "file": "content/reels/2026-09-27-handwritten.mp4",
+    "at": "2026-09-27T08:02:42.156Z"
   }
 ]
