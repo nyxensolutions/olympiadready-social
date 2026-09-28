@@ -4923,5 +4923,17 @@
     "topic": "Percentage Mental Math Tricks",
     "file": "content/handwritten-onepager/2026-09-28.mp4",
     "at": "2026-09-28T09:57:48.132Z"
+  },
+  {
+    "slotKey": "2026-09-28-blog",
+    "type": "carousel",
+    "igMediaId": "17918839566244307",
+    "slug": "how-to-improve-logical-reasoning",
+    "files": [
+      "content/blog/2026-09-28-slide-1.png",
+      "content/blog/2026-09-28-slide-2.png",
+      "content/blog/2026-09-28-slide-3.png"
+    ],
+    "at": "2026-09-28T11:03:08.661Z"
   }
 ]
