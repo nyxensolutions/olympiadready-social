@@ -4966,5 +4966,17 @@
     "igMediaId": "18391763287167550",
     "file": "content/quizzes/2026-09-30/morning-question.png",
     "at": "2026-09-30T06:56:59.773Z"
+  },
+  {
+    "slotKey": "2026-09-30-learn",
+    "type": "carousel",
+    "igMediaId": "18073624568478376",
+    "subject": "Science",
+    "files": [
+      "content/learn/2026-09-30-slide-1.png",
+      "content/learn/2026-09-30-slide-2.png",
+      "content/learn/2026-09-30-slide-3.png"
+    ],
+    "at": "2026-09-30T13:27:55.371Z"
   }
 ]
