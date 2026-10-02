@@ -5008,5 +5008,12 @@
     "igMediaId": "17982528473899164",
     "file": "content/quizzes/2026-10-02/morning-question.png",
     "at": "2026-10-02T06:57:09.022Z"
+  },
+  {
+    "slotKey": "2026-10-03-evening",
+    "type": "image",
+    "igMediaId": "18130202864500309",
+    "file": "content/quizzes/2026-10-03/evening-question.png",
+    "at": "2026-10-02T18:58:01.956Z"
   }
 ]
