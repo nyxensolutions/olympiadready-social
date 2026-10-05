@@ -5060,5 +5060,17 @@
     "topic": "Area & Perimeter Formulas",
     "file": "content/handwritten-onepager/2026-10-05.mp4",
     "at": "2026-10-05T09:57:14.612Z"
+  },
+  {
+    "slotKey": "2026-10-05-blog",
+    "type": "carousel",
+    "igMediaId": "18217984492349731",
+    "slug": "how-to-prepare-for-nso",
+    "files": [
+      "content/blog/2026-10-05-slide-1.png",
+      "content/blog/2026-10-05-slide-2.png",
+      "content/blog/2026-10-05-slide-3.png"
+    ],
+    "at": "2026-10-05T11:03:10.566Z"
   }
 ]
