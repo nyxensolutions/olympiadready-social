@@ -5096,5 +5096,12 @@
       "content/quizzes/2026-10-05/morning-answer.png"
     ],
     "at": "2026-10-06T13:58:31.540Z"
+  },
+  {
+    "slotKey": "2026-10-07-morning",
+    "type": "image",
+    "igMediaId": "18098174207539192",
+    "file": "content/quizzes/2026-10-07/morning-question.png",
+    "at": "2026-10-07T06:57:14.911Z"
   }
 ]
