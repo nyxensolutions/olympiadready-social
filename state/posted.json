@@ -5197,5 +5197,17 @@
     "topic": "Clock Angle Problems",
     "file": "content/handwritten-onepager/2026-10-12.mp4",
     "at": "2026-10-12T09:57:28.313Z"
+  },
+  {
+    "slotKey": "2026-10-12-blog",
+    "type": "carousel",
+    "igMediaId": "18109091147084191",
+    "slug": "how-to-prepare-for-nso",
+    "files": [
+      "content/blog/2026-10-12-slide-1.png",
+      "content/blog/2026-10-12-slide-2.png",
+      "content/blog/2026-10-12-slide-3.png"
+    ],
+    "at": "2026-10-12T11:02:36.682Z"
   }
 ]
