@@ -5233,5 +5233,17 @@
     "igMediaId": "18130193161692865",
     "file": "content/quizzes/2026-10-14/morning-question.png",
     "at": "2026-10-14T06:56:51.447Z"
+  },
+  {
+    "slotKey": "2026-10-14-learn",
+    "type": "carousel",
+    "igMediaId": "18070777508498411",
+    "subject": "GK",
+    "files": [
+      "content/learn/2026-10-14-slide-1.png",
+      "content/learn/2026-10-14-slide-2.png",
+      "content/learn/2026-10-14-slide-3.png"
+    ],
+    "at": "2026-10-14T13:27:33.355Z"
   }
 ]
