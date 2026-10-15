@@ -5252,5 +5252,12 @@
     "igMediaId": "18123479273488483",
     "file": "content/reels/2026-10-15-handwritten.mp4",
     "at": "2026-10-15T08:03:15.093Z"
+  },
+  {
+    "slotKey": "2026-10-15-dyk-morning",
+    "type": "image",
+    "igMediaId": "18102808526370655",
+    "file": "content/dyk/2026-10-15-morning.png",
+    "at": "2026-10-15T08:56:52.340Z"
   }
 ]
