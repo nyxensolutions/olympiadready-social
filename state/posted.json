@@ -5313,5 +5313,17 @@
     "topic": "Number Series Patterns",
     "file": "content/handwritten-onepager/2026-10-19.mp4",
     "at": "2026-10-19T09:57:14.964Z"
+  },
+  {
+    "slotKey": "2026-10-19-blog",
+    "type": "carousel",
+    "igMediaId": "17983478631120706",
+    "slug": "imo-preparation-class-5",
+    "files": [
+      "content/blog/2026-10-19-slide-1.png",
+      "content/blog/2026-10-19-slide-2.png",
+      "content/blog/2026-10-19-slide-3.png"
+    ],
+    "at": "2026-10-19T11:02:45.589Z"
   }
 ]
