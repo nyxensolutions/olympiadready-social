@@ -5305,5 +5305,13 @@
     "igMediaId": "18219188743347413",
     "file": "content/quizzes/2026-10-19/morning-question.png",
     "at": "2026-10-19T06:56:52.151Z"
+  },
+  {
+    "slotKey": "2026-10-19-handwritten-onepager",
+    "type": "reel",
+    "igMediaId": "18200538805387258",
+    "topic": "Number Series Patterns",
+    "file": "content/handwritten-onepager/2026-10-19.mp4",
+    "at": "2026-10-19T09:57:14.964Z"
   }
 ]
