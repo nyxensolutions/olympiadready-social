@@ -5332,5 +5332,13 @@
     "igMediaId": "17913897339515529",
     "file": "content/dyk/2026-10-20-morning.png",
     "at": "2026-10-20T08:56:53.940Z"
+  },
+  {
+    "slotKey": "2026-10-20-reel",
+    "type": "reel",
+    "igMediaId": "18402317161202815",
+    "ytVideoId": "PJpB3nt-zLI",
+    "file": "content/reels/2026-10-20.mp4",
+    "at": "2026-10-20T10:57:57.235Z"
   }
 ]
