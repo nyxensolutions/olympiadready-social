@@ -5356,5 +5356,18 @@
     "igMediaId": "18118205710794176",
     "file": "content/quizzes/2026-10-21/morning-question.png",
     "at": "2026-10-21T06:56:56.417Z"
+  },
+  {
+    "slotKey": "2026-10-21-learn",
+    "type": "carousel",
+    "igMediaId": "18132323434685691",
+    "subject": "English",
+    "files": [
+      "content/learn/2026-10-21-slide-1.png",
+      "content/learn/2026-10-21-slide-2.png",
+      "content/learn/2026-10-21-slide-3.png",
+      "content/learn/2026-10-21-slide-4.png"
+    ],
+    "at": "2026-10-21T13:27:46.767Z"
   }
 ]
