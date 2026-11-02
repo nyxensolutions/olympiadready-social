@@ -5546,5 +5546,17 @@
     "topic": "Coding-Decoding Patterns",
     "file": "content/handwritten-onepager/2026-11-02.mp4",
     "at": "2026-11-02T09:58:39.822Z"
+  },
+  {
+    "slotKey": "2026-11-02-blog",
+    "type": "carousel",
+    "igMediaId": "18128749720915268",
+    "slug": "imo-nso-ieo-explained",
+    "files": [
+      "content/blog/2026-11-02-slide-1.png",
+      "content/blog/2026-11-02-slide-2.png",
+      "content/blog/2026-11-02-slide-3.png"
+    ],
+    "at": "2026-11-02T11:02:41.362Z"
   }
 ]
