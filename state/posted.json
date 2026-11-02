@@ -5538,5 +5538,13 @@
     "igMediaId": "18082132880377595",
     "file": "content/quizzes/2026-11-02/morning-question.png",
     "at": "2026-11-02T06:56:48.733Z"
+  },
+  {
+    "slotKey": "2026-11-02-handwritten-onepager",
+    "type": "reel",
+    "igMediaId": "18493637677108850",
+    "topic": "Coding-Decoding Patterns",
+    "file": "content/handwritten-onepager/2026-11-02.mp4",
+    "at": "2026-11-02T09:58:39.822Z"
   }
 ]
