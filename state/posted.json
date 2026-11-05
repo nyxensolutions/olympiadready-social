@@ -5596,5 +5596,14 @@
     "igMediaId": "18089319842290819",
     "file": "content/dyk/2026-11-05-morning.png",
     "at": "2026-11-05T08:56:52.564Z"
+  },
+  {
+    "slotKey": "2026-11-04-answers",
+    "type": "image",
+    "igMediaId": "18086283836334563",
+    "files": [
+      "content/quizzes/2026-11-04/morning-answer.png"
+    ],
+    "at": "2026-11-05T13:56:57.802Z"
   }
 ]
