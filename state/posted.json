@@ -5650,5 +5650,17 @@
     "topic": "Newton's 3 Laws of Motion",
     "file": "content/handwritten-onepager/2026-11-09.mp4",
     "at": "2026-11-09T09:57:19.180Z"
+  },
+  {
+    "slotKey": "2026-11-09-blog",
+    "type": "carousel",
+    "igMediaId": "18081654983386630",
+    "slug": "how-to-improve-logical-reasoning",
+    "files": [
+      "content/blog/2026-11-09-slide-1.png",
+      "content/blog/2026-11-09-slide-2.png",
+      "content/blog/2026-11-09-slide-3.png"
+    ],
+    "at": "2026-11-09T11:03:15.291Z"
   }
 ]
