@@ -5642,5 +5642,13 @@
     "igMediaId": "17940132573401842",
     "file": "content/quizzes/2026-11-09/morning-question.png",
     "at": "2026-11-09T06:56:38.544Z"
+  },
+  {
+    "slotKey": "2026-11-09-handwritten-onepager",
+    "type": "reel",
+    "igMediaId": "18138931600567339",
+    "topic": "Newton's 3 Laws of Motion",
+    "file": "content/handwritten-onepager/2026-11-09.mp4",
+    "at": "2026-11-09T09:57:19.180Z"
   }
 ]
