@@ -5766,5 +5766,17 @@
     "topic": "Human Digestive System",
     "file": "content/handwritten-onepager/2026-11-16.mp4",
     "at": "2026-11-16T09:57:55.545Z"
+  },
+  {
+    "slotKey": "2026-11-16-blog",
+    "type": "carousel",
+    "igMediaId": "17912880114582999",
+    "slug": "how-to-improve-logical-reasoning",
+    "files": [
+      "content/blog/2026-11-16-slide-1.png",
+      "content/blog/2026-11-16-slide-2.png",
+      "content/blog/2026-11-16-slide-3.png"
+    ],
+    "at": "2026-11-16T11:03:52.348Z"
   }
 ]
