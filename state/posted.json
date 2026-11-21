@@ -5851,5 +5851,14 @@
     "igMediaId": "18120663704606946",
     "file": "content/quizzes/2026-11-21/evening-question.png",
     "at": "2026-11-20T18:57:08.300Z"
+  },
+  {
+    "slotKey": "2026-11-20-answers",
+    "type": "image",
+    "igMediaId": "17911937535665812",
+    "files": [
+      "content/quizzes/2026-11-20/morning-answer.png"
+    ],
+    "at": "2026-11-21T13:56:52.368Z"
   }
 ]
