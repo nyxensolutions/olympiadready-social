@@ -5882,5 +5882,17 @@
     "topic": "Photosynthesis Complete Summary",
     "file": "content/handwritten-onepager/2026-11-23.mp4",
     "at": "2026-11-23T10:01:30.627Z"
+  },
+  {
+    "slotKey": "2026-11-23-blog",
+    "type": "carousel",
+    "igMediaId": "18074651651782673",
+    "slug": "how-to-improve-logical-reasoning",
+    "files": [
+      "content/blog/2026-11-23-slide-1.png",
+      "content/blog/2026-11-23-slide-2.png",
+      "content/blog/2026-11-23-slide-3.png"
+    ],
+    "at": "2026-11-23T11:03:03.723Z"
   }
 ]
